@@ -2,11 +2,14 @@
 ```
 Webpack is a module bundler, it helps you to achieve:
 •	it manages your 3rd party app dependencies. Like, if you install libraries with npm, 
-    you can use Webpack to import those files using a variety of JavaScript module approaches (like AMD, CommonJS), 
+    you can use Webpack to import those files using a variety of 
+    JavaScript module approaches (like AMD, CommonJS), 
     more lately also the official ES2015 (aka ES6) module spec. 
-•	It allows you to do “code splitting”, like splitting JavaScript modules into different files/bundles for better caching or lazy loading. 
+•	It allows you to do “code splitting”, like splitting JavaScript modules 
+    into different files/bundles for better caching or lazy loading. 
 •	Via plugins, it helps you minify your files, 
-    concatenate them so they’re ready to be deployed in production (as you want to minify your files for performance reasons) 
+    concatenate them so they’re ready to be deployed in 
+    production (as you want to minify your files for performance reasons) 
 •	Via plugins it also allows to achieve other stuff, 
     like to inline images, or compile SASS to CSS etc.
 All in all, it’s like a task runner, that has already a huge amount of plugins for you, 
@@ -18,8 +21,10 @@ ready to use, and which cope most of the use cases one may encounter.
 BrowserSync is a tool that synchronizes your code files with one or more browsers. 
 Like if you start an application you’re developing and you use browsersync, 
 it will keep a WebSocket connection to your development server and whenever you change a file, 
-it’ll do a refresh in the browser. Moreover, afaik, you can also connect multiple browser which will behave in the same way. 
-Like if you scroll in one window, all others will scroll as well. This might turn out to be quite useful in mobile testing.
+it’ll do a refresh in the browser. Moreover, afaik, you can also 
+connect multiple browser which will behave in the same way. 
+Like if you scroll in one window, all others will scroll as well. 
+This might turn out to be quite useful in mobile testing.
 
 ```
 # What is Angular CLI?
@@ -28,12 +33,14 @@ Like if you scroll in one window, all others will scroll as well. This might tur
 Angular CLI is simply a command line interface that bundles. Like it helps you generate code, 
 following the best practices of the official Angular 2 StyleGuide. Under the hood it uses Webpack, 
 to the exactly the stuff (minify files, bundle them, etc..). The difference is that you don’t have to know Webpack, 
-how it works and how it has to be configured and set up. It will be done by the CLI for you, obviously within the limits of it.
+how it works and how it has to be configured and set up. 
+It will be done by the CLI for you, obviously within the limits of it.
 
 ```
 # How would I go deploying if I dont use CLI?
 ```
-You’d simply have to use Webpack (or some other module bundler + task runner) and write the configuration yourself. 
+You’d simply have to use Webpack (or some other module bundler + task runner)
+ and write the configuration yourself. 
 That’s totally fine and there are a couple of good starters out there:
 •	Using webpack: 
 •	Using SystemJS and Gulp:
@@ -48,11 +55,14 @@ zipped bundle that can be easily deployed on the server (at its most basic form)
 There are many bundlers out there, most widely used are Grunt, Gulp and lately, Webpack. 
 They each take a different approach to fulfill the task at hand – but Webpack really stands out from the crowd.
 While Grunt and Gulp simply bundle all js files and all assets, 
-Webpack maintains a dependency tree (by scanning import statements) and that allows it to only bundle resources and js files your code actually uses, 
-as well as identify chunks of code – using code splitting – and bundle chunks together for a more efficient bundle.
+Webpack maintains a dependency tree (by scanning import statements) and 
+that allows it to only bundle resources and js files your code actually uses, 
+as well as identify chunks of code – using code splitting – and bundle chunks together 
+for a more efficient bundle.
 Webpack has a lot more to it, it is actually used by the Angular team and is part of it’s documentation. 
 However (with its loaders and plugins), it is often overwhelming to properly configure.
-The angular team went the extra mile and created anguar-cli – a very powerful tool that goes way beyond the simple bundler or generator.
+The angular team went the extra mile and created anguar-cli – a very powerful tool 
+that goes way beyond the simple bundler or generator.
 •	It has Webpack under the hood, already pre-configured, so you enjoy the benefits without the hassle of configuration. 
 •	It is very easy to use with a set of cli commands, the main ones are: 
 •	ng new – create a new angular-cli enabled project 
@@ -62,7 +72,8 @@ The angular team went the extra mile and created anguar-cli – a very powerful 
 •	ng serve – will run your app in a local web server 
 •	ng build – will compile TypeScript code, bundle the dependency tree and dump it to the dist folder. 
 •	ng build --prod – will also minify, zip, hash etc.
-•	It comes with a code generator – you can use it to create skeletons of the most common ones (Components, Directives, Services and Pipes) 
+•	It comes with a code generator – you can use it to create skeletons of 
+    the most common ones (Components, Directives, Services and Pipes) 
     by simply using the cli command ng g <type>.
 
 Now you are probably wondering – how can I modify the underlined Webpack configuration? 
@@ -71,7 +82,8 @@ Now you are probably wondering – how can I modify the underlined Webpack confi
     tslint.json, tsconfig.json and package.json.
     More over, you can also modify angular-cli configuration using the angular-cli.json file,
     where you have full control of application root folder and configuration files relative locations, 
-    as well as specifying css and js files you want loaded into the index.html file as globals (bootstrap and lodash to name a few).
+    as well as specifying css and js files you want loaded into the index.html file 
+    as globals (bootstrap and lodash to name a few).
 
 ```
 # How does Angular CLI compare to Angular2 seed?
@@ -80,7 +92,8 @@ Now you are probably wondering – how can I modify the underlined Webpack confi
     any tool to convert your scss to CSS or ts to js for exams Gulp ,grant etc whatever it is, 
     but in case of Angular CLI we don't know who Angular will compile the code and make the project run.
 •	Angular CLI comes with Lazy loading whereas in seed we have to setup the same manually.
-•	Angular CLI provides you standardised folder structure according to style guide whereas in case of Angular Seed we can customise our structure.
+•	Angular CLI provides you standardised folder structure according to style guide 
+    whereas in case of Angular Seed we can customise our structure.
 
 ```
 # Would you use Webpack with Angular and Angular 2?
@@ -95,7 +108,8 @@ yet it is also capable of transforming, bundling, or packaging just about any re
 •	Highly modular plugin system to do whatever else your application requires.
 We can use webpack for both angular and angular 2. For both its works excellent. 
 Specially when writing codes using typescript. It automatically finds all the modules and bundles them. 
-You can separate bundles for libraries and application code. Awesome thing is its having so many loaders which simplifies complex tasks.
+You can separate bundles for libraries and application code. 
+Awesome thing is its having so many loaders which simplifies complex tasks.
 You can use webpack in run time and also can be used with other bundlers and task runners like Gulp, Grunt, Karma etc.
 
 ```
@@ -106,7 +120,8 @@ LAMP STACK + MEAN STACK + RUBY ON RAIL
 Mean stack: mostly small scale APIs and some front end work using Angular.
 As this MEAN (MongoDB, ExpressJS, AngularJS, NodeJS) 
 e.g
-Api in NodeJS ( server side ) Client side routing Gulp script with browser-sync and nodemon Angular2 components Angular2 services Auth guard - newly introduced in angular2
+Api in NodeJS ( server side ) Client side routing Gulp script with browser-sync and 
+nodemon Angular2 components Angular2 services Auth guard - newly introduced in angular2
 LAMP (Linux, Apache, MySQL, PHP)
 
 ```
@@ -179,7 +194,8 @@ if you create a new project completely
 
     •	We can connect the Virtual DOM to another entity (look at the mobile developments made in native code or Electron)
 
-    Components created in React have a state (representing the component-related data) and updating this state will allow your page to be reactive. 
+    Components created in React have a state (representing the component-related data) and 
+    updating this state will allow your page to be reactive. 
     Imagine creating a “counter” component — the thing that you will likely want to change is the value of that counter, 
     it will then be the state of our counter component.
 
@@ -257,7 +273,8 @@ if you create a new project completely
 # What are the difference between node and nodejs...npm vs nvm?
 ```
 • Node and NodeJS: are the same thing, node is just a shorter way to say Node JS. 
-    This is assuming that they are both referring to the javascript runtime environment that allows you to write server side code.
+    This is assuming that they are both referring to the javascript runtime environment 
+    that allows you to write server side code.
 • nvm (Node version manager): is a command line interface (CLI) to install different versions of nodejs in your machine.
 • npm (node package manager) is a CLI for managing your node modules (e.g. Creating a package, etc).
     It let's you install software (libraries, plugins, frameworks and applications). 
@@ -306,11 +323,13 @@ Here are some common use cases:
 ```
 •   Yeoman(A set of tools for automating development workflow) 
     Yeoman supports both Bower and npm, and is flexible in regard to tools to allow it to work with a wider range of project requirements.
-    Yeoman supports both major build systems - Grunt and Gulp. These build systems will help you automate tasks such as minification & concatenation of files, 
+    Yeoman supports both major build systems - Grunt and Gulp. These build systems 
+    will help you automate tasks such as minification & concatenation of files, 
     running tests, deploying and live-updating your webpage among many others.
 
 •   glup (The streaming build system)
-    In Gulp, the transforms are performed through chains which makes it easier to understand the order of operations, and easier to modify it.
+    In Gulp, the transforms are performed through chains which makes it easier to understand the order of operations, 
+    and easier to modify it.
 
 
 ```
