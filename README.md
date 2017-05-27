@@ -63,7 +63,8 @@ Webpack has a lot more to it, it is actually used by the Angular team and is par
 However (with its loaders and plugins), it is often overwhelming to properly configure.
 The angular team went the extra mile and created anguar-cli – a very powerful tool 
 that goes way beyond the simple bundler or generator.
-•	It has Webpack under the hood, already pre-configured, so you enjoy the benefits without the hassle of configuration. 
+•	It has Webpack under the hood, already pre-configured, so you enjoy the benefits without 
+    the hassle of configuration. 
 •	It is very easy to use with a set of cli commands, the main ones are: 
 •	ng new – create a new angular-cli enabled project 
 •	ng init – initialize the current project for angular-cli 
@@ -78,8 +79,8 @@ that goes way beyond the simple bundler or generator.
 
 Now you are probably wondering – how can I modify the underlined Webpack configuration? 
     After all, the only constant thing is change…
-    Well, fear not! You have full access to project configuration files like karma.conf.js, protractor.conf.js, 
-    tslint.json, tsconfig.json and package.json.
+    Well, fear not! You have full access to project configuration files like karma.conf.js, 
+    protractor.conf.js, tslint.json, tsconfig.json and package.json.
     More over, you can also modify angular-cli configuration using the angular-cli.json file,
     where you have full control of application root folder and configuration files relative locations, 
     as well as specifying css and js files you want loaded into the index.html file 
@@ -101,7 +102,8 @@ Now you are probably wondering – how can I modify the underlined Webpack confi
 Webpack is a bundler for modules. The main purpose is to bundle JavaScript files for usage in a browser, 
 yet it is also capable of transforming, bundling, or packaging just about any resource or asset.
 •	Bundles both CommonJS and AMD modules (even combined). 
-•	Can create a single bundle or multiple chunks that are asynchronously loaded at runtime (to reduce initial loading time). 
+•	Can create a single bundle or multiple chunks that are asynchronously loaded 
+    at runtime (to reduce initial loading time). 
 •	Dependencies are resolved during compilation reducing the runtime size. 
 •	Loaders can preprocess files while compiling, e.g. coffeescript to JavaScript, 
     handlebars strings to compiled functions, images to Base64, etc. 
@@ -110,7 +112,8 @@ We can use webpack for both angular and angular 2. For both its works excellent.
 Specially when writing codes using typescript. It automatically finds all the modules and bundles them. 
 You can separate bundles for libraries and application code. 
 Awesome thing is its having so many loaders which simplifies complex tasks.
-You can use webpack in run time and also can be used with other bundlers and task runners like Gulp, Grunt, Karma etc.
+You can use webpack in run time and also can be used with other bundlers and task runners like Gulp, 
+Grunt, Karma etc.
 
 ```
 # What is mean by Full-Stack Web Developer?
@@ -134,7 +137,8 @@ LAMP (Linux, Apache, MySQL, PHP)
 
     Web Server: Apache: Commonly used.
 
-    Servers: “LAMP” is derived from [OS]: Linux (L), Macintosh (M), or Windows (W) Apache web server (A)MySQL (M)
+    Servers: “LAMP” is derived from [OS]: Linux (L), Macintosh (M), or 
+            Windows (W) Apache web server (A)MySQL (M)
             PHP (often now also Python and Perl) (P)
             Apache is used to host HTTP files, MySQL for databases, 
             and PHP/Python/Perl for Programming language used for creating dynamic webpages.
@@ -145,13 +149,16 @@ LAMP (Linux, Apache, MySQL, PHP)
 
     Database: MongoDB(NoSQL database): A cross-platform document-oriented database system.
         JSON-style documents with dynamic schemas provide simplicity and power, 
-        making the integration of data into certain applications (particularly Javascript-based ones) fast and easy.
+        making the integration of data into certain applications (particularly Javascript-based ones)
+        fast and easy.
 
-    Web Server: ExpressJS: is a Node.js Web application framework. It creates an MVC-like application on the server side. 
+    Web Server: ExpressJS: is a Node.js Web application framework. It creates an MVC-like application 
+    on the server side. 
         It also allows users to create routes and templates.
 
     Servers:    “MEAN” is derived from MongoDB (M), ExpressJS (E), AngularJS (A), and Node.js (N). 
-        Node.js is the server that runs your application. Node.js is an event-driven I/O server-side JavaScript environment.
+        Node.js is the server that runs your application. Node.js is an event-driven 
+        I/O server-side JavaScript environment.
 
 ```
 # When Would I Use LAMP vs MEAN?
@@ -178,13 +185,16 @@ if you create a new project completely
 • Angular2
     Watchers: Watchers are attached to each component and each time a component is changed, 
     watchers check if we should modify something else; and if needed, 
-    make appropriate modifications. The Angular 2 team did a great job to make that part way faster than its previous version. 
-    So from now on, each time a component is changed, we don’t have to run any verifications on objects (depending on immutable elements).
+    make appropriate modifications. The Angular 2 team did a great job to make that part way faster 
+    than its previous version. 
+    So from now on, each time a component is changed, we don’t have to run any verifications on objects 
+    (depending on immutable elements).
 
     There is another striking point in using Angular 2: it requires TypeScript.
 
 • React
-    React is more like a UI component render than a full framework. The big thing (that everyone is talking about) is the virtual DOM. 
+    React is more like a UI component render than a full framework. The big thing (that everyone is talking about) 
+    is the virtual DOM. 
     This is a killer feature which is giving React three main advantages:
 
     •	The changes occur by comparison between the DOM and the virtual DOM only, 
@@ -192,7 +202,8 @@ if you create a new project completely
 
     •	We don’t really need a browser to test React as we don’t interact directly with the DOM.
 
-    •	We can connect the Virtual DOM to another entity (look at the mobile developments made in native code or Electron)
+    •	We can connect the Virtual DOM to another entity (look at the mobile developments made in native code or 
+    Electron)
 
     Components created in React have a state (representing the component-related data) and 
     updating this state will allow your page to be reactive. 
@@ -240,7 +251,8 @@ if you create a new project completely
     Due to the success of webpack, browserify and babel it's mostly obsolete as a first class dependency manager. 
 
 • npm: Historically focuses on NodeJS code but has overthrown bower for browser modules. 
-    NPM also loads MANY files into your project and a fresh npm install is always a good reason to brew a new cup of coffee. 
+    NPM also loads MANY files into your project and a fresh npm install is always a good reason to brew a new cup 
+    of coffee. 
     NPM is easy to use but can break your app when changing environments 
     due to the loose way of referencing versions and the arbitrariness of module publishing. 
     Research Shrink Wrap and npm install --save-exact 
@@ -275,7 +287,8 @@ if you create a new project completely
 • Node and NodeJS: are the same thing, node is just a shorter way to say Node JS. 
     This is assuming that they are both referring to the javascript runtime environment 
     that allows you to write server side code.
-• nvm (Node version manager): is a command line interface (CLI) to install different versions of nodejs in your machine.
+• nvm (Node version manager): is a command line interface (CLI) to install different versions of nodejs in 
+    your machine.
 • npm (node package manager) is a CLI for managing your node modules (e.g. Creating a package, etc).
     It let's you install software (libraries, plugins, frameworks and applications). 
     Typically this software is installed to build Node applications. 
@@ -289,12 +302,14 @@ npm is the default package manager for Node.js.
 In npm, these tasks are executed per package and sequentially, 
 meaning it will wait for a package to be fully installed before moving on to the next.
 npm, global operations are performed using the -g or --global flag,
-The npm install command will install dependencies from the package.json file and allows you to add new packages. 
+The npm install command will install dependencies from the package.json file and allows you to 
+add new packages. 
 
 • Yarn
 Facebook package manager called Yarn release at the same time.
 Yarn executes these tasks in parallel, increasing performance.
-Yarn commands need to be prefixed with global. Just like npm, project-specific dependencies shouldn’t need to be installed globally.
+Yarn commands need to be prefixed with global. Just like npm, project-specific dependencies shouldn’t need 
+to be installed globally.
 yarn install only installs the dependencies listed in yarn.lock or package.json, in that order.
 
 
@@ -306,7 +321,8 @@ yarn install only installs the dependencies listed in yarn.lock or package.json,
 Yeoman is a generic scaffolding system allowing the creation of any kind of app. 
 It allows for rapidly getting started on new projects and streamlines the maintenance of existing projects.
 Yeoman is language agnostic. It can generate projects in any language (Web, Java, Python, C#, etc.)
-Yeoman by itself doesn't make any decisions. Every decision is made by generators which are basically plugins in the Yeoman environment.
+Yeoman by itself doesn't make any decisions. Every decision is made by generators which are basically 
+plugins in the Yeoman environment.
 Here are some common use cases:
 •	Rapidly create a new project 
 •	Create new sections of a project, like a new controller with unit tests 
