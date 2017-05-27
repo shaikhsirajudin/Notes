@@ -350,3 +350,14 @@ Here are some common use cases:
 
 
 ```
+# In 2003 to 2008 if you need to get the job as a Web Developer, what you should be knowing?
+```
+![You would need to be able to do some](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/1.PNG)
+
+•   HTML: For UI design.
+•   JavaScript: To write some javascript probably for some validation logic or to make some annoying pop-ups 
+        appear or something like that. 
+•   CSS: To do some styling or to make it attractive.
+•   SQL: For writing some sequel to talk to a relational database. 
+•   asp.net or asp, PHP, java vb.net, or C#: To do some server-side programming.
+```
