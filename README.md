@@ -207,8 +207,8 @@ if you create a new project completely
 
     Components created in React have a state (representing the component-related data) and 
     updating this state will allow your page to be reactive. 
-    Imagine creating a “counter” component — the thing that you will likely want to change is the value of that counter, 
-    it will then be the state of our counter component.
+    Imagine creating a “counter” component — the thing that you will likely want to change is the value of that 
+    counter, it will then be the state of our counter component.
 
 
 ```
@@ -338,14 +338,15 @@ Here are some common use cases:
 # Yeoman vs glup 
 ```
 •   Yeoman(A set of tools for automating development workflow) 
-    Yeoman supports both Bower and npm, and is flexible in regard to tools to allow it to work with a wider range of project requirements.
+    Yeoman supports both Bower and npm, and is flexible in regard to tools to allow it to work with a 
+    wider range of project requirements.
     Yeoman supports both major build systems - Grunt and Gulp. These build systems 
     will help you automate tasks such as minification & concatenation of files, 
     running tests, deploying and live-updating your webpage among many others.
 
 •   glup (The streaming build system)
-    In Gulp, the transforms are performed through chains which makes it easier to understand the order of operations, 
-    and easier to modify it.
+    In Gulp, the transforms are performed through chains which makes it easier to understand 
+    the order of operations, and easier to modify it.
 
 
 ```
