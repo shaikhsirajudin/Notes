@@ -351,9 +351,8 @@ Here are some common use cases:
 
 ```
 # In 2003 to 2008 if you need to get the job as a Web Developer, what you should be knowing?
-```
 ![You would need to be able to do some](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/1.PNG)
-
+```
 •   HTML: For UI design.
 •   JavaScript: To write some javascript probably for some validation logic or to make some annoying pop-ups 
         appear or something like that. 
