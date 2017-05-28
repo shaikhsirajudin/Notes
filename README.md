@@ -360,3 +360,102 @@ Here are some common use cases:
 •   SQL: For writing some sequel to talk to a relational database. 
 •   asp.net or asp, PHP, java vb.net, or C#: To do some server-side programming.
 ```
+# These day if you want to get job as a typical Web Developer he has to have following experience.
+```
+ 1)  Different languages that compile to JavaScript and different standards ES2015, ES2016 
+    and son on (Transcompile to JS) 
+    >   Language that compile to JS 
+    •  CoffeeScript: Unfancy JavaScript
+    •  EmberScript: Ember.js-infused CoffeeScript.
+        
+    >   Static typing : Some of the projects listed below are also statically typed.
+    •  TypeScript :Typed superset of JavaScript by Microsoft.
+    •  ActionScript :With Apache FlexJS - Based on ECMAScript 4, ActionScript provides typing 
+            and can be compiled to JavaScript.
+
+    >   JavaScript Language Extensions
+    • JSX: A superset to add an XML-like syntax to represent HTML elements in React by Facebook.
+    • Dart, Babel, Traceur etc.
+
+2) Different client side Model View Framework as well as libraries 
+    • Handlebars:
+    • Threejs: 
+    • AngularJS : 
+    • React: 
+    • Ember: 
+    • Jquery: 
+
+3) Different Client-side application architecture/ Pattern
+    • MVC: bidirectional data flow.  
+    • Redux: unidirectional data flow. 
+    • other members of flux family . 
+4) Package Manager :Package managers simplify installing and updating project dependencies, 
+    which are libraries such as: jQuery, Bootstrap,Angularjs,react
+    • NPM (node package manager): NPM packages for frontend AND backend. Any NPM package 
+        that you find might be intended for node only, browser only, or both.
+    • Bower (package manager for the web):When Bower was created, NPM existed already, 
+        but it was for node, not the browser. Node packages didn't usually include assets 
+        (like bundled JS and CSS) in their NPM packages. If you needed the assets, 
+        you would just download them. That's janky - and that's why Bower was created.
+    • JSPM (For users of the SystemJS bundler):JSPM doesn't host any of its own packages. 
+        It allows you to install packages that are hosted on NPM or github.
+    • Yarn (Fast, reliable and secure dependency management):
+        the new dependency manager created by the engineers of Facebook. 
+5)  Build Tools: Automate your build process.
+    
+    •	Transcompiling JavaScript: CoffeeScript, Dart, Babel, Traceur etc.
+    •	JavaScript Transforms: wrapping in modules or ng-annotate etc.
+    •	Bundling/Concatenation: combining of scripts and styles into multiple files
+    •	Minification: scripts, styles and html
+    •	Source Maps: for both scripts and styles
+    •	CSS Preprocessor: Less, Sass, Stylus etc.
+    •	Style Transforms: Autoprefixer, PostCSS etc.
+    •	Cache Busting: renaming files with a hash to prevent incorrect caching
+    •	Image Optimization
+    •	Compiling Templates: Mustache or HandlebarsJS, Underscore, EJS, Jade etc.
+    •	Copying Assets: html, fav icon etc.
+    •	Watching for Changes
+    •	Incremental Rebuild
+    •	Clean Build: deleting all files at start or preferably cleaning up files as needed
+    •	Injecting References: generating script and style tags that reference the bundled files
+    •	Build Configurations: separate Dev, Test and Prod configuration, for example to not 
+        minify html in dev build
+    •	Serve: running a development web server
+    •	Running Unit Tests
+    •	Running JavaScript and CSS Linters: jshint, csslint etc.
+    •	Dependencies: handle dependencies on npm and Bower packages, Browserfy etc.
+    > Here is the list  of build tools available
+    •	Browserify browser-side require() the node way
+    •   Webpack(webpack-dev-server) 
+    •	Grunt (configuring )
+    •	Gulp (code)
+    •	Rollup: focuses particularly on bundling ES6 code. Tree shaking is one of its 
+        selling points. 
+    •	Traceur is a future-EcmaScript to current-EcmaScript compiler. 
+
+6)  Styling got their whole collection of technologies now in order to write effective 
+    and maintainable styles.
+    
+    •   CSS:The standard CSS @import allows you to split into multiple files. 
+        The problem with this is that it creates additional HTTP requests.
+        
+    •   LESS is written in javascript so you will need NodeJS to run it.
+        Less tends to be simpler to learn (it's a strict superset of CSS, 
+        so any valid CSS file is a valid Less file
+
+    •  SASS: To run you will need to have Ruby installed. 
+    •  CSS Reset  (reset.css): Instead of resetting all values
+    •  Bootstrap: It provides a framework for creating user interfaces.
+
+7) Different platforms that our code is need to run. 
+
+    • Search Engine Optimization (SEO) :An application that can only run in the client-side 
+        cannot serve HTML to crawlers
+    • Mobile Computer Science Principles  (CSP) :Build socially useful mobile apps
+    • NPM
+    • Mobile
+    • Nodejs
+    • Isomorohic/ Universal.
+
+
+```
