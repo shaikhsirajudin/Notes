@@ -433,7 +433,7 @@ Here are some common use cases:
         selling points. 
     •	Traceur is a future-EcmaScript to current-EcmaScript compiler. 
 
-6)  Styling got their whole collection of technologies now in order to write effective 
+6)  Styling got their whole collection of technologies in order to write effective 
     and maintainable styles.
     
     •   CSS:The standard CSS @import allows you to split into multiple files. 
