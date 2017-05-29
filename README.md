@@ -459,3 +459,47 @@ Here are some common use cases:
 
 
 ```
+# What is JavaScript Frameworks?
+```
+It give you space to focus on developing interactive elements of the user interface without worrying 
+too much about code structure and code maintenance. JavaScript frameworks work on MVC design paradigm 
+and enforce structure to ensure more scalable, reusable, maintainable JavaScript code. 
+It however is not necessary that all frameworks ride on MVC pattern, there are many variations to it 
+and one has choice to go with MV*, MVVM, MVP as is best suited to the project needs.
+```
+# Brief discussion of client side Model View Library.
+====================================================
+# jQuery
+```
+Plain JavaScript along with jQuery has been used to build complex web interfaces but with lot more 
+effort and complexity in code development and maintenance.
+``` 
+# Handlebars 
+```
+It’s the templating engine that Ember.js uses. Handlebars works by allowing you to define templates 
+using simple script blocks.
+```
+# Threejs
+```
+The ever popular Three.js along with the newer Babylon.js offer web developers an abstract foundation 
+for crafting feature rich WebGL creations ranging from animated logos to fully interactive 3D games.
+ • Three.js was originally written in ActionScript before being translated to JavaScript. Having been 
+ created before the introduction of WebGL, Three.js has the unique convenience of a modular rendering 
+ interface allowing it to be used with SVG and HTML5’s canvas element in addition to WebGL.
+```
+# AngularJS 
+```
+AngularJS framework gives super powers to HTML by adding all the necessary features required to build 
+dynamic views (interactive user interface). It gives option to extend HTML attributes by the 
+use of Angular directives. Extending HTML with AngularJS is very simple, one can use standard AngularJS 
+directive or develop a custom directive and mount it on any div. 
+Two way data binding is at the core of Angular.js. When user interacts with the interface and 
+provides an input, the view and the model (JavaScript objects) are synchronized, the logic in the model 
+is executed and the DOM gets updated.
+The reverse is true as well, if model gets updated, view is re-rendered. 
+This essentially takes away all the pain of writing manual code for DOM manipulation.
+Recently released Framework ReactJS is giving tough competition to AngularJs but 
+Angular is holding the ground tight and growing in demand as ever before. The main reason behind Angular's 
+continuous growth is the improvements and advancements it brings in with every new release.  
+
+```
