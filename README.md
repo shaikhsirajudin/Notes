@@ -503,3 +503,134 @@ Angular is holding the ground tight and growing in demand as ever before. The ma
 continuous growth is the improvements and advancements it brings in with every new release.  
 
 ```
+# React.js /What powers Facebook and Instagram’s user Interface? 
+```
+React.js JavaScript Framework is behind the user interface of Facebook as well and Instagram. This gives us 
+a quick idea about how powerful is ReactJS when it comes to building large scale applications of extreme 
+dynamic nature.
+ReactJS was first released as open source in 2013 under BSD license. The community is growing rapidly ever 
+since its release and I must say it is the fastest growing JavaScript framework as of today. One can find tons 
+of resources, tutorials and React component libraries to get going within no time.
+ReactJS is best at rendering complex user interfaces with high performance. The basic fundamental behind 
+React is the concept of virtual DOM. ReactJS utilizes a virtual DOM, which can be rendered either at client 
+side or server side and communicate back and forth.
+When the data manipulation is much more dynamic and complex, client side DOM manipulations become 
+performance intensive.
+The React approach to handle this is –
+•	Render the DOM at server side, the virtual DOM. 
+•	Compare virtual DOM to the browser/actual DOM and figure out differences. 
+•	Update only the selective/changed nodes of browser DOM instead of re-rendering the entire DOM.
+Another biggest advantage of react is the re-usability it brings on the table in the form of reactive components. 
+React component libraries can be created and used across applications or made available for public use.
+
+```
+# Ember.js
+```
+•	EmberJS is another powerful MVC JavaScript framework. 
+Ember was initially released in 2011 as open source JavaScript framework by Yehuda Katz under MIT license. 
+EmberJS competes with the likes of Angular and React when it comes to building interactive 
+frontend user interfaces and also has a very active community of developers.
+•	Ember also rides on the principal of two way data binding like AngularJS, i.e. update view when model 
+changes and update model when the view changes, keeping both in sync all of the time.
+Ember is managing to be among the top JavaScript Frameworks by continuously strengthening itself with new superpowers. 
+•	It is coming up with Fastboot.js module that allows server side rendering of DOM, 
+the concept similar to what React is already using for better performance in complex UI rendering.
+•   Ember targets the best of both AngularJS (two way data binding) and ReactJS (server side rendering). 
+The way Ember community continues to power it with awesome features, I am more than sure that it will continue 
+to ride the growing wave of JavaScript Frameworks.
+
+```
+# Aurelia.js
+```
+AureliaJS is the creation of Rob Eisenberg and team who come mostly from the world of Angular and Durandal. 
+Aurelia though is an open source product is officially managed by Durandal Inc., a startup company
+that creates libraries, tools and frameworks to support next generation of web development.
+Aurelia is just released, in January 2015, and is ready for production use. 
+• It extends the capabilities of Durandal and is termed as NextGen version of it by Eisenberg. 
+For the existing developers who work in Durandal or Angular1 and 2, Aurelia comes with a clear migration path.
+AureliaJS is new but if you are evaluating a JavaScript Framework, it definitely needs a consideration. 
+It is managed by highly professional community and carries a great legacy.
+A power fact about AureliaJS is that it is highly modularized and comprises of many independent small libraries. 
+One can use entire framework in the project, use few of the required libraries, or 
+extend the selected libraries to create custom framework.
+Aurelia is self-contained package and doesn't have any external dependencies except for polyfills.
+
+```
+# Meteor.js
+```
+MeteorJS is the magical full stack platform for building end to end mobile and web applications 
+completely in JavaScript at lightning speed. MeteorJS is the power player and comes equipped with all 
+the features you need for frontend rendering, backend development, business logic and database management.
+Meteor is the baby of Meteor Development Group, it was first released in 2012 as an open source 
+JavaScript framework under MIT license.
+The MeteorJS ecosystem has grown huge at rapid pace and the community too is vibrant and helpful. 
+You would find tons of resources, tutorials and custom packages that give super powers to MeteorJS.
+The best thing about MeteorJS is that you use only JavaScript for end to end application development, 
+no need to invest time learning anything else. Meteor.JS is modular and the packages and 
+libraries can be used on demand.
+The server side packages run in the node.js and you do not need anything else but MeteorJS packages 
+to access the database, all in JavaScript, this makes MeteorJS applications real time web applications.
+From Performance perspective, any changes in the database are reflected back on the UI in the real time and 
+vice versa without the handshake between different languages or without major overhead of server response times.
+
+```
+# Backbone.js / Are you looking for a lightweight but full featured JavaScript Framework?
+```
+The popularity and power of backbone can be judged from the fact that biggies like Pinterest, Foursquare, 
+Walmart, Disqus and Delicious are using backone.js. 
+This is just a small subset of backbone users and the actual list is really huge to be covered here.
+The good thing about backbone is that it is simple, small size package and easy to learn. 
+You can get started building apps with Backbone JavaScript Framework within no time.
+Backbone is very flexible in a way that it comes with just the minimal and you can build anything on top of it, 
+by writing your own code or by using third party JavaScript frameworks. 
+One can even build a fully functional opinionated framework with backbone at the core.
+Over the past few months or so, I see comparatively slow growth in Backbone usage as compared to the rivals 
+Angular, Ember or the newly launched React.
+The main reason for that appears to be the sluggish release cycle of backbone and lack of power features 
+that other frameworks offer out of the box.
+• It of course is still useful but more as a side framework rather than the core framework of your web project.
+
+```
+# Polymer.js
+```
+Polymer was released by Google back in 2013. Polymer uses the concept of web components to extend HTML capabilities.
+Web Components is the browser technology released by W3C using which new custom HTML elements can be created. 
+For example <audio> is a standard HTML5 element but with the web components and related technologies 
+you can create your own custom element - like <my-audio>.
+Polymer gives powers and brings structure in building custom HTML elements using browser based technologies 
+that includes web components.
+
+```
+# Knockout.js
+```
+Knockout works under the MVVM design paradigm and that makes it a little different from Ember and Angular.
+Knockout has had its golden time but as of now it is growing at a much slower pace as compared to 
+the earlier competitors like Angular, Ember or Backbone. 
+The slow growth is simply because it lags way behind in terms of improvements and adding more features.
+Developer community is slowly moving to frameworks like React and Angular. 
+Knockout has a great legacy and can definitely make a come back but only if someone else adopts it and 
+starts nurturing it with the latest and greatest of the world of JavaScript technologies..
+
+```
+# Mercury.js
+```
+It is fast growing in popularity and is getting lot of attention from the community of JavaScript Developers.
+Mercury appears to be inspired by react and runs on the concept of virtual DOM rendering. 
+It is modern JavaScript framework, fully modular and can be used to the extent you need.
+Looking at the underlying concepts, compact size, modular approach, performance and popularity, 
+Mercury makes its place in list of best 10 JavaScript frameworks of modern times. 
+
+```
+# Vue.js
+```
+VueJs is relatively new and is gaining lot of traction among the community of developers. 
+VueJs works with MVVM design paradigm and has a very simple API. 
+VueJs demonstrate minimalism to the extreme and allows you to use selective modules, as required.
+Vue is inspired by AngularJS, ReactiveJs, knockoutJS and RivetsJS and 
+updates model and view via two way data binding.
+While Vue is not in the league of Angular or Ember but conceptually 
+has all the potential to be the JavaScript framework of future and hold respactable market share. 
+```
+=======================================
+# Difference Between Angular vs React vs Vue
+=======================================
