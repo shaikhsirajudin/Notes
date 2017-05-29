@@ -532,7 +532,8 @@ EmberJS competes with the likes of Angular and React when it comes to building i
 frontend user interfaces and also has a very active community of developers.
 •	Ember also rides on the principal of two way data binding like AngularJS, i.e. update view when model 
 changes and update model when the view changes, keeping both in sync all of the time.
-Ember is managing to be among the top JavaScript Frameworks by continuously strengthening itself with new superpowers. 
+Ember is managing to be among the top JavaScript Frameworks by continuously strengthening itself 
+with new superpowers. 
 •	It is coming up with Fastboot.js module that allows server side rendering of DOM, 
 the concept similar to what React is already using for better performance in complex UI rendering.
 •   Ember targets the best of both AngularJS (two way data binding) and ReactJS (server side rendering). 
@@ -634,3 +635,111 @@ has all the potential to be the JavaScript framework of future and hold respacta
 =======================================
 # Difference Between Angular vs React vs Vue
 =======================================
+1) A REAL, EXTREME framework comparison
+```
+• Angular:
+It is a full framework with all the tooling and best practices designed on top of it.
+
+
+• React:
+Its on the other hand is just a small view library that you would need while making an app.
+
+• Vue
+
+```
+2) Learning curve :Assume you know JavaScript + ES2015 quite well
+```
+• Angular:
+It goes 3rd and although after you learn angular you should know everything else associated to 
+it (typescript, MVC…), angular itself is a huge library that requires more time to learn.
+
+
+• React:
+    React to a high standard in just a week.
+    It uses the least abstractions, however it will take more time to learn the best practices, 
+    as there are a lot of ways in which you can do the same thing or go wrong.
+
+• Vue 
+    It is probably the best choice if you want an easy to learn framework.
+
+```
+
+3)  Scalability
+```
+• Angular: 
+It is easy to scale thanks to its design as well as a powerful CLI.
+angular is not simple at all. It’s complexity often causes a lot of confusion and angular 
+specific 3rd party libraries and syntax
+angular is way bigger, causing longer load times and performance issues on mobiles.
+
+• React:
+Its claims to be more testable and therefore scalable than vue and I think that is partly true.
+react is fairly simple to understand but in fact it takes a long time to set up a react project.
+react is bigger than vue, but still smaller than angular. That’s all I’ve got to say.
+
+
+• Vue
+Its being just behind react, it is a good choice however it lacks a list of best scaling practices, 
+resulting in a lot of spaghetti code.
+vue comes with prebuilt data binding and MVC model, making it way easier to set up 
+compared to react and angular.
+vue is the smallest and contains a lot as well. Actually you might think it doesn’t matter,
+but say that to a cheap android 3g smartphone and I don’t think you will be so sure about it.
+```
+4)  Beyond the web
+```
+• Angular:
+It comes with ionic 2 and nativescript, but neither of those mobile frameworks allow angular 
+to reach the performance of react native.
+
+
+• React:
+It comes with react native, alibaba rax, reactWindows and next.js, it is the best choice when it
+
+• Vue
+Its the best choice for vue developers that enjoy native mobile development, all thanks to alibaba weex.
+```
+1) Templating
+```
+• Angular:
+In Angular, you can only bind to scope. This means that in complex scenarios like 
+binding to a server/async service, or when binding to a large model, you will need to have an intermediate 
+model in the way, plus you will need to deal with digest cycles and with explicit watches. 
+
+
+ul>
+    <li ng-repeat="item in items">{{item}}</li>
+</ul>
+
+
+
+• React:
+var createItem = function(itemText) {
+    return <li>{itemText}</li>;
+};
+return <ul>{this.props.items.map(createItem)}</ul>;
+
+React only provides syntactic sugar for binding that is called valueLink 
+(a single attribute for both "value" and "onChange" properties). 
+This concept is so simple that it doesn't sound like it will do the job, yet it does. 
+And if you understand it well, you will be able to create your own linkState or similar functions that will 
+answer all of your binding needs.
+
+• Vue
+
+```
+# ES6 modules 
+![ES6 modules compare to old](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/3.PNG)
+```
+One of the main goals of ES6 modularity is to make it really simple to install and use any Javascript library 
+from anywhere on the Internet (github, npm, etc.). Only two things are needed:
+•   a single command to install the library (jspm install jquery)
+•   One single line of code to import the library and use it (var $ = require('jquery');)
+
+Libraries export objects in a common module format (ES6 modules).
+export default function $() { ... }
+
+We import a module into a local scope and use it.	
+import $ from 'jquery';
+
+```
