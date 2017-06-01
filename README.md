@@ -743,3 +743,238 @@ We import a module into a local scope and use it.
 import $ from 'jquery';
 
 ```
+# Why is modularity important in JavaScript?
+```
+Modularity is important in JavaScript by the same reasons it’s important in any other language: 
+•   it encourages the development of small isolated modules with clear interfaces, as opposed to 
+    large chunks of monolithic code.
+•   it helps with testability, as modules can be replaced at runtime with mocks that implement the same interface
+•   it improves code maintainability, as smaller and well isolated modules are easier to understand
+◾   abstract code: to delegate functionality to specialised libraries so that we don't 
+    have to understand the complexity of their actual implementation
+◾   encapsulate code: to hide code inside the module if we don't want the code to be changed
+◾   reuse code: to avoid writing the same code over and over again
+◾   manage dependencies: to easily change dependencies without rewriting our code
+
+
+```
+# Module patterns in ES5 
+EcmaScript 5 and earlier editions were not designed with modules in mind. Over time, developers came up with different 
+patterns to simulate modular design in JavaScript below are few easy pattern.
+```
+•   Immediately Invoked Function Expression (IIFE):Its an anonymous function that is invoked when it is declared. 
+
+    ◾encapsulate code complexity inside IIFE so we don't have to understand what the IIFE code does
+    ◾define variables inside the IIFE so they don't pollute the global scope 
+    (var statements inside the IIFE remain within the IIFE's closure)
+
+
+(function(){
+  // ...
+})()
+
+e.g
+
+// Function expression
+(function(){
+  console.log('test');
+})
+
+which is 
+// => returns function test(){ console.log('test') } so that we can all it.
+
+•   Revealing Module: Its similar to an IIFE, but we assign the return value to a variable.
+
+    // Expose module as global variable
+    var singleton = function(){
+
+    // Inner logic
+    function sayHello(){
+        console.log('Hello');
+    }
+
+    // Expose API
+    return {
+        sayHello: sayHello
+    }
+    }()
+    // Note that here we used bracket
+    We can now access the module's API through the variable:
+    // Access module functionality
+    singleton.sayHello(); 
+ ================================================
+Without executing the function at declaration time.
+
+// Expose module as global variable
+var Module = function(){
+
+  // Inner logic
+  function sayHello(){
+    console.log('Hello');
+  }
+
+  // Expose API
+  return {
+    sayHello: sayHello
+  }
+}
+
+
+Now access it
+
+Instead, we instantiate a module using the Module constructor function:
+var module = new Module();  
+
+to access its public API:
+module.sayHello();  
+// => Hello
+
+
+```
+# Widely adapted and well known module formats 
+Before EcmaScript 6 or ES2015, JavaScript did not have an official syntax to define modules. 
+```
+◾Asynchronous Module Definition (AMD):Its used in browsers and uses a define function to define modules:
+
+    //Calling define with a dependency array and a factory function
+    define(['dep1', 'dep2'], function (dep1, dep2) {
+
+        //Define the module value by returning a value.
+        return function () {};
+    });
+
+◾CommonJS:Its used in Node.js and uses require and module.exports to define dependencies and modules:
+
+    var dep1 = require('./dep1');  
+    var dep2 = require('./dep2');
+
+    module.exports = function(){  
+    // ...
+    }
+
+◾Universal Module Definition (UMD):It can be used both in the browser and in Node.js.
+◾System.register :It was designed to support the ES6 module syntax in ES5:
+
+    import { p as q } from './dep';
+
+    var s = 'local';
+
+    export function func() {  
+    return q;
+    }
+
+    export class C {  
+    }
+
+◾ES6 module format: It uses an export token to export a module's public API.Unfortunately, 
+    the native module format is not yet supported by all browsers.
+We can already use the ES6 module format today, but we need a transpiler like Babel to transpile 
+our code to an ES5 module format such as AMD or CommonJS before we can actually run our code in the browser.
+
+It uses an export token to export a module's public API:
+// lib.js
+
+// Export the function
+export function sayHello(){  
+  console.log('Hello');
+}
+
+// Do not export the function
+function somePrivateFunction(){  
+  // ...
+}
+
+and an import token to import parts that a module exports:
+import { sayHello } from './lib';
+
+sayHello();  
+// => Hello
+
+We can even give imports an alias using as:
+import { sayHello as say } from './lib';
+
+say();  
+// => Hello
+
+or load an entire module at once:
+import * as lib from './lib';
+
+lib.sayHello();  
+// => Hello
+
+The format also supports default exports:
+// lib.js
+
+// Export default function
+export default function sayHello(){  
+  console.log('Hello');
+}
+
+// Export non-default function
+export function sayGoodbye(){  
+  console.log('Goodbye');
+}
+
+which you can import like this:
+import sayHello, { sayGoodbye } from './lib';
+
+sayHello();  
+// => Hello
+
+sayGoodbye();  
+// => Goodbye
+
+You can export not only functions, but anything you like:
+// lib.js
+
+// Export default function
+export default function sayHello(){  
+  console.log('Hello');
+}
+
+// Export non-default function
+export function sayGoodbye(){  
+  console.log('Goodbye');
+}
+
+// Export simple value
+export const apiUrl = '...';
+
+// Export object
+export const settings = {  
+  debug: true
+}
+
+
+```
+
+# What is Module loaders?
+
+A module loader interprets and loads a module written in a certain module format.
+```
+A module loader runs at runtime.
+
+◾you load the module loader in the browser
+◾you tell the module loader which main app file to load
+◾the module loader downloads and interprets the main app file
+◾the module loader downloads files as needed
+
+
+A few examples of popular module loaders are:
+◾RequireJS: loader for modules in AMD format
+◾SystemJS: loader for modules in AMD, CommonJS, UMD or System.register format
+
+```
+# What is Module bundlers?
+A module bundler replaces a module loader.
+```
+In contrast to a module loader, a module bundler runs at build time.
+◾you run the module bundler to generate a bundle file at build time (e.g. bundle.js)
+◾you load the bundle in the browser
+
+Examples of popular module bundlers are:
+◾Browserify: bundler for CommonJS modules
+◾Webpack: bundler for AMD, CommonJS, ES6 modules
+
+
+```
