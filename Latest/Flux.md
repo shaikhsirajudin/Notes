@@ -163,7 +163,8 @@ In React’s virtual DOM, HTML Input element presents an interesting problem. Wi
 we can  render the input or textarea and thus allows the browser maintain its   state that is (its value). 
 we can then get and set the value implicitly with the DOM API.
 In HTML, form elements such as <input>, <textarea>, and <select> itself  maintain 
-their own state and update its state  based on the input provided by user .In React, components’ mutable state is handled by 
+their own state and update its state  based on the input provided by user .
+In React, components’ mutable state is handled by 
 the state property  and is only updated by setState().
 HTML <input> and <textarea> components use the value attribute.
 HTML <input> checkbox and radio components, checked attribute is used.
