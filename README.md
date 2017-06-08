@@ -1021,7 +1021,8 @@ So if you use JSPM.
 var uid = require('matthewmueller/uid');
 var fmt = require('yields/fmt');
 var reactive = require('component/reactive@0.14.x');
-The idea is that it saves you time and effort because you don't have to install the package or create a package.json file. 
+The idea is that it saves you time and effort because you don't have to install the package or 
+create a package.json file. 
 Duo finds and installs the package automatically.
 I would argue that this is foolish. If you require() a package in multiple places, 
 you have to update all your require() statements any time you want to change the version.
@@ -1141,8 +1142,8 @@ with a config file and it seems very difficult to handle a complex task. Popular
     like it's a node application. Prefer these days.
 
 4. Scaffolding tools
-•Slush and Yeoman: You can create starter projects with them. For example, you are planning to build a prototype with 
-    HTML and SCSS, then instead of manually create some folder like scss, css, img, fonts. 
-    You can just install yeoman and run a simple script. Then everything here for you.
+•Slush and Yeoman: You can create starter projects with them. For example, you are planning to build 
+    a prototype with HTML and SCSS, then instead of manually create some folder like scss, css, 
+    img, fonts. You can just install yeoman and run a simple script. Then everything here for you.
 
-``
+```
