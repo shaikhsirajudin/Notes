@@ -165,9 +165,9 @@ we can then get and set the value implicitly with the DOM API.
 In HTML, form elements such as <input>, <textarea>, and <select> itself  maintain 
 their own state and update its state  based on the input provided by user .In React, components’ mutable state is handled by 
 the state property  and is only updated by setState().
-◾HTML <input> and <textarea> components use the value attribute.
-◾HTML <input> checkbox and radio components, checked attribute is used.
-◾<option> (within <select>) components, selected attribute is used for select box.
+HTML <input> and <textarea> components use the value attribute.
+HTML <input> checkbox and radio components, checked attribute is used.
+<option> (within <select>) components, selected attribute is used for select box.
 
 ```
 var AccountFields = React.createClass({
@@ -197,3 +197,5 @@ var AccountFields = React.createClass({
 ReactDOM.render(  <AccountFields />,   document.getElementById('content') );
 
 ```
+
+
