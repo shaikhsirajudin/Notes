@@ -978,3 +978,171 @@ Examples of popular module bundlers are:
 
 
 ```
+
+# Tools Module Bundlers for JavaScript Tools come in a variety of shapes and sizes:
+```
+Browserify
+jspm
+Webpack	
+Rollup
+Brunch / Brocolli
+Sprockets
+Build your own with Gulp / Grunt
+```
+
+# Package manager:
+That allows us to download a package and include it in our application. 
+Package managers (such as Bower, NPM, JSPM and Duo) help us download front-end dependencies 
+without having to visit a projects’ website.
+
+```
+1)	NPM(Tagline: "npm is the package manager for JavaScript"): This one is usually thought of as 
+the node package manager. NPM even stands for node package manager. Obviously you aren't using node in 
+the browser/frontend. You can use NPM packages for frontend AND backend. Any NPM package that you find 
+might be intended for node only, browser only, or both. These days it seems like most packages can 
+be used in both places.
+
+2)	Bower(requires node, npm : Tagline: A package manager for the web): When Bower was created, 
+NPM existed already, but it was for node, not the browser. Node packages didn't usually include assets 
+(like bundled JS and CSS) in their NPM packages. If you needed the assets, you would just download them. 
+That's junky - and that's why Bower was created. Nowadays NPM packages include frontend assets, 
+so if you are already using NPM for your node backend, you might want to stick with NPM and skip Bower.
+• bring your own CJS/AMD loader.
+•bring your own build tool.
+• bring your own organization conventions.
+
+•ultimately, coupled with either make or grunt, bower looks like a viable option
+3)	JSPM (Tagline: Frictionless browser package management): This is for users of the SystemJS bundler. 
+It’s a package manager for the SystemJS universal module loader, built on top of the dynamic ES6 module loader. 
+JSPM doesn't host any of its own packages. It allows you to install packages that are hosted on NPM or github. 
+So if you use JSPM.
+
+4)	Duo : Duo lets you specify your require() statements as github paths, (with an optional version) like this:
+var uid = require('matthewmueller/uid');
+var fmt = require('yields/fmt');
+var reactive = require('component/reactive@0.14.x');
+The idea is that it saves you time and effort because you don't have to install the package or create a package.json file. 
+Duo finds and installs the package automatically.
+I would argue that this is foolish. If you require() a package in multiple places, 
+you have to update all your require() statements any time you want to change the version.
+Duo may save a little time in the short term, but it will cost you more in the long term.
+```
+
+# Older Package Managers
+```
+•component: is more of a concept and a framework for building and distributing front-end components. 
+•jam
+•enter
+```
+# Non-Package-Managers
+```
+They aren't package managers but work as additional tools:
+•napa: If you use NPM as your package manager, napa helps you install github repositories that 
+    haven't been configured to be used as packages yet.
+•volo: "volo is a tool which lets you quickly create projects, add libraries, and automate common tasks"
+```
+# various libraries that allow dynamic loading of modules:
+```
+Require.js
+System.js
+
+
+```
+
+# Working with bower or npm
+```
+0)	Install Typescript
+	npm install -g typescript
+1) At the root directory of your project type
+ > bower init or npm init 
+which will create bower.json or package.json metadata file for your project.
+
+2) To search for available packages to install, type 
+ > bower search <keywords> or npm search <keywords>.
+
+3) To install a package into the local module cache and then copy its latest version into your project, type 
+ > bower install <package-name>#<package-version> or npm install <package-name>@<package-version>.
+
+4) The best way to save a package's version info into your project's metadata file.
+ > bower install --save <package-name>#<package-version> or npm install --save <package-name>@<package-version>.
+
+5) Running the tests
+ > npm run build && npm run test
+
+6) Install first node js module
+ > npm install   
+
+7) Webpack install globally
+ > npm install -g webpack webpack-dev-server  
+
+
+8) To run the start-webpack-server
+ > npm run start-webpack-server 
+
+9) To install intellisense
+ > npm install -g typings   
+
+10) To run the server
+ > npm run server
+
+11) To install Browserfy
+> npm install -g –save-dev browserify
+
+12) To Install Redux
+	>  npm intall –S redux
+Or > npm I –S redux
+13)  object spread operator
+```
+
+# Berief about different stages in Javascript development
+
+```
+1. Package Manager 
+
+Package managers simplify installing and updating project dependencies, which are libraries such as: 
+jQuery, Bootstrap,Angularjs,react
+
+2. Module Loader/Bundling
+
+Most projects of any scale will have their code split between a number of files. 
+And while you could just include each file with an individual <script> tag. However, 
+<script> establishes a new http connection, and for small files – which is a goal of modularity – 
+the time to set up the connection can take significantly longer than transferring the data. 
+While the scripts are downloading, no content can be changed on the page.
+•The problem of download time can largely be solved by concatenating a group of 
+    simple modules into a single file, and minifying it.
+•The performance comes at the expense of the flexibility though. If your modules have inter-dependency, 
+    this lack of flexibility may be a showstopper.
+Then we heard about RequireJS, Browserify, Webpack and SystemJS
+•RequireJS: is a JavaScript file and module loader. It is optimized for in-browser use, 
+    but it can be used in other JavaScript environments, like Node.
+•Browserify: set out to allow use of CommonJS formatted modules in the browser. Consequently, 
+    Browserify isn’t as much a module loader as a module bundler: Browserify is entirely a build-time tool, 
+    producing a bundle of code which can then be loaded client-side.
+•Webpack: It bundles all of your static assets, including JavaScript, images, CSS and more, 
+    into a single file. It also enables you to process the files through different types of loaders. 
+    You could write your JavaScript with CommonJS or AMD modules syntax. It attacks the build problem in a 
+    fundamentally more integrated and opinionated manner. In Browserify you use Gulp/Grunt and a long list of 
+    transforms and plugins to get the job done. 
+    Webpack offers enough power out of the box that you typically don’t need Grunt or Gulp at all.
+•SystemJS: is a module loader that can import modules at run time in any of the popular formats used today 
+    (CommonJS, UMD, AMD, ES6). It is built on top of the ES6 module loader polyfill and is smart enough to detect 
+    the format being used and handle it appropriately. SystemJS can also transpile ES6 code (with Babel or Traceur) or 
+    other languages such as TypeScript and CoffeeScript using plugins. 
+
+3. Task runner
+
+Task runners and build tools are primarily command-line tools. Why we need to use them: In one word: 
+automation. The less work you have to do when performing repetitive tasks like minification, 
+compilation, unit testing, linting which previously cost us a lot of times to do with command line or even manually.
+•Grunt: You can create automation for your development environment to pre-process codes or create build scripts 
+with a config file and it seems very difficult to handle a complex task. Popular in last few years. 
+•Gulp: Automation just like Grunt but instead of configurations, you can write JavaScript with streams 
+    like it's a node application. Prefer these days.
+
+4. Scaffolding tools
+•Slush and Yeoman: You can create starter projects with them. For example, you are planning to build a prototype with 
+    HTML and SCSS, then instead of manually create some folder like scss, css, img, fonts. 
+    You can just install yeoman and run a simple script. Then everything here for you.
+
+``
