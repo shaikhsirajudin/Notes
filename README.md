@@ -1128,8 +1128,8 @@ Then we heard about RequireJS, Browserify, Webpack and SystemJS
     Webpack offers enough power out of the box that you typically don’t need Grunt or Gulp at all.
 •SystemJS: is a module loader that can import modules at run time in any of the popular formats used today 
     (CommonJS, UMD, AMD, ES6). It is built on top of the ES6 module loader polyfill and is smart enough to detect 
-    the format being used and handle it appropriately. SystemJS can also transpile ES6 code (with Babel or Traceur) or 
-    other languages such as TypeScript and CoffeeScript using plugins. 
+    the format being used and handle it appropriately. SystemJS can also transpile ES6 code 
+    (with Babel or Traceur) or other languages such as TypeScript and CoffeeScript using plugins. 
 
 3. Task runner
 
