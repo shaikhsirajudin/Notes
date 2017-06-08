@@ -132,11 +132,9 @@ ReactDOM.render(< StepCounter initialCounter={7}/>, document.getElementById('con
 ```
 
 # How to use Forms in ReactJS? Give an example of using Forms in ReactJS by developing a User Registration Form?
-
 In React’s virtual DOM, HTML Input element presents an interesting problem. With the others DOM environment, 
 we can  render the input or textarea and thus allows the browser maintain its   state that is (its value). 
 we can then get and set the value implicitly with the DOM API.
-
 In HTML, form elements such as <input>, <textarea>, and <select> itself  maintain 
 their own state and update its state  based on the input provided by user .In React, components’ mutable state is handled by 
 the state property  and is only updated by setState().
@@ -173,6 +171,7 @@ var AccountFields = React.createClass({
 });
 
 ReactDOM.render(  <AccountFields />,   document.getElementById('content') );
+
 ```
 
 # How to apply validation on Props in ReactJS? Apply validation in previously developed example in above question?
