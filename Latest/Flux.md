@@ -158,7 +158,7 @@ The value of textarea is not set using its children in the same way like HTML.
 ```
 
 # How to use Forms in ReactJS? Give an example of using Forms in ReactJS by developing a User Registration Form?
-
+```
 In React’s virtual DOM, HTML Input element presents an interesting problem. With the others DOM environment, 
 we can  render the input or textarea and thus allows the browser maintain its   state that is (its value). 
 we can then get and set the value implicitly with the DOM API.
@@ -169,7 +169,6 @@ HTML <input> and <textarea> components use the value attribute.
 HTML <input> checkbox and radio components, checked attribute is used.
 <option> (within <select>) components, selected attribute is used for select box.
 
-```
 var AccountFields = React.createClass({
   render: function() {
     return ( <div>
