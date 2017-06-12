@@ -1,0 +1,60 @@
+# What is Node?
+Node.js is javascript runtime that uses v8 Javascript engine.
+It uses an event-driven, non-blocking I/O model that makes it lightweght and efficient.
+
+# What is V8 Javascript engine?
+Its open source javascript engine written in C++ that takes javascript code complile into machine code. 
+It used inside nodejs and inside the chrome browser.
+
+# How to run the nodejs on command prompt and in chrome.
+In both cases we are runing v8 javascript engine. we already know that, these two are different. 
+Node has feature like files system manipulation, 
+Browser has the feature like manipulation what shown inside the window.
+
+Command Prompt
+```
+> node -- press enter
+> console.log('Hello world.')
+
+-- inside node we have something global which is same as window
+> global
+-- Inside node we have somthing process similar to document in browser.
+> process.exit(0) -- it will bring back to command prompt.
+-- 
+
+```
+Running in chrome >Developer tools>console tab
+
+```
+>console.log('Hello world.')
+
+-- inside of the browser we have window is the global object, it store everything to which you have access.
+> window
+
+-- Inside browser we have access to document , its store the reference to dom and above.
+> document
+```
+# Why I should use Nodejs? Blocking vs Non-blocking
+
+Nodejs is single threaded model which means that our application run on single thread 
+    thats the reason it uses non blocking mechanism.
+Where as asp.net webserver is multi threaded. 
+Blocking context we could handle two request on two different threads but it doesnt scale well 
+    because each request we have to beef it up the cpu and ram resources for the application to run 
+    but this sucks because those thread still sitting idle to complete the I/O operation, which still wasting each
+    resources.
+
+Blocking call waits for the I/O operation to complete before returning. Its results are returned synchronously. 
+Nothing else in that process takes place during the waiting. 
+A blocking call causes results to be returned synchronously.
+
+In contrast, non-blocking call returns immediately without results and uses alternate means to check for completion. 
+Other processing can be done while waiting and the results are returned asynchronously.
+A non-blocking call causes results to be returned asynchronously.This means any activity taking a long time to finish, 
+such as file access, network communication, and database operations, 
+are requested and put aside until the results are ready and returned via a callback function. 
+Instead of asking to read a file and waiting for the operating system to come back with a file handler or buffer, 
+the a callback function is invoked when the operation is completed, freeing the server to handle additional requests.
+
+Other advantages is nodejs ecosystem is open source , it has large community so you no need to build you application from 
+scrach.
