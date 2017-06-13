@@ -689,13 +689,15 @@ Webpack
 
 # Why do we capitalize components?
 
-Because they are a constructor. It is not a renderred DOM element YET, it just has the capacity to render out a DOM element whenever we print it (with something like <Header />)
+Because they are a constructor. It is not a renderred DOM element Yet, 
+it just has the capacity to render out a DOM element whenever we print it (with something like <Header />)
 
 # What is a state? How to use state?
 State handles data changes. State is a Javascript object that lives inside each component. We can access it via this.state. In React we modify the DOM indirectly, by updating each components state and letting React handle updates to the DOM.
 The state is a vital part of REact apps, making user interfaces interactive.
 Represents data that changes over time.
-We declare an initial state in the component's constructor. As first line call the super function.(to communicate with other components). In order to create the initial state for a component, we must declare the property this.state as an object in the class consturctor function.
+We declare an initial state in the component's constructor. 
+As first line call the super function.(to communicate with other components). In order to create the initial state for a component, we must declare the property this.state as an object in the class consturctor function.
 We update state by calling this.setState(), this causes our component to re-render.
 
 #  How you will update a component's state?
@@ -710,12 +712,19 @@ this.state = {name:"test"}; then ... {this.state.name}
 
 # What are Synthetic events?
 
-In order to ensure events have consistent properties across different browsers, React wraps the browser's native events into "synthetic events", consolidating browser behaviors into one API. Synthetic events are a cross browser wrapper around the broswer's native events system.
+In order to ensure events have consistent properties across different browsers, 
+React wraps the browser's native events into "synthetic events", consolidating browser behaviors into one API. Synthetic events are a cross browser wrapper around the broswer's native events system.
 
 # Explain what happens with React's "virtual DOM" whenever render fires, and why it's so great.
 
-Whenever React renders the component tree, it looks for changes from the virtual DOM to the actual DOM. If there are changes, it will update only the affected nodes in the most efficent way. If there are no changes, it doesn't even touch the webpage.
-This is great because Javascript is so fast, but the DOM is so slow. Whenever we have to actually go to the DOM and update elements, that's the slow part of any webpage. By having a virtual DOM where everything is updated behind the scenes and only changed in the actual DOM if there's differences, it allows our applications to become super fast.
+Whenever React renders the component tree, it looks for changes from the virtual DOM to the actual DOM. 
+If there are changes, it will update only the affected nodes in the most efficent way. 
+If there are no changes, it doesn't even touch the webpage.
+This is great because Javascript is so fast, but the DOM is so slow. 
+Whenever we have to actually go to the DOM and update elements, that's the slow part of any webpage. 
+By having a virtual DOM where everything is updated behind 
+the scenes and only changed in the actual DOM if there's differences, 
+it allows our applications to become super fast.
 
 # How can you set state initially(within the consturctor() mehtod)?
 
@@ -770,17 +779,22 @@ var MyContainer = React.createClass({
 const MyContainer = (props) => <div><MyChild value={props.value} /></div>
 
 
- <MyContainer>  is not the parent of  <MyChild>  (the  <div>  is in between), but it’s more generally its owner.
+ <MyContainer>  is not the parent of  <MyChild>  (the  <div>  is in between), 
+ but it’s more generally its owner.
 
-In the DOM hierarchy, the  <div>  is the representation of  <MyContainer>  which is the parent of whatever  <MyChild>  can represent.
+In the DOM hierarchy, the  <div>  is the representation of  <MyContainer>  
+which is the parent of whatever  <MyChild>  can represent.
 ```
 # Explain Virtual DOM?
 
-In React, for every DOM object, there is a corresponding "virtual DOM object." A virtual DOM object is a representation of a DOM object, like a lightweight copy. Think of manipulating the virtual DOM as editing a blueprint, as opposed to moving rooms in an actual house.
+In React, for every DOM object, there is a corresponding "virtual DOM object." A virtual DOM object is 
+a representation of a DOM object, like a lightweight copy. Think of manipulating the 
+virtual DOM as editing a blueprint, as opposed to moving rooms in an actual house.
 
 # Explain what is Prop?
 
-When we use our defined components, we can add attributes called props. These attributes are available in our component as this.props and can be used in our render method to render dynamic data.
+When we use our defined components, we can add attributes called props. These attributes are 
+available in our component as this.props and can be used in our render method to render dynamic data.
 ```
 var MyComponent = React.createClass({
 
@@ -793,6 +807,9 @@ render:function(){
 # ![What is the different between Reactjs and Angularjs](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/ReactAngular.PNG)
 
 # What are the feature of ReactJS?
+
 JSX: JSX is JavaScript syntax extension.
+
 2) Components : React is all about components.
+
 3) One direction flow: React implements one way data flow which makes it easy to reason about your app
