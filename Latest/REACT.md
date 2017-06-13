@@ -790,7 +790,7 @@ render:function(){
 })
 ```
 
-# ![What is the different between Reactjs and Angularjs](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/React vs Angular.PNG)
+# ![What is the different between Reactjs and Angularjs](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/ReactAngular.PNG)
 
 # What are the feature of ReactJS?
 JSX: JSX is JavaScript syntax extension.
