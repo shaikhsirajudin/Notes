@@ -544,20 +544,255 @@ class Content extends React.Component {
 
 export default App;
 ```
+# How to use Events in ReactJS? Give an example of using events?
+
+React identifies every events so that it must  have common and consistent behavior  
+across all the browsers. Normally, in normal JavaScript or other frameworks, 
+the onchange event is triggered after we have typed something into a Textfield and then “exited out of it”. 
+In  ReactJS we cannot do it in this way.
+
+The explanation is typical and  non-trivial:
+
+*”<input type=”text” value=”dataValue”> renders an input textbox initialized with the value, “dataValue”.
+
+When the user changes the input in text field, the node’s value property will update and change. 
+However, node.getAttribute(‘value’) will still return the value used at initialization time that is dataValue.
+
+Form Events:
+◾onChange: onChange event  watches input changes and update state accordingly.
+◾onInput: It is triggered on input data
+◾onSubmit: It is triggered on submit button.
+
+Mouse Events:
+◾onClick: OnClick of any components event is triggered on.
+◾onDoubleClick: onDoubleClick of any components event is triggered on.
+◾onMouseMove: onMouseMove of any components, panel event is triggered on.
+◾onMouseOver: onMouseOver of any components, panel, divs event is triggered on.
+
+Touch Events:
+◾onTouchCancel: This event is for canceling an events.
+◾onTouchEnd: Time Duration attached to touch of a screen.
+◾onTouchMove: Move during touch device .
+◾onTouchStart: On touching a device event is generated.
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+var StepCounter = React.createClass({
+                    getInitialState: function() { return {counter: this.props.initialCounter }; },
+                    handleClick: function() {             
+                        this.setState({counter: this.state.counter + 1});  },
+               render: function() {
+               return <div onClick={this.handleClick}> OnClick Event, Click Here: {this.state.counter }</div>;
+            }
+});
+
+ReactDOM.render(< StepCounter initialCounter={7}/>, document.getElementById('content'));
+
+```
+
+# How to set up routing in ReactJS. Explain with the help of step by step approach?
+
+Routing is the  key features of web applications (and even other platforms) 
+could not be left out in React. We can develop full featured single page applications (SPA) with React, 
+one of the key feature is routing.
+
+We use library called React-Router for routing in reactJS.
+React goodness is  to keep things as simple as possible and that is why the core library exactly 
+does what React is about, components. Routing, DOM rendering and other logics are abstracted to a different library.
+
+We need to install library by command to initialization router
+```
+$ user@administrator:/var/www/html/reactjs$  npm install react react-dom react-router –save
+```
+
+# Can Browsers read JSX? If not, Why?
+JSX is not valid Javascript. Web broswers can't read it! If a JavaScript file contains JSX code, 
+then that file will have to be compiled. That means that before the file reaches a web browser, 
+a JSX compiler will translate any JSX into regular JavaScript.
+
+# Write small code that will render a JSX expression?
+
+ReactDom.render(<h1>Hello world</h1>,document.getElementById('app');
+)
+
+# Can you nest JSX elements inside of other JSX elements?
+Yes! you can nest JSX elements just like you can od with HTML elements.
+
+# If a JSX expression takes up more than one line, what should you do?
+
+You should wrap the multi-line JSX expression in parentheses.
+
+# A JSX expression must have exactly how many outermost elements?
+It must have exactly one outermost element.
+
+# In JSX why you can't use "class" word?
+In JSX, you can't use the word class. You have to use className instead because JSX gets translated 
+into Javascript, and class is a reserved word in Javascript.
+
+# Why would I use React over AngularJS?
+
+AngularJS and ReactJS have several different aspects:
+•Componentization. AngularJS is based on the three layers — Model, View, Controller, 
+and provides many standard services, factories, controllers, and directives. 
+We divide app code into several files and can reuse template or component in a different part of the website. 
+ReactJS helps us update the View for the user and, with Flux, can control the application workflow. 
+React offers freedom, but it comes at the cost of additional time spent designing the structure of an application.
+
+•Data Binding. Angular uses two-way data binding, it helps us write less boilerplate code to 
+create interactions between components (the View and the Model). 
+But Angular automatically creates a watcher for each binding and we may come to a point 
+when an app is packed with too many watchers for bound elements. 
+React uses one-way data binding and an application architecture called Flux controls 
+the flow of data to components through one control point – the dispatcher. 
+It's easier to debug self-contained components of large ReactJS apps than 
+it is with similarly large AngularJS applications.
+
+•Performance. Angular creates a watcher for each binding to track changes in the DOM. 
+Once the View updates (becomes “dirty"), Angular compares the new value with the initial (bound) 
+value and runs the $digest loop. The $digest loop then checks not only values that have actually changed, 
+but also all others values that are tracked through watchers. 
+This is why performance will decrease a lot if your application has too many watchers. 
+Also AngularJS applies changes in the real DOM in the browser. When it gets updated, the browser 
+has to change many internal values to represent a new DOM. This also has a negative impact on 
+application performance. But it doesn't mean we cannot create a fast application in AngularJS. 
+React’s virtual DOM is one of the greatest advantages: ReactJS creates a lightweight DOM; 
+with new data new virtual DOM is created and compared with previous one; rebuilds the virtual DOM once again, 
+but with new changed HTML.
+
+•Resolving Dependencies. AngularJS uses a basic OOP pattern called dependency injection, 
+when we write dependencies in a separate file. Dependency injection inherits any standard functions 
+that we declare for an Angular factory or service. We only pass dependencies as parameters 
+in any order in our functions. React doesn’t offer any concept of a built-in container for dependency injection. 
+You can use Browserify, RequireJS, EcmaScript 6 modules which we can use via Babel, 
+ReactJS-di to inject dependencies automatically.
+
+•Directives and Templates. With AngularJS we access the DOM only through directives - standard and self-created ones. 
+Own directives are a powerful way to work with the DOM and to insert data into templates. 
+ReactJS doesn’t offer division into templates and directives or template logic. 
+The template logic should be written in the template itself. To see what this looks like, open an example from GitHub
+
+# What is virtual DOM diffing?
+
+When component rendering for the second time Virtual DOM checks what element get changed and print the changed element to the page, other elements remain untouched.
+The Virtual DOM diffing allows React to minimize changes to the DOM as a result of user actions, therefore increasing browser performance. This is why it's fast!
+
+# What's a difference between a DOM object and a virtual DOM object?
+
+A virtual DOM object can update much faster than a regular DOM object.
+A virtual DOM object can't directly affect HTML.
+A virtual DOM object will be updated if ANY JSX elements renders.
+
+# What is th module loader of choice for React developers?
+
+Webpack
+
+# Why do we capitalize components?
+
+Because they are a constructor. It is not a renderred DOM element YET, it just has the capacity to render out a DOM element whenever we print it (with something like <Header />)
+
+# What is a state? How to use state?
+State handles data changes. State is a Javascript object that lives inside each component. We can access it via this.state. In React we modify the DOM indirectly, by updating each components state and letting React handle updates to the DOM.
+The state is a vital part of REact apps, making user interfaces interactive.
+Represents data that changes over time.
+We declare an initial state in the component's constructor. As first line call the super function.(to communicate with other components). In order to create the initial state for a component, we must declare the property this.state as an object in the class consturctor function.
+We update state by calling this.setState(), this causes our component to re-render.
+
+#  How you will update a component's state?
+We update stat by calling this.setState(),this causes our component to re-render.
+this,setState({showComments:true})
+Will only update the properties an argument, not replace the entire state object.
+
+# How can you access something inside state?
+
+this.state.--- inside JSX{} inside render if 
+this.state = {name:"test"}; then ... {this.state.name}
+
+# What are Synthetic events?
+
+In order to ensure events have consistent properties across different browsers, React wraps the browser's native events into "synthetic events", consolidating browser behaviors into one API. Synthetic events are a cross browser wrapper around the broswer's native events system.
+
+# Explain what happens with React's "virtual DOM" whenever render fires, and why it's so great.
+
+Whenever React renders the component tree, it looks for changes from the virtual DOM to the actual DOM. If there are changes, it will update only the affected nodes in the most efficent way. If there are no changes, it doesn't even touch the webpage.
+This is great because Javascript is so fast, but the DOM is so slow. Whenever we have to actually go to the DOM and update elements, that's the slow part of any webpage. By having a virtual DOM where everything is updated behind the scenes and only changed in the actual DOM if there's differences, it allows our applications to become super fast.
+
+# How can you set state initially(within the consturctor() mehtod)?
+
+constructor(){
+  super();
+  this.state={name:"some"};
+}
+
+# What is the primary type in React? It's a light, stateless, immutable, virtual rep of a DOM elements?
+
+ReactElement
+
+# What is one of the core types in React?
+
+ReactNode
+
+# How to assign form values to properties on the component object?
+
+We can use refs to assign form values to properties on the component object. 
+input: dom element passed in the function
+```
+<input ref={(input)=> this._name=input} />
+
+```
+
+# Explain the concept of ownership in ReactJS?
+Understand the concepts of ownership and children in ReactJS
+When we do:
+```
+var MyContainer = React.createClass({
+  render: function() {
+    return <MyChild value={this.props.value} />
+  }
+});
+// Or in ES6
+const MyContainer = (props) => <MyChild value={props.value} />
 
 
+ ➔ <MyContainer>  is the owner of  <MyChild> 
+➔ <MyChild>  is the ownee of  <MyContainer> 
+
+We don’t talk about parent/child, which refers to the DOM relationships.
+
+If we wrap a  <div>  around  <MyChild> :
+
+var MyContainer = React.createClass({
+  render: function() {
+    return <div><MyChild value={this.props.value} /></div>
+  }
+});
+// Or in ES6
+const MyContainer = (props) => <div><MyChild value={props.value} /></div>
 
 
+ <MyContainer>  is not the parent of  <MyChild>  (the  <div>  is in between), but it’s more generally its owner.
 
+In the DOM hierarchy, the  <div>  is the representation of  <MyContainer>  which is the parent of whatever  <MyChild>  can represent.
+```
+# Explain Virtual DOM?
 
+In React, for every DOM object, there is a corresponding "virtual DOM object." A virtual DOM object is a representation of a DOM object, like a lightweight copy. Think of manipulating the virtual DOM as editing a blueprint, as opposed to moving rooms in an actual house.
 
+# Explain what is Prop?
 
+When we use our defined components, we can add attributes called props. These attributes are available in our component as this.props and can be used in our render method to render dynamic data.
+```
+var MyComponent = React.createClass({
 
+render:function(){
+  return(<h1>Hello, {this.props.name}!</h1>);
+}
+})
+```
 
+# ![What is the different between Reactjs and Angularjs](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/React vs Angular.PNG)
 
-
-
-
-
-
-
+# What are the feature of ReactJS?
+JSX: JSX is JavaScript syntax extension.
+2) Components : React is all about components.
+3) One direction flow: React implements one way data flow which makes it easy to reason about your app
