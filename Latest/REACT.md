@@ -813,3 +813,5 @@ JSX: JSX is JavaScript syntax extension.
 2) Components : React is all about components.
 
 3) One direction flow: React implements one way data flow which makes it easy to reason about your app
+
+# 
