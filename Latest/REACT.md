@@ -814,4 +814,120 @@ JSX: JSX is JavaScript syntax extension.
 
 3) One direction flow: React implements one way data flow which makes it easy to reason about your app
 
-# 
+# How could you use state and props together when passing data between components?
+set a default value with state(in the consturctor)
+```
+constructor(){
+  super();
+  this.state={title:"welcome"}
+}
+
+-- inject that into a child with this.state
+
+render(){
+  return(<div> <Header title={this.state.title} /> </div>);
+}
+
+
+-- access it in any child component with this.props
+-- in Header.js
+
+render(){
+  return(<div><Title title={this.props.title} </div>);
+}
+
+```
+
+# What if you want an <input> that allows us to change a <Title /> component (within a <Header /> component) as we type through "two way binding"? What is the general thought process?
+
+As the user enters text in the <input> (within the <Header /> component), we want to take that "change" and trigger some type of "event" on the overall <Layout /> parent component.
+That "event" will say to update the "state", which will then cause the whole React-style rendering process to begin because a state changed.
+
+# When dealing with events in Javascript, how do you grab the value? 
+Pass in the javascript event(e) and call e.target.value
+
+```
+handleChange(e){
+  var title=e.target.value;
+  this.props.changeTitle(title);
+}
+
+```
+# How event handling works in React?
+We use React's event system to capture user input including from submissions and button clicks.
+"Refs" allow us to reference DOM elements in our code after the component has been rendered.
+Parent components can pass callback functions as props to child components to allow two-way communication.
+In order to ensure events have consistent properties across different broswers, React wraps the browser's native envents into "synthetic events", consolidating broswer behaviors into one API. Synthetic events are a cross-broswer wrapperr around the broswer's native event system.
+
+# What is a Flux action?
+It's a javascript object that describes what we want to do, and the data we need to do it.
+
+# What does "handling state" mean? What exactly are we trying to handle?
+The data that comes from the server.
+
+# What are the main problems with traditional MVC frameworks(Backbone,Angular...)
+Manipulating the DOM (slow and inefficient)
+Creating a very complicated metal model around our data and vies because of circular dependencies.
+
+# Describe what happens whenever state changes(in user, posts, UI state, etc)
+React goes through the component tree and re-renders everything" the state has changed, so let's pass it down and see what needs to be updated"
+
+# Within a component, how can you access props that have been injected from parent component?
+this.props
+
+# What are Lifecycle methods?
+Functions that called while the component is rendered for the first time (mount), or about to be removed from the DOM (unmount).
+constructor()
+
+1. componentWillMount()// called before component rendered
+2. render()// comment box is mounted
+3. Component waits for API response and when it's received, setState() is called, causing render() to be called again.
+4. componentDidMount()// called when component done rendering. this._fetchComments() triggered evey 5 seconds
+5. componentWillUnmount()// caleed when the component is about to be removed from the DOM, and clears the fetchComment timeout.
+
+Whenever a component instance updates, it automatically calls all five of there methods, inorder.
+
+# Describe the difference between imperative code(Backbone?Angular) and declarative code (React)
+
+Imperative: is "how" to do something. When a model updates, you tell the view to listen to that model, and then in the view you tell the HTML what to do.
+
+Declarative: is "What" to do. It takes away the "how" allowing you to focus on what's most important.
+
+# How does a prop relate to state?
+A prop is a portion of state passed down from a parent component to a child component.
+
+# What is redux?
+A method of handling the state(or the data) of an app.
+
+# How does the React Router work?
+It will render out the <Router /> to the page, and then it dictates which components should (or should not) render.
+
+# How can you access the currently selected React component in the console?
+$r
+
+# What is polling?
+
+In order to check whether new comments are added, we can periodically check the server for updates. Use setInterval on componentDisMount every 5 secon call the _FetchComment function.
+This might sound expensive, but it's not. React optimizes the rendering process by only updating the DOM when changes are dtelected on the resulting markup.
+
+# Whaht is refs isn Reactjs? When might you use refs?
+The ref is used to return a reference to your element. Refs should be avoided in most cases but they can be useful when you need DOM measurements or to add methods to your components
+
+# Rewrite this without using JSX:
+```
+<div className="ui items" >
+Hello, friend! I am a basic REact Component.
+<\div>
+
+React.createElement('div',{className:'ui items'},
+React.createElement('p',null,'Hello, friend! I am a basic React component.') )
+
+```
+# How to pass props from a parent component to a child component?
+
+Use syntax [prop_name]={prop_value} in the JSX for the child component within the parent component's render method.
+
+# How child components communicate with parent components? 
+Inverse data flow- children communicate with parents by calling functions that are handed to them via props. In the ProductHunt app, when an up-vote was clicked Product didnt do any data management. It was not the owner of its state. Instead, it called a function given to it by ProductList, passing in its id.
+ProductList was then able to manage state accordingly
+
