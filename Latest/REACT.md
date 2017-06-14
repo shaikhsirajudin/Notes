@@ -838,9 +838,15 @@ render(){
 
 ```
 
-# What if you want an <input> that allows us to change a <Title /> component (within a <Header /> component) as we type through "two way binding"? What is the general thought process?
+# What if you want an 
+```
+<input> that allows us to change a <Title /> component (within a <Header /> component) 
+as we type through "two way binding"?
+
+ What is the general thought process?
 
 As the user enters text in the <input> (within the <Header /> component), we want to take that "change" and trigger some type of "event" on the overall <Layout /> parent component.
+``
 That "event" will say to update the "state", which will then cause the whole React-style rendering process to begin because a state changed.
 
 # When dealing with events in Javascript, how do you grab the value? 
