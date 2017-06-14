@@ -948,3 +948,4 @@ Instead, it called a function given to it by ProductList, passing in its id.
 ProductList was then able to manage state accordingly
 
 # [react-survey](https://github.com/aisensiy/react-survey)
+# [project examples](https://mobx.js.org/faq/examples.html)
