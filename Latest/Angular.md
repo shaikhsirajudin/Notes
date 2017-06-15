@@ -652,7 +652,7 @@ export class OnDestroyDirective implements OnDestroy {
   }
 }
 ```
-![Complete lifecycle](https://github.com/shaikhsirajudin/Notes/images/how/Component_Lifecycle.PNG)
+![Complete lifecycle](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/Component_Lifecycle.PNG)
  Angular 2 Complete lifecycle hook interface inventory:-
 1.      ngOnChanges - called when an input binding value changes.
 2.      ngOnInit - after the first ngOnChanges.
@@ -2567,7 +2567,8 @@ Avoid leaking code to the global namespace and thus to avoid naming collisions.
 Encapsulate code to hide implementation details and control what gets exposed to the outside.
 Structure our applications and we can’t use a single file.
 
-# Angular 2 Compiler | What is ![Traceur compiler in Angular 2] (https://github.com/shaikhsirajudin/Notes/images/how/Traceurcompiler.PNG) 
+# Angular 2 Compiler | What is Traceur compiler in Angular 2
+![Traceur compiler in Angular 2] (https://github.com/shaikhsirajudin/Notes/blob/master/images/how/Traceurcompiler.png) 
 The Traceur is a JavaScript compiler. The Traceur compiler used to allow us to use the features from the future. 
 The Traceur compiler is fully supported to ECMAScript(ES6) and ES.vNext also.
 The main goal of Traceur compiler is to inform the designs of new JavaScript features and also allow us to write 
