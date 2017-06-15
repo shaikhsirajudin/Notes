@@ -464,7 +464,8 @@ Fire-Fox mobile and also trying to support to older versions of Android.
 # Best Key Differences - Constructor Vs. ngOnInit [Angular 2] 
 Angular 2 Constructors:-
 1.      The constructor is a default method runs when component is being constructed.
-2.      The constructor is a typescript feature and it is used only for a class instantiations and nothing to do with Angular 2.
+2.      The constructor is a typescript feature and it is used only for a class instantiations and nothing to do 
+with Angular 2.
 3.      The constructor called first time before the ngOnInit().
 
 Angular 2 ngOnInit:-
@@ -651,7 +652,7 @@ export class OnDestroyDirective implements OnDestroy {
   }
 }
 ```
-![Complete lifecycle](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/Component_Lifecycle.PNG)
+![Complete lifecycle](https://github.com/shaikhsirajudin/Notes/images/how/Component_Lifecycle.PNG)
  Angular 2 Complete lifecycle hook interface inventory:-
 1.      ngOnChanges - called when an input binding value changes.
 2.      ngOnInit - after the first ngOnChanges.
@@ -738,9 +739,11 @@ export class UserComponent {
 
     ngOnInit() {
 
-        this.userService.getAPIUsers(this._global.baseAPIUrl + 'users/hadley/orgs').subscribe(data => this.users = data);
+        this.userService.getAPIUsers(this._global.baseAPIUrl + 'users/hadley/orgs')
+        .subscribe(data => this.users = data);
 
-        this.userService.getAppUsers(this._global.baseAppUrl + 'api/User/GetUsers').subscribe(data => console.log(data));   
+        this.userService.getAppUsers(this._global.baseAppUrl + 'api/User/GetUsers')
+        .subscribe(data => console.log(data));   
 
     }
 
@@ -1144,11 +1147,13 @@ The Angular 2 is using services concept and it provide the multiple features to 
 1.      Services are singleton objects.
 2.      Services are capable of returning the data in the form promises or observables.
 3.      Service class is decorated with Injectable decorator.
-4.      The Injectable decorator is required only if our service class is making use of some Angular injectable like Http, 
+4.      The Injectable decorator is required only if our service class is making use of some Angular injectable 
+like Http, 
 Response and HttpModule service within it.
 
 # What are the differences between Observables & Promises?
-1.      Promise:- Promises are only called once and It can return only a single value at a time and the Promises are not cancellable.
+1.      Promise:- Promises are only called once and It can return only a single value at a time and the Promises 
+are not cancellable.
 2.      Observables:- Observables handle multiple values over time and it can return multiple values and the Observables are cancellable.
 3.      The Observables are more advanced than Promises.
 # Steps for creating an Angular 2 Service:-
@@ -1208,7 +1213,8 @@ import { RegistrationComponent } from './components/registration/registration.co
         RegistrationComponent
     ],
     imports: [
-        UniversalModule, // MUST BE FIRST IMPORT. THIS AUTOMATICALLY IMPORTS BROWSERMODULE, HTTPMODULE, AND JSONPMODULE TOO.
+        UniversalModule, // MUST BE FIRST IMPORT. THIS AUTOMATICALLY IMPORTS BROWSERMODULE, HTTPMODULE, 
+        AND JSONPMODULE TOO.
         RouterModule.forRoot([ //RouterModule.forRoot method in the module imports to configure the router.
             { path: '', redirectTo: 'user', pathMatch: 'full' },
             { path: 'user/:id', component: UserComponent }, //HERE ID IS A ROUTE PARAMETER. 
@@ -1533,7 +1539,8 @@ import { MyPipePipe } from './components/shared/pipe/test.pipes';
     ],
 
     imports: [
-        UniversalModule, // MUST BE FIRST IMPORT. THIS AUTOMATICALLY IMPORTS BROWSERMODULE, HTTPMODULE, AND JSONPMODULE TOO.
+        UniversalModule, // MUST BE FIRST IMPORT. THIS AUTOMATICALLY IMPORTS BROWSERMODULE, HTTPMODULE, 
+        AND JSONPMODULE TOO.
         RouterModule.forRoot([ //RouterModule.forRoot method in the module imports to configure the router.
             { path: '', redirectTo: 'user', pathMatch: 'full' },
             { path: 'user/:id', component: UserComponent }, //HERE ID IS A ROUTE PARAMETER. 
@@ -1834,7 +1841,8 @@ Syntax –
                     <td>{{user.Id}}</td>
                     <td>{{user.name}}</td>
                     <td><a href="{{user.site}}" target="_blank">{{user.site}}</a></td>
-                    <td><a (click)="addUser(user)">A</a>|<a (click)="updateUser(user)">E</a>|<a (click)="deleteUser(user)">D</a></td>
+                    <td><a (click)="addUser(user)">A</a>|<a (click)="updateUser(user)">E</a>|
+                    <a (click)="deleteUser(user)">D</a></td>
                 </tr>
             </tbody>
         </table>
@@ -1912,7 +1920,8 @@ import { MenuComponent } from './components/menu/menu.component';
         MenuComponent        
     ],
     imports: [
-        UniversalModule, // Must be first import. This automatically imports BrowserModule, HttpModule, and JsonpModule too.
+        UniversalModule, // Must be first import. This automatically imports BrowserModule, HttpModule, 
+        and JsonpModule too.
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
@@ -1995,7 +2004,8 @@ Example,
     ],
 
     imports: [
-        UniversalModule, // MUST BE FIRST IMPORT. THIS AUTOMATICALLY IMPORTS BROWSERMODULE, HTTPMODULE, AND JSONPMODULE TOO.
+        UniversalModule, // MUST BE FIRST IMPORT. THIS AUTOMATICALLY IMPORTS BROWSERMODULE, HTTPMODULE, 
+        AND JSONPMODULE TOO.
         RouterModule.forRoot([ //RouterModule.forRoot method in the module imports to configure the router.
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home/:id', component: HomeComponent }, //HERE ID IS A ROUTE PARAMETER. 
@@ -2557,7 +2567,7 @@ Avoid leaking code to the global namespace and thus to avoid naming collisions.
 Encapsulate code to hide implementation details and control what gets exposed to the outside.
 Structure our applications and we can’t use a single file.
 
-# Angular 2 Compiler | What is ![Traceur compiler in Angular 2] (https://github.com/shaikhsirajudin/Notes/blob/master/images/how/Traceurcompiler.PNG) 
+# Angular 2 Compiler | What is ![Traceur compiler in Angular 2] (https://github.com/shaikhsirajudin/Notes/images/how/Traceurcompiler.PNG) 
 The Traceur is a JavaScript compiler. The Traceur compiler used to allow us to use the features from the future. 
 The Traceur compiler is fully supported to ECMAScript(ES6) and ES.vNext also.
 The main goal of Traceur compiler is to inform the designs of new JavaScript features and also allow us to write 
