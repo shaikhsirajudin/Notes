@@ -652,7 +652,7 @@ export class OnDestroyDirective implements OnDestroy {
   }
 }
 ```
-![Component_Lifecycle](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/Component_Lifecycle.PNG)
+![Component_Lifecycle](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/Component_Lifecycle.png)
 
  Angular 2 Complete lifecycle hook interface inventory:-
 1.      ngOnChanges - called when an input binding value changes.
