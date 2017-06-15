@@ -1,3 +1,29 @@
+# React Architecture.
+The process through which React transform the code is dependent on the architecture of React code, 
+i.e., Flux. Flux ensures the unidirectional data flow. You are more concerned about the View, only, 
+the main components of the React architecture are Views, Dispatcher, and the Stores.
+Flux is supposed to be the most convenient architecture after HTML and CSS. The primary model of Flux is given below:
+
+# What Makes React Distinct?
+Many things make React more convenient. One of the distinct features is its ‘Flux Architecture.' 
+React has libraries that are more convenient for the developers that are new in development. Moreover, 
+to migrate your Jquery code, React is really helpful.
+
+Here are some of the features that React gives that aren't offered by Angular 2.
+1.Functioning of Synthetic Events
+ The functioning of synthetic events makes React more unique, especially when you are dealing with SVG.
+
+2.Ng2
+ Ng2 is the enhanced form of standard HTML, but in this case, you have to learn Angular a bit.
+
+3.The JSX
+ React doesn't have to use the template. JSX makes it really unique. It compiles JavaScript at compile time. Moreover, 
+ it has support for many of the tools like ESLint, Babel, etc.
+
+4.Redux and MobX
+ You can build React application with Redux (for large scale applications) and MobX (for developing smaller scale applications). 
+ They are the most advanced ideas after Flux.
+
 
 # In React we have two types of components
 1) Presentational Components.
@@ -947,5 +973,15 @@ In the ProductHunt app, when an up-vote was clicked Product didnt do any data ma
 Instead, it called a function given to it by ProductList, passing in its id.
 ProductList was then able to manage state accordingly
 
+# How React Transformed the Front End
+React was transformational because it singlehandedly made MVC seem like obsolete tech & unleashed unidirectional flow on the masses.
+React did not come with any built-in concept of a model.
+
+# Stuff in Angular 2 You Won’t Find in React
+•Type correctness does not guarantee program correctness.
+•There are a lot of bugs that static types won’t catch.
+•There are objectively better ways to catch bugs (TDD, code reviews), and those will catch most type errors.
+•Static types are great primarily for developer tooling.
+•TypeScript provides the best intellisense developer experience available in the JavaScript world today.
 # [react-survey](https://github.com/aisensiy/react-survey)
 # [project examples](https://mobx.js.org/faq/examples.html)
