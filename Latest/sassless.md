@@ -7,6 +7,53 @@ Sass can be used in three ways
 •As a standalone Ruby module
 •As a plugin for any Rack-enabled framework
 
+# Keywords and declaration in Sass
+variables
+
+$company-blue: #1875e7;
+
+Mixins: help you remove redundant styles
+
+@mixin horizontal-list {
+li {float: left;
+margin-right: 10px;
+}
+}
+
+Mixins with variables
+```
+@mixin horizontal-list($spacing: 10px) {
+li {
+float: left;
+margin-right: $spacing;
+}
+}
+
+calling it
+#footer ul.nav {
+@include horizontal-list(20px);
+margin-top: 1em;
+}
+```
+Selector inheritance with the placeholder selector
+```
+%button-reset {
+margin: 0;
+padding: .5em 1.2em;
+text-decoration: none;
+cursor: pointer;
+}
+.save {
+@extend %button-reset;
+}
+```
+# What is Compass?
+Compass is a collection of helpful tools to write smarter stylesheets and battle-tested best practices for Sass, 
+it made up of three main components.
+> a library of Sass mixins and utilities.
+> a system for integrating with application environments.
+> a platform for building frameworks and extensions.
+
 # List out the key features for Sass?
 Key features for Sass include
 •Full CSS3-compatible
