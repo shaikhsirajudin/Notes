@@ -3,9 +3,19 @@ Sass focuses on how to create awesome stylesheets, not what goes into them.tools
 Sass stands for Syntactically Awesome Stylesheets and was created by Hampton Catlin. SCSS, or Sassy CSS, was introduced in Sass 3.0 and is a superset or extension of CSS3. SCSS files havea .scss file extension it
 adding nested rules, mixins, variables, selector inheritance, etc.
 Sass can be used in three ways
+
 •As a command line tool
+
 •As a standalone Ruby module
+
 •As a plugin for any Rack-enabled framework
+
+# List out alternatives against LESS?
+•SASS: Syntactically Awesome Stylesheets
+
+•SCSS: Version.2 of SASS
+
+•Stylus
 
 # Keywords and declaration in Sass
 variables
@@ -72,11 +82,17 @@ Key features for Sass include
 # List out the Data Types that SassScript supports?
 SassScript supports seven main data types
 1.Numbers ( eg; 1,5 ,10px)
+
 2.Strings of texts ( g., “foo”, ‘bar’, etc.)
+
 3.Colors (blue, #04a3f9)
+
 4.Booleans (true or false)
+
 5.Nulls (e.g; null)
+
 6.List of values, separated by space or commas (g., 1.5em, Arial, Helvetica etc.)
+
 7.Maps from one value to another (g., ( key 1: value1, key 2: Value 2))
 
 # Explain how to define a variable in Sass?
@@ -84,10 +100,15 @@ Variables in Sass begin with a ($) sign and variable assignment is done with a c
 
 # Explain what is the difference between Sass and SCSS?
 The difference between Sass and SCSS is that,
+
 •Sass is a CSS pre-processor with syntax advancements and an extension of CSS3
+
 •Sass has two syntax
+
 •The first syntax is “SCSS” and it uses the .scss extension
+
 •The other syntax is indented syntax or just “Sass” and it uses the .sass extension
+
 •While Sass has loose syntax with white space and no semicolons, the SCSS resembles more to CSS
 
 Any CSS valid document can be converted to Sass by simply changing the extension from.CSS to.SCSS.
@@ -103,19 +124,27 @@ by grouping selectors that share the same style into one rule.
 
 # Explain what is the use of the @IMPORT function in Sass?
 The @IMPORT function in Sass
+
 •Extends the CSS import rule by enabling import of SCSS and Sass files
+
 •All imported files are merged into a single outputted CSS file
+
 •Can virtually mix and match any file and be certain of all your styles
+
 •@IMPORT takes a filename to import
 
 
 # Why Sass is considered better than LESS?
 •Saas allows you to write reusable methods and use logic statements, e., loops, and conditionals
+
 •Saas user can access Compass library and use some awesome features like dynamic sprite map generation, 
 legacy browser hacks and cross-browser support for CSS3 features
 •Compass also allows you to add an external framework like Blueprint, Foundation or Bootstrap on top
+
 •In LESS, you can write a basic logic statement using a ‘guarded mixin’, which is equivalent to Sass if statements
+
 •In LESS, you can loop through numeric values using recursive functions while Sass allows you to iterate any kind of data
+
 •In Sass, you can write your own handy functions
 
 # Explain what is the use of Mixin function in Sass? What is the meaning of DRY-ing out a mixin?
@@ -128,9 +157,13 @@ the pieces of information that would otherwise get duplicated.
 # Explain what Sass Maps is and what is the use of Sass Maps?
 Sass map is a structured data in a hierarchical way and not just a bunch of variables. 
 It can help in organizing the code. Some great use of Sass are
+
 •It is very useful when dealing with layers of elements in your project
+
 •It can be helpful in color management when there is long list of different color and shade
+
 •Use icon map for various social media icons for example: facebook: ‘\e607’ or twitter: ‘\e602’
+
 •Unlike other programming libraries, Sass map will consist only of code that is going to be used
 
 # Explain how Sass comments are different from regular CSS?
@@ -155,10 +188,15 @@ Interpolation of variables names is not possible currently in Sass. However, you
 
 # What are Sass cons and pros?
 Pros:
-•Sass is easy to learn especially for them who has a background of Python, Ruby or Coffescript and place using functions, writing mixins
+
+•Sass is easy to learn especially for them who has a background of Python, Ruby or Coffescript and place using functions, 
+writing mixins
 •CSS can be easily converted to Sass
+
 •Throughout the project, you don’t have to repeat similar CSS statements using @extend attribute
+
 •It allows to define variables that are usable throughout the entire project
+
 •It keeps your responsive project more organized
 
 # Explain what is LESS?
@@ -173,7 +211,9 @@ The best way of creating it inside ~/content/ or ~/Styles/ folder
 
 # In what ways LESS can be used?
 •Via npm LESS can be used on the command line
+
 •Download as a script file for the browser
+
 •For third party tools, it is used
 
 # How variable is represented in LESS?
@@ -246,41 +286,58 @@ Sass
 
 # What are the similarities between LESS and Sass?
 Between LESS and Sass the similarities are
+
 •Namespaces
+
 •Color functions
+
 •Mixins and parametric mixins
+
 •Nesting capabilities
+
 •JavaScript evaluations
+
 
 # Explain what is the use of &combinator ?
 &combinator concatenates nested selector with the parent selector. It is useful for Pseudo classes such as :hover and :focus
 
 # Explain what is the use of operations in LESS?
 Operations can be used for performing functions like
+
 •Simple Mathematical operators: +, – , *, /
+
 •Color functions
+
 •Math functions
+
 •Any size or colour variable can be operated upon
 
 # Explain what is the use of Escaping?
 The use of escaping in LESS
+
 •When you need to output CSS that is not valid CSS syntax
+
 •Proprietary syntax not recognized by LESS
+
 •LESS compiler will throw an error if not used
+
 •Simple prefix with ~ symbol and put in quotes
+
 
 # What does LESS elements contains?
 Less elements contain commonly used mixins like
+
 •.gradient
+
 •.rounded
+
 •.opacity
+
 •.box-shadow
+
 •.inner-shadow
 
-# List out alternatives against LESS?
-•SASS: Syntactically Awesome Stylesheets
-•SCSS: Version.2 of SASS
-•Stylus
+
 
 # Explain how you can invoke the compiler from the command line?
 You can invoke the compiler from the command line in LESS as
