@@ -1,5 +1,6 @@
 # Explain what is Sass? How it can be used?
-Sass stands for Syntactically Awesome Stylesheets and was created by Hampton Catlin. It is an extension of CSS3, 
+Sass focuses on how to create awesome stylesheets, not what goes into them.tools like Compass that provide you with CSS best practices.
+Sass stands for Syntactically Awesome Stylesheets and was created by Hampton Catlin. SCSS, or Sassy CSS, was introduced in Sass 3.0 and is a superset or extension of CSS3. SCSS files havea .scss file extension it
 adding nested rules, mixins, variables, selector inheritance, etc.
 Sass can be used in three ways
 •As a command line tool
