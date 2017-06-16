@@ -2575,3 +2575,34 @@ The Traceur compiler is fully supported to ECMAScript(ES6) and ES.vNext also.
 The main goal of Traceur compiler is to inform the designs of new JavaScript features and also allow us to write 
 the code in better manners and it also prefer, tell us to use design patterns.
 Now the days Traceur compiler are broadly used in Angularv2.0 because Angular v2.0 are fully used to ES5 and ES6.
+
+# List down the popular AngularJS IDE Plugins/Extensions for web development?
+
+Here is a list of IDE Plugins and Extensions which can enhance the way you code with AngularJS:
+◾Sublime Text
+◾WebStorm
+◾Eclipse
+◾Netbeans
+◾Visual Studio 2012/2013 Express or higher
+◾TextMate
+◾Brackets
+◾ATOM
+
+# What are the web application security risks that a web developer should avoid while doing development using AngularJS?
+Following are the most critical web application development flaws that a developer should take care of:
+◾Injection attack.
+◾Broken Authentication and Session Management.
+◾Cross-Site Scripting (XSS)
+◾Insecure direct object references.
+◾Security misconfiguration.
+◾Sensitive Data Exposure.
+◾Missing Functions Level Access Control.
+◾Cross Site Request Forgery (CSRF).
+◾Using components that possess vulnerabilities.
+◾In-validated redirects and forwards.
+
+# What are the security features provided by AngularJS?
+AngularJS provides built-in protection from the following security flaws.
+◾It prevents cross-side scripting attacks: Cross-site scripting is a technique where anyone can send a request from client side and can get the confidential information easily.
+◾It prevents HTML injection attacks.
+◾It prevents XSRF protection for server side communication: It can be handled by “Auth token” mechanism. When the user logins for the first time a user id and password is sent to the server and it will, in turn, return an auth token. Now, this token does the authentication in the future transactions.
