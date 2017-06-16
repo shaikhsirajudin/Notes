@@ -582,3 +582,76 @@ Rule, which is applicable in the entire sheet and not partly, is known as at-rul
 
 # How can CSS be cascaded to mix with user’s personal sheet?
 Properties can be a set in recommended places and the document modified for CSS to mix with user’s   personal sheet.
+
+
+
+Sass in the real world (Book 1 of 4)  
+http://anotheruiguy.gitbooks.io/sassintherealworld_book-i/ 
+
+Sass in the real world (Book 2 of 4)  
+ http://anotheruiguy.gitbooks.io/sass-in-the-real-world-book-2-of-4/  
+
+ Sass for web designers  
+ http://www.abookapart.com/products/sass-for-web-designers  
+
+ Sass & Compass for web designers  
+http://sassandcompass.com/ 
+
+ Pragmatic Guide to Sass  
+ https://pragprog.com/book/pg_sass/pragmatic-guide-to-sass
+
+ Sass and Compass in Action  
+ http://www.manning.com/netherland/ 
+
+Sass and Compass Resources
+
+Book collection
+
+https://github.com/wikisoft/collection/tree/master/public
+
+https://github.com/imkrimerman/javascript-ebooks
+=====================================================
+
+***ONLINE***
+
+> Official: http://sass-lang.com
+> Official: http://compass-style.org
+> http://thesassway.com
+
+
+***TUTORIALS***
+
+> http://fuelyourcoding.com/35-great-resources-for-compass-and-sass/
+> http://net.tutsplus.com/tutorials/other/mastering-sass-lesson-1/
+> http://net.tutsplus.com/tutorials/html-css-techniques/mastering-sass-lesson-2/
+> http://net.tutsplus.com/tutorials/html-css-techniques/mastering-sass-lesson-3/
+> http://sonspring.com/journal/sass-for-designers
+> http://www.netmagazine.com/tutorials/code-smarter-css-sass
+> http://net.tutsplus.com/tutorials/html-css-techniques/using-compass-and-sass-for-css-in-your-next-project/
+> http://www.netmagazine.com/tutorials/faster-button-styling-sass
+> http://www.netmagazine.com/tutorials/improve-your-responsive-design-workflow-sass
+
+>> For WordPress: http://technosailor.com/2011/11/02/tutorial-using-sass-and-compass-for-managing-css-in-wordpress/
+
+
+***BOOKS***
+
+> Sass and Compass in Action: http://www.manning.com/netherland/
+> Pragmatic Guide to Sass: http://pragprog.com/book/pg_sass/pragmatic-guide-to-sass
+
+***COMPASS & SASS RELATED PROJECTS***
+
+> Foundation: http://foundation.zurb.com/
+> Sencha Touch: http://www.sencha.com/products/touch/
+
+***VIDEOS, PRESENTATIONS, SLIDES***
+
+> Kicking Ass & Taking Names with Sass and Compass: http://vimeo.com/24278115
+> Drupal & Compass: https://speakerdeck.com/u/nathansmith/p/drupal-compass
+> Compass, Sass & the Enlightened Developer: http://www.slideshare.net/pengwynn/compass-sass-and-the-enlightened-css-developer
+> Authoring Stylesheets with Sass and Compass: http://www.slideshare.net/chriseppstein/authoring-stylesheets-with-compass-sass
+
+***HANDY ADD-ONS, AND OTHER MISCELLANY***
+
+> Compass Recipes: https://github.com/MoOx/compass-recipes
+> Breakpoint (easy media queries in Compass): https://github.com/canarymason/breakpoint
