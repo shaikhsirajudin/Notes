@@ -51,15 +51,22 @@ cursor: pointer;
 Compass is a collection of helpful tools to write smarter stylesheets and battle-tested best practices for Sass, 
 it made up of three main components.
 > a library of Sass mixins and utilities.
+
 > a system for integrating with application environments.
+
 > a platform for building frameworks and extensions.
 
 # List out the key features for Sass?
 Key features for Sass include
+
 •Full CSS3-compatible
+
 •Language extensions such as nesting, variables, and mixins
+
 •Many useful functions for manipulating colors and other values
+
 •Advanced features like control directives for libraries
+
 •Well-formatted, customizable output
 
 # List out the Data Types that SassScript supports?
