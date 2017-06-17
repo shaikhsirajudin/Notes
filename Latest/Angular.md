@@ -2555,10 +2555,15 @@ export const sharedConfig: NgModule = {
 ```
 Angular 1 Module -
 1.     Services
+
 2.     Directives
+
 3.     Controllers
+
 4.     Filters
+
 5.     Configuration information
+
 6.     And so on…
 JavaScript Modules -
 In JavaScript Modules, every file is one module. In Angular 2, one component is normally a file.
@@ -2581,28 +2586,111 @@ Now the days Traceur compiler are broadly used in Angularv2.0 because Angular v2
 Here is a list of IDE Plugins and Extensions which can enhance the way you code with AngularJS:
 ◾Sublime Text
 ◾WebStorm
+
 ◾Eclipse
+
 ◾Netbeans
+
 ◾Visual Studio 2012/2013 Express or higher
+
 ◾TextMate
+
 ◾Brackets
+
 ◾ATOM
 
 # What are the web application security risks that a web developer should avoid while doing development using AngularJS?
 Following are the most critical web application development flaws that a developer should take care of:
 ◾Injection attack.
+
 ◾Broken Authentication and Session Management.
+
 ◾Cross-Site Scripting (XSS)
+
 ◾Insecure direct object references.
+
 ◾Security misconfiguration.
+
 ◾Sensitive Data Exposure.
+
 ◾Missing Functions Level Access Control.
+
 ◾Cross Site Request Forgery (CSRF).
+
 ◾Using components that possess vulnerabilities.
+
 ◾In-validated redirects and forwards.
 
 # What are the security features provided by AngularJS?
 AngularJS provides built-in protection from the following security flaws.
 ◾It prevents cross-side scripting attacks: Cross-site scripting is a technique where anyone can send a request from client side and can get the confidential information easily.
+
 ◾It prevents HTML injection attacks.
+
 ◾It prevents XSRF protection for server side communication: It can be handled by “Auth token” mechanism. When the user logins for the first time a user id and password is sent to the server and it will, in turn, return an auth token. Now, this token does the authentication in the future transactions.
+
+#### What is the use case of services?
+
+The main use case of Services is to move duplicated code into a single location, acting like a Singleton. It encourages DRY (Don't Repeat Yourself), which is a principle in Software Engineering, aimed at reducing repitition of information or code in a multi-layered architecture.
+
+Services can serve as a method of interaction between an application and a data store. It also can provide communication channels between directives, as well as any other business logic access.
+
+#### How are the services injected to your application?
+
+There are two ways to inject a service into your application:
+
+- Per Application: Provides the service at an application level
+- Per Component: Provides the service at a component level (and all child components)
+
+Providing a service at an application level or a higher level creates a single instance of that service and shares it with all sub directives. This is useful in the case of sharing properties or state between service holders.
+
+Providing a service for every different component would create an instance for each of the components with separate resources.
+
+Injecting a service can be done by importing the service and specifying it in the `NgModule`'s metadata array preperty `providers`, and inject it into the directive using it via the constructor. To inject a service into another service, annotate the target service class with `@Injectable`.
+
+```ts
+//annotation used for services injecting other services
+@Injectable()
+export class MessageService {
+	//injected service
+	constructor(private errorService: ErrorService){}
+}
+```
+
+#### How do you unit test a service with a dependency?
+[insert answer]
+
+#### Why is it a bad idea to create a new service in a component like the one below?
+
+```ts
+let service = new DataService();
+```
+
+That's a bad idea for several reasons including:
+
+Our component has to know how to create a DataService. If we ever change the DataService constructor, we'll have to find every place we create the service and fix it. Running around patching code is error prone and adds to the test burden.
+
+We create a new service each time we use new. What if the service should cache data and share that cache with others? We couldn't do that.
+
+We're locking the component into a specific implementation of the DataService. It will be hard to switch implementations for different scenarios. Can we operate offline? Will we need different mocked versions under test? Not easy.
+* How would you select a custom component to style it.
+* What pseudo-class selector targets styles in the element that hosts the component?
+* How would you select all the child components' elements?
+* How would you select a css class in any ancestor of the component host element, all the way up to the document root?
+* What selector force a style down through the child component tree into all the child component views?
+
+We can use the /deep/ selector to force a style down through the child component tree into all the child component views. The /deep/ selector works to any depth of nested components, and it applies both to the view children and the content children of the component.
+
+* What does :host-context() pseudo-class selector targets?
+
+ It works just like the function form of :host(). It looks for a CSS class in any ancestor of the component host element, all the way up to the document root. It's useful when combined with another selector.
+
+* What does the following css do?
+
+```css
+:host-context(.theme-light) h2 {
+  background-color: red;
+}
+```
+
+ Applies a background-color style to all <h2> elements inside the component, only if some ancestor element has the CSS class theme-light.
