@@ -2694,3 +2694,131 @@ We can use the /deep/ selector to force a style down through the child component
 ```
 
  Applies a background-color style to all <h2> elements inside the component, only if some ancestor element has the CSS class theme-light.
+#### What is the diffrence between RouterModule.forRoot() vs RouterModule.forChild()? Why is it important?
+
+* forRoot creates a module that contains all the directives, the given routes, and the router service itself.
+* forChild creates a module that contains all the directives and the given routes, but does not include the router service.
+It registers the routers and uses the router service created at the root level.
+* This is important because location is a mutable global property. Having more than one object manipulating the location is not a good idea.
+
+#### How does loadChildren property work?
+
+```ts
+const routes: Routes = [
+  ...,
+  { path: 'edit', loadChildren: 'app/edit/edit.module#EditModule' },
+  ...
+]
+```
+
+* In the above example, loadChildren tells the router to fetch the EditModule bundle assigned to it *when* the user visits '/edit' url. (To be more precise, it will ask the module loader to find and load it.)
+* Router will get the router configuration from edit module.
+* It merges EditModule router configuration with the main application configuration.
+* Activate all the needed components.
+
+#### Do you need a Routing Module? Why/not?
+Yes if the user was expected to navigate between different URLs. The Routing Module interprets the browser's URL as an instruction to load a specific component and its view. The application has to have its main router configured and bootstraped by passing an array of routes to `RouterModule.forRoot()`, and since this returns a module, it has to be added to the `imports` meta property in the main application module.
+
+The RouterModule:
+
+- separates our routing concerns from our feature module
+- provides a module to replace or remove when testing our feature module
+- provides a common place for require routing service providers including guards and resolvers
+- is not concerned with feature module declarations
+
+#### When does a lazy loaded module is loaded?
+
+The `loadChildren` property is used by the Router to map to a bundle and lazy-load it. The router will take our `loadChildren` string and dynamically load in a module, add its routes as child routes to the configuration dynamically and then load the requested route. This will only happen when the route is first requested and the module will be immediately be available for subsequent requests.
+
+Note that lazy-loaded modules should be removed from modules tehy were part of since they will be loaded on demand.
+
+
+#### Below link doesn't work. Why? How do I fix it?
+
+```html
+<div routerLink='product.id'></div>
+```
+
+The routerLink should specify a defined path in the routing configuration and the required path parameter (`product.id`). The code above tries to visit a specific product page, so it should be done using *Link Parameters Array*:
+
+```html
+<div [routerLink]="['/product', product.id]"></div>
+```
+
+The above is correct in the case of having `product/:id` as a path in the application router configuration.
+
+
+#### Can you explain the difference between ActivatedRoute and RouterState?
+
+After the end of each successful navigation lifecycle, the router builds a tree of ActivatedRoute objects that make up the current state of the router. We can access the current RouterState from anywhere in our application using the Router service and the routerState property. 
+
+RouterState is the current state of the router including a tree of the currently activated routes in our application along     convenience methods for traversing the route tree.
+
+* What is the minimum definition of a component?
+* What is the difference between a component and a directive?
+* How do components communicate with each other?
+* How do you create two way data binding in Angular?
+* How would you create a component to display error messages throughout your application?
+
+* What does a lean component mean to you?
+
+Components don't fetch data from the server, validate user input, or log directly to the console. They delegate such tasks to services.
+A component's job is to enable the user experience and nothing more. 
+It mediates between the view (rendered by the template) and the application logic (which often includes some notion of a model). 
+A good component presents properties and methods for data binding. It delegates everything nontrivial to services.
+* What does this line do:
+
+```ts
+@HostBinding('class.valid') isValid;
+```
+
+Binds a host element property (here, the CSS class valid) to a directive/component property (isValid).
+
+* What would be a good use for NgZone service?
+
+The most common use of this service is to optimize performance when starting a work consisting of one or more asynchronous tasks that don't require UI updates or error handling to be handled by Angular. Such tasks can be kicked off via runOutsideAngular and if needed, these tasks can reenter the Angular zone via run.
+
+* Why would you use renderer methods instead of using native element methods?
+
+You are not sure what the context you are doing the rendering. You might be assuming the browser compilation and native DOM methods to be available but that might not be the case. It is better to be safe and let Angular handle the manupulation for elements.
+* How do you transition between two states:
+
+```ts
+  animations: [
+    trigger('heroState', [
+      state('inactive', style({
+        backgroundColor: '#eee',
+        transform: 'scale(1)'
+      })),
+      state('active',   style({
+        backgroundColor: '#cfd8dc',
+        transform: 'scale(1.1)'
+      })),
+      transition('inactive => active', animate('100ms ease-in')),
+      transition('active => inactive', animate('100ms ease-out'))
+    ])
+  ]
+```
+
+* How do you define a wildcard state?
+
+```ts
+* => *
+* => active
+```
+* Why do you need type definitions?
+
+
+* How would you define a custom type?
+
+
+* What is the difference between an Interface and a Class?
+
+
+* First line below gives compile error, second line doesn't. Why?
+
+
+* What are Discriminated union types?
+
+https://basarat.gitbooks.io/typescript/content/docs/types/discriminated-unions.html
+https://github.com/Microsoft/TypeScript/pull/9163
