@@ -62,3 +62,10 @@ nav.component.css     - The component stylesheet
 nav.component.html    - The component template
 nav.component.spec.ts - The component test spec class
 ```
+# Creating html syntax
+```
+div.bg-primary>a>  
+
+//<div class="bg-primary"><a href=""></a></div> 
+
+```
