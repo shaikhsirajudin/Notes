@@ -169,7 +169,7 @@ Do you have an interesting hiring story with Node.js? Please share your story in
 
 A test pyramid describes the ratio of how many unit tests, integration tests and end-to-end test you should write.
 
-![pyramid](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/pyramid.png) 
+![pyramid](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/pyramid.PNG) 
 
 An example for an HTTP API may look like this:
 •lots of low-level unit tests for models (dependencies are stubbed),
@@ -946,7 +946,7 @@ For more visit the following link,
 3.Once the job is done, the corresponding callback is fired to return back the response to the Main thread.
 4.The Event Loop returns the response to the client.
 
-![architecture](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/architecture.png) 
+![architecture](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/architecture.PNG) 
 For example:
 
 ```
@@ -1056,7 +1056,7 @@ It supports various types of categories error.
 14.Crypto
 It provides cryptographic functionality that includes a set of wrappers for Open SSL’s hash.
 
-![conceptnodejs](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/conceptnodejs.png) 
+![conceptnodejs](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/conceptnodejs.PNG) 
 
 # Why do we use Node.js and how does Node.js work?
 
