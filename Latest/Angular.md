@@ -1,3 +1,39 @@
+# Different kind of web application and their use?
+There are two kinds of web application:
+1) round-trip model: The browser requests an initial HTML document from the server. User interactions—such as clicking a link or submitting a form—led the browser to request and receive a completely new HTML document. In this kind of application, the browser is essentially a rending engine for HTML content, and all of the application logic and data resides on the server. The browser makes a series of stateless HTTP requests that the server handles by generating HTML documents dynamically
+2) single-page model: It takes a different approach. An initial HTML document is sent to the browser, but user interactions lead to Ajax requests for small fragments of HTML or data inserted into the existing set of elements being displayed to the user. The initial HTML document is never reloaded or replaced, and the user can continue to interact with the existing HTML while the Ajax requests are being performed asynchronously, even if that just means seeing a “data loading” message.
+
+
+# Models:
+M in MVC —contain the data that users work with. There are two broad types of model:
+1) view models, which represent just data passed from the component to the template, and
+2) domain models, which contain the data in a business domain, along with the operations, transformations, and rules for creating, storing, and manipulating that data, collectively referred to as the model logic.
+
+The model in an  application built using the MVC pattern should 
+• Contain the domain data
+• Contain the logic for creating, managing, and modifying the domain data (even if that means executing remote logic via web services)
+• Provide a clean API that exposes the model data and operations on itThe model should not 
+• Expose details of how the model data is obtained or managed (in other words, details of the data storage mechanism or the remote web service should not be exposed to controllers and views)
+• Contain logic that transforms the model based on user interaction (because this is the component’s job)
+• Contain logic for displaying data to the user (this is the template’s job)
+
+# Understanding Controllers/Components
+Its the connective tissue in an Angular web app, acting as conduits between the data model and views. Components add business domain logic required to present some aspect of the model and perform operations on it. A component that follows the MVC pattern should 
+• Contain the logic required to set up the initial state of the template
+• Contain the logic/behaviors required by the template to present data from the model
+• Contain the logic/behaviors required to update the model based on user interaction A component should not 
+• Contain logic that manipulates the DOM (that is the job of the template)
+• Contain logic that manages the persistence of data (that is the job of the model)
+
+# Understanding View Data
+The domain model isn’t the only data in an Angular application. Components can create view data (also known as view model data or view models) to simplify templates and their interactions with the component.
+
+# Understanding Views/Templates
+ Views, which are known as templates in Angular, are defined using HTML elements that are enhanced by data bindings. It is the data bindings that make Angular so flexible, and they transform HTML elements into the foundation for dynamic web applications.
+• Contain the logic and markup required to present data to the userTemplates should not 
+• Contain complex logic (this is better placed in a component or one of the other  Angular building blocks, such as directives, services, or pipes)
+• Contain logic that creates, stores, or manipulates the domain modelTemplates can contain logic, but it should be simple and used sparingly. Putting anything but the simplest method calls or expressions in a template makes the overall application harder to test and maintain.
+
 # What Is Angular 2?
 Angular 2 is the most advanced framework for the web. Angular has rebuilt the entire framework in TypeScript, 
 so it is entirely new for a programmer to start using.
