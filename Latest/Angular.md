@@ -27,7 +27,9 @@ The model in an  application built using the MVC pattern should
 
 • Contain the logic for creating, managing, and modifying the domain data (even if that means executing remote logic via web services)
 
-• Provide a clean API that exposes the model data and operations on itThe model should not 
+• Provide a clean API that exposes the model data and operations on it
+
+ * The model should not 
 
 • Expose details of how the model data is obtained or managed (in other words, details of the data storage mechanism or the remote web service should not be exposed to controllers and views)
 
@@ -43,7 +45,9 @@ Its the connective tissue in an Angular web app, acting as conduits between the 
 
 • Contain the logic/behaviors required by the template to present data from the model
 
-• Contain the logic/behaviors required to update the model based on user interaction A component should not
+• Contain the logic/behaviors required to update the model based on user interaction 
+
+* A component should not
 
 • Contain logic that manipulates the DOM (that is the job of the template)
 
@@ -57,7 +61,9 @@ The domain model isn’t the only data in an Angular application. Components can
 
  Views, which are known as templates in Angular, are defined using HTML elements that are enhanced by data bindings. It is the data bindings that make Angular so flexible, and they transform HTML elements into the foundation for dynamic web applications.
 
-• Contain the logic and markup required to present data to the userTemplates should not 
+• Contain the logic and markup required to present data to the user
+
+* Templates should not 
 
 • Contain complex logic (this is better placed in a component or one of the other  Angular building blocks, such as directives, services, or pipes)
 
