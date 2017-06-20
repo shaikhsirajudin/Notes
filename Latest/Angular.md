@@ -18,20 +18,31 @@ M in MVC —contain the data that users work with. There are two broad types of 
 2) domain models, which contain the data in a business domain, along with the operations, transformations, and rules for creating, storing, and manipulating that data, collectively referred to as the model logic.
 
 The model in an  application built using the MVC pattern should 
+
 • Contain the domain data
+
 • Contain the logic for creating, managing, and modifying the domain data (even if that means executing remote logic via web services)
+
 • Provide a clean API that exposes the model data and operations on itThe model should not 
+
 • Expose details of how the model data is obtained or managed (in other words, details of the data storage mechanism or the remote web service should not be exposed to controllers and views)
+
 • Contain logic that transforms the model based on user interaction (because this is the component’s job)
+
 • Contain logic for displaying data to the user (this is the template’s job)
 
 > Controllers/Components
 
-Its the connective tissue in an Angular web app, acting as conduits between the data model and views. Components add business domain logic required to present some aspect of the model and perform operations on it. A component that follows the MVC pattern should 
+Its the connective tissue in an Angular web app, acting as conduits between the data model and views. Components add business domain logic required to present some aspect of the model and perform operations on it. A component that follows the MVC pattern should
+
 • Contain the logic required to set up the initial state of the template
+
 • Contain the logic/behaviors required by the template to present data from the model
-• Contain the logic/behaviors required to update the model based on user interaction A component should not 
+
+• Contain the logic/behaviors required to update the model based on user interaction A component should not
+
 • Contain logic that manipulates the DOM (that is the job of the template)
+
 • Contain logic that manages the persistence of data (that is the job of the model)
 
 > View Data
@@ -41,8 +52,11 @@ The domain model isn’t the only data in an Angular application. Components can
 > Views/Templates
 
  Views, which are known as templates in Angular, are defined using HTML elements that are enhanced by data bindings. It is the data bindings that make Angular so flexible, and they transform HTML elements into the foundation for dynamic web applications.
+
 • Contain the logic and markup required to present data to the userTemplates should not 
+
 • Contain complex logic (this is better placed in a component or one of the other  Angular building blocks, such as directives, services, or pipes)
+
 • Contain logic that creates, stores, or manipulates the domain modelTemplates can contain logic, but it should be simple and used sparingly. Putting anything but the simplest method calls or expressions in a template makes the overall application harder to test and maintain.
 
 
@@ -66,9 +80,12 @@ Service, Directive, and the Dependency Injection.
 # Angular project different files (Watchers are of each component) and their usage.
 
 •package.json identifies npm package dependencies for the project.
+
 •tsconfig.json defines how the TypeScript compiler generates JavaScript from the project’s files.
+
 •typings.json provides additional definition files for libraries that the Typecript compiler doesn’t natively recognize.
-•systemjs.config.js provides information to a module loader about where to find application modules, and registers all 
+
+•systemjs.config.js provides information to a module loader about where to find application modules, and registers all
 the necessary packages. 
 It also contains other packages that will be needed by later documentation examples.
 
@@ -77,7 +94,7 @@ Many things make Angular 2 more unique and different in its context. Now, we hav
 
 Angular 2 is not only a compelling alternative for React but all of the front-end libraries and frameworks. Reason being:
 
-1.Typescript
+1. Typescript
  One of the distinct updates in Angular 2 is TypeScript. TypeScript ensures safer code. Most programmers don't understand 
  the core objective of TypeScript; they confuse it with lesser code. But, TypeScript ensures you to make more reliable code.
 
@@ -88,7 +105,7 @@ Angular 2 is not only a compelling alternative for React but all of the front-en
  Most of the bugs have to do with typing issues (syntax), so TypeScript offers you a complete set of features for 
  advanced IntelliSense experience for programmers.
 
-2.Dependency Injection
+2. Dependency Injection
  Dependency Injection works when you need to import any dependency in your application. 
  It is the way to give a new object of a class with the required dependency. Mostly, dependencies are services. 
  To provide the new component with services, Angular uses DI (Dependency Injection).
@@ -97,7 +114,7 @@ Angular 2 is not only a compelling alternative for React but all of the front-en
  then it will ask an Injector for the service. If requested service is not in the container, Angular inject will auto-create 
  and inject into your component.
 
-3.Jasmine
+3. Jasmine
  Jasmine in Angular 2 provides an API that poorly attempts to read sentences. Moreover, it provides a bunch of 
  assertion bells and whistle. So, Angular 2 gives you less-boilerplate.
 
@@ -113,26 +130,32 @@ ngOnint interface has Oninit method that must be implemented in the component.
 
 Some of the events are applicable for both component/directives while few are specific to components.
 •ngOnChanges: Responds when angular sets its data-bound property which receives the current and previous object values.
+
 •ngOnInit: Initializes the component/directive after first ngOnChange triggers. This is most frequently used method 
 to retrieve the data for the template from a back-end service.
+
 •ngDoCheck: Detect and act upon changes occuring outside Angular context. It is called when every change detection run.
+
 •ngOnDestroy: Cleanup just before Angular destroys the directive/component. Unsubscribe observables and detach event 
 handlers to avoid memory leaks.
 
 Component-specific hooks:
 •ngAfterContentInit: Component content has been initialized
+
 •ngAfterContentChecked: After Angular checks the bindings of the external content that it projected into its view.
+
 •ngAfterViewInit: After Angular creates the component’s view.
+
 •ngAfterViewChecked: After Angular checks the bindings of the component’s view.
 
 # What are the advantages of using Angular 2 over Angular 1?
-1.Angular 2 is a platform not only a language:
-2.Better Speed and Performance: No $Scope in Angular 2, AOT
-3.Simpler Dependency Injection
-4.Modular, cross platform
-5.Benefits of ES6 and Typescript.
-6.Flexible Routing with Lazy Loading Features
-7.Easier to Learn
+1.  Angular 2 is a platform not only a language:
+2.  Better Speed and Performance: No $Scope in Angular 2, AOT
+3.  Simpler Dependency Injection
+4.  Modular, cross platform
+5.  Benefits of ES6 and Typescript.
+6.  Flexible Routing with Lazy Loading Features
+7.  Easier to Learn
 
 # How routing works in Angular 2.
 
@@ -200,33 +223,33 @@ Every Angular application must have one main module say AppModule. The code shou
 based on the application business case.
 
 Plunkr Example: Link
-1.We don't require to import or declare lazily loading module in root module.
-2.Add the route to top level routing (app.routing.ts) and set loadChildren. loadChildren takes absolute path 
+1.  We don't require to import or declare lazily loading module in root module.
+2.  Add the route to top level routing (app.routing.ts) and set loadChildren. loadChildren takes absolute path 
     from root folder followed by #{ModuleName}. RouterModule.forRoot() takes routes array and configures the router.
-3.Import module specific routing in the child module.
-4.In the child module routing, specify path as empty string ' ', the empty path. RouterModule.forChild again 
+3.  Import module specific routing in the child module.
+4.  In the child module routing, specify path as empty string ' ', the empty path. RouterModule.forChild again 
     takes routes array for the child module components to load and configure router for child.
-5.Then, export const routing: ModuleWithProviders = RouterModule.forChild(routes);
+5.  Then, export const routing: ModuleWithProviders = RouterModule.forChild(routes);
 
 # What are the security threats should we be aware of in angular 2 application?
 
 Just like any other client side or web application, angular 2 application should also follow some of 
 the basic guidelines to mitigate the security risks. Some of them are:
-a.Avoid using/injecting dynamic Html content to your component.
-b.If using external Html, that is coming from database or somewhere outside the application, sanitize it.
-c.Try not to put external urls in the application unless it is trusted. Avoid url re-direction unless it is trusted.
-d.Consider using AOT compilation or offline compilation.
-e.Try to prevent XSRF attack by restricting the api and use of the app for known or secure environment/browsers.
+a.  Avoid using/injecting dynamic Html content to your component.
+b.  If using external Html, that is coming from database or somewhere outside the application, sanitize it.
+c.  Try not to put external urls in the application unless it is trusted. Avoid url re-direction unless it is trusted.
+d.  Consider using AOT compilation or offline compilation.
+e.  Try to prevent XSRF attack by restricting the api and use of the app for known or secure environment/browsers.
 
 # How would you optimize the angular 2 application for better performance?
 Well, optimization depends on the type and size of application and many other factors. But in general, 
 I would consider the following points while optimizing the angular 2 app:
-1.Consider AOT compilation.
-2.Make sure the application is bundled, uglified, and tree shaking is done.
-3.Make sure the application doesn’t have un-necessary import statements.
-4.Make sure that any 3rd party library, which is not used, is removed from the application.
-5.Have all dependencies and dev-dependencies are clearly separated.
-6.I would consider lazy loading instead of fully bundled app if the app size is more.
+1.  Consider AOT compilation.
+2.  Make sure the application is bundled, uglified, and tree shaking is done.
+3.  Make sure the application doesn’t have un-necessary import statements.
+4.  Make sure that any 3rd party library, which is not used, is removed from the application.
+5.  Have all dependencies and dev-dependencies are clearly separated.
+6.  I would consider lazy loading instead of fully bundled app if the app size is more.
 
 
 # How would you define custom Typings to avoid editor warnings?
@@ -262,22 +285,22 @@ templates to native JavaScript and HTML during the build time.
 The compiled Html and JavaScript is deployed to the web server so that the compilation and render time can be saved by the browser.
 
 Advantages
-1.Faster download: Since the app is already compiled, many of the angular compiler related libraries are not required to be bundled, 
+1.  Faster download: Since the app is already compiled, many of the angular compiler related libraries are not required to be bundled, 
 the app bundle size get reduced. So, the app can be downloaded faster.
-2.Lesser No. of Http Requests: If the app is not bundled to support lazy loading (or whatever reasons), for each associated html and css, 
+2.  Lesser No. of Http Requests: If the app is not bundled to support lazy loading (or whatever reasons), for each associated html and css, 
 there is a separate request goes to the server. The pre-compiled application in-lines all templates and styles with components, 
 so the number of Http requests to the server would be lesser.
-3.Faster Rendering: If the app is not AOT compiled, the compilation process happens in the browser once the application is fully loaded. 
+3.  Faster Rendering: If the app is not AOT compiled, the compilation process happens in the browser once the application is fully loaded. 
 This has a wait time for all necessary component to be downloaded, and then the time taken by the compiler to compile the app. 
 With AOT compilation, this is optimized.
 4.Detect error at build time: Since compilation happens beforehand, many compile time error can be detected, 
 providing a better degree of stability of application.
 
 Disadvantages
-1.Works only with HTML and CSS, other file types need a previous build step
-2.No watch mode yet, must be done manually (bin/ngc-watch.js) and compiles all the files
-3.Need to maintain AOT version of bootstrap file (might not be required while using tools like cli)
-4.Needs cleanup step before compiling
+1.  Works only with HTML and CSS, other file types need a previous build step
+2.  No watch mode yet, must be done manually (bin/ngc-watch.js) and compiles all the files
+3.  Need to maintain AOT version of bootstrap file (might not be required while using tools like cli)
+4.  Needs cleanup step before compiling
 
 # What are the core differences between Observables and Promises?
 
@@ -295,16 +318,16 @@ forEach, reduce, ... similar to an array. There are also powerful operators like
 
 Promises vs Observables
 ◦Promises: 
-i.returns a single value
-ii.not cancellable
+i.  returns a single value
+ii. not cancellable
 
 ◦Observables:
-1.works with multiple values over time
-2.cancellable
-3.supports map, filter, reduce and similar operators
-4.proposed feature for ES 2016
-5.use Reactive Extensions (RxJS)
-6.an array whose items arrive asynchronously over time
+1.  works with multiple values over time
+2.  cancellable
+3.  supports map, filter, reduce and similar operators
+4.  proposed feature for ES 2016
+5.  use Reactive Extensions (RxJS)
+6.  an array whose items arrive asynchronously over time
 
 # Explain local reference variables, ViewChild, and ContentChild.
 Local template variables in angular2 is used to refer HTML elements and use their properties to access siblings or children.
