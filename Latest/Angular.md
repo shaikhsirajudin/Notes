@@ -6,11 +6,10 @@ There are two kinds of web application:
 # Explain the MVC Pattern.
 
 server-side implementation of the MVC pattern. You can see that the expectation is that the model is obtained from a database and that the goal of the application is to service HTTP requests from the browser. This is the basis for round-trip web apps.
-
-![server-side]()
+![server-side](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/mvc-server-side.PNG)
 
 The client-side implementation of the MVC pattern gets its data from server-side components, usually  via a RESTful web service.
-![client-side]()
+![client-side](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/mvc-client-side.PNG)
 > Models:
 M in MVC —contain the data that users work with. There are two broad types of model:
 1) view models, which represent just data passed from the component to the template, and
