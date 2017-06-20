@@ -10,7 +10,9 @@ server-side implementation of the MVC pattern. You can see that the expectation 
 
 The client-side implementation of the MVC pattern gets its data from server-side components, usually  via a RESTful web service.
 ![client-side](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/mvc-client-side.PNG)
+
 > Models:
+
 M in MVC —contain the data that users work with. There are two broad types of model:
 1) view models, which represent just data passed from the component to the template, and
 2) domain models, which contain the data in a business domain, along with the operations, transformations, and rules for creating, storing, and manipulating that data, collectively referred to as the model logic.
@@ -24,6 +26,7 @@ The model in an  application built using the MVC pattern should
 • Contain logic for displaying data to the user (this is the template’s job)
 
 > Controllers/Components
+
 Its the connective tissue in an Angular web app, acting as conduits between the data model and views. Components add business domain logic required to present some aspect of the model and perform operations on it. A component that follows the MVC pattern should 
 • Contain the logic required to set up the initial state of the template
 • Contain the logic/behaviors required by the template to present data from the model
@@ -32,9 +35,11 @@ Its the connective tissue in an Angular web app, acting as conduits between the 
 • Contain logic that manages the persistence of data (that is the job of the model)
 
 > View Data
+
 The domain model isn’t the only data in an Angular application. Components can create view data (also known as view model data or view models) to simplify templates and their interactions with the component.
 
 > Views/Templates
+
  Views, which are known as templates in Angular, are defined using HTML elements that are enhanced by data bindings. It is the data bindings that make Angular so flexible, and they transform HTML elements into the foundation for dynamic web applications.
 • Contain the logic and markup required to present data to the userTemplates should not 
 • Contain complex logic (this is better placed in a component or one of the other  Angular building blocks, such as directives, services, or pipes)
