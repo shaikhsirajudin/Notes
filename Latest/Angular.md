@@ -69,7 +69,24 @@ The domain model isn’t the only data in an Angular application. Components can
 
 • Contain logic that creates, stores, or manipulates the domain modelTemplates can contain logic, but it should be simple and used sparingly. Putting anything but the simplest method calls or expressions in a template makes the overall application harder to test and maintain.
 
+# Common Design Pitfalls :
+These are not coding errors but rather problems with the overall shape of the web app that prevent the project team from getting the benefits that Angular and the MVC pattern can provide.The most common problem is logic put into the wrong component such that it undermines the MVC separation of concerns.
 
+• Putting business logic in templates, rather than in components
+
+• Putting domain logic in components, rather than in the model
+
+• Putting data store logic in the client model when using a RESTful service
+
+The application still runs, but it will become harder to enhance and maintain over time.
+
+> Here are the three rules for where to put logic.
+
+•   Template logic should prepare data only for display and never modify the model.
+
+•   Component logic should never directly create, update, or delete data from the model.
+
+•   The templates and components should never directly access the data store.
 
 # What Is Angular 2?
 Angular 2 is the most advanced framework for the web. Angular has rebuilt the entire framework in TypeScript, 
@@ -2580,14 +2597,23 @@ Our root module declares our components, pipes and directives.
 Our root module imports common features from the Angular 2 BrowserModule, FormsModule, and HttpModule.
 Final Conclusions are,
 1.      The Use of NgModule.providers
-a.     Remove Component.providers
+
+    a.  Remove Component.providers
+
 2.      Use NgModule.declarations
-a.     Remove Component.directives/pipes
+
+    a.   Remove Component.directives/pipes
+
 3.      Keep a single scope
+
 4.      Use modules
-a.     Http, Forms, Router, and so on.
+
+    a.  Http, Forms, Router, and so on.
+
 5.      Make modules
+
 6.      Module as a Library
+
 
 # Angular 2 Modules vs. JavaScript Modules vs. Angular 1 Modules 
 
@@ -2904,3 +2930,18 @@ You are not sure what the context you are doing the rendering. You might be assu
 
 https://basarat.gitbooks.io/typescript/content/docs/types/discriminated-unions.html
 https://github.com/Microsoft/TypeScript/pull/9163
+
+# What is Void Elements?
+void or self-closing elements, and they are written without a separate end tag.
+```
+<input />
+```
+# Quoting Literal Values in Attributes
+Most of the time, the values of attributes are evaluated as JavaScript expressions
+```
+<td [ngSwitch]="item.done" >
+```
+There will be occasions when you need to provide a specific value rather than have Angular read a value from the data model, and this requires additional quoting to tell Angular that it is dealing with a literal value
+```
+<td [ngSwitch]="'Apples'" >
+```
