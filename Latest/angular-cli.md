@@ -112,7 +112,7 @@ environment files with default settings are created
 You will learn more about each of these aspects in the following sections.
 
 At this point you have a working Angular application and your new directory my-app looks like this:
-.
+```
 ├── README.md
 ├── e2e
 │   ├── app.e2e-spec.ts
@@ -143,7 +143,7 @@ At this point you have a working Angular application and your new directory my-a
 │   └── typings.d.ts
 ├── tsconfig.json
 └── tslint.json
-
+```
 
 Available Options
 ```
@@ -218,7 +218,9 @@ Each of the different sub-commands performs a different task and offers differen
 # Adding a new component
 
 To add a component with a selector app-site-header, run:
+```
 $ ng generate component site-header
+```
 installing component
   create src/app/site-header/site-header.component.css
   create src/app/site-header/site-header.component.html
