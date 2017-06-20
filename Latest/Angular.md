@@ -11,6 +11,10 @@ server-side implementation of the MVC pattern. You can see that the expectation 
 The client-side implementation of the MVC pattern gets its data from server-side components, usually  via a RESTful web service.
 ![client-side](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/mvc-client-side.PNG)
 
+ Angular uses slightly different terminology for its building blocks, which means that the MVC model implementation
+
+![angular-client-side](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/mvc-angular-client-side.PNG)
+
 > Models:
 
 M in MVC —contain the data that users work with. There are two broad types of model:
