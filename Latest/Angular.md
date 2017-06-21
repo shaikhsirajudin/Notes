@@ -3325,3 +3325,68 @@ let loc = new NameAndWeatherLocation.WeatherLocation("raining", "London");
 
 let other = new OtherName();
 ```
+
+# What is Type Annotations?
+Type annotations are expressed using a colon (the: character) followed by the type. There are two annotations in the example. The first specifies that the parameter to the convertFtoC method should be a number
+```
+export class TempConverter { 
+static convertFtoC(temp: number) : string {
+
+ return ((parseFloat(temp.toPrecision(2)) - 32) / 1.8).toFixed(1); 
+ }
+ }
+
+```
+> Type Annotating Properties and Variables, They can also be applied to properties and  variables, ensuring that all of the types used in an application can be verified by the compiler.
+# What is Tuples?
+Tuples are fixed-length arrays, where each item in the array is of a specified type. This is a vague-sounding description because tuples are so flexible.
+```
+let tuple: [string, string, string];
+tuple = ["London", "raining", TempConverter.convertFtoC("38")]
+console.log(`It is ${tuple[2]} degrees C and ${tuple[1]} in ${tuple[0]}`);
+```
+Tuples are defined as an array of types, and individual elements are accessed using array indexers.
+
+# What is Indexable Types
+Indexable types associate a key with a value, creating a map-like collection that can be used to gather related data items together.
+
+```
+let cities: { [index: string]: [string, string] } = {};
+
+cities["London"] = ["raining", TempConverter.convertFtoC("38")];
+
+cities["Paris"] = ["sunny", TempConverter.convertFtoC("52")];
+ 
+cities["Berlin"] = ["snowing", TempConverter.convertFtoC("23")];
+
+for (let key in cities) {
+ 
+console.log(`${key}: ${cities[key][0]}, ${cities[key][1]}`);
+}
+```
+# Different TypeScript Access Modifier Keywords?
+1) public: This keyword is used to denote a property or method that can be accessed anywhere. This is the default access protection if no keyword is used.
+2) private: This keyword is used to denote a property or method that can be accessed only within the class that defines it.
+3) protected: This keyword is used to denote a property or method that can be accessed only within the class that defines it or by classes that extend that class.
+```
+export class TempConverter 
+{ 
+    static convertFtoC(temp: any): string {
+         let value: number; 
+         if ((temp as number).toPrecision) { 
+             value = temp;
+              } else if ((temp as string).indexOf) {
+                   value = parseFloat(<string>temp); 
+                   } else {
+                        value = 0;
+                         } 
+                    return TempConverter.performCalculation(value).toFixed(1);
+                    } 
+private static performCalculation(value: number): number {
+ 
+    return (parseFloat(value.toPrecision(2)) - 32) / 1.8;
+ 
+    }
+}
+
+```
