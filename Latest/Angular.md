@@ -2945,3 +2945,164 @@ There will be occasions when you need to provide a specific value rather than ha
 ```
 <td [ngSwitch]="'Apples'" >
 ```
+
+# What is Rest function?
+ In javascript you can’t create two functions with the same name and different parameters and expect JavaScript to differentiate between them based on the arguments you provide when invoking the function. This is called
+polymorphism, and although it is supported in languages such as Java and C#, it isn’t available in JavaScript. Instead, if you define two functions with the same name, then the second definition replaces the first.
+There are two ways that you can modify a function to respond to a mismatch between the number of parameters it defines and the number of arguments used to invoke it.Default parameters deal with the situation where there are fewer arguments than parameters and allow you to provide a default value for the parameters for which there are no arguments.
+
+Using a Default Parameter
+```
+let myFunc = function (name, weather = "raining") {
+ console.log("Hello " + name + "."); console.log("It is " + weather + " today");};
+myFunc("Adam");
+```
+> Rest parameters are used to capture any additional arguments when a function is invoked with additional arguments
+Using a Rest Parameter 
+```
+let myFunc = function (name, weather, ...extraArgs) {
+ console.log("Hello " + name + "."); console.log("It is " + weather + " today"); 
+for (let i = 0; i < extraArgs.length; i++) {
+ 
+console.log("Extra Arg: " + extraArgs[i]);
+ 
+}
+};
+myFunc("Adam", "sunny", "one", "two", "three");
+```
+The rest parameter must be the last parameter defined by the function, and its name is prefixed with an ellipsis(three periods,...). The rest parameter is an array to which any extra arguments will be assigned. 
+
+# Functions as Arguments to Other Functions
+```
+let myFunc = function (nameFunction) { return ("Hello " + nameFunction() + ".");};
+console.log(myFunc(function () { return "Adam";}));
+```
+> Chaining Functions Calls
+```
+let myFunc = function (nameFunction) { return ("Hello " + nameFunction() + ".");};
+
+let printName = function (nameFunction, printFunction) {
+ 
+printFunction(myFunc(nameFunction));}printName(function () { return "Adam" }, console.log);
+```
+> Arrow Functions
+```
+let myFunc = (nameFunction) => ("Hello " + nameFunction() + ".");
+let printName = (nameFunction, printFunction) => printFunction(myFunc(nameFunction));
+printName(function () { return "Adam" }, console.log);
+```
+>VARIABLE CLOSURE :a function inside another function—creating inner and outer functions—then the inner function is able to access the outer functions variables, using a feature called closure.
+```
+let myGlobalVar = "apples";
+let myFunc = function(name) { let myLocalVar = "sunny"; 
+let innerFunction = function () {
+ 
+return ("Hello " + name + ". Today is " + myLocalVar + ".");
+ 
+}
+ 
+return innerFunction();
+};
+
+console.log(myFunc("Adam"));
+```
+
+# Template Strings 
+Template strings, which allow data values to be specified inline, which can help reduce errors and result in a more natural development experience. 
+>The traditional way to do this is through string concatenation
+```
+let message ="It is " + weather + " today"
+
+```
+> Template String 
+Template strings begin and end with backticks (the ` character), and data values are denoted by curly braces preceded by a dollar sign.
+
+```
+let message = `It is ${weather} today`;
+```
+# The Equality Operator (==, !=) vs. the Identity Operator (===, !==)
+
+```
+let firstVal = 5;
+let secondVal = "5";
+if (firstVal == secondVal) 
+{ console.log("They are the same");} 
+else 
+{ console.log("They are NOT the same");}
+```
+> the equality operator tests that values are the same irrespective of their type.
+```
+if (firstVal == secondVal) // is true
+```
+> If you want to test to ensure that the  values and  the types are the same, then you need to use the identity operator (===, three equal signs, rather than the two of the equality operator)
+```
+if (firstVal === secondVal) // is false
+```
+# Converting Numbers to Strings
+```
+let myData1 = (5).toString() + String(5);
+```
+# Enumerating the Contents of an Array
+```
+let myArray = [100, "Adam", true];
+for (let i = 0; i < myArray.length; i++) 
+{ console.log("Index " + i + ": " + myArray[i]);}
+console.log("---");
+myArray.forEach((value, index) => console.log("Index " + index + ": " + value));
+```
+# the Built-in Array Methods
+
+```
+concat(otherArray): This method returns a new array that concatenates the array on which it has been called with the array specified as the argument. Multiple arrays can be specified.
+
+join(separator): This method joins all the elements in the array to form a string. The argument specifies the character used to delimit the items.
+
+pop(): This method removes and returns the last item in the array.
+
+shift(): This method removes and returns the first element in the array.
+
+push(item): This method appends the specified item to the end of the array.
+
+unshift(item): This method inserts a new item at the start of the array.
+
+reverse(): This method returns a new array that contains the items in reverse order.
+
+slice(start,end): This method returns a section of the array.
+
+sort(): This method sorts the array. An optional comparison function can be used to perform custom comparisons.
+
+splice(index, count): This method removes count:  items from the array, starting at the specified index. The removed items are returned as the result of the method.
+
+unshift(item): This method inserts a new item at the start of the array.
+
+every(test): This method calls the test  function for each item in the array and returns true if the function returns true for all of them and false otherwise.
+
+some(test): This method returns true if calling the test function for each item in the array returns true at least once.
+
+filter(test): This method returns a new array containing the items for which the test function returns true.
+
+find(test): This method returns first item in the array for which the test function returns true.
+
+findIndex(test): This method returns the index of the first item in the array for which the test function returns true.
+
+foreach(callback): This method invokes the callback function for each item in the array, as described in the previous section.
+
+includes(value): This method returns true if the array contains the specified value.
+
+map(callback): This method returns a new array containing the result of invoking the callback function for every item in the array.
+
+reduce(callback): This method returns the accumulated value produced by invoking the callback function for every item in the array.
+
+
+```
+These methods can be chained together to process a data array
+```
+let products = [ { name: "Hat", price: 24.5, stock: 10 }, 
+{ name: "Kayak", price: 289.99, stock: 1 }, 
+{ name: "Soccer Ball", price: 10, stock: 0 }, 
+{ name: "Running Shoes", price: 116.50, stock: 20 }];
+
+let totalValue = products .filter(item => item.stock > 0) .reduce((prev, item) => prev + (item.price * item.stock), 0);
+
+console.log("Total value: $" + totalValue.toFixed(2));
+```
