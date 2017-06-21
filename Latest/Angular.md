@@ -3053,9 +3053,11 @@ myArray.forEach((value, index) => console.log("Index " + index + ": " + value));
 # the Built-in Array Methods
 
 ```
-concat(otherArray): This method returns a new array that concatenates the array on which it has been called with the array specified as the argument. Multiple arrays can be specified.
+concat(otherArray): This method returns a new array that concatenates the array on which it has been called with 
+the array specified as the argument. Multiple arrays can be specified.
 
-join(separator): This method joins all the elements in the array to form a string. The argument specifies the character used to delimit the items.
+join(separator): This method joins all the elements in the array to form a string. The argument specifies 
+the character used to delimit the items.
 
 pop(): This method removes and returns the last item in the array.
 
@@ -3069,29 +3071,38 @@ reverse(): This method returns a new array that contains the items in reverse or
 
 slice(start,end): This method returns a section of the array.
 
-sort(): This method sorts the array. An optional comparison function can be used to perform custom comparisons.
+sort(): This method sorts the array. An optional comparison function can be used to perform 
+custom comparisons.
 
-splice(index, count): This method removes count:  items from the array, starting at the specified index. The removed items are returned as the result of the method.
+splice(index, count): This method removes count:  items from the array, starting at the specified index. 
+The removed items are returned as the result of the method.
 
 unshift(item): This method inserts a new item at the start of the array.
 
-every(test): This method calls the test  function for each item in the array and returns true if the function returns true for all of them and false otherwise.
+every(test): This method calls the test  function for each item in the array and returns true if 
+the function returns true for all of them and false otherwise.
 
-some(test): This method returns true if calling the test function for each item in the array returns true at least once.
+some(test): This method returns true if calling the test function for each item in the array returns 
+true at least once.
 
-filter(test): This method returns a new array containing the items for which the test function returns true.
+filter(test): This method returns a new array containing the items for which the test function 
+returns true.
 
 find(test): This method returns first item in the array for which the test function returns true.
 
-findIndex(test): This method returns the index of the first item in the array for which the test function returns true.
+findIndex(test): This method returns the index of the first item in the array for which the test function 
+returns true.
 
-foreach(callback): This method invokes the callback function for each item in the array, as described in the previous section.
+foreach(callback): This method invokes the callback function for each item in the array, as described in 
+the previous section.
 
 includes(value): This method returns true if the array contains the specified value.
 
-map(callback): This method returns a new array containing the result of invoking the callback function for every item in the array.
+map(callback): This method returns a new array containing the result of invoking the callback function for every 
+item in the array.
 
-reduce(callback): This method returns the accumulated value produced by invoking the callback function for every item in the array.
+reduce(callback): This method returns the accumulated value produced by invoking the callback function for every 
+item in the array.
 
 
 ```
