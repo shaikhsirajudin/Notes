@@ -3390,3 +3390,195 @@ private static performCalculation(value: number): number {
 }
 
 ```
+# ngFor syntax and there use case.
+```
+<tr *ngFor="let item of getTodoItems(); let i = index"> 
+    <td>{{i + 1}}</td> 
+    <td>{{item.action}}</td> 
+    <td><input type="checkbox" [(ngModel)]="item.done" /></td>
+    <td [ngSwitch]="item.done"> 
+        <span *ngSwitchCase="true">Yes</span> 
+        <span *ngSwitchDefault>No</span> 
+    </td> 
+ </tr>
+```
+
+# optional parameters
+The question marks (the? characters) that follow the parameter names indicate that these are optional parameters that can be omitted when creating new objects using the Product class, which can be useful when writing applications where model object properties will be populated using HTML forms.
+```
+export class Product 
+{ 
+    constructor( 
+        public id?: number,
+        public name?: string,
+        public category?: string,
+        public description?: string,
+        public price?: number
+        ) {
+
+        }
+        
+        }
+```
+# Difference between Obervable and Injectable
+> What is the use of Injectable decorator?
+
+import the Injectable from the @angular/core!
+The @Injectable decorator has been applied to the StaticDataSource class. This decorator is used to tell Angular that this class will be used as a service, which allows other classes to access its functionality through a feature called dependency injection
+
+> What is an Observable?
+
+The Observable class is provided by the Reactive Extensions package, which is used by Angular to handle state changes in applications.Observable object is like a JavaScript Promise, in that it represents an asynchronous task that will produce a result at some point in the future. Angular exposes its use of Observable objects for some features, including making HTTP requests, and this is why the getProducts  method returns an Observable<Product[] rather than simply returning the data synchronously or using a Promise.
+```
+import { Injectable } from "@angular/core";
+import { Product } from "./product.model";
+import { Observable } from "rxjs/Observable";
+import "rxjs/add/observable/from";
+@Injectable()
+export class StaticDataSource { 
+    private products: Product[] = [ 
+    new Product(1, "Product 1", "Category 1", "Product 1 (Category 1)", 100), 
+    new Product(2, "Product 2", "Category 1", "Product 2 (Category 1)", 100), 
+    new Product(3, "Product 3", "Category 1", "Product 3 (Category 1)", 100), 
+    new Product(4, "Product 4", "Category 1", "Product 4 (Category 1)", 100), 
+    new Product(5, "Product 5", "Category 1", "Product 5 (Category 1)", 100), 
+    new Product(6, "Product 6", "Category 2", "Product 6 (Category 2)", 100), 
+    new Product(7, "Product 7", "Category 2", "Product 7 (Category 2)", 100), 
+    new Product(8, "Product 8", "Category 2", "Product 8 (Category 2)", 100), 
+    new Product(9, "Product 9", "Category 2", "Product 9 (Category 2)", 100), 
+    new Product(10, "Product 10", "Category 2", "Product 10 (Category 2)", 100), 
+    new Product(11, "Product 11", "Category 3", "Product 11 (Category 3)", 100), 
+    new Product(12, "Product 12", "Category 3", "Product 12 (Category 3)", 100), 
+    new Product(13, "Product 13", "Category 3", "Product 13 (Category 3)", 100),
+    new Product(14, "Product 14", "Category 3", "Product 14 (Category 3)", 100),
+    new Product(15, "Product 15", "Category 3", "Product 15 (Category 3)", 100), 
+   ]; 
+   getProducts(): Observable<Product[]> { 
+       return Observable.from([this.products]); 
+       }
+    }
+```
+# Should you really be putting templates in your code files? 
+A long time the commonly held belief was that you should keep your code and templates
+separate. While this might be easier for some teams, for some projects it adds overhead
+because you have switch between a lot of files.
+If our templates are shorter than a page, we much prefer to have the templates
+alongside the code (that is, within the .ts file). When we see both the logic and the view
+together, it’s easy to understand how they interact with one another.
+The biggest drawback to mixing views and our code is that many editors don’t support syntax
+highlighting of the internal strings (yet). Hopefully, we’ll see more editors supporting
+syntax highlighting HTML within template strings soon.
+
+# How anuglar htmp template comments
+```
+ <!--chat-page></chat-page> -->
+```
+# How to create property in ES6
+On the template notice that we added a new syntax: {{ name }}. The brackets are called “templatetags”
+(or “mustache tags”). Whatever is between the template tags will be expanded as an expression.
+Here, because the template is bound to our Component, the name will expand to the value of
+```
+class UserItemComponent implements OnInit {
+//it means name is the name of the attribute/Property we want to set and string is the type.    
+name:string;
+  constructor() {
+    this.name='anil';
+   }
+
+  ngOnInit() {
+  }
+
+}
+```
+# Array declaration in angular
+```
+names: string[];
+
+Thissyntax means that names is typed as an Array of strings. Another way to write this would be
+Array<string>.
+```
+# Explain the use of '*ngFor'
+The *ngFor syntax says we want to use the NgFor directive on this attribute, let name is called a reference. When we say "let name of names" we’re saying loop over each element in names and assign each one to a local variable called name. It is used to iterate over a list of items and generate a new tag for each one
+```
+<ul>
+<li *ngFor="let name of names">Hello {{ name }}</li>
+</ul>
+```
+# How we can pass input to child control?
+Angular provides a way to pass data into the child component by using the @Input annotation.
+
+In child component we need to and capability to accept the input like below
+
+```
+import { Component, OnInit ,
+  Input //Add this to get input from parent component
+} from '@angular/core';
+
+@Component({
+  selector: 'app-user-item',
+  templateUrl: './user-item.component.html',
+  styleUrls: ['./user-item.component.css']
+})
+export class UserItemComponent implements OnInit {
+
+@Input() name:string; // Add this to inherite the from the parent
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+```
+Pass an Input to child from parent
+Passing an Input values to a component we use the bracket [] syntax in our template - let’s take a look at
+our updated template:
+```
+<ul>
+  <app-user-item 
+  *ngFor="let itemName of names" [name]="itemName">
+  </app-user-item>
+</ul>
+```
+Notice that we’ve added a new attribute on our app-user-item tag: [name]="name" – in Angular
+when we add an attribute in brackets like [foo] we’re saying we want to pass a value to the input
+named foo on that component.
+
+# How we can Bootstrap angular application
+ • angular-cli.json specifies a "main" file, which in this case is main.ts
+• main.ts is the entry-point for our app and it bootstraps our application.
+• The bootstrap process boots an Angular module.
+• We use the AppModule to bootstrap the app. AppModule is specified in src/app/app.module.ts
+• AppModule specifies which component to use as the top-level component. In this case it is
+AppComponent
+• AppComponent has <app-user-list> tags in the template and this renders our list of users.
+```
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
+import { AppComponent } from './app.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { UserItemComponent } from './user-item/user-item.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    UserListComponent,
+    UserItemComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+Our @NgModule annotation has three keys: declarations, imports, and bootstrap.
+
+1. declarations: specifies the components that are defined in this module.
+2. imports: describes which dependencies this module has.
+3. bootstrap: tells Angular that when this module is used to bootstrap an app, we need to load the AppComponent component as the top-level component.
