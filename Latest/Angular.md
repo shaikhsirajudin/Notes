@@ -3550,7 +3550,7 @@ named foo on that component.
 • We use the AppModule to bootstrap the app. AppModule is specified in src/app/app.module.ts
 • AppModule specifies which component to use as the top-level component. In this case it is
 AppComponent
-• AppComponent has <app-user-list> tags in the template and this renders our list of users.
+• AppComponent has 'app-user-list' tags in the template and this renders our list of users.
 ```
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
