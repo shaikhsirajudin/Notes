@@ -3703,3 +3703,50 @@ Upsides
 2.Strong community.
 3.Very stable.
 4.Bootstrap 4 is coming with all missing links.
+
+# How can we attach the events to controls?
+In angular we can attach to the events by surrounding the event name in parenthesis (). For instance, to add a function call to the 'button' onClick event, we can pass it through like so:
+```
+<button (click)="addArticle()" class="ui positive right floated button">
+ Submit link
+</button>
+```
+It will call a function called addArticle(), which we defined on the AppComponent class.
+```
+export class AppComponent {
+addArticle(title: HTMLInputElement, link: HTMLInputElement): boolean {
+console.log(`Adding article title: ${title.value} and link: ${link.value}`);
+return false;
+ }
+ }
+```
+the addArticle() function can accept two arguments: the title and the link arguments. We need to change our template button to pass those into the call to the addArticle(). We do this by populating a template variable by adding a special syntax to the input elements on our form.
+
+```
+<form class="ui large form segment">
+  <h3 class="ui header">Add a Link</h3>
+
+  <div class="field">
+    <label for="title">Title:</label>
+    <input name="title" #newtitle>
+    <!-- changed -->
+  </div>
+  <div class="field">
+    <label for="link">Link:</label>
+    <input name="link" #newlink>
+    <!-- changed -->
+  </div>
+
+  <!-- added this button -->
+  <button (click)="addArticle(newtitle, newlink)" class="ui positive right floated button">
+Submit link
+</button> </form>
+
+```
+
+# How can we assigned html element/input controls values local variables/Binding inputs to values /What is resolve?
+the # (hash) to tell Angular to assign those tags to a local variable. By adding the #title and #link to the appropriate 'input' elements, we can pass them as variables into
+```
+<input name="title" #newtitle>
+```
+This markup tells Angular to bind this 'input' to the variable newtitle. The #newtitle syntax is called a resolve.
