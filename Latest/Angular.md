@@ -3750,3 +3750,394 @@ the # (hash) to tell Angular to assign those tags to a local variable. By adding
 <input name="title" #newtitle>
 ```
 This markup tells Angular to bind this 'input' to the variable newtitle. The #newtitle syntax is called a resolve.
+# Explain the component host
+a component host is the element this component is attached to. You’ll notice on our @Component we’re passing the option: host: { class: 'row' }. This tells Angular that on the host element (the app-article tag) we want to set the class attribute to have “row”.
+```
+
+@Component({
+  selector: 'app-article',
+  templateUrl: './article.component.html',
+  styleUrls: ['./article.component.css'],
+  host: {
+    class: 'row'
+  }
+})
+```
+# Using @HostBinding and @HostListener instead of host.
+@HostBinding and @HostListener are two decorators in Angular that can be really useful in custom directives. @HostBinding lets you set properties on the element or component that hosts the directive, and @HostListener lets you listen for events on the host element or component.
+
+Template
+```
+<p class="c_highlight">
+    Some text.
+</p>
+```
+And our directive
+```
+import {Component,HostListener,Directive,HostBinding} from '@angular/core';
+
+@Directive({
+    // this directive will work only if the DOM el has the c_highlight class
+    selector: '.c_highlight'
+ })
+export class HostDirective {
+
+  // we could pass lots of thing to the HostBinding function. 
+  // like class.valid or attr.required etc.
+
+  @HostBinding('style.backgroundColor') c_colorrr = "red"; 
+
+  @HostListener('mouseenter') c_onEnterrr() {
+   this.c_colorrr= "blue" ;
+  }
+
+  @HostListener('mouseleave') c_onLeaveee() {
+   this.c_colorrr = "yellow" ;
+  } 
+}
+```
+# How to respond to output events that occur on the host element the directive is attached to/
+# How to manipulate the host element by binding to it’s input properties.
+
+directives.ts
+```
+import {Component,HostListener,Directive,HostBinding,Input} from '@angular/core';
+
+@Directive({selector: '[myDir]'})
+export class HostDirective {
+  @HostBinding('attr.role') role = 'admin'; 
+  @HostListener('click') onClick() {
+   this.role=this.role=='admin'?'guest':'admin';
+  }
+
+}
+
+```
+AppComponent.ts
+```
+import { Component,ElementRef,ViewChild } from '@angular/core';
+import {HostDirective} from './directives';
+
+@Component({
+selector: 'my-app',
+template:
+  `
+  <p myDir>Host Element 
+  <br><br>
+  I'm(HostListener) listening to host's <b>click event</b> declared with @HostListener
+
+  <br><br>
+  I'm(HostBinding) binding <b>role property</b> to host element declared with @HostBinding and checking host's property binding updates, If any property change is found, I will update it.
+  </p>
+
+  <div> Open DOM of host element, click host element(in UI) and check role attribute(in DOM) </div> 
+    `,
+  directives: [HostDirective]
+})
+export class AppComponent {}
+
+```
+# Difference between Components vs  Directive
+1. Components
+For register component we use @Component meta-data annotation.
+Component is a directive which use shadow DOM to create encapsulate visual behavior called components.  Components are typically used to create UI widgets.
+Component is used to break up the application into smaller components.
+Only one component can be present per DOM element.
+@View decorator or templateurl template are mandatory in the component.
+Component is used to define pipes.
+viewEncapsulation can be define in components because they have views.
+e.g
+```
+import {Component, View} from '@angular/core';
+@Component({
+  selector: 'message'
+})
+@View({
+  template: `<h1>Hello Angular {{version}}</h1>`
+})
+class Message {
+  constructor(public version: string) {}
+}
+<message></message>
+```
+
+2. Directive
+For register directives we use @Directive meta-data annotation.
+Directives is used to add behavior to an existing DOM element. 
+Directive is use to design re-usable components.
+Many directive can be used in a per DOM element.
+Directive don’t have View.
+You can’t define Pipes in directive.
+Directive don’t have views. So you can’t use viewEncapsulation in directive.
+```
+import {Directive} from '@angular/core';
+@Directive({
+    selector: "[myDirective]",
+    hostListeners: {
+        'click': 'showMessage()'
+    }
+})
+
+class Message {
+    constructor() {}
+    showMessage() { console.log('Hello Directive'); }
+}
+<button myDirective>Click here</button>
+```
+# What are different kinds of directives in angular?
+Basically there are three types of directives in angular2 according to documentation.
+•Component
+•Structural directives
+•Attribute directives
+
+1. Component
+
+is also a type of directive with template,styles and logic part which is most famous type of directive among all in angular2. In this type of directive you can use other directives whether it is custom or builtin in the @component annotation like following:
+```
+@Component({
+    selector: "my-app"
+    directives: [custom_directive_here]
+})
+
+
+use this directive in your view as:
+<my-app></my-app>
+```
+2. Structural directives
+
+like *ngFor and *ngIf used for changes the DOM layout by adding and removing DOM elements. explained here
+
+3. Attribute directives
+
+are used to give custom behaviour or style to the existing elements by applying some functions/logics. like ngStyle is a attribute directive to give style dynamically to the elements. we can create our own directive and use this as Attribute of some predefined or custom elements, here is the example of simple directive:
+
+```
+import {Directive, ElementRef, Renderer, Input} from 'angular2/core';
+
+@Directive({
+  selector: '[Icheck]',
+})
+export class RadioCheckbox {
+   custom logic here,,,,
+}
+
+and we have to use this in the view like below:
+<span Icheck>HEllo Directive</span>
+```
+# How to create Components, Directives, Pipes and Services with Angular2
+ 1. Component
+
+A component is what you used to call a directive in AngularJS. It contains a template, styles, a list of injectables (directives, services) and a selector.
+```
+import {Component, View, NgFor} from 'angular2/core';
+ 
+@Component({
+    selector: "navbar",
+    directives: [NgFor],
+    styles: [`
+        li{
+          color: gray;
+        }
+    `],
+    template: `
+        <h2>Democratic Party presidential candidates</h2>
+        <ul>
+            <li *ngFor="#item of items; #i = index">{{item}} {{i}}</li>
+        </ul>
+    `
+})
+export class Navbar {
+    items: Array<String>
+ 
+    constructor() {
+      this.items = [
+        "Hillary Clinton",
+        "Martin O'Malley",
+        "Bernie Sanders"
+      ]
+    }
+ 
+    ngOnInit() {
+        console.log('[Component] navbar ngOnInit');
+    }
+}
+
+-- You can now use your component by inserting it into your html page:
+<navbar></navbar>
+
+```
+2. Lifecycle hooks
+we used the ngOnInit Class method to dump a message [Component] navbar ngOnInit in the console. It is called only when the component is initiated. It exists several hooks that make your life easier when it comes to plug yourself in between component life phases.
+◦ngOnChanges (if any bindings have changed)
+◦ngOnInit (after the first check only)
+◦ngOnDestroy (at the very end before destruction) Implement this interface to get notified when any data-bound property of your directive changes
+◦ngDoCheck
+◦ngAfterContentInit
+◦ngAfterContentChecked
+◦ngAfterViewInit
+◦ngAfterViewChecked
+```
+@Component({selector: 'my-cmp', template: `...`})
+class MyComponent implements OnChanges {
+  @Input()
+  prop: number;
+
+  ngOnChanges(changes: SimpleChanges) {
+    // changes.prop contains the old and the new value...
+  }
+}
+```
+3. Directive
+
+Directives allow you to attach behaviour to elements in the DOM. It is also what you used to call a directive in AngularJS, but without a proper view. You can therefore place as many directives as you want on one DOM-element. This is not possible with components.
+
+```
+import {Directive, ElementRef, Renderer} from 'angular2/core';
+ 
+@Directive({
+  selector: '[redify]'
+})
+export class Redify {
+  constructor(private _element: ElementRef, private renderer: Renderer) {
+      renderer.setElementStyle(_element, 'color', 'red');
+  }
+}
+
+```
+Then we can add the redify directive to our component:
+```
+import {Redify} from 'path/to/your/Redify/directive';
+ 
+@Component({
+    selector: "navbar",
+    directives: [NgFor, Redify],
+    ...
+    template: `
+        <li redify *ngFor="#item of items; #i = index">{{item}} {{i}}</li>
+    `
+})
+
+```
+Another example of directive
+```
+@Directive({selector: '[mySpy]'})
+export class SpyDirective implements OnInit, OnDestroy {
+
+  constructor(private logger: LoggerService) { }
+
+  ngOnInit()    { this.logIt(`onInit`); }
+
+  ngOnDestroy() { this.logIt(`onDestroy`); }
+
+  private logIt(msg: string) {
+    this.logger.log(`Spy #${nextId++} ${msg}`);
+  }
+}
+```
+hooking into component
+```
+<div *ngFor="let hero of heroes" mySpy class="heroes">
+  {{hero}}
+</div>
+```
+4. Pipe
+
+A pipe in Angular2 is the equivalent of filters in AngularJS. As in AngularJS, pipes can be stateless (pure functions, not reevaluated) or stateful (has dependencies that can modify the output).
+
+```
+import {Pipe} from 'angular2/core';
+ 
+@Pipe({
+  name: 'lastnameUppercase'
+})
+export class LastnameUppercase {
+  transform(v, args) {
+    return `${v.split(' ')[0]} ${v.split(' ')[1].toUpperCase()}`;
+  }
+}
+
+```
+Then let’s add this pipe to our navbar component in order to consume it.
+```
+
+import {LastnameUppercase} from './pipes';
+@Component({
+    selector: "navbar",
+    ...
+    pipes: [LastnameUppercase],
+    template: `
+        <li redify *ngFor="#item of items; #i = index">{{item | lastnameUppercase}} {{i}}</li>
+    `
+})
+```
+5. Built in pipes
+
+In Angular2 you have access to the following pipes for free:
+◦currency
+◦date
+◦uppercase
+◦json
+◦limitTo
+◦lowercase
+◦async
+◦decimal
+◦percent
+
+6. Service
+
+Now that we saw how to create a component, a directive and a pipe, we are going to clean up our code and separate the data retrieval (the presidential candidates) into a service.
+```
+import {Injectable} from 'angular2/core';
+ 
+@Injectable()
+export class PresidentialCandidate {
+ 
+    constructor() {}
+ 
+    getRepublicainList() {
+        return [
+        "Donald Trump",
+        "Rand Paul",
+        "Ben Carson"
+      ]
+    }
+ 
+    getDemocraticList() {
+        return [
+        "Hillary Clinton",
+        "Martin O'Malley",
+        "Bernie Sanders"
+      ]
+    }
+}
+
+```
+Now let’s consume this service on our navbar component:
+```
+import {PresidentialCandidate} from './services';
+ 
+@Component({
+    selector: "navbar",
+    providers: [PresidentialCandidate],
+    ...
+    template: `
+        <h2>Democratic Party presidential candidates</h2>
+        <ul>
+        <li redify *ngFor="#item of democrats; #i = index">{{item | lastnameUppercase}} {{i}}</li>
+        </ul>
+        <h2>Republican Party presidential candidates</h2>
+        <ul>
+        <li redify *ngFor="#item of republicans; #i = index">{{item | lastnameUppercase}} {{i}}</li>
+        </ul>
+    `
+})
+export class Navbar {
+    democrats: Array<String>
+    republicans: Array<String>
+ 
+    constructor(private presidentialService :PresidentialCandidate) {
+      this.democrats = presidentialService.getDemocraticList();
+      this.republicans = presidentialService.getRepublicainList();
+    }
+}
+``` 
