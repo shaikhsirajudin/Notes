@@ -4141,3 +4141,29 @@ export class Navbar {
     }
 }
 ``` 
+# How can we pass array item to components?
+from parent componet pass it by using square bracket
+```
+<div class="ui grid posts">
+  <app-article *ngFor="let article of articles" [article]="article">
+
+  </app-article>
+
+```
+Access those elements in child component by using Input.
+```
+import {Component, OnInit, HostBinding,Input} from '@angular/core';
+import {Article} from './article.model';
+
+@Component({selector: 'app-article', templateUrl: './article.component.html', styleUrls: ['./article.component.css']})
+export class ArticleComponent implements OnInit {
+ @Input() article : Article;
+  @HostBinding('class')class = 'red';
+ constructor() {
+    this.article = new Article('Angular 2', 'http://angular.io', 10);
+  }
+
+
+
+
+```
