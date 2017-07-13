@@ -140,3 +140,17 @@ var template = ` <div>
 • Importing and Exporting Modules
 • Annotations
 • Destructuring
+
+# What is Fat Arrow Functions?
+Fat arrow => functions are a shorthand notation for writing functions.
+```
+// ES5-like example
+var data = ['Alice Green', 'Paul Pfifer', 'Louis Blakenship'];
+data.forEach(function(line) { console.log(line); });
+```
+However with the => syntax we can instead rewrite it like so
+```
+// Typescript example
+var data: string[] = ['Alice Green', 'Paul Pfifer', 'Louis Blakenship'];
+data.forEach( (line) => console.log(line) );
+```
