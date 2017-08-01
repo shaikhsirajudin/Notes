@@ -4167,3 +4167,21 @@ export class ArticleComponent implements OnInit {
 
 
 ```
+
+# Approach to the "Inputs and Outputs" to Components
+Data flows in to your component via input bindings and events flow out of your component through output bindings.
+[squareBrackets] pass inputs
+```
+div class="inventory-app">
+
+    <products-list [productList]="products" (onProductSelected)="productWasSelected($event)">
+    </products-list>
+</div>
+```
+
+you can pass data into child components via inputs.
+```
+<products-list
+  [productList]="products"
+
+```

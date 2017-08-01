@@ -382,6 +382,10 @@ However, when your application is ready for production, you will need real files
 To build and bundle your application for deployment, run:
 ```
 $ ng build
+
+-- Without map files
+
+$ ng build --no-sourcemap
 ```
 # What happens behind the scenes is:
 1Angular CLI loads its configuration from .angular-cli.json
