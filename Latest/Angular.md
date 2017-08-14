@@ -4299,6 +4299,22 @@ In Angular, two-way binding is denoted by [()], descriptively referred to as a "
 The *ngFor directive in Angular is similar to the ng-repeat directive in AngularJS. It repeats the associated DOM element for each item in the specified collection. More accurately, it turns the defined element (<tr> in this example) and its contents into a template and uses that template to instantiate a view for each item in the list.
 Notice the other syntax differences: The (*) before ngFor is required; the let keyword identifies movie as an input variable; the list preposition is of, not in.
 
+# Another way for defining ngFor syntax to get index.
+[Reference](https://angular.io/guide/template-syntax#microsyntax)
+```
+<!-- Angular -->
+<ul>
+  <li *ngFor="let item of items; let i = index">
+    {{i}} {{item}}
+  </li>
+</ul>
+
+```
+The new syntax has a couple of things to note. The first is *ngFor. The * is a shorthand for using the new Angular template syntax with the template tag. This is also called a structural Directive. It is helpful to know that * is just a shorthand to explicitly defining the data bindings on a template tag. The template tag prevents the browser from reading or executing the code within it.
+Looking back at our ngFor the next interesting thing to note is let item of items;. The let key is part of the Angular 2 template syntax. let creates a local variable that can be referenced anywhere in our template. So in our case we are creating a local variable let item.
+
+The let i creates a template local variable to get the index of the array. If you do not need access to the index in your list the ngFor simply boils down to the following code.
+
 # Bind to the hidden property
 ```
 <h3 [hidden]="!favoriteHero">
