@@ -4185,3 +4185,252 @@ you can pass data into child components via inputs.
   [productList]="products"
 
 ```
+# Bindings/interpolation
+A template expression in curly braces still denotes one-way binding. This binds the value of the element to a property of the component. The context of the binding is implied and is always the associated component, so it needs no reference variable.
+```
+Your favorite hero is: {{favoriteHero}}
+```
+# Pipes
+The pipe (|) character to filter output, but now you call them pipes. Many (but not all) of the built-in filters from AngularJS are built-in pipes in Angular.
+
+```
+<td>{{movie.title | uppercase}}</td>
+```
+# Input variables
+Angular has true template input variables that are explicitly defined using the let keyword.
+```
+<tr *ngFor="let movie of movies">
+  <td>{{movie.title}}</td>
+</tr>
+```
+# Bootstrapping
+//main.ts
+```
+
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app/app.module';
+
+platformBrowserDynamic().bootstrapModule(AppModule);
+```
+//app.module.ts
+```
+import { NgModule }      from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppComponent }  from './app.component';
+
+@NgModule({
+  imports: [ BrowserModule ],
+  declarations: [ AppComponent ],
+  bootstrap: [ AppComponent ]
+})
+export class AppModule { }
+
+```
+Angular doesn't have a bootstrap directive. To launch the app in code, explicitly bootstrap the application's root module (AppModule) in main.ts and the application's root component (AppComponent) in app.module.ts.
+
+# ngClass
+```
+<div [ngClass]="{'active': isActive}">
+<div [ngClass]="{'active': isActive,
+                 'shazam': isImportant}">
+<div [class.active]="isActive">
+
+
+```
+the ngClass directive works similarly. It includes/excludes CSS classes based on an expression.
+In the first example, the active class is applied to the element if isActive is true.
+You can specify multiple classes, as shown in the second example.
+Angular also has class binding, which is a good way to add or remove a single class, as shown in the third example.
+
+# Bind to the click event
+```
+ 
+<button (click)="toggleImage()">
+<button (click)="toggleImage($event)">
+  
+```
+It one-way binding from the template view to the component using event binding.
+For event binding, define the name of the target event within parenthesis and specify a template statement, in quotes, to the right of the equals. Angular then sets up an event handler for the target event. When the event is raised, the handler executes the template statement.
+In the first example, when a user clicks the button, the toggleImage() method in the associated component is executed.
+The second example demonstrates passing in the $event object, which provides details about the event to the component.
+
+# Component decorator
+```
+@Component({
+  selector: 'movie-list',
+  templateUrl: './movie-list.component.html',
+  styleUrls: [ './movie-list.component.css' ],
+})
+
+```
+The template no longer specifies its associated controller. Rather, the component specifies its associated template as part of the component class decorator.
+
+# Bind to the hidden property
+In Angular, you use property binding; there is no built-in hide directive.
+# Bind to the href property
+```
+<a [href]="angularDocsUrl">Angular Docs</a>   
+
+```
+Angular uses property binding; there is no built-in href directive. Place the element's href property in square brackets and set it to a quoted template expression.
+In Angular, href is no longer used for routing. Routing uses routerLink
+
+# *ngIf
+```
+<table *ngIf="movies.length">
+
+```
+The *ngIf directive in Angular works the same as the ng-if directive in AngularJS. It removes or recreates a portion of the DOM based on an expression.
+In this example, the <table> element is removed from the DOM unless the movies array has a length.
+The (*) before ngIf is required in this example.
+
+# ngModel
+```
+<input [(ngModel)]="favoriteHero" />
+
+```
+In Angular, two-way binding is denoted by [()], descriptively referred to as a "banana in a box". This syntax is a shortcut for defining both property binding (from the component to the view) and event binding (from the view to the component), thereby providing two-way binding.
+
+# *ngFor
+```
+<tr *ngFor="let movie of movies">
+```
+The *ngFor directive in Angular is similar to the ng-repeat directive in AngularJS. It repeats the associated DOM element for each item in the specified collection. More accurately, it turns the defined element (<tr> in this example) and its contents into a template and uses that template to instantiate a view for each item in the list.
+Notice the other syntax differences: The (*) before ngFor is required; the let keyword identifies movie as an input variable; the list preposition is of, not in.
+
+# Bind to the hidden property
+```
+<h3 [hidden]="!favoriteHero">
+  Your favorite hero is: {{favoriteHero}}
+</h3>
+```
+Angular uses property binding; there is no built-in show directive. For hiding and showing elements, bind to the HTML hidden property.
+To conditionally display an element, place the element's hidden property in square brackets and set it to a quoted template expression that evaluates to the opposite of show.
+In this example, the div element is hidden if the favoriteHero variable is not truthy.
+
+# Bind to the src property
+```
+<img [src]="movie.imageurl">
+```
+Angular uses property binding; there is no built-in src directive. Place the src property in square brackets and set it to a quoted template expression.
+
+# ngStyle
+```
+<div [ngStyle]="{'color': colorPreference}">
+<div [style.color]="colorPreference">
+```
+In Angular, the ngStyle directive works similarly. It sets a CSS style on an HTML element based on an expression.
+In the first example, the color style is set to the current value of the colorPreference variable.
+Angular also has style binding, which is good way to set a single style. This is shown in the second example.
+For more information on style binding, see the Style binding section of the Template Syntax page.
+For more information on the ngStyle directive, see NgStyle section of the Template Syntax page.
+
+# ngSwitch
+```
+<span [ngSwitch]="favoriteHero &&
+               checkMovieHero(favoriteHero)">
+  <p *ngSwitchCase="true">
+    Excellent choice!
+  </p>
+  <p *ngSwitchCase="false">
+    No movie, sorry!
+  </p>
+  <p *ngSwitchDefault>
+    Please enter your favorite hero.
+  </p>
+</span>
+
+```
+In Angular, the ngSwitch directive works similarly. It displays an element whose *ngSwitchCase matches the current ngSwitch expression value.
+In this example, if favoriteHero is not set, the ngSwitch value is null and *ngSwitchDefault displays, "Please enter ...". If favoriteHero is set, the app checks the movie hero by calling a component method. If that method returns true, the app selects *ngSwitchCase="true" and displays: "Excellent choice!" If that methods returns false, the app selects *ngSwitchCase="false" and displays: "No movie, sorry!"
+The (*) before ngSwitchCase and ngSwitchDefault is required in this example.
+
+# Filters/pipes
+Angular pipes provide formatting and transformation for data in the template, similar to AngularJS filters. Many of the built-in filters in AngularJS have corresponding pipes in Angular.
+
+## currency
+```
+<td>{{movie.price | currency:'USD':true}}</td>
+```
+The Angular currency pipe is similar although some of the parameters have changed.
+## date
+```
+<td>{{movie.releaseDate | date}}</td>
+ 
+```
+The Angular date pipe is similar.
+## json
+```
+<pre>{{movie | json}}</pre>
+```
+The Angular json pipe does the same thing.
+
+## slice
+```
+<tr *ngFor="let movie of movies | slice:0:2">
+```
+The SlicePipe does the same thing but the order of the parameters is reversed, in keeping with the JavaScript Slice method. The first parameter is the starting index; the second is the limit. As in AngularJS, coding this operation within the component instead could improve performance.
+## lowercase
+
+```
+<td>{{movie.title | lowercase}}</td>
+  
+```
+The Angular lowercase pipe does the same thing.
+## number
+```
+<td>{{movie.starRating | number}}</td>
+<td>{{movie.starRating | number:'1.1-2'}}</td>
+<td>{{movie.approvalRating | percent: '1.0-2'}}</td>
+```
+The Angular number pipe is similar. It provides more functionality when defining the decimal places, as shown in the second example above.
+Angular also has a percent pipe, which formats a number as a local percentage as shown in the third example.
+
+
+# Modules/controllers/components
+In both AngularJS and Angular, modules help you organize your application into cohesive blocks of functionality.
+In AngularJS, you write the code that provides the model and the methods for the view in a controller. In Angular, you build a component.
+Because much AngularJS code is in JavaScript, JavaScript code is shown in the AngularJS column. The Angular code is shown using TypeScript.
+## NgModules
+```
+import { NgModule }      from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppComponent }  from './app.component';
+
+@NgModule({
+  imports: [ BrowserModule ],
+  declarations: [ AppComponent ],
+  bootstrap: [ AppComponent ]
+})
+export class AppModule { }
+```
+NgModules, defined with the NgModule decorator, serve the same purpose:
+imports: specifies the list of other modules that this module depends upon  declaration: keeps track of your components, pipes, and directives.
+
+## Component decorator
+```
+@Component({
+  selector: 'movie-list',
+  templateUrl: './movie-list.component.html',
+  styleUrls: [ './movie-list.component.css' ],
+})
+
+```
+Angular adds a decorator to the component class to provide any required metadata. The @Component decorator declares that the class is a component and provides metadata about that component such as its selector (or tag) and its template.
+This is how you associate a template with logic, which is defined in the component class.
+
+## Component class
+```
+export class MovieListComponent {
+}
+```
+In Angular, you create a component class.
+NOTE: If you are using TypeScript with AngularJS, you must use the export keyword to export the component class.
+## Dependency injection
+```
+constructor(movieService: MovieService) {
+}
+```
+In Angular, you pass in dependencies as arguments to the component class constructor. This example injects a MovieService. The first parameter's TypeScript type tells Angular what to inject, even after minification.
