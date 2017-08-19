@@ -4450,3 +4450,338 @@ constructor(movieService: MovieService) {
 }
 ```
 In Angular, you pass in dependencies as arguments to the component class constructor. This example injects a MovieService. The first parameter's TypeScript type tells Angular what to inject, even after minification.
+
+
+# Which languages are used to write Angular 2 applications
+
+Angular 2 applications can be written in any of the following languages:
+•Typescript   Prefered Language for developing Angular 2 applications.
+•Javascript
+•Dart
+
+We don’t have to worry about the JavaScript or ECMAScript version as its the compiler’s responsibility to manage the version issues.
+
+As Angular 2 is written in TypeScript so it is preferable to write Angular 2 applications in TypeScript or ECMA6. Typescript is the prefered language to use for developing Angular 2 applications.
+
+# Components
+
+A component is a building block of Angular 2 application.Angular 2 application is created as a tree of components.A component is declared by using @Component() decorator function.
+```
+@Component({
+selector: 'first-component',
+template: `<p>Hello from first component</p>`
+})
+export class FirstComponent {
+}
+```
+When we declare Component we define metadata for component.In this example we have defined selector and template metadata for the FirstComponent component.
+
+# Modules
+
+Angular apps consists of different modules.Modules consists of collection of components,directives and services.
+Angular modules are created using the NgModules() decorator function.
+ Every Angular application consists of a root module apart from other feature modules.Every modules is created using NgModule decorator function.
+
+# Template
+
+View of a component is declared by using the template.It is the template which is rendered.
+We can define template in line in the component template metadata property:
+```
+@Component({
+selector: 'hello-component',
+template: '{{Hello}}'
+})
+
+``` 
+We can also define templates in separate html file and use the templateUrl property in component:
+```
+@Component({
+selector: 'hello-component',
+templateUrl: './hello.html'
+})
+```
+# Data bindings which are supported in Angular 2
+# Interpolation   
+In interpolation binding we specify the binding using expressions
+```
+<h2>{{employee.name}}</h2>
+```
+Property Binding  
+# In property binding we bind the custom property using square brackets
+```
+<h2 [innerText]="employee.name"></h2>
+```
+# Event Binding   
+In event binding we enclose the event name in parenthesis and assign the event handler method to the event:
+```
+<button (click)="gotoDetail()">View Details</button>
+```
+# Two-way Binding  
+In Angular 2 we define two way binding as:
+```
+<input [(ngModel)]="employee.name"/>
+```
+# How Angular 2 application is launched
+There is a single root module in every Angular application.Angular application is launched by bootstrapping this root module.
+
+# What is router-outlet
+The route which is matched by the router is used display the component.The template defined by the component is displayed in an area defined by the router-outlet
+
+# NgModule
+Angular module is class decorated with the @NgModule decorator function.
+
+Its a decorator function which has one argument ,a metadata object with properties describing the module.
+ Some of its important properties are:
+•declarations views which belong to this module.
+•exports declarations which are visible in the components of other modules.
+•imports other modules whose classes are needed in this module.
+•providers services which are provided by this module
+•bootstrap This property is set by the root module
+```
+@NgModule({ 
+providers: list of providers, 
+exports:list of components, 
+imports:list of components })
+```
+# What are the advantages of Angular 2 over Angular 1
+
+Better performance because of these reasons
+•Better change detection.
+•Ahead of Time compilation (AOT) improves rendering speed.
+•Lazy Loading.
+•TypeScript can be used for developing Angular 2 applications.
+•Better syntax and application structure.
+
+# What is lazy loading in Angular2
+
+Angular 2 application is a collection of modules and components.There are two ways we can load Modules:
+•Eager Module loading  Loading module at application startup
+•Lazy loading  Loading Module only when required
+
+Module which is required can be loaded instead of loading all the modules at application initialization.This has the obvious advantage of improving the application startup time.
+We enable lazy loading in Angular 2 by using the loadChildren property in route
+```
+{ path: 'URL', loadChildren: 'modulePath#ClassName' }
+```
+ # AOT compilation
+
+AOT compilation stands for  Ahead Of Time compilation, in it angular compiles  components to native JavaScript and HTML during the build time instead of runtime.
+
+This drastically improves the performance of the Angular 2 application.With Just in time compilation ,the compilation happens on the users browser at runtime.In the case of Ahead of time compilation ,the application is compiled and optimized at the build time instead of run time.So this improves the rendering of the application UI.This approach should be used in production builds.
+
+# What is a structural directive?
+
+Structural directives are responsible for HTML layout. They shape or reshape the DOM's structure, typically by adding, removing, or manipulating elements.
+•How do you identify a structural directive in html?
+```
+By the '*' before the directive name as in  <p *ngIf="true"> 
+```
+# When creating your own structural directives, how would you decide on hiding or removing an element? 
+# What would be the advantages or disadvantages of choosing one method rather than the other?
+
+The difference between hiding and removing doesn't matter for a simple paragraph. It does matter when the host element is attached to a resource intensive component. Such a component's behavior continues even when hidden. The component stays attached to its DOM element. It keeps listening to events. Angular keeps checking for changes that could affect data bindings. Whatever the component was doing, it keeps doing.
+
+Although invisible, the component—and all of its descendant components—tie up resources. The performance and memory burden can be substantial, responsiveness can degrade, and the user sees nothing.
+
+On the positive side, showing the element again is quick. The component's previous state is preserved and ready to display. The component doesn't re-initialize—an operation that could be expensive. So hiding and showing is sometimes the right thing to do.
+
+But in the absence of a compelling reason to keep them around, your preference should be to remove DOM elements that the user can't see and recover the unused resources with a structural directive like NgIf .
+
+# How do you transition between two states:
+```
+  animations: [
+    trigger('heroState', [
+      state('inactive', style({
+        backgroundColor: '#eee',
+        transform: 'scale(1)'
+      })),
+      state('active',   style({
+        backgroundColor: '#cfd8dc',
+        transform: 'scale(1.1)'
+      })),
+      transition('inactive => active', animate('100ms ease-in')),
+      transition('active => inactive', animate('100ms ease-out'))
+    ])
+  ]
+  ```
+# How do you define a wildcard state?
+```
+* => *
+* => active
+
+```
+# What does this line do:
+```
+@HostBinding('class.valid') isValid;
+```
+Binds a host element property (here, the CSS class valid) to a directive/component property (isValid).
+
+# What would be a good use for NgZone service?
+The most common use of this service is to optimize performance when starting a work consisting of one or more asynchronous tasks that don't require UI updates or error handling to be handled by Angular. Such tasks can be kicked off via runOutsideAngular and if needed, these tasks can reenter the Angular zone via run.
+
+# Why would you use renderer methods instead of using native element methods?
+You are not sure what the context you are doing the rendering. You might be assuming the browser compilation and native DOM methods to be available but that might not be the case. It is better to be safe and let Angular handle the manupulation for elements.
+
+
+# What is the minimum definition of a component?
+# What is the difference between a component and a directive?
+# How do components communicate with each other?
+# How do you create two way data binding in Angular?
+# How would you create a component to display error messages throughout your application?
+# What does a lean component mean to you?
+Components don't fetch data from the server, validate user input, or log directly to the console. They delegate such tasks to services. A component's job is to enable the user experience and nothing more. It mediates between the view (rendered by the template) and the application logic (which often includes some notion of a model). A good component presents properties and methods for data binding. It delegates everything nontrivial to services.
+
+
+# What is the purpose of NgModule?
+# How do you decide to create a new NgModule?
+# What are the attributes that you can define in an NgModule annotation?
+# What is the difference between a module's forRoot() and forChild() methods and why do you need it?
+# What would you have in a shared module?
+# What would you not put shared module?
+# What module would you put a singleton service whose instance will be shared throughout the application (e.g. ExceptionService andLoggerService)?
+# What is the purpose of exports in a NgModule?
+# Why is it bad if SharedModule provides a service to a lazy loaded module?
+
+This question arose in the Angular Module chapter when we discussed the importance of keeping providers out of the SharedModule.
+
+Suppose we had listed the UserService in the module's providers (which we did not). Suppose every module imports this SharedModule (which they all do).
+
+When the app starts, Angular eagerly loads the AppModule and the ContactModule.
+
+Both instances of the imported SharedModule would provide the UserService. Angular registers one of them in the root app injector (see above). Then some component injects UserService, Angular finds it in the app root injector, and delivers the app-wide singleton UserService. No problem.
+
+Now consider the HeroModule which is lazy loaded!
+
+When the router lazy loads the HeroModule, it creates a child injector and registers the UserService provider with that child injector. The child injector is not the root injector.
+
+When Angular creates a lazy HeroComponent, it must inject a UserService. This time it finds a UserService provider in the lazy module's child injector and creates a new instance of the UserService. This is an entirely different UserService instance than the app-wide singleton version that Angular injected in one of the eagerly loaded components.
+
+# What is the diffrence between RouterModule.forRoot() vs RouterModule.forChild()? Why is it important?
+•forRoot creates a module that contains all the directives, the given routes, and the router service itself.
+•forChild creates a module that contains all the directives and the given routes, but does not include the router service. It registers the routers and uses the router service created at the root level.
+•This is important because location is a mutable global property. Having more than one object manipulating the location is not a good idea.
+
+# How does loadChildren property work?
+
+```
+const routes: Routes = [
+  ...,
+  { path: 'edit', loadChildren: 'app/edit/edit.module#EditModule' },
+ 
+  ...
+]
+```
+•In the above example, loadChildren tells the router to fetch the EditModule bundle assigned to it when the user visits '/edit' url. (To be more precise, it will ask the module loader to find and load it.)
+•Router will get the router configuration from edit module.
+•It merges EditModule router configuration with the main application configuration.
+•Activate all the needed components.
+
+# Do you need a Routing Module? Why/not?
+
+Yes if the user was expected to navigate between different URLs. The Routing Module interprets the browser's URL as an instruction to load a specific component and its view. The application has to have its main router configured and bootstraped by passing an array of routes to  RouterModule.forRoot() , and since this returns a module, it has to be added to the  imports  meta property in the main application module.
+
+The RouterModule:
+•separates our routing concerns from our feature module
+•provides a module to replace or remove when testing our feature module
+•provides a common place for require routing service providers including guards and resolvers
+•is not concerned with feature module declarations
+
+# When does a lazy loaded module is loaded?
+
+The  loadChildren  property is used by the Router to map to a bundle and lazy-load it. The router will take our  loadChildren  string and dynamically load in a module, add its routes as child routes to the configuration dynamically and then load the requested route. This will only happen when the route is first requested and the module will be immediately be available for subsequent requests.
+
+Note that lazy-loaded modules should be removed from modules tehy were part of since they will be loaded on demand.
+
+# Below link doesn't work. Why? How do I fix it?
+```
+<div routerLink='product.id'></div>
+```
+The routerLink should specify a defined path in the routing configuration and the required path parameter ( product.id ). The code above tries to visit a specific product page, so it should be done using Link Parameters Array:
+```
+<div [routerLink]="['/product', product.id]"></div>
+```
+The above is correct in the case of having  product/:id  as a path in the application router configuration.
+
+# Can you explain the difference between ActivatedRoute and RouterState?
+
+After the end of each successful navigation lifecycle, the router builds a tree of ActivatedRoute objects that make up the current state of the router. We can access the current RouterState from anywhere in our application using the Router service and the routerState property.
+
+RouterState is the current state of the router including a tree of the currently activated routes in our application along convenience methods for traversing the route tree.
+
+# What is the use case of services?
+
+The main use case of Services is to move duplicated code into a single location, acting like a Singleton. It encourages DRY (Don't Repeat Yourself), which is a principle in Software Engineering, aimed at reducing repitition of information or code in a multi-layered architecture.
+
+Services can serve as a method of interaction between an application and a data store. It also can provide communication channels between directives, as well as any other business logic access.
+
+# How are the services injected to your application?
+
+There are two ways to inject a service into your application:
+•Per Application: Provides the service at an application level
+•Per Component: Provides the service at a component level (and all child components)
+
+Providing a service at an application level or a higher level creates a single instance of that service and shares it with all sub directives. This is useful in the case of sharing properties or state between service holders.
+
+Providing a service for every different component would create an instance for each of the components with separate resources.
+
+Injecting a service can be done by importing the service and specifying it in the  NgModule 's metadata array preperty  providers , and inject it into the directive using it via the constructor. To inject a service into another service, annotate the target service class with  @Injectable .
+```
+//annotation used for services injecting other services
+@Injectable()
+export class MessageService {
+	//injected service
+	constructor(private errorService: ErrorService){}
+}
+
+```
+
+# Why is it a bad idea to create a new service in a component like the one below?
+
+let service = new DataService();
+
+That's a bad idea for several reasons including:
+
+Our component has to know how to create a DataService. If we ever change the DataService constructor, we'll have to find every place we create the service and fix it. Running around patching code is error prone and adds to the test burden.
+
+We create a new service each time we use new. What if the service should cache data and share that cache with others? We couldn't do that.
+
+We're locking the component into a specific implementation of the DataService. It will be hard to switch implementations for different scenarios. Can we operate offline? Will we need different mocked versions under test? Not easy.
+
+# What is a structural directive?
+
+Structural directives are responsible for HTML layout. They shape or reshape the DOM's structure, typically by adding, removing, or manipulating elements.
+# How do you identify a structural directive in html?
+```
+By the '*' before the directive name as in  <p *ngIf="true"> 
+```
+# When creating your own structural directives, how would you decide on hiding or removing an element? What would be the advantages or disadvantages of choosing one method rather than the other?
+
+The difference between hiding and removing doesn't matter for a simple paragraph. It does matter when the host element is attached to a resource intensive component. Such a component's behavior continues even when hidden. The component stays attached to its DOM element. It keeps listening to events. Angular keeps checking for changes that could affect data bindings. Whatever the component was doing, it keeps doing.
+
+Although invisible, the component—and all of its descendant components—tie up resources. The performance and memory burden can be substantial, responsiveness can degrade, and the user sees nothing.
+
+On the positive side, showing the element again is quick. The component's previous state is preserved and ready to display. The component doesn't re-initialize—an operation that could be expensive. So hiding and showing is sometimes the right thing to do.
+
+But in the absence of a compelling reason to keep them around, your preference should be to remove DOM elements that the user can't see and recover the unused resources with a structural directive like NgIf .
+
+# How would you select a custom component to style it.
+# What pseudo-class selector targets styles in the element that hosts the component?
+# How would you select all the child components' elements?
+# How would you select a css class in any ancestor of the component host element, all the way up to the document root?
+# What selector force a style down through the child component tree into all the child component views?
+
+We can use the /deep/ selector to force a style down through the child component tree into all the child component views. The /deep/ selector works to any depth of nested components, and it applies both to the view children and the content children of the component.
+# What does :host-context() pseudo-class selector targets?
+
+It works just like the function form of :host(). It looks for a CSS class in any ancestor of the component host element, all the way up to the document root. It's useful when combined with another selector.
+# What does the following css do?
+```
+:host-context(.theme-light) h2 {
+  background-color: red;
+}
+```
+Applies a background-color style to all 
+
+
+
+
