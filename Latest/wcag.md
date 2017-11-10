@@ -67,3 +67,21 @@ Examples of Principle 3:
 
 # Robust
 Content must be robust enough that it can be interpreted reliably by a wide variety of user agents, including assistive technologies.
+
+
+# JAWS (screen reader)
+JAWS ("Job Access With Speech") is a computer screen reader program for Microsoft Windows that allows blind and visually impaired users to read the screen either with a text-to-speech output.
+
+# [WAI-ARIA](https://github.com/filipelinhares/WAI-ARIA-cheatsheet)
+[Example](http://lab.abhinayrathore.com/aria-cheatsheet/)
+[Example2](http://karlgroves-sandbox.com/CheatSheets/ARIA-Cheatsheet.html)
+The WAI-ARIA is a technical documents developed by the Accessible Rich Internet Applications Working Group (ARIA WG), which is part of the World Wide Web Consortium (W3C), Web Accessibility Initiative (WAI). 
+
+WAI-ARIA provides Web authors with the following:
+
+• Roles to describe the type of widget presented, such as "menu", "treeitem", "slider", and "progressmeter"
+• Roles to describe the structure of the Web page, such as headings, regions, and tables (grids)
+• Properties to describe the state widgets are in, such as "checked" for a check box, or "haspopup" for a menu.
+• Properties to define live regions of a page that are likely to get updates (such as stock quotes), as well as an interruption policy for those updates—for example, critical updates may be presented in an alert dialog box, and incidental updates occur within the page
+• Properties for drag-and-drop that describe drag sources and drop targets
+• A way to provide keyboard navigation for the Web objects and events, such as those mentioned above
