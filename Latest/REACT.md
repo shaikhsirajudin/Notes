@@ -985,3 +985,18 @@ React did not come with any built-in concept of a model.
 •TypeScript provides the best intellisense developer experience available in the JavaScript world today.
 # [react-survey](https://github.com/aisensiy/react-survey)
 # [project examples](https://mobx.js.org/faq/examples.html)
+
+
+# Dependencies and there uses.
+•express is a lightweight web application framework we will base our app on. It's probably the most popular solution in the Node environment
+•body-parser is an HTTP message body parser
+•react is a library for building user interfaces
+•react-dom is a package for React for the DOM rendering
+•react-router is a routing library for React-based applications
+•react-tap-event-plugin is a plugin for fixing tap delay for touch devices
+•validator is a library we will use for a user input validation
+•material-ui is a set of React components that follows Google's Material Design guidelines
+•webpack is a module bundler we will use for building our React application
+•babel-core, babel-loader, and babel-preset-es2015 are parts of Babel, that is useful for transforming a modern ES2015 code to a cross-browser solution
+•babel-preset-react is a Babel preset for all React plugins
+•nodemon is a wrapper for Node that monitor changes in an application code and automatically restart the server
