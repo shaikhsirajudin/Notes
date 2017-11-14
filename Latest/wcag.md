@@ -1,35 +1,35 @@
 # What's mean  by Accessibility?
 
-    Accessibility is the word used to describe product can be used by people of all abilities. 
+Accessibility is the word used to describe product can be used by people of all abilities. 
 
 # What is Web Accessibility?
 
-    The W3C say's that Web Accessibility means that people with disabilities can use the web. which make life easier for everyone and few people has to struggle.
-    In general developer consider WCAG nice to have requirement and keep it in the phase two. Which when start they find themselves have to do redo lots of existing work its pretty frustrating process. It takes lot of time. 
-    If we consider WCAG at the start we will reduce the work significantly.
+The W3C say's that Web Accessibility means that people with disabilities can use the web. which make life easier for everyone and few people has to struggle.
+In general developer consider WCAG nice to have requirement and keep it in the phase two. Which when start they find themselves have to do redo lots of existing work its pretty frustrating process. It takes lot of time. 
+If we consider WCAG at the start we will reduce the work significantly.
 
 
 # To make Application with Web accessibility compatible the things need to keep in mind
 
 1) Keyboard Accessibility
 
-    Web Form contents should be keyboard accessible with using the mouse.
+Web Form contents should be keyboard accessible with using the mouse.
 
 2) Work with a Screen 
 
-    Should be readable and navigatable through screen reader e.g NVDA, ChromeVOX.
+Should be readable and navigatable through screen reader e.g NVDA, ChromeVOX.
 
 3) ARIA for Context
 
-    Its the HTML enhancement which will make our form even easier to understand for screen reader to use.
+Its the HTML enhancement which will make our form even easier to understand for screen reader to use.
 
 4) Form validation
 
-    The Web form does have client-side validation but its not very accessible
+The Web form does have client-side validation but its not very accessible
 
 5) Final Improvements.
 
-    Address the usability issues accross the application.
+Address the usability issues accross the application.
 
 # What kind of disabilities shoud we accommodate for?
 
