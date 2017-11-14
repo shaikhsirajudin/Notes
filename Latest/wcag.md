@@ -1,10 +1,10 @@
 # What's mean  by Accessibility?
+
     Accessibility is the word used to describe product can be used by people of all abilities. 
 
 # What is Web Accessibility?
-    The W3C say's that Web Accessibility means that people with disabilities can use the web. which make life easier for everyone and few people has to struggle
 
-
+    The W3C say's that Web Accessibility means that people with disabilities can use the web. which make life easier for everyone and few people has to struggle.
     In general developer consider WCAG nice to have requirement and keep it in the phase two. Which when start they find themselves have to do redo lots of existing work its pretty frustrating process. It takes lot of time. 
     If we consider WCAG at the start we will reduce the work significantly.
 
