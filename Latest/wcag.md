@@ -107,6 +107,7 @@ Examples of Principle 1
 # Operable
 interface components/forms, controls, and navigation are operable
 Examples of Principle 2:
+```
 •Functions triggered via mouse or gesture are also available via a keyboard
 •All users are given sufficient time to read and use content.
 •Content does not induce seizures.
@@ -114,7 +115,7 @@ Examples of Principle 2:
 •Landmarks are provided to assist in screenreader navigation (e.g. meaningful page title, semantic headings, ARIA landmarks) 
  meaningful headers and meaningful and unique link text.
 •Multiple paths are provided to navigate Web site structure.
-
+```
 # Understandable
 Information/Content and the operation of user interface must be understandable.
 
@@ -143,10 +144,14 @@ JAWS ("Job Access With Speech") is a computer screen reader program for Microsof
 The WAI-ARIA is a technical documents developed by the Accessible Rich Internet Applications Working Group (ARIA WG), which is part of the World Wide Web Consortium (W3C), Web Accessibility Initiative (WAI). 
 
 WAI-ARIA provides Web authors with the following:
-
+```
 • Roles to describe the type of widget presented, such as "menu", "treeitem", "slider", and "progressmeter"
 • Roles to describe the structure of the Web page, such as headings, regions, and tables (grids)
 • Properties to describe the state widgets are in, such as "checked" for a check box, or "haspopup" for a menu.
-• Properties to define live regions of a page that are likely to get updates (such as stock quotes), as well as an interruption policy for those updates—for example, critical updates may be presented in an alert dialog box, and incidental updates occur within the page
+• Properties to define live regions of a page that are likely to get updates (such as stock quotes), 
+as well as an interruption policy for those updates—for example, critical updates may be presented in an alert dialog box, 
+and incidental updates occur within the page
 • Properties for drag-and-drop that describe drag sources and drop targets
 • A way to provide keyboard navigation for the Web objects and events, such as those mentioned above
+```
+
