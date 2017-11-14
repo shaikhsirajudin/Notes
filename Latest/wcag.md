@@ -63,10 +63,72 @@ e.g some with minor impairment want to increase font size or use the  magnifying
 
 Screen reader doesnt read web pages from start to end, There are sophisticated pieces of software that read out content and allow the user to navigate and interact with the page using keyboard commands
 
+# What is Web Content Accessibility Guidelines(WCAG)?
+# How do you know whether your site is accessible or not?
+
+The W3C's web accessibility initiative  has put together a set of web content accessibility guidelines that is refer to WCAG. The guidelines are made up of several "Tesable success criteria", which give clear set of objectives to make site compatible with WCAG. All we can do is to make site more accessible, its not really possible to claim that the site is 100% accessible because just it meets the WCAG guidelines but it has reached an acceptable standard.
+
+# What are the different levels of conformance to the WCAG guidelines?
+
+There are actually three levels of confromance to the guidelines
+1) Level A: Which is the lowest.
+
+2) Level AA: Which is the middle.
+
+3) Level AAA: which is the highest.
+
+Each of the success criteria in the WCAG is associated with the level. So to be level A conformant of a site has to meet every one of the level A success criteria. 
+To be level AA conformant, a site has to meet all level A and level AA success criteria and so on.
+
+Typically when we make a site accessible we aim to meet the scritera for level AA.
+
+The criteria for AAA can be really tricky and in some cases impossible to meet depending on your site. Though of course we should try to meet AAA if we can.
+
+# What are different principles of WCAG?
+
+The WCAG success criteria are grouped into four principles.
+
+* Perceivable:
+
+Contents should be perceivable e.g providing text alternatives for images, captions for video.
+
+* Operable: 
+
+It should be operable with a keyboard and easy to navigate.
+
+* Understandable:
+
+Site should be understandable and behave in predicatble ways helping the user to avoid mistakes.
+
+* Robust:
+
+Site should be robust and well structured the maximizing compatibility with current and future technologies.
+
+# Common misconception that the site must work without Javasdcript to meet WCAG
+
+* A common misconception amongst developers is that if a site requires Javascript to function, it cant meet WCAG.
+
+A common misconception amongst developers is that if a site requires Javascript to function, it cant meet WCAG.
+Which is simply not true.
+
+* WCAG 2.0 says it's fine to rely on Javascript, as long as the sucess criteria are meets.
+
+The previous version require the site to function without Javascript, but since the second version's publication in 2008 use of Javascript is fine as long as the success criteria are still met.
+
+
+# Section 508
+This is another set of accessibility guidelines from the US government. Any software used by federal agencies must comply to it.
+It has just single Level of complaince. 
+The majority of guidelines are very similar to the WCAG.
+
+# WCAG is a technical standard not an introduction to accessibility.
+
+This is essentially them saying this is really stunningly complex, so proceeed with caution. Now guideline are little daunting at first because each criterion has to be completely testable. They list out several different ways it's possible to meet each criterion and also some aspects that would cause a failure to meet one. saying that once you use the structure of the guidelines, it's really not that bad. it's actually useful that they go into a high level of detail because it helps you to make technical decisions.
+
 # What are the Web Content Accessibility Guidelines?
 The Web Content Accessibility Guidelines(WCAG), Produced by the World Wide Web Consortium (W3C), the WCAG are the best means of making your website useful to all of your users.
 They are not an all-inclusive list of issues facing web users with disabilities, these are internationally recognised and adopted standards. The guidelines explain how to solve many of the problems that your users with disabilities face.
-There are two version of WCAG 
+There are two version of WCAG .
 1) WCAG 1.0 in 1999
 2) WCAG 2.0 in 2008
 3) WCAG 2.1 is currently in development and is scheduled to be published as a standard in 2018.
@@ -141,7 +203,7 @@ JAWS ("Job Access With Speech") is a computer screen reader program for Microsof
 
 [Example2](http://karlgroves-sandbox.com/CheatSheets/ARIA-Cheatsheet.html)
 
-The WAI-ARIA is a technical documents developed by the Accessible Rich Internet Applications Working Group (ARIA WG), 
+# The WAI-ARIA is a technical documents developed by the Accessible Rich Internet Applications Working Group (ARIA WG), 
 which is part of the World Wide Web Consortium (W3C), Web Accessibility Initiative (WAI). 
 
 WAI-ARIA provides Web authors with the following:
@@ -156,3 +218,20 @@ alert dialog box, and incidental updates occur within the page.
 • A way to provide keyboard navigation for the Web objects and events, such as those mentioned above
 ```
 
+# Keyboard Navigation
+
+. Arrow keys to scroll up and down.
+. Tab and Shift-Tab to navigate forth and back through the controls.
+. Enter to click a focused link or button.
+. Space to check boxes for selecting and deselecting.
+
+Keyboard related issues.
+
+
+. Focus Visible: Keyboard /Tab key focus, in some cases its not clear to identify where the focus of the control.
+
+. Focus Order: Components should receive the focus in a "meaningful" order, Focus shouldn't jump around unexpectedly. This specially helpful those who are using a magnifier they no need to search focus where it gone.common cause When you set the tabindex attribute on the control. Dont set the tabindex to control focus order.
+
+. Select Box Options:Organize the selection option correctly or Info and relationships, information should laidout correctly as clearly as possible.
+
+![Select Option Group](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/Select_Grouping.png) 
