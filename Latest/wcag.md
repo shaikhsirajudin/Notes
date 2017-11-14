@@ -106,16 +106,14 @@ Examples of Principle 1
 
 # Operable
 interface components/forms, controls, and navigation are operable
-
 Examples of Principle 2:
-```
 •Functions triggered via mouse or gesture are also available via a keyboard
 •All users are given sufficient time to read and use content.
 •Content does not induce seizures.
 •Users are given mechanisms to skip repetitive content.
-•Landmarks are provided to assist in screenreader navigation (e.g. meaningful page title, semantic headings, ARIA landmarks) meaningful headers and meaningful and unique link text.
+•Landmarks are provided to assist in screenreader navigation (e.g. meaningful page title, semantic headings, ARIA landmarks) 
+ meaningful headers and meaningful and unique link text.
 •Multiple paths are provided to navigate Web site structure.
-```
 
 # Understandable
 Information/Content and the operation of user interface must be understandable.
