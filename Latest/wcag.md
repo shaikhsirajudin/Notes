@@ -134,6 +134,7 @@ JAWS ("Job Access With Speech") is a computer screen reader program for Microsof
 [Example](http://lab.abhinayrathore.com/aria-cheatsheet/)
 
 [Example2](http://karlgroves-sandbox.com/CheatSheets/ARIA-Cheatsheet.html)
+
 The WAI-ARIA is a technical documents developed by the Accessible Rich Internet Applications Working Group (ARIA WG), which is part of the World Wide Web Consortium (W3C), Web Accessibility Initiative (WAI). 
 
 WAI-ARIA provides Web authors with the following:
