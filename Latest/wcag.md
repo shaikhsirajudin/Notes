@@ -234,4 +234,4 @@ Keyboard related issues.
 
 . Select Box Options:Organize the selection option correctly or Info and relationships, information should laidout correctly as clearly as possible.
 
-![Select Option Group](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/Select_Grouping.png) 
+![Select Option Group](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/Select_Grouping.PNG) 
