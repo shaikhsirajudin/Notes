@@ -235,3 +235,38 @@ Keyboard related issues.
 . Select Box Options:Organize the selection option correctly or Info and relationships, information should laidout correctly as clearly as possible.
 
 ![Select Option Group](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/Select_Grouping.PNG) 
+
+# What is a Screen Reader?
+
+. Its a software to allow users with severe visual impairments to use a computer.
+. Outputs speech or braille
+. Allow the user to navigate and enter data with the keyboard
+
+
+When a user has a severe visual impairment, they aren't going to be able to rely on magnification and contrast tools to use a computer. A screen reader interrprets what is on the screen and outputs it to the user, either using a text-to-speech engine or a refreshable braille display. They also allow the user to interact with the computer, navigating around and entering data on forms using the keyboard.those will have wide array of keyboard shortcuts to make interactions simple.
+
+# Speech and/or Braille Outputs
+. Text to Speech is synthesized and can be quite fast.
+. Refreshable braille displays can raise dots to form characters.
+
+There are two types of output from a screen reader, speech and braille. Some people will use both. The speech is synthesized from the text and can sound stangely robotic. New users of screen readers typically find that the speech is way too fast by default, but experienced users often speed it up even more. A refreshable braille display, like the one shown here contains a row of cells
+
+
+# How Screen reader page Context is Output?
+
+. Can't glance around context like sighted user.
+. Process text line by line.
+. Can jump between headers, links and different regions to make it easier.
+
+When a sighted user views a web page, they can glance over the contents of the whole screen and immediately get a sense of what content there is on the page. Screen readers process content line from top to bottom. You can imagine this can be really frustrating for a user. Thankfully, screen readers have a lot of features that allow the user to sort of skim the content to see what's there. They can jump between links and headings and also different areas of the page, but this only works well if the website has been designed with this consideration. If headings aren't defined properly, for example,the user is ldft just listening fo the content from top to bottom. There are a lot of screen readers available. The Mac OS actally has a screen reader built in called VoiceOver.
+
+# Popular Screen Readers.
+
+. Mac built-in: VoiceOver.
+
+. Window has few popular options.
+1) JAWS by Freedom Scientific.
+
+2) Window-Eyes by GW Micro: It comes with bundled in with the Microsoft Office Suite.
+
+3) NVDA(http://www.nvaccess.org/): NonVisual Desktop Access: its an open source solution.
