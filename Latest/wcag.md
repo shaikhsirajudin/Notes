@@ -270,3 +270,113 @@ When a sighted user views a web page, they can glance over the contents of the w
 2) Window-Eyes by GW Micro: It comes with bundled in with the Microsoft Office Suite.
 
 3) NVDA(http://www.nvaccess.org/): NonVisual Desktop Access: its an open source solution.
+
+# Screen reader modes.
+There are two modes
+. Browse :(EScape key to get back from focus to browse) Browse is for reading the content.
+. Focus:(when pressed space bar after reading the text befor the text) Focus is for entering data on forms.
+
+NVDA sometimes switches to focus mode automatically.
+
+# Easy Access Key
+
+H: heading key
+K: Links
+B: Buttons
+L: Lists
+D: Landmarks
+
+SPACE: Enter focus mode from control.
+TAB: Jump focus to next control.
+SHIFT+TAB: Jump focus to previous control.
+ESC: Exit foucs mode.
+
+# Making Content Readable
+1.1.1 : Non-text content(e.g. image)
+. All non-text content should have a text equivalent.
+. A few exceptions, like CAPTCHAs
+. Purely decorative content should be identified as such, 
+e.g. Empty alt attributes identify an iamge as purely decorative.
+
+'''
+<imag scr="som.png" alt="" />
+'''
+
+# Link Purpose
+
+The link text should be sdlf-explanatory else can confuse to the user like (click here or read more).
+
+# Images used for buttons
+Possible avoid using image for button if it cant achieve through the CSS and you have to use image then provide alt text.
+
+# Labels for Form Fields
+
+3.3.2 Labels or Instructions: 
+. When content requires user input, labels or instructions are provided.
+. Labels in close proximity to inputs. os that if someone is using magnifier relationship should be clear.
+
+'''
+<label for="details-name">Name * </label>
+<input type="text" id="details-name" />
+
+'''
+
+# Labels for Checkboxes
+
+When we use label with checkboxes group them together.
+
+![Select Option Group](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/checkbox-group.PNG)
+
+# Setting Keyboard Focus.
+Try not to set focus using Javascript on page load, It can be really disorientating for screen reader users.
+
+# What is ARIA?
+It's stands for Accessible Rich Internet Applications, As website getting more and more complex with interactions such as drag and drop, widgets like tree controls and expandable menus. You can imagine that it's difficult for screen reader users to interact with this kind of control. That's where ARIA comes in. Its the framework that allows us as a developers to provide this rich functionality in a way that screen reader users can still understand and use.
+
+Typically ARIA referred to as "WAI-ARIA". Thats because its developed by the W3C's web accessibility initiative. They put together the WCAG guidelines. ARIA helps us to describe things that sighted users would just be able to figure out from the context by adding ARIA attributes to the HTML.
+
+ARIA is just for exposing information to screen reader doesn't influence browser behaviour.
+
+# Different Categories of ARIA Attributes
+Aria attributes fall into three categories.
+
+1) Roles: 
+You can state what role an element has by using role attribute.
+
+ role="menuitem"
+
+2) State:
+You can describe its current state like expanded or selected
+
+aria-selected="true"
+
+3) Properties
+
+We can describe other properties the item has, e.g when you activate it, a popup will appear.
+
+aria-haspopup="true"
+
+# Some clashes between HTML5 and aria roles
+HTML 5  button  and ARIA role="button"
+Screan reader already knows that it's a button when use button tag it doesnt require button role. We can use ARIA role="button" when we plan to use some other element as a button like image or anchor tag in those case role play important role, as HTML is becoming more expressive role are becoming redudant.
+
+# ARIA Labelling Attributes
+we can yse the ARIA label attribute to give a control some lavel text without having to put actual label element on the page.
+
+
+Define the label text for a control
+'''
+<input type="text" ariabe-label="Name" />
+
+'''
+States that the control is labelled by another contorl
+
+'''
+<input type="text" ariabe-labelledby="lblName" />
+'''
+
+If control has more than one label ID's in the attribute value put those IDs separated by a space to show that the control has two labels.
+e.g.
+
+For checkbox we can use multiple labels one is question and other is their answer, or we can go with fields in our ealier example we did it.
+
