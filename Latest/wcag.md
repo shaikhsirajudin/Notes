@@ -448,3 +448,26 @@ One thing to note about the ARIA Live regions is that sometimes when you are dev
 </div>
 
 ''''
+When we use screen read it describe it as a link. 
+
+# Semantic HTML
+1.3.1 : info and relationships:
+Information conveyed through presentation can be programmatically determined
+
+. Instead of a link pretending to be a button, use a button
+where as link should be used for linking to other page.
+. Choose the right HTML element for the job.
+
+e.g If you have headline dont put paragraph elemnt and style it, use a heading element.
+
+. Browsers and screen readers can make them work as you would expect.
+e.g Button would expect keyboad focus but a span syled to be a button would not by default.
+. Use the new HTML5 landmark elements like <nav> and <main> instead of using dive elements for a sites navigation menu and main content area.
+
+which help to work with screen reader.
+
+
+# Be Careful with ARIA Roles
+. We could add a role of button to our link to change screen reader behavior which fix the issue but this is not the right rix to sematic HTML.
+
+. ARIA roles are primarily for custom widgets, use HTML5 elements atmost.
