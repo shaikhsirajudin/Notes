@@ -380,3 +380,6 @@ e.g.
 
 For checkbox we can use multiple labels one is question and other is their answer, or we can go with fields in our ealier example we did it.
 
+//https://app.pluralsight.com/player?course=web-form-accessible&author=fiona-holder&name=web-form-accessible-m3&clip=1&mode=live
+
+//https://www.codeschool.com/account
