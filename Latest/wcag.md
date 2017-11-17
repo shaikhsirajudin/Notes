@@ -364,15 +364,15 @@ Screan reader already knows that it's a button when use button tag it doesnt req
 we can yse the ARIA label attribute to give a control some lavel text without having to put actual label element on the page.
 
 
-Define the label text for a control
+* Define the label text for a control
 '''
 <input type="text" ariabe-label="Name" />
 
 '''
-States that the control is labelled by another contorl
+* States that the control is labelled by another contorl
 
 '''
-<input type="text" ariabe-labelledby="lblName" />
+<input type="text" ariabe-labelledby="lblFirstName lblLastName" />
 '''
 
 If control has more than one label ID's in the attribute value put those IDs separated by a space to show that the control has two labels.
@@ -380,6 +380,71 @@ e.g.
 
 For checkbox we can use multiple labels one is question and other is their answer, or we can go with fields in our ealier example we did it.
 
-//https://app.pluralsight.com/player?course=web-form-accessible&author=fiona-holder&name=web-form-accessible-m3&clip=1&mode=live
+# Aria Described By
 
-//https://www.codeschool.com/account
+'''
+<label for="txtCont" > short description <label>
+<input id="txtCont" type="text" aria-describedby="ControlId" />
+
+<p id="ControlId" >
+Long description which is displayed on the page
+</p>
+'''
+References an element ID that has furtherr description for the control.
+Used in addition to a label.
+
+# Announcing Updates
+
+Sites can have elements that update , appear without the page reloading or auto correct the text.
+e.g 
+Chat windows, status bars, errors and countdown times.
+. Before ARIA, there was no simple way to alert the screen reader users of these updates.
+
+# ARIA Live Importance.
+
+To state that an area maybe udpating client side , you can add the ARIA live attribute that contain the element. (e.g div upate using javascript or text box changing their values)
+
+There are two levels of importance
+
+1) polite
+When set aria-live to polite, we are basically saying that when an update happens to this region, the user does need to be informed but it shouldn't interrupt what they're currently doing. Screen tend to implement this when user finished there work like after completion of typing.
+
+2) assertive
+Update to this region is really critical and the user needs to be informed right away. this is rearly used situation like when user lost the internet connection or so on.
+
+# ARIA Atomic
+
+. Controls which aspects of the live region are read out
+You can actually control what aspects of the ARIA live labeled region are read out with another attribute, ARIA Atomic.
+
+False means only the elements that changed to be read out.
+
+True means all the child elements of that the region has to be read out.
+
+
+
+
+'''
+<div  aria-live="polite" aria-atomic="true"   > 
+
+<span id="pricelabel" > Total Price</span>
+<span id="priceValue" > 8.0 </span>
+</div>
+'''
+
+# ARIA Busy
+
+. With several updates, the screen reader may notify user before fully complete.
+
+. Setting aria-busy to true during the updates forces it to wait.
+
+One thing to note about the ARIA Live regions is that sometimes when you are developing a complex widget the screen reader can try to notify the user before you're done udpating all the elements, in that case we can set aria-busy="true" and when we complete set is to flase.
+
+'''
+<div  aria-live="polite" aria-atomic="true"  aria-busy="true"  > 
+
+<span id="pricelabel" > Total Price</span>
+<span id="priceValue" > 8.0 </span>
+</div>
+
+''''
