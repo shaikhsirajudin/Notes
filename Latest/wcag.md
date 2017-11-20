@@ -496,7 +496,8 @@ function addValidationIssue(errorMessage, $input)
 
 $input.addClass("invalid");
 $input.attr("arria-invalid", true);
-$("#validation-summary").append("<a href='"+$input.attr('id')+"' id='error-"+$input.attr('id')+"'>"+errorMessage+"</a>");
+$("#validation-summary").append("<a href='"+$input.attr('id')+
+"' id='error-"+$input.attr('id')+"'>"+errorMessage+"</a>");
 $input.attr("aria-labelledby","error-"+$input.attr("id"));
 
 }
@@ -525,17 +526,22 @@ e.g.
 # Important issues which need to address.
 1: Focus indicator
 Make it clear that which control actually has a keyboard focus.
+
 2: Focus Order
 The controls focus order in order to make more sensible.
+
 3: Select Box Options
 The select box option make in proper order, or reirdered them and add goruping if require.
 
 4: Image Alt Text
 Provide images alt text os that the screen reader knew what they are.
+
 5: Link purpose
 ensure that links didnt just say click here or read more so that they could be underrstood out of context.
+
 6: Images for Buttons
 Try to replace images used for the Buttons and styled them with css instead.
+
 7: Form Field Labels
 Make form more accessible by associating the labels with the input fields, which means screen reader users know what the inputs are.
 
@@ -550,27 +556,37 @@ Improve the labelling using aria-label and aria-labelledby.
 
 11: Instructions
 use aria-describedby to associate the instruction text with the imput box.
+
 12: Arai Live Regions
 Aria live regions to announce the changes when the user modify on the form.
+
 13: Buttons and Semantic HTML.
 Make the buttons actually use button elements instead of links or other controlls, Semantic HTML which is all about using the right element for the job.
+
 14: Required Fields
 Add a message tp explain that the asterisks demoted required fields and add aria-required attribute.
+
 15:  Invalid Controls
 Tweak the CSS so it should be more obvious which fields had invalid entries and add the aria-invalid attribute to the input controls.
+
 16: Error Messaging
-Make sure that the error messages accurately described what the issue was with the input and how to correct it 
+Make sure that the error messages accurately described what the issue was with the input and how to correct it.
+
 17: Informing user of Errors
  set the focus to the error summary when the button was pressed so that screen reader users knew what therre were issues.
 
 18: Linking Errors to inputs
 Change the error messages into links to jump to the input control in question and also associate the error message withe the control so that screen reader users could hear what the issue was.
+
 19: Scalable Text
 Use relative font units so that text scales properly.
+
 20: Error Prevention
 Prevent errors with confirmation or undo functions.
+
 21: Simplify Inputs
 Reduced the chance for mistakes by simplifying the imput controls and making it much easier to use.
+
 22: Multi Select Boxes
 replacing multi-select box with checkboxes or give enough space between two controls
 
