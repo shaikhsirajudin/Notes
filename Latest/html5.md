@@ -45,9 +45,9 @@ The WHATWG decide to do is work and collaborate on whta we now think of as HTML5
 
 - HTML5:  WHATWG announces that it will not work on named versions of HTML, it means instead of planning for HTML6..7 , the HTML spec is now a living standard, this move makes a lot of sense if you think about it.Browser will develop new feature as they pan, With HTML5 you have a set of functionality . HTML5 no longer exists means that the latest and greatest version of HTML is simply not numbered.
 
-[HTML5 Platform]('https://platform.html5.org/')
+[HTML5 Platform](https://platform.html5.org/)
 
-[HTML5 Migration]('https://www.w3schools.com/html/html5_migration.asp')
+[HTML5 Migration](https://www.w3schools.com/html/html5_migration.asp)
 
 
 ![New Semantic/Structural Elements](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/html5-semantic.PNG)
