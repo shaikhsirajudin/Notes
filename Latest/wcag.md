@@ -298,9 +298,9 @@ ESC: Exit foucs mode.
 . Purely decorative content should be identified as such, 
 e.g. Empty alt attributes identify an iamge as purely decorative.
 
-'''
+```
 <imag scr="som.png" alt="" />
-'''
+```
 
 # Link Purpose
 
@@ -315,11 +315,11 @@ Possible avoid using image for button if it cant achieve through the CSS and you
 . When content requires user input, labels or instructions are provided.
 . Labels in close proximity to inputs. os that if someone is using magnifier relationship should be clear.
 
-'''
+```
 <label for="details-name">Name * </label>
 <input type="text" id="details-name" />
 
-'''
+```
 
 # Labels for Checkboxes
 
@@ -365,15 +365,16 @@ we can yse the ARIA label attribute to give a control some lavel text without ha
 
 
 * Define the label text for a control
-'''
+```
 <input type="text" ariabe-label="Name" />
 
-'''
+```
 * States that the control is labelled by another contorl
 
-'''
+```
 <input type="text" ariabe-labelledby="lblFirstName lblLastName" />
-'''
+
+```
 
 If control has more than one label ID's in the attribute value put those IDs separated by a space to show that the control has two labels.
 e.g.
@@ -382,14 +383,14 @@ For checkbox we can use multiple labels one is question and other is their answe
 
 # Aria Described By
 
-'''
+```
 <label for="txtCont" > short description <label>
 <input id="txtCont" type="text" aria-describedby="ControlId" />
 
 <p id="ControlId" >
 Long description which is displayed on the page
 </p>
-'''
+```
 References an element ID that has furtherr description for the control.
 Used in addition to a label.
 
@@ -421,16 +422,13 @@ False means only the elements that changed to be read out.
 
 True means all the child elements of that the region has to be read out.
 
-
-
-
-'''
+```
 <div  aria-live="polite" aria-atomic="true"   > 
 
 <span id="pricelabel" > Total Price</span>
 <span id="priceValue" > 8.0 </span>
 </div>
-'''
+```
 
 # ARIA Busy
 
@@ -440,14 +438,14 @@ True means all the child elements of that the region has to be read out.
 
 One thing to note about the ARIA Live regions is that sometimes when you are developing a complex widget the screen reader can try to notify the user before you're done udpating all the elements, in that case we can set aria-busy="true" and when we complete set is to flase.
 
-'''
+```
 <div  aria-live="polite" aria-atomic="true"  aria-busy="true"  > 
 
 <span id="pricelabel" > Total Price</span>
 <span id="priceValue" > 8.0 </span>
 </div>
 
-''''
+```
 When we use screen read it describe it as a link. 
 
 # Semantic HTML
@@ -472,4 +470,130 @@ which help to work with screen reader.
 
 . ARIA roles are primarily for custom widgets, use HTML5 elements atmost.
 
-# Validations are required fields
+# Validations are required fields.
+
+There are two way to make required field either by using * and putting aria-required="ture" attibute in the control, and on page sumittion validating using javascript and providing error summary .
+To make summary read by screen using you can go with either route using aria-live arttribute or by focusing using javascript to div like below with tabindex=-1.
+
+```
+<div id="error-summary"  tabindex="-1" >
+
+</div>
+
+if (!valid)
+{
+    $("#validation-summary").prepend("<p>There were in valid data please correct it.</p>");
+    $("#validation-summary").focus();
+}
+```
+
+* We can provide control name in the javascript alert like below. include error message in a link so when you click it will take you to the control.
+
+```
+
+function addValidationIssue(errorMessage, $input)
+{
+
+$input.addClass("invalid");
+$input.attr("arria-invalid", true);
+$("#validation-summary").append("<a href='"+$input.attr('id')+"' id='error-"+$input.attr('id')+"'>"+errorMessage+"</a>");
+$input.attr("aria-labelledby","error-"+$input.attr("id"));
+
+}
+```
+
+# WCAG 1.4.4 Resize Text
+
+- Text can be resized up to 200% without loss of content or function.
+
+- Browsers provide built in zoon and scaling, shouldnt provent this.
+- User shouldnt have to use assistive technology to read the text.
+- Two permitted exceptions; images of text and captions.
+
+- change font size from pixel to relative unit so that if we increase the font size it will take affect.
+e.g.
+ font-size:20px  to => font-size:1.1em;
+
+# Error Prevention
+- Provide javascript validation and confirmation or alert.
+- Provide validation for each submitted values to makesure all values are enter corretly.
+- Provide checkbox as a comfirmation before sumitting some important transaction.
+- Provide the cancellation option if some order is booked.
+- Give space between different controls specially links.
+- Multi selection list box is alway confusing to user or very rare user know that they can select multiple items and it also difficult for select form the keyboard so its better to which this to series of checkbox.
+
+# Important issues which need to address.
+1: Focus indicator
+Make it clear that which control actually has a keyboard focus.
+2: Focus Order
+The controls focus order in order to make more sensible.
+3: Select Box Options
+The select box option make in proper order, or reirdered them and add goruping if require.
+
+4: Image Alt Text
+Provide images alt text os that the screen reader knew what they are.
+5: Link purpose
+ensure that links didnt just say click here or read more so that they could be underrstood out of context.
+6: Images for Buttons
+Try to replace images used for the Buttons and styled them with css instead.
+7: Form Field Labels
+Make form more accessible by associating the labels with the input fields, which means screen reader users know what the inputs are.
+
+8: Checkbox Labels
+Introduce a field set around the checkbox options so that the question text was read out, as well as the label for the checkbox itself.
+
+9: Setting Keyboard Focus
+Remove the javascript focus setting it would cause screen reader users to miss the remaining checkboxes when it skipped ahead.
+
+10: Improving Labelling
+Improve the labelling using aria-label and aria-labelledby.
+
+11: Instructions
+use aria-describedby to associate the instruction text with the imput box.
+12: Arai Live Regions
+Aria live regions to announce the changes when the user modify on the form.
+13: Buttons and Semantic HTML.
+Make the buttons actually use button elements instead of links or other controlls, Semantic HTML which is all about using the right element for the job.
+14: Required Fields
+Add a message tp explain that the asterisks demoted required fields and add aria-required attribute.
+15:  Invalid Controls
+Tweak the CSS so it should be more obvious which fields had invalid entries and add the aria-invalid attribute to the input controls.
+16: Error Messaging
+Make sure that the error messages accurately described what the issue was with the input and how to correct it 
+17: Informing user of Errors
+ set the focus to the error summary when the button was pressed so that screen reader users knew what therre were issues.
+
+18: Linking Errors to inputs
+Change the error messages into links to jump to the input control in question and also associate the error message withe the control so that screen reader users could hear what the issue was.
+19: Scalable Text
+Use relative font units so that text scales properly.
+20: Error Prevention
+Prevent errors with confirmation or undo functions.
+21: Simplify Inputs
+Reduced the chance for mistakes by simplifying the imput controls and making it much easier to use.
+22: Multi Select Boxes
+replacing multi-select box with checkboxes or give enough space between two controls
+
+# Accessibility Testing Tools
+* WAVE
+* aChecker
+* Chrome > f12 > Audit> Check Accessibility
+* TENON (https://tenon.io/): Full featured accessibility testing application.
+
+# Accessibility Blogs
+
+* Marco's Accessiblity blog
+https://www/marcozehe.de/
+
+* Accessibility Wins
+
+https://allywins.tumblr.com
+
+* THEPACIELLOGROUP
+https://www.paciellogroup.com/blog/
+
+* WUHCAG
+https://www.wuhcag.com/
+
+* my accesible website
+http://myaccessible.website
