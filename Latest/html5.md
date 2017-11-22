@@ -389,7 +389,7 @@ html canvas is a combination of both HTML and the javascript API.It give full co
 ## Interaction, Events and Messaging.
 It makes big difference in the functionality in user experience of your applications.
 
-- Barrery Status: 
+- Battery Status: 
 this give us to opportunity how our application behaves at different levels of power.
 
 - Clipboard API & Events: 
@@ -418,6 +418,151 @@ It give you ability to create toast-like pop-up notifications on the desktop
 in mobile devices you can get access to touch events so you can respond to different types of gestures.
 - Vibration
 This group is a way to control the vibration capabilities of the device.
+
+# Storage and Files
+Number of different APIs availabe this.
+
+- Blob URLs
+Blobs represent data in chunks of bites. So blobs are a very low-level way of representing data in the browser.
+- File API
+Instances of the File class represent actual files in the browser's file system.
+- File Reader
+This class provides a way for you to read in-browser file data that can come in a few different forms.
+- IndexedDB
+The IndexedDB API is a sophisticated object where document database is implemented entirely in the broswer.If you have large sets of datta that you need to store and query on the client then IndexedDB is a great.
+- Local Storage
+If you needs is little bit more basic then Local Storage is good.With this we have the option to store data for long periods of time or just for the session and sessions are determined by the lifespan of a browser tab. Each API uses same interface so working with local storage is very easy.
+
+# Real-Time Communication APIs.
+
+- Push API
+This API gives you the opportunity to push data from the server to client it also give other flexibility. Data can be pushed to the broswer even when it's running in the background on the computer. This will improves the performance of application that need real-time data from the server.
+
+-  Server-Sent Events
+It also similar in nature to Push but distinct technologies and address the need for the client to receive messages directly from the server but achieve it in different ways.
+It work with a one-way channel of communication from the server to the client and messages are sentt via HTTP, which means there's no specialized server technology required.
+
+- Web Sockets
+
+It also similar in nature to Push but distinct technologies and address the need for the client to receive messages directly from the server but achieve it in different ways.
+It facilitate two-way communications and work under custom communications protocol.
+
+
+# Web Components
+
+It enables developer to take control over the markup created for a website.
+
+- Custom Elements
+Custom elements gives you the chance to change a series of nested generic elements like a div and span and turn that into custom named elements that better represent the meaning and intent of the markup.
+
+
+General
+```
+<div id="comment-container">
+<div class="comment">
+ <div class="user-info-container">
+<div class="user-name">Criag Shoemakerr</div>
+<div class="avatar"><img src=cs.png" alt="Craig shoemaker" /></div>
+</div>
+<div class="content-container">
+<div class="publish-date">12/01/2016</div>
+<div class="content">HTML is the set of markup enhancements and  new Javascript APIs</div>
+</div>
+</div>
+</div>
+
+```
+Similar result you might achieve using Custom Elements.
+
+```
+<comments>
+
+<comment author="Craig Shoemaker" avatarUrl="cs.png" publishDate="12/01/2016" >
+HTML is the set of markup enhancements and  new Javascript APIs
+</comment>
+</comments>
+
+```
+This customization of elements begins to provide encapsulation of not only content but also the underlying DOM elements that make up this custom element.
+
+- Shadow DOM
+
+When we talk about creating boundaries around the DOM tree, we are actually talking about is the Shadow DOM.
+The Shadow DOM is simply a way to encapsulate element trees in the DOM. What this means is that you can apply CSS and Javascript to elements contained in the Shadow DOM. It won't leak out the affect to the rest of the page. 
+This is the heart of web components, in that you have Custom Elements with a self-contained structure,style, and javascript logic.
+
+- Templates.
+There are different forms of templates are present since long through the use of javacript library or other. This make templates common in the browser. 
+The way to create a pattern of HTML and easily fill it with data before displaying it on the screen.
+
+
+# Perfromance Optimization and Analysis APIs
+
+We can performance using 
+
+- High Resolution Time API
+The High resultion time API gives you the opportunity to measure time with sub-millisecond accuracy. This is great for measuring operations and calculations.
+
+-User Timing
+If you are using this API then High Resolution Time API pay OFF.
+In this API we have a simple interface available to create timing boundaries inside your code giving you an easy way to measure at a high resolution how your application performs.
+
+- Navigation Timing API
+The page load time can be measure by using it, you can find out how the user navigated to your page and are able to respond to custom events related to the page load lifecycle.
+
+-Page Visibility API
+If you want your page to behave differently when it isnt the active tab in the broswer e.g. pause music or video etc. 
+This API allow you to respond to changes in the page's visibility based on the tab state.
+
+
+- Web Workers
+In this you have a chance to get huge performance gains by using different threads in the browser. When you create a web worker, the execution context is in an entirely separate thread in the browser. These extra threads are completely independent of the UI thread.
+
+
+# Security and Privacy
+One of the most basic attacks on a website is the cross-site scripting attach where foreign scripts are introduced into a page that compromises the security of a web application. To mitigate these attacks.
+
+- Content Security Policy
+It allows you to create a whitelist for sources of a page including scripts and styles.
+
+- Referrer Policy
+It gives you tighter control over the amount of data that's transmitted through the HTTP refferrer.
+
+- Web Cryptography API
+This API provides a way to encrypt and decript datta entirely on the client.
+
+# Miscellaneous API
+
+- Scripts: async & defer
+
+ For script elements, there are two new Boolean attributes available.
+ 
+ . async
+  The async feature allows a cript to run in an asynchronous manner so that it won't block the execution of the page.
+ 
+ .defer
+
+The defer slices it a little bit differently. The attribute ensures that the script execution is deferred to after the page load.
+
+- contentEditable
+
+The contentEditable attribute, which allows any element to be switched into an edit mode so that virtually any part of your page can be an eidtor.
+
+- Drag & Drop
+The Drag and Drop API makes it easy to implement drag and drop behaviors with a native broswer API.
+
+- History
+This API allows you to take control of the browser's location by giving you a chance to make changes to it without requiring a tip back to the server.
+It also allow you to make changes to the actual browser history by using additions to the History API.
+
+
+- Promises
+Promises is a huge win for web developers. By having a native Promises API available, you can easily write asynchronous code in a clean and clear manner.
+
+- Service Workers
+Its relative new comer to the HTML5 family of APIs,It replaced the previous Application Cache API. The intent around Application Cache was that you could create an offline web application by maintaining a list of all the files needed to run while offline. But that implementation proved to be too brittle in just about everry browser. Therefore, the service worker API was created to address many of the shortcomings of the application cache with an entirely new API and implementation.
+
+Note: If you need your website to work offline, you are looking for service workers.
 
 
 
