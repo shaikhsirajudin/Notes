@@ -35,8 +35,8 @@ Big part of HTML5 is the addition of containers or HTML elements those are very 
 
 # History of HTML5
 - Proposal for HTML in 90 by TIM Berners-Lee along with first broswer and first server software.
-- After evolution and development of HTMl as formalized in the foundation of World Wide Web consortium or W3C. This is the first HTML specification
-- As the development continue the first malor changes to HTML comes in the form of HTML4. With this it was possible to build animation and true interactivity in web application.
+- After evolution and development of HTML as formalized in the foundation of World Wide Web consortium or W3C. This is the first HTML specification
+- As the development continue the first major changes to HTML comes in the form of HTML4. With this it was possible to build animation and true interactivity in web application.
 - XHTML, this turned out to be a bit of a mistake, The whole aim of XHTML was to make HTML more strict. Therefore its harder for people and machines to work with. This is the first sign heade towards wrong path.
 
 - HTML WG(HTML working group) was formed but this proved to be a short-lived endeavor.
