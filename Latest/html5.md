@@ -383,66 +383,66 @@ In HTML5 much of advancements are found on webplatform are found in Javascript A
 
 ## Graphics and Typography
 
-- Canvas
+- Canvas: 
 html canvas is a combination of both HTML and the javascript API.It give full control to draw on an HTML page
 
 ## Interaction, Events and Messaging.
 It makes big difference in the functionality in user experience of your applications.
 
-- Battery Status: 
+- Battery Status:  
 this give us to opportunity how our application behaves at different levels of power.
 
-- Clipboard API & Events: 
+- Clipboard API & Events:  
 It provide programmatic access to the clipboard. 
 
-- Cross Document Messaging:
+- Cross Document Messaging: 
 In some cases we want to send message froma page on site A to a page on site B. The cross document messaging API will allow you to do it.
 
 
-- Device and Screen Orientation:
+- Device and Screen Orientation: 
 In smart devices some time you want application to be able to respond to changes in the orientation of the device or screen.
 This provide events to respond to recognized movement.
 
-- Fullscreen API
+- Fullscreen API: 
 Game,kiosk app or just want to a clean user experience. This API give you the control to make your app fill the entire client screen.
 
-- Geolocation:
+- Geolocation: 
 We can find the users location by using geolocation API in mobile or smart devices.
 
-- Media Capture:
+- Media Capture: 
 This API grants you programmatic access to antive devices to capture media.
 
-- Notification API:
+- Notification API: 
 It give you ability to create toast-like pop-up notifications on the desktop 
-- Touch Events
+- Touch Events: 
 in mobile devices you can get access to touch events so you can respond to different types of gestures.
-- Vibration
+- Vibration: 
 This group is a way to control the vibration capabilities of the device.
 
 # Storage and Files
 Number of different APIs availabe this.
 
-- Blob URLs
+- Blob URLs: 
 Blobs represent data in chunks of bites. So blobs are a very low-level way of representing data in the browser.
 - File API
 Instances of the File class represent actual files in the browser's file system.
-- File Reader
+- File Reader: 
 This class provides a way for you to read in-browser file data that can come in a few different forms.
-- IndexedDB
+- IndexedDB: 
 The IndexedDB API is a sophisticated object where document database is implemented entirely in the broswer.If you have large sets of datta that you need to store and query on the client then IndexedDB is a great.
-- Local Storage
+- Local Storage: 
 If you needs is little bit more basic then Local Storage is good.With this we have the option to store data for long periods of time or just for the session and sessions are determined by the lifespan of a browser tab. Each API uses same interface so working with local storage is very easy.
 
 # Real-Time Communication APIs.
 
-- Push API
+- Push API: 
 This API gives you the opportunity to push data from the server to client it also give other flexibility. Data can be pushed to the broswer even when it's running in the background on the computer. This will improves the performance of application that need real-time data from the server.
 
--  Server-Sent Events
+-  Server-Sent Events: 
 It also similar in nature to Push but distinct technologies and address the need for the client to receive messages directly from the server but achieve it in different ways.
 It work with a one-way channel of communication from the server to the client and messages are sentt via HTTP, which means there's no specialized server technology required.
 
-- Web Sockets
+- Web Sockets: 
 
 It also similar in nature to Push but distinct technologies and address the need for the client to receive messages directly from the server but achieve it in different ways.
 It facilitate two-way communications and work under custom communications protocol.
@@ -452,7 +452,7 @@ It facilitate two-way communications and work under custom communications protoc
 
 It enables developer to take control over the markup created for a website.
 
-- Custom Elements
+- Custom Elements: 
 Custom elements gives you the chance to change a series of nested generic elements like a div and span and turn that into custom named elements that better represent the meaning and intent of the markup.
 
 
@@ -485,13 +485,13 @@ HTML is the set of markup enhancements and  new Javascript APIs
 ```
 This customization of elements begins to provide encapsulation of not only content but also the underlying DOM elements that make up this custom element.
 
-- Shadow DOM
+- Shadow DOM: 
 
 When we talk about creating boundaries around the DOM tree, we are actually talking about is the Shadow DOM.
 The Shadow DOM is simply a way to encapsulate element trees in the DOM. What this means is that you can apply CSS and Javascript to elements contained in the Shadow DOM. It won't leak out the affect to the rest of the page. 
 This is the heart of web components, in that you have Custom Elements with a self-contained structure,style, and javascript logic.
 
-- Templates.
+- Templates: 
 There are different forms of templates are present since long through the use of javacript library or other. This make templates common in the browser. 
 The way to create a pattern of HTML and easily fill it with data before displaying it on the screen.
 
@@ -500,35 +500,35 @@ The way to create a pattern of HTML and easily fill it with data before displayi
 
 We can performance using 
 
-- High Resolution Time API
+- High Resolution Time API: 
 The High resultion time API gives you the opportunity to measure time with sub-millisecond accuracy. This is great for measuring operations and calculations.
 
--User Timing
+- User Timing: 
 If you are using this API then High Resolution Time API pay OFF.
 In this API we have a simple interface available to create timing boundaries inside your code giving you an easy way to measure at a high resolution how your application performs.
 
-- Navigation Timing API
+- Navigation Timing API: 
 The page load time can be measure by using it, you can find out how the user navigated to your page and are able to respond to custom events related to the page load lifecycle.
 
--Page Visibility API
+- Page Visibility API: 
 If you want your page to behave differently when it isnt the active tab in the broswer e.g. pause music or video etc. 
 This API allow you to respond to changes in the page's visibility based on the tab state.
 
 
-- Web Workers
+- Web Workers: 
 In this you have a chance to get huge performance gains by using different threads in the browser. When you create a web worker, the execution context is in an entirely separate thread in the browser. These extra threads are completely independent of the UI thread.
 
 
 # Security and Privacy
 One of the most basic attacks on a website is the cross-site scripting attach where foreign scripts are introduced into a page that compromises the security of a web application. To mitigate these attacks.
 
-- Content Security Policy
+- Content Security Policy: 
 It allows you to create a whitelist for sources of a page including scripts and styles.
 
-- Referrer Policy
+- Referrer Policy: 
 It gives you tighter control over the amount of data that's transmitted through the HTTP refferrer.
 
-- Web Cryptography API
+- Web Cryptography API: 
 This API provides a way to encrypt and decript datta entirely on the client.
 
 # Miscellaneous API
@@ -537,33 +537,599 @@ This API provides a way to encrypt and decript datta entirely on the client.
 
  For script elements, there are two new Boolean attributes available.
  
- . async
+ . async: 
   The async feature allows a cript to run in an asynchronous manner so that it won't block the execution of the page.
  
- .defer
+ .defer: 
 
 The defer slices it a little bit differently. The attribute ensures that the script execution is deferred to after the page load.
 
-- contentEditable
+- contentEditable: 
 
 The contentEditable attribute, which allows any element to be switched into an edit mode so that virtually any part of your page can be an eidtor.
 
-- Drag & Drop
+- Drag & Drop: 
 The Drag and Drop API makes it easy to implement drag and drop behaviors with a native broswer API.
 
-- History
+- History: 
 This API allows you to take control of the browser's location by giving you a chance to make changes to it without requiring a tip back to the server.
 It also allow you to make changes to the actual browser history by using additions to the History API.
 
 
-- Promises
+- Promises: 
 Promises is a huge win for web developers. By having a native Promises API available, you can easily write asynchronous code in a clean and clear manner.
 
-- Service Workers
+- Service Workers: 
 Its relative new comer to the HTML5 family of APIs,It replaced the previous Application Cache API. The intent around Application Cache was that you could create an offline web application by maintaining a list of all the files needed to run while offline. But that implementation proved to be too brittle in just about everry browser. Therefore, the service worker API was created to address many of the shortcomings of the application cache with an entirely new API and implementation.
 
 Note: If you need your website to work offline, you are looking for service workers.
 
+# HTML4 vs HTML5
+# HTML4 page
+
+- DOCTYPE: 
+In HTML4 uses a Transitional DOCTYPE to interpret html in the browsers.
+- XHTML: 
+It uses xmlns namespace to direct the broswer how to interpret the markup and what sort of rules to enforce as it's interpreting the page.
+
+- style / script tags: 
+
+For style and script tag we need to specify the content type to text/css or text/javascript
+
+```
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>HTML4 Example</title>
+        
+        <link rel="icon" type="image/png" href="img/favicon.png">
+        
+        <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+        <link rel="stylesheet" href="css/site.css" type="text/css" />
+        
+        <style type="text/css">
+            body {
+                background-color: #fff;
+            }
+        </style>
+        
+        <script type="text/javascript">
+            console.log('HTML4 Example loaded');
+        </script> 
+    </head>
+	<body>
+
+        <div id="header">
+        <!-- Fixed navbar -->
+            <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <img src="img/html5-fundamentals.png" title="HTML5 Fundamentals" class="hidden-sm" />
+                    <img src="img/html5.png" title="HTML5 Fundamentals" class="visible-sm" />
+                </a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="example.html" class="nav-link">Example</a></li>
+                    <li class="separator visible-md visible-lg">|</li>
+                    <li><a href="selection.html" class="nav-link">Selection</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <span class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Forms<span class="caret"></span>
+                            </span>
+                            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                    <li><a href="forms-markup.html">Forms</a></li>
+                                    <li><a href="forms-pseudo-classes.html">Pseudo Classes</a></li>
+                                    <li><a href="forms-validation.html">Native Validation</a></li>
+                                    <li><a href="forms-validation-custom.html">Custom Validation</a></li>
+                                    <li><a href="forms-validation-bootstrap.html">Bootstrap Module</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <span class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Media<span class="caret"></span>
+                            </span>
+                            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                    <li><a href="media-basics.html">Basics</a></li>
+                                    <li><a href="media-scripted.html">Scripted Controls</a></li>
+                                    <li><a href="media-dynamic.html">Dynamic Load</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <span class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Canvas<span class="caret"></span>
+                            </span>
+                            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                    <li><a href="canvas-basics.html">Basics</a></li>
+                                    <li><a href="canvas-manipulation.html">Manipulation</a></li>
+                                    <li><a href="canvas-clipping.html">Clipping</a></li>
+                                    <li><a href="canvas-charts.html">Charts</a></li>
+                                    <li><a href="canvas-video.html">Video</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <span class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Drag &amp; Drop<span class="caret"></span>
+                            </span>
+                            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                    <li><a href="dd-basics.html">Basics</a></li>
+                                    <li><a href="dd-datatransfer.html">Data Transfer Types</a></li>
+                                    <li><a href="dd-files.html">Files</a></li>
+                                    <li><a href="dd-effects.html">Effects</a></li>
+                                    <li><a href="dd-dragimage.html">Drag Image</a></li>
+                                    <li><a href="dd-dragimage-canvas.html">Drag Image (canvas)</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    
+                    
+                </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+            </div>
+        </div>
+
+        <div id="content-container" class="container">
+            <div class="container example-layout">
+                <h1>4768 Jupiter Drive</h1>
+                <h2>Anytown, CA 90210</h2>
+                
+                <div>
+                    
+                    <div>
+                        <img src="img/home.jpg" class="thumbnail img-responsive push-down-top " />
+                        <div>Brand new build at the end of a cul-de-sac in the north end of town</div>
+                    </div>
+                    
+                    <div class="row push-down-top-sm">
+                        <div class="col-sm-8">
+                            <p>A beautiful home on a quiet street featuring an open floor plan with 5 bedrooms 
+                                and 3 full baths accented by a breathtaking view. After walking in the extra-tall 
+                                double-door entry way, you are greeted by the family-oriented kitchen which includes 
+                                a walk-in pantry, granite countertops, a double oven next to a granite topped 
+                                oversized arrow island with tons of storage underneath.</p>
+                                
+                            <div class="aside">
+                                <div>
+                                    <div>Features</div>
+                                    <ul>
+                                        <li>Luxurious sized Master Suite</li>
+                                        <li>Oversized walk-in closet</li>
+                                        <li>Frameless Beech cabinetry with concealed hinges</li>
+                                        <li>Elegant slab White Quartz countertops with 4″ backsplash</li>
+                                        <li>Dual china sinks with Moen faucets</li>
+                                        <li>Clear frameless shower enclosures</li>
+                                        <li>Hand set 6″ x 6″ ceramic tile at Shower Walls</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <p>Adjacent to the kitchen is a 
+                                breakfast area overlooking a forest landscape through a sliding glass door. 
+                                The downstairs bedroom includes a full wardrobe. The living room includes a recessed 
+                                entertainment area complete with canned lighting with dimmer switch highlighted by a 
+                                charming dual-sided fireplace.</p>
+                            <p>Next is formal dining room and front sitting room. The 
+                                winding staircase leads you upstairs to the huge master suite featuring a sunk-in tub, 
+                                large shower, walk-in closet and an additional over-sized walk-in closet. The master 
+                                bath features split sinks with granite countertops.</p>
+                            <p>Also includes:</p>
+                            <ul>
+                                <li>two car garage</li>
+                                <li>high ceilings throughout</li>
+                                <li>huge bonus room with two closets</li>
+                                <li>wired for spa in backyard</li>
+                                <li>dual pane windows</li>
+                                <li>upstairs laundry room</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="js/jquery.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap.js" type="text/javascript"></script>
+        <script src="js/highlight/highlight.pack.js" type="text/javascript"></script>    
+        <script src="js/app.js" type="text/javascript"></script>
+    </body>
+</html>
+
+
+```
+# HTML5
+
+
+- DOCTYPE: 
+It has DOCTYPE but just html.This flags the broswer that it can interpret this page as an HTML5 page.
+It gives you the ability to access all the new elements and Javascript API on the page.
+It remove some of the very strict rules that were in force with XHTML.
+- html tag:
+it only require lang attribute which we set to en.
+
+- meta: 
+This is just for i.e to make browser uses latest IE version.
+```
+ <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+```
+
+For mobile devices to set width and setting the initial zoom level or the initial scale to 1.
+```
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+```
+
+- style/script inline:
+inline sytle and script tag doesnt require type attribtue, For style default language is CSS,
+For scripts javascript has been the default standard there was very earlier we used to have VBScript but now it no more in for adding interactivity to the page but now its not required.
+
+- main:
+we can have only one main element on each of HTML5 page. Inside of that of that we wrap header then  nav and other content.
+
+
+- article: 
+
+The article wraps up the primary content for the page. It doesnt have the same restrictions as the main element. We can have more than one article on the page.
+
+- h1: 
+Earlier we used to have only one h1 element but now we can have more than one h1 elements. Since  elements have a semantic meaning to their parent, you could have an h1 inside the header and insdie the article and perhaps even inside the footer.
+Now you are not stuck with saying that this is the heading , the main heading for the entire page, So depending on the container that it's in you can say that this is the main heading for that specific container.
+
+
+- section:
+Section is used to create logical grouping of content that's on the page. 
+Section can have nested section. Before html5 we used to use "div" the practical application of div and section are the same things.
+
+. So if you need to a container to attach some style rules to, then you would use a div.
+. Now you use a section when you want to create a logical group between elements but id doesnt have any sort of change on the final UI.
+
+- anchor:
+earlier you can't use block level of element for provide link. Now you can use anchors to provide links to block level items, as well as inline items.
+
+```
+<a href="#link-to-details">
+
+  <figure>
+            <img src="img/home.jpg" class="thumbnail img-responsive push-down-top " />
+            <figcaption>Brand new build at the end of a cul-de-sac in the north end of town</figcaption>
+        </figure>
+
+</a>
+```
+
+- aside: 
+The aside element  is used for features.
+
+- detail:
+Can use some interaction by using the details and summary elements. 
+
+. Set attribute Open to keep open details on first load.
+
+```
+
+<aside>
+                    <details open>
+                        <summary>Features</summary>
+                        <ul>
+                            <li>Luxurious sized Master Suite</li>
+                            <li>Oversized walk-in closet</li>
+                            <li>Frameless Beech cabinetry with concealed hinges</li>
+                            <li>Elegant slab White Quartz countertops with 4″ backsplash</li>
+                            <li>Dual china sinks with Moen faucets</li>
+                            <li>Clear frameless shower enclosures</li>
+                            <li>Hand set 6″ x 6″ ceramic tile at Shower Walls</li>
+                        </ul>
+                    </details>
+                </aside>
+
+
+```
+
+- video: 
+Here you can see the attributes that dont requie values within the element. which is right code in html.
+so i'm saying to display the controls on the page, to loop the media when it gets to the end, and then preload.
+Preload does take a value because therre are predefined values that ou can add in to the preload attribute.
+
+```
+ <video controls loop preload poster="img/kitchen.png" width="900">
+                <source src="media/kitchen.mp4"><!-- Serve first for iPad -->
+                <source src="media/kitchen.ogv">
+                <source src="media/kitchen.webm">
+                <p>This browser does not support native video</p>
+            </video>
+
+
+```
+
+- time:
+
+```
+<time datetime="2016-07-27t13:23-8:00" pubdate>Julu 27<sup>th</sup>, 2016</time>
+
+
+```
+The time is et, and also added is the pubdate attribute. which tells the browser this is the publication datte for the document itself. 
+datetime which provide the date, the time, and all the way down to the time zone offset.
+
+
+```
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>HTML5 Example</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="icon" type="image/png" href="img/favicon.png">
+		<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="css/site.css" type="text/css" />
+		
+		<script src="js/modernizr.min.js" type="text/javascript"></script>
+
+		<style>
+			body {
+				background-color: #fff;
+			}
+		</style>
+
+		<script>
+			console.log('HTML5 Example loaded');
+		</script> 
+	</head>
+	<body>
+
+		<main>
+
+		    <header>
+		    <!-- Fixed navbar -->
+			    <nav class="navbar navbar-inverse navbar-fixed-top">
+			    <div class="container">
+				    <div class="navbar-header">
+				    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					    <span class="sr-only">Toggle navigation</span>
+					    <span class="icon-bar"></span>
+					    <span class="icon-bar"></span>
+					    <span class="icon-bar"></span>
+				    </button>
+				    <a class="navbar-brand" href="index.html">
+					    <img src="img/html5-fundamentals.png" title="HTML5 Fundamentals" class="hidden-sm" />
+					    <img src="img/html5.png" title="HTML5 Fundamentals" class="visible-sm" />
+				    </a>
+				    </div>
+				    <div id="navbar" class="navbar-collapse collapse">
+				    <ul class="nav navbar-nav">
+					    <li><a href="example.html" class="nav-link">Example</a></li>
+					    <li class="separator visible-md visible-lg">|</li>
+					    <li><a href="selection.html" class="nav-link">Selection</a></li>
+					    <li>
+						    <div class="dropdown">
+							    <span class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							    Forms<span class="caret"></span>
+							    </span>
+							    <ul class="dropdown-menu" aria-labelledby="dLabel">
+									    <li><a href="forms-markup.html">Forms</a></li>
+									    <li><a href="forms-pseudo-classes.html">Pseudo Classes</a></li>
+									    <li><a href="forms-validation.html">Native Validation</a></li>
+									    <li><a href="forms-validation-custom.html">Custom Validation</a></li>
+									    <li><a href="forms-validation-bootstrap.html">Bootstrap Module</a></li>
+							    </ul>
+						    </div>
+					    </li>
+					    <li>
+						    <div class="dropdown">
+							    <span class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							    Media<span class="caret"></span>
+							    </span>
+							    <ul class="dropdown-menu" aria-labelledby="dLabel">
+									    <li><a href="media-basics.html">Basics</a></li>
+									    <li><a href="media-scripted.html">Scripted Controls</a></li>
+									    <li><a href="media-dynamic.html">Dynamic Load</a></li>
+							    </ul>
+						    </div>
+					    </li>
+					    <li>
+						    <div class="dropdown">
+							    <span class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							    Canvas<span class="caret"></span>
+							    </span>
+							    <ul class="dropdown-menu" aria-labelledby="dLabel">
+									    <li><a href="canvas-basics.html">Basics</a></li>
+									    <li><a href="canvas-manipulation.html">Manipulation</a></li>
+									    <li><a href="canvas-clipping.html">Clipping</a></li>
+									    <li><a href="canvas-charts.html">Charts</a></li>
+									    <li><a href="canvas-video.html">Video</a></li>
+							    </ul>
+						    </div>
+					    </li>
+					    <li>
+						    <div class="dropdown">
+							    <span class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							    Drag &amp; Drop<span class="caret"></span>
+							    </span>
+							    <ul class="dropdown-menu" aria-labelledby="dLabel">
+									    <li><a href="dd-basics.html">Basics</a></li>
+									    <li><a href="dd-datatransfer.html">Data Transfer Types</a></li>
+									    <li><a href="dd-files.html">Files</a></li>
+									    <li><a href="dd-effects.html">Effects</a></li>
+									    <li><a href="dd-dragimage.html">Drag Image</a></li>
+									    <li><a href="dd-dragimage-canvas.html">Drag Image (canvas)</a></li>
+							    </ul>
+						    </div>
+					    </li>
+					
+					
+				    </ul>
+				    </div><!--/.nav-collapse -->
+			    </div>
+			    </nav>
+		    </header>
+
+		    <article id="content-container" class="container example-layout">
+			    <h1>4768 Jupiter Drive</h1>
+			    <h2>Anytown, CA 90210</h2>
+				
+			    <section>
+				    <a href="#link-to-details">
+					    <figure>
+						    <img src="img/home.jpg" class="thumbnail img-responsive push-down-top " />
+						    <figcaption>Brand new build at the end of a cul-de-sac in the north end of town</figcaption>
+					    </figure>
+				    </a>
+					
+				    <section class="row push-down-top-sm">
+					    <div class="col-sm-8">
+						    <p>A beautiful home on a quiet street featuring an open floor plan with 5 bedrooms 
+							    and 3 full baths accented by a breathtaking view. After walking in the extra-tall 
+							    double-door entry way, you are greeted by the family-oriented kitchen which includes 
+							    a walk-in pantry, granite countertops, a double oven next to a granite topped 
+							    oversized arrow island with tons of storage underneath.</p>
+								
+						    <aside>
+							    <details open>
+								    <summary>Features</summary>
+								    <ul>
+									    <li>Luxurious sized Master Suite</li>
+									    <li>Oversized walk-in closet</li>
+									    <li>Frameless Beech cabinetry with concealed hinges</li>
+									    <li>Elegant slab White Quartz countertops with 4″ backsplash</li>
+									    <li>Dual china sinks with Moen faucets</li>
+									    <li>Clear frameless shower enclosures</li>
+									    <li>Hand set 6″ x 6″ ceramic tile at Shower Walls</li>
+								    </ul>
+							    </details>
+						    </aside>
+							
+						    <p>Adjacent to the kitchen is a 
+							    breakfast area overlooking a forest landscape through a sliding glass door. 
+							    The downstairs bedroom includes a full wardrobe. The living room includes a recessed 
+							    entertainment area complete with canned lighting with dimmer switch highlighted by a 
+							    charming dual-sided fireplace.</p>
+						    <p>Next is formal dining room and front sitting room. The 
+							    winding staircase leads you upstairs to the huge master suite featuring a sunk-in tub, 
+							    large shower, walk-in closet and an additional over-sized walk-in closet. The master 
+							    bath features split sinks with granite countertops.</p>
+						    <p>Also includes:</p>
+						    <ul>
+							    <li>two car garage</li>
+							    <li>high ceilings throughout</li>
+							    <li>huge bonus room with two closets</li>
+							    <li>wired for spa in backyard</li>
+							    <li>dual pane windows</li>
+							    <li>upstairs laundry room</li>
+						    </ul>
+					    </div>
+						
+				    </section>
+					
+				    <video controls loop preload="auto" poster="img/kitchen.png" width="900">
+					    <source src="media/kitchen.mp4"><!-- Serve first for iPad -->
+					    <source src="media/kitchen.ogv">
+					    <source src="media/kitchen.webm">
+					    <p>This browser does not support native video</p>
+				    </video>
+			    </section>
+				
+			    <time datetime="2016-07-27T13:25:23-8:00" pubdate>July 27<sup>th</sup>, 2016</time>
+		    </article>
+		
+			<footer>
+				<div class="container">
+					<div class="row push-down-top-lg">
+						<div class="col-sm-offset-2 col-sm-3">
+							<img src="img/html5-fundamentals.png" title="HTML5 Fundamentals" />
+							<p>by <a href="http://craigshoemaker.net">Craig Shoemaker</a></p>
+							<p class="lead">
+								<a href="http://twitter.com/craigshoemaker">Craig Shoemaker</a> is a
+								<a href="http://www.infragistics.com">developer</a>,
+								<a href="http://www.pluralsight.com/author/craig-shoemaker">instructor</a>,
+								<a href="http://code-magazine.com/SearchResults.aspx?search=craig%20shoemaker">writer</a>,
+								<a href="http://polymorphicpodcast.com">podcaster</a>, and a man of many hats at
+								<a href="http://www.infragistics.com">Infragistics</a>.
+							</p>
+							<div class="push-down-top-md">
+								<a href="https://www.pluralsight.com/courses/html5-fundamentals"><img src="img/pluralsight.png" title="HTML5 Fundamentals" /></a>
+							</div>
+						</div>
+						<div class="col-sm-offset-1 col-sm-3">
+							<a href="http://craigshoemaker.net"><img src="img/craig-shoemaker.png" title="Craig Shoemaker" /></a>
+						</div>
+					</div>
+				</div>
+			</footer>
+
+		</main>
+		
+		<script src="js/jquery.min.js" type="text/javascript"></script>
+		<script src="js/bootstrap.js" type="text/javascript"></script>
+		<script src="js/highlight/highlight.pack.js" type="text/javascript"></script>    
+		<script src="js/app.js" type="text/javascript"></script>
+	</body>
+</html>
+
+```
 
 
 
+# The datalist element gets associated with what other type of element?
+
+- input
+
+# The querySelector and querySelectorAll functions take _________________ as input. 
+
+- CSS3 selectors 
+
+# A typeMismatch validation rule is broken when: 
+
+- The input's value does not match the type defined in the input element 
+
+# Which video format has the most widespread browser support? 
+
+- MP4 
+
+# What is HTML5? 
+
+- New semantic markup and JavaScript APIs 
+
+# The video and audio APIs are largely the same except for the following distinction: 
+
+- The audio API does not have methods for controlling video. 
+
+# What does the moveTo method do? 
+
+- Places the drawing tool at a specific place on the canvas 
+
+
+# What function is used to render text on the canvas? 
+
+- fillText 
+
+# As an element is dropped, what is the last event that is fired? 
+
+- dragEnd 
+
+# What event continually fires on the drag source? 
+
+- drag 
+
+
+https://app.pluralsight.com/player?course=html5-fundamentals&author=craig-shoemaker&name=7083c0e7-b70e-4434-b45f-d89d0720b984&clip=17&mode=live
