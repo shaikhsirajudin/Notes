@@ -1214,6 +1214,7 @@ for (var i = 0, len = items.length; i < len; i++) {
 . Foreach method off of the array prototype.
 
 forEach Iteration
+
 ```
 var forEach = Array.prototype.forEach;
 var items = document.querySelectorAll('#example-container li');
@@ -1222,7 +1223,9 @@ forEach.call(items, function(item){
 console.log(item.innerText);
 });
 
-```- "Live" Result from getElementsByClassName:
+```
+
+- "Live" Result from getElementsByClassName:
 Now once you make a selection against an element on the page, depending on whether or not you have a live connection to it or static connection to it will determine how it behaves as it changes throughout the lifecycle of the page. 
 If we were to take a look at the exmple-container and get access to the unordered list element, so that would be the parent element of each one of there list items and then change the number of list items inside that unordered list when you are working with a live result you will be able to recognize that change programmatically as it happens.
 
