@@ -33,6 +33,7 @@ Big part of HTML5 is the addition of containers or HTML elements those are very 
 - New Attributes to existing elements 
 - New Javascript APIs implemented in the browser.
 
+
 # History of HTML5
 - Proposal for HTML in 90 by TIM Berners-Lee along with first broswer and first server software.
 - After evolution and development of HTML as formalized in the foundation of World Wide Web consortium or W3C. This is the first HTML specification
@@ -1263,6 +1264,218 @@ console.log(items.length);
 
 
 ```
+# HTML5 elements
+
+The new functionality found in HTML5 comes in the form of new elements, new attributes of existing elements, and new Javascript APIs.
+
+
+## New Input Types
+New elements are meant to help people as they enter specific types of data into web forms.
+
+•color
+
+It render as a colored rectangle when you click on the rectangle or input control a color picker appears that allows you to select from a set of predefined colors. Beyond that it gives you the opportunity to define some custom colors.
+
+syntax
+
+```
+<input type="color" /> 
+
+```
+
+• datalist
+
+The datalist element doesnt render anything on the page, but when it's associated with a input element, then the items in the datalist appear as predefined options for a textbox. This makes it easy for you to provide some default options for an input element but still have a freely editable textbox.
+
+syntax
+```
+<input list="colors" />
+<datalist id="colors" >
+ <option value="Blue" >
+ <option value="Red" >
+ <option value="Yellow" >
+ <option value="Orange" >
+ <option value="White" >
+</datalist>
+
+```
+
+•date
+•datetime
+
+the datetime type provides a date picker, which allows you to easily select a date value. Each browser renders the picker a little bit differently, but all supoorting broswers allow you easily cycle through months and days. 
+
+```
+
+<input type="datetime" />
+```
+•datetime-local
+The datetime-local input type gives users the chance to easily select date and time in their local time zone.
+
+```
+<input type="datetime-local" />
+
+```
+
+•email
+
+The email type it rdners like any other textbox, however on a mobile device if supported the keyboard changes to an optimized version making it easier to enter in an email address.
+
+```
+<input type="email" />
+
+```
+
+•url
+
+The URL type behaves same way like email. Its a bit uninspiring on the desktop, but as you look at it on a mobile device, you are presented with a custom keyboard layout specifically for entering in web addresses.
+
+```
+<input type="url" />
+
+```
+•tel
+
+Same goes with the telephone type as url.
+
+```
+<input type="tel" />
+
+```
+•month
+
+The month input type does have a custom visualization on desktop, as well as on mobile devices
+
+```
+<input type="month" />
+
+```
+
+•number
+
+The number type renders some handy spinners at the side in order to go through values and has a custom and has a custom keyboard layout for mobile.
+
+```
+<input type="number" />
+
+```
+
+•range
+
+The range control renders out a slider, as well as giving you control over the start, stop and setp values.
+
+```
+<input type="range" />
+
+```
+
+•week
+
+The week input type allows you to select a single week of a given year.
+
+```
+<input type="week" />
+
+```
+
+•time
+Getting a bit more granular the time type allows you to select a specific time and comes with a custom mobile visualization if supported.
+
+```
+<input type="time" />
+
+```
+
+•search
+
+The search input type. This renders what is essentially a regular textbox but its accompanied by a small "x" icon on the right-hand side that allows you to easily clear the value in the box.
+
+```
+<input type="search" />
+
+```
+
+# Never trust (user) input.
+
+Validation that are available native within the browser in HTML5.
+The last thing that you want to do is trust data that comes into your application blindly. Validating and sanitizing input values protects your application from hackers, vandals and data values that colud otherwise possibly compromise your system. With HTML5 you have a number of different validation rules and APIs available to help you easily  vet data on the client before you send it off to the server. But client-side messages can be sppofed or even outright high-jacked. So you can do much on the client but be careful of what you let into the inner sanctum of your application. Wnough with warnings.
+
+
+## Validation support available in the browser.
+
+- Value Missing:
+
+The value missing rule evaluates to true if an element that has the required attribute has an empty value.
+This is perfect when you want to make sure users are submitting a value, say usernames, passwords or emal addresses.
+```
+<input type="text" required value="" />
+
+```
+
+- Type Mismatch:
+
+The type mismatch validation rule evaluates to true when the value in the input element does not match the type defined by the elements type value.
+
+In this example input is set to accept a URL. But the value is simply the string hi, Since the string hi does not match the form of a URl, the type mismatch rule is broken. You will use this inplaces where you want to make sure data entered adheres to the defined type like not putting a street address in an email address field.
+```
+<input type="url" value="hi" />
+
+```
+
+- Pattern Mismatch:
+
+The pattern mismatch evaluates to true when the value of the input element doesnt match the regular expression provided in the pattern attribute. This is a powerful feature as it give you full control to define the pattern of how you want to values to adhere to your business rules. The practitcal applications for the pattern attribute are endless from validation of social security numbers to IP addresses, even to determining if the specific workds have a paritcualr casing.
+
+```
+<input type="text" pattern="/^[A-z]+$/" value="1234" />
+
+```
+
+- Too Long:
+
+The too long rule evaluates to true when an element's value lenght is longer than the maxlength value.
+
+here you can enforce a check for usernames that are too many characters and so on.
+
+```
+
+<input type="text" maxlength="3" value="hello" />
+```
+
+- Range Underflow/ Overflow:
+
+When working with sliders, there are a few validation rules that will apply to the range element.
+
+The range underflow rule returns true when the range's value is smaller than the minimum allowed value as defined by the main attribute.
+
+On the flip side is the range overflow rule, whcih returns true when the value is greater than the max value.
+
+```
+<input type="range" min="3" max="5" value="9" />
+
+```
+- Range Step Mismatch:
+
+The last one that applies to the range element is the step mismatch, which evaluates to true when the value of the range is not a value that's possible in light of the step value defined in the range.
+
+e.g.
+Suppose if you want to control the valume of a media player with a slider, and you wanted to change the values in increments but ended up with a value of 9 somehow, then you have step mismatch.
+
+```
+<input type="range" min="5" max="20" step="5" value="8" />
+
+```
+
+- Valid Rule:
+
+The valid rule is one evaluates to true when all other validation rules return false. This is how you know you have a valid form on the page.
+
+```
+<input type="range" min="5" max="20" step="5" value="10" />
+
+```
+
+
 
 # The datalist element gets associated with what other type of element?
 
@@ -1304,7 +1517,5 @@ console.log(items.length);
 # What event continually fires on the drag source? 
 
 - drag 
-
-
 
 
