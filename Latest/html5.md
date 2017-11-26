@@ -1087,7 +1087,56 @@ datetime which provide the date, the time, and all the way down to the time zone
 </html>
 
 ```
+[html5 boilerplate](https://html5boilerplate.com/)
 
+[Can I use Features](https://caniuse.com)
+
+# Modernizr
+
+Its a lightweight Javascript library that takes care of all of the heavy lifting when it comes to feature detection.
+
+- Want to know if the current broswer supports a paticular feature?
+To use Modernizr, you have to reference it in your page and as the page loads, Modernizr inspects the user's browser and reports back what it's capabilities are.
+
+Goto [Modernizr download](https://modernizr.com/download?setclasses) table, you'll notice there're number of different features that it supports detection upon inside the browser. If you wnated to use canvas, you could come over herre and click on exmaples it shows you some CSS you can use to display elements with or without canvas and in Javascript yo simply use the boolean value, Modernizr.canvas then you can write your won custom code to decide what to do if support exists or not.
+If you  reference it in your page on the page loads Modernizr inspects the user's browser and reports back what it's capabilities are.
+Detecting Features
+```
+css
+
+.no-canvas .box{color:red;}
+
+.convas .box{color:green;}
+
+js
+
+if (Modernizr.canvas){
+// supported
+}else{
+// not-supported
+}
+
+```
+
+# Fallbacks and Polyfills
+
+If you are developing an application and you really need a certain API, and it's not supported by all broswers, or maybe its not supporrted b y some at all.
+The second line of defense other than Moderniz is to turn to fallbacks and polyfills.
+
+- Fallback: 
+As the name suggests, a fallback is an implementation that you can fall back to that's usually done by a third party with a different API than what you night find natively implemented in the browser.
+e.g
+Popular library called Q which provides an implementation for Promises, which is an API that's used to deal with asynchronous processing and it was available far before any browser supported promises natively.The functions in your code calls was different than whta was spec-ed out for the native broser implementation, but you generally got the same functionality.
+In-short, it provide similar functionality as a native feature but maybe just with different API.
+
+- Polyfill:
+Is is meant to replicate the exact same interface as well as functionality as how the native implementation would be built in to the browser. The benefit to using a polufill is that once broswer support is ubiquitous, the idea is that you can simply remove the polyfill from your application and the functionality will remain unchanged, although it would still recommend some rigorous testing during this time.
+
+Note: There is the web website [to find out about fallbacks and polyfills](https://html5please.com). This is a good website that gives you a pretty good handle on what's available as far as APIs and which one needs to be used with a fallback or a polyfill, and which is not available at all.
+e.g
+
+WebSQL DB
+It initially found favor as a clientside database API,now been abandoned in favor of IndexedDB.
 
 
 # The datalist element gets associated with what other type of element?
@@ -1132,4 +1181,5 @@ datetime which provide the date, the time, and all the way down to the time zone
 - drag 
 
 
-https://app.pluralsight.com/player?course=html5-fundamentals&author=craig-shoemaker&name=7083c0e7-b70e-4434-b45f-d89d0720b984&clip=17&mode=live
+
+
