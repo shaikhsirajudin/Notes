@@ -1098,7 +1098,7 @@ Its a lightweight Javascript library that takes care of all of the heavy lifting
 - Want to know if the current broswer supports a paticular feature?
 To use Modernizr, you have to reference it in your page and as the page loads, Modernizr inspects the user's browser and reports back what it's capabilities are.
 
-Goto [Modernizr download](https://modernizr.com/download?setclasses) table, you'll notice there're number of different features that it supports detection upon inside the browser. If you wnated to use canvas, you could come over herre and click on exmaples it shows you some CSS you can use to display elements with or without canvas and in Javascript yo simply use the boolean value, Modernizr.canvas then you can write your won custom code to decide what to do if support exists or not.
+Goto [Modernizr download](https://modernizr.com/download?setclasses) tab, you'll notice there're number of different features that it supports detection upon inside the browser. If you wnated to use canvas, you could come over herre and click on exmaples it shows you some CSS you can use to display elements with or without canvas and in Javascript yo simply use the boolean value, Modernizr.canvas then you can write your won custom code to decide what to do if support exists or not.
 If you  reference it in your page on the page loads Modernizr inspects the user's browser and reports back what it's capabilities are.
 Detecting Features
 ```
@@ -1120,7 +1120,7 @@ if (Modernizr.canvas){
 
 # Fallbacks and Polyfills
 
-If you are developing an application and you really need a certain API, and it's not supported by all broswers, or maybe its not supporrted b y some at all.
+If you are developing an application and you really need a certain API, and it's not supported by all broswers, or maybe its not supporrted by some at all.
 The second line of defense other than Moderniz is to turn to fallbacks and polyfills.
 
 - Fallback: 
@@ -1138,6 +1138,128 @@ e.g
 WebSQL DB
 It initially found favor as a clientside database API,now been abandoned in favor of IndexedDB.
 
+# Modernizr vs Polyfills
+- Modernizr does is, very simply, tell you whether the current browser has this feature natively implemented or not. 
+- Modernizr is a small JavaScript library that you can use for feature detection.
+
+- Once you do the feature detection for your browser, you can then do polyfill.
+- polyfills is for browser compatibility.
+- polyfills replicate the standard API found in native features of new browsers for those without such features.
+
+
+Traditional DOM Selection
+In the past traditional DOM selection API is limited and it lacks some of the basic functions needed to be truly useful.In fact some of the libraries like JQuery initially came from the need to be able to select agianst the DOM in an easy, reliable and speedy fashion.
+In HTML5 there's a host of new selectors that make it not only easy to work with the DOM but also super-fast.
+
+# Examples
+
+## Selection API
+
+- getElementsByClassName :
+it returns an array of elements that match that selection of class.
+This will return live result
+
+```
+document.getElementsByClassName('img-responsive')
+
+```
+
+- querySelector: 
+If you want little more robust compareto getElementsByClassName e.g a CSS3 selector, then querySelector is the one.
+The elements that you want to select against the page arent simply availabe through a class name or a tag name, and your needs are a little more sophisticated.
+
+. To get first match that it finds the document.
+
+```
+document.querySelector('.img-responsive')
+
+document.querySelector('#example-container li:first-child')
+```
+
+- querySelectorAll:
+Pass a selector .img-responsive, It will get back an array of all the matche to my selector.
+This will return static result set.
+
+querySelectorAl returns that appears to be array of elements. But in fact, it's not. It's actually a node list. when you do toString against the items it returns a tyoe of NodeList. So technically its not an array so cant simply iterate over it using  the foreach function. 
+
+
+. Find all matches to that selector.
+
+```
+document.querySelectorAll('.img-responsive')
+
+---
+var container = document.getElementById('example-container');
+var items=container.querySelectorAll('.img-responsive')
+
+items.toString()// [object NodeList]
+
+```
+
+- How to iterate through NodeList: 
+There are two way to iterate through NodeList. 
+
+. Standard for loop.
+
+for Iteration
+```
+var items = document.querySelectorAll('#example-container li');
+
+for (var i = 0, len = items.length; i < len; i++) {
+	console.log(items[i].innerText);
+}
+
+```
+
+. Foreach method off of the array prototype.
+
+forEach Iteration
+```
+var forEach = Array.prototype.forEach;
+var items = document.querySelectorAll('#example-container li');
+
+forEach.call(items, function(item){
+console.log(item.innerText);
+});
+
+```- "Live" Result from getElementsByClassName:
+Now once you make a selection against an element on the page, depending on whether or not you have a live connection to it or static connection to it will determine how it behaves as it changes throughout the lifecycle of the page. 
+If we were to take a look at the exmple-container and get access to the unordered list element, so that would be the parent element of each one of there list items and then change the number of list items inside that unordered list when you are working with a live result you will be able to recognize that change programmatically as it happens.
+
+```
+var list = document.querySelector('#example-container ul');
+var items = document.getElementsByClassName('feature');
+
+console.log(items.length);
+
+var newItem = document.createElement('LI');
+newItem.className = 'feature';
+newItem.innerText = 'new live feature';
+list.appendChild(newItem);
+
+console.log(items.length);
+
+```
+
+- Static Result  querySelectorAll
+if you access elements by using querySelectorAll then you will end up with a static result.
+It mean that it still give old count even if we add dynamically.
+
+```
+var list = document.querySelector('#example-container ul');
+var items = document.querySelectorAll('#example-container li');
+
+console.log(items.length);
+
+var newItem = document.createElement('LI');
+newItem.className = 'feature';
+newItem.innerText = 'new static feature';
+list.appendChild(newItem);
+
+console.log(items.length);
+
+
+```
 
 # The datalist element gets associated with what other type of element?
 
