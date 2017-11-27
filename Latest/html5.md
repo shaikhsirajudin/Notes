@@ -1475,6 +1475,163 @@ The valid rule is one evaluates to true when all other validation rules return f
 
 ```
 
+# Example of Simple Input page with validation
+
+```
+<style>
+input:required {
+  border-left: 4px solid #c33;
+}
+
+input:focus:invalid,
+textarea:focus:invalid,
+select:focus:invalid {
+  color: #c33;
+  border-color: #c33;
+}
+
+input:focus:invalid:focus,
+textarea:focus:invalid:focus,
+select:focus:invalid:focus {
+  border-color: #c33;
+  -webkit-box-shadow: 0 0 6px #fcc;
+     -moz-box-shadow: 0 0 6px #fcc;
+          box-shadow: 0 0 6px #fcc;
+}
+</style>
+<script>
+var moveValue = document.getElementById('move-value');
+				
+document.getElementById('move-range').addEventListener('change', function() {
+	moveValue.innerText = this.value;
+}, false);
+</script>
+
+ <form novalidate class="narrow">
+  <h2 class="h3">Search</h2>
+  					
+  <input type="search" 
+    id="search-text" 
+    class="form-control" 
+    placeholder="search" 
+    autofocus />
+	
+</form>	
+
+<form class="narrow">
+  <h2 class="h3">Contact Info</h2>
+  					
+  <input type="text"
+    id="name-text"
+    placeholder="first and last name"
+    required
+    pattern="(.*)\s(.*)"
+    class="form-control">
+			
+  <input type="email" 
+    id="email-text"
+    placeholder="email address"
+    required
+    class="form-control">
+			
+  <input type="tel" 
+    id="phone-text"
+    placeholder="phone number"
+    required
+    class="form-control">
+			
+  <input type="url" 
+    id="phone-text"
+    placeholder="web address"
+    class="form-control">
+		
+  <h2 class="h3">Perferences</h2>
+  
+  <input type="number" 
+    id="bedrooms-text"
+    placeholder="# of bedrooms"
+    min="1"
+    max="6"
+    class="form-control">
+	
+  <h3 class="h4">Days Until Available to Move</h3>
+  <div>
+    <div class="col-sm-6">
+      <input type="range" 
+        id="move-range" 
+        min="0" max="120" 
+        step="10" value="30">
+    </div>
+    <div class="col-sm-4">
+      <span id="move-value">30</span>
+    </div>
+  </div>	   
+	
+	
+  <input type="text" 
+    id="direction-list"  
+    list="direction-data"
+    placeholder="directional preference"
+    class="form-control">
+			
+  <datalist id="direction-data">
+    <option value="North"></option>
+    <option value="South"></option>
+    <option value="East"></option>
+    <option value="West"></option>
+  </datalist>
+	
+  <input type="color" 
+    id="main-color"
+    value="#ffffff"
+    class="form-control push-down-top">
+	
+  <h2 class="h3">Available Date</h2>
+			
+  <input type="month"
+    class="form-control"
+    value="2016-06" />
+			
+  <input type="week"
+    class="form-control"
+    value="2016-W26" />
+		   
+  <input type="datetime-local"
+    class="form-control"
+    value="2016-06-26T09:30:00" />
+	
+  <div class="push-down-top">
+    <button class="btn btn-link">Cancel</button>
+    <input type="submit" class="btn btn-default" value="Save" />
+  </div>
+  
+</form>
+
+
+
+```
+# Skip Validation rules on Submit
+- novalidate attribute allow to skip the form validation on sumbmit
+
+Below example demonstrate in search form how we can skip any validation rules as you submit it.
+
+- The search box: in that you will notice that it has the type of "search" and also "autofocus" applied to it so that when the page loads, this input element will get the cusrsor's focus.
+
+- We need to make sure that there's only one element on the page that has autofocus attribute applied to it.
+
+```
+<form novalidate class="narrow">
+  <h2 class="h3">Search</h2>
+  					
+  <input type="search" 
+    id="search-text" 
+    class="form-control" 
+    placeholder="search" 
+    autofocus />
+	
+</form>	
+
+```
 
 
 # The datalist element gets associated with what other type of element?
