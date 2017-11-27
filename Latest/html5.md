@@ -1632,6 +1632,102 @@ Below example demonstrate in search form how we can skip any validation rules as
 </form>	
 
 ```
+# style Validation
+
+These rules here only apply if the data that's in that input element is invalid. If data is invalid in that imput element, the style will be applied. 
+
+```
+input:focus:invalid,
+textarea:focus:invalid,
+select:focus:invalid {
+  color: #c33;
+  border-color: #c33;
+}
+
+```
+Same goes for input:focus:invalid:focus so If the cursor is focused on an input element that has invalid data, then these styles will be applied
+```
+input:focus:invalid:focus,
+textarea:focus:invalid:focus,
+select:focus:invalid:focus {
+  border-color: #c33;
+  -webkit-box-shadow: 0 0 6px #fcc;
+     -moz-box-shadow: 0 0 6px #fcc;
+          box-shadow: 0 0 6px #fcc;
+}
+
+```
+# Interactivity with CSS using Psedudo Classes
+There are pseudo classes to add interactivity to your formns without using any Javascript what so ever.
+
+
+```
+<style>
+
+input:valid + .invalid { /* Adjacent sibling selector */
+  visibility: hidden;
+}
+
+input:invalid + .invalid {
+  visibility: visible;
+}
+
+input:required {
+  border-bottom: 2px solid #c33;
+}
+
+input:valid {
+  border-bottom: transparent;
+}
+
+.invalid {
+  color: #999;
+}
+
+</style>
+
+<form>
+                
+  <input type="text" 
+    id="username" 
+    name="username" 
+    pattern="[a-zA-Z ]{5,}" 
+    placeholder="username" 
+    maxlength="30" 
+    required />
+    
+  <div class="invalid">
+    The required user name may only be a series of alphabetical characters.
+  </div>
+
+  <input type="email" 
+    id="email" 
+    name="email" 
+    placeholder="email" 
+    required />
+    
+  <div class="invalid">
+    The required email address may not include any special characters other than the '.' or '@'.
+  </div>
+
+  <div class="push-down-top">
+    <button class="btn btn-link">Cancel</button>
+    <button class="btn">Login</button>
+  </div>
+  
+</form>
+
+
+```
+The first element is input type of text for the username and it set to required. Each one together enforces validation rule that, It must have a value, It should be alpha characters only and must be at least 5 characters and cant be greater than 30 character. Below there is the helper text, and this is inside a div and that has a class of invalid applied to it.
+Into the CSS you will see how the selectors turn on and off, but this is tthe text that's associated with that input element.
+
+
+# Custom validation messages using the built-in validation rules.
+
+
+
+
 
 
 # The datalist element gets associated with what other type of element?
@@ -1676,3 +1772,4 @@ Below example demonstrate in search form how we can skip any validation rules as
 - drag 
 
 
+https://app.pluralsight.com/player?course=html5-fundamentals&author=craig-shoemaker&name=1004db75-0a5a-45ce-bc04-fa3b79059c96&clip=5&mode=livehttps://app.pluralsight.com/player?course=html5-fundamentals&author=craig-shoemaker&name=1004db75-0a5a-45ce-bc04-fa3b79059c96&clip=5&mode=live

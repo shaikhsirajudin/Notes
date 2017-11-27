@@ -695,7 +695,17 @@ Rule, which is applicable in the entire sheet and not partly, is known as at-rul
 # How can CSS be cascaded to mix with user’s personal sheet?
 Properties can be a set in recommended places and the document modified for CSS to mix with user’s   personal sheet.
 
+# Adjacent sibling selector
 
+To say look for the element next to it that has the CSS class of invalid applied to it.
+
+input:valid+ .invalid{
+visibility:hidden;
+}
+
+# cascading stylesheet/CSS execution order
+The browser encounters these rules, whichever one is interpreted last gets the highest precedent.
+So if you have multiple class to same elements the last one will be present applied.
 
 Sass in the real world (Book 1 of 4)  
 http://anotheruiguy.gitbooks.io/sassintherealworld_book-i/ 
