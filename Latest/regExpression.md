@@ -4,6 +4,8 @@
 
 ![Snipet 2](https://github.com/shaikhsirajudin/Notes/blob/master/images/how/reg2.PNG)
 
+[Practice URL](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference) 
+
 ##  Letters: abc
 
 -  Write a pattern that matches all three rows, it may be as simple as the common letters on each line.
