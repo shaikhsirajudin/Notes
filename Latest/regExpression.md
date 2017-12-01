@@ -9,7 +9,9 @@
 -  Write a pattern that matches all three rows, it may be as simple as the common letters on each line.
  
 match: abcdefg Success 
+
 match: abcde Success 
+
 match: abc 
 
 - Matches all character
@@ -25,7 +27,9 @@ abc
 - Write a pattern that matches all the digits in the strings below, and notice how your pattern matches anywhere within the string, not just starting at the first character.
 
 match: abc123xyzted 
+
 match: define "123"
+
 match: var g = 123; 
 
 - typing the common numbers '123' from all the lines to see them match.
@@ -38,8 +42,10 @@ match: var g = 123;
 ## Any Digit:  \d  
 The character \d can be used in place of any digit from 0 to 9. The preceding slash distinguishes it from the simple d character and indicates that it is a metacharacter.
 
-match: abc123xyzted 
+match: abc123xyzted
+
 match: define "123"
+
 match: var g = 123;  
 
 ```
@@ -55,8 +61,10 @@ The concept of a wildcard, which is represented by the . (dot) metacharacter, an
 
 -  write a single pattern that can match the first three strings
 
-match: cat  
-match: 896 
+match: cat 
+
+match: 896
+
 match: ?=+ 
 
 ```
@@ -70,9 +78,12 @@ In order to specifically match a period, you need to escape the dot by using a s
 
 - write a single pattern that can match the first three strings, but not the last (to be skipped). You may find that you will have to escape the dot metacharacter to match the period in some of the lines.
 
-match: cat. 
+match: cat.
+
 match: 896. 
+
 match: ?=+. 
+
 skip: abc1 
 
 - You can use '...\.' to match the first three (wildcard) characters, and escape the final wildcard meta-character to match the period instead. This ensures that it will not match the '1' in the fourth line.
@@ -92,11 +103,16 @@ For example, the pattern [abc] will only match a single a, b, or c letter and no
 
 -  To match the first three strings, but not the last three strings. Notice how we can't avoid matching the last three strings if we use the dot, but have to specifically define what letters to match using the notation above.
 
-match: can  
+match: can
+
 match: man  
+
 match: fan  
-skip : dan   
+
+skip : dan 
+
 skip : ran  
+
 skip : pan 
 
 - You can use the expression '[cmf]an' to match only 'can', 'man' and 'fan' without matching any other line. As you will see in the next lesson, you can also use the inverse expression '[^drp]an' to match any three letter word ending with 'an' that does not start with 'd', 'r' or 'p'.
@@ -116,8 +132,10 @@ we use a similar expression that excludes specific characters using the square b
 
 - a pattern that matches only the live animals (hog, dog, but not bog). Notice how most patterns of this type can also be written using the technique from the last lesson as they are really two sides of the same coin. By having both choices, you can decide which one is easier to write and understand when composing your own patterns.
 
-match: hog  
+match: hog 
+
 match: dog  
+
 skip : bog 
 
 - The simplest solution to match any line that ends in 'og' but is not 'bog' would be the expression '[^b]og'. Alternatively, you could use what we learned from the previous lesson and use '[hd]og' to match 'hog' and 'dog' but not 'bog'. Note that it is slightly more restrictive expression because it limits the strings it can match.
@@ -125,6 +143,7 @@ skip : bog
 ```
 
 [^b]..
+
 [^b]og
 
 ```
@@ -140,10 +159,15 @@ Tthe square bracket notation, there is a shorthand for matching a character in l
 
 
 match: Ana  
-match: Bob   
-match: Cpc  
-skip : aax  
+
+match: Bob 
+
+match: Cpc
+
+skip : aax 
+
 skip : bby  
+
 skip : ccz  
 
 - All the characters are sequential, so you can use the different ranges in the expression '[A-C][n-p][a-c]' to match only the first three lines.
@@ -159,11 +183,16 @@ Multiple character ranges can also be used in the same set of brackets, along wi
 
 - the match and skip lines have a pattern, and use the bracket notation to match or skip each character from each line. Be aware that patterns are case sensitive and a-z differs from A-Z in terms of the characters it matches (lower vs upper case).
 
-match: Ana  
-match: Bob   
+match: Ana 
+
+match: Bob  
+
 match: Cpc  
+
 skip : aax  
+
 skip : bby  
+
 skip : ccz  
 
 ```
@@ -183,7 +212,9 @@ A more convenient way is to specify how many repetitions of each character we wa
 - write a pattern that matches only the first two spellings by using the curly brace notation above.
 
 match wazzzzzup  
-match wazzzup  
+
+match wazzzup 
+
 skip wazup 
 
 ```
@@ -200,7 +231,9 @@ This quantifier can be used with any character, or special metacharacters, for e
 - write a pattern that matches only the first two spellings by using the curly brace notation above.
 
 match: wazzzzzup  
+
 match: wazzzup  
+
 skip : wazup 
 
 - There are a couple 'z's in the first two lines we have to match, so the expression 'waz{3,5}up' will match all strings with that many 'z's.
@@ -220,8 +253,11 @@ One way to express such a pattern would be to use what is known as the Kleene St
 Below are a few simple strings that you can match using both the star and plus metacharacters.
 
 match: aaaabcc 
+
 match: aabbbbc 
+
 match: aacc  
+
 skip : a 
 
 ```
@@ -236,9 +272,12 @@ These quantifiers can be used with any character or special metacharacters, for 
 
 Below are a few simple strings that you can match using both the star and plus metacharacters.
 
-match: aaaabcc 
+match: aaaabcc
+
 match: aabbbbc 
+
 match: aacc  
+
 skip : a 
 
 - There are at least two 'a's, zero or more 'b's, and at least one 'c' in each line to match, so you can use the expression ''aa+b*c+'' to represent this exactly.
@@ -260,8 +299,11 @@ Similar to the dot metacharacter, the question mark is a special character and y
 - write a pattern that uses the optionality metacharacter to match only the lines where one or more files were found. 
 
 match: 1 file found? 
-match: 2 files found?  
-match: 24 files found? 
+
+match: 2 files found?
+
+match: 24 files found?
+
 skip : No files found. 
 
 - We can use the meta-character '\d' to match the number of files and use the expression '\d+ files? found\?' to match all the lines where files were found.
@@ -280,8 +322,11 @@ The most common forms of whitespace you will use with regular expressions are th
 Write a pattern that can match each line regardless of how much whitespace is between the number and the content.
 
 match: 1.   abc   
+
 match: 2.	abc  
+
 match: 3.           abc  
+
 skip : 4.abc 
 
 We have to match only the lines that have a space between the list number and 'abc'. We can do that by using the expression '\d\.\s+abc' to match the number, the actual period (which must be escaped), one or more whitespace characters then the text.
@@ -303,9 +348,12 @@ One way to tighten our patterns is to define a pattern that describes both the s
 
 - to match each of the strings below using these new special characters.
 
-match: Mission: successful   
-skip : Last Mission: unsuccessful   
-skip : Next Mission: successful upon capture of target 
+match: Mission: successful  
+
+skip : Last Mission: unsuccessful 
+
+skip : Next Mission: successful upon capture of target
+
 
 - The expression 'Mission: successful' will match anywhere in the text, so we need to use the starting and ending anchors in an expression '^Mission: successful$' to only match the full string that starts with 'Mission' and ends with 'successful'.
 
@@ -323,7 +371,9 @@ Imagine for example that you had a command line tool to list all the image files
 - to write a regular expression that matches only the filenames (not including extension) of the PDF files below.
 
 capture: file_record_transcript.pdf               file_record_transcript 
+
 capture: file_07241999.pdf                        file_07241999 
+
 skip   : testfile_fake.pdf.tmp   
 
 
@@ -346,7 +396,9 @@ The nested groups are read from left to right in the pattern, with the first cap
 -write an expression that matches and captures both the full date, as well as the year of the date.
 
 capture: Jan 1987                      Jan 1987, 1987 
-capture: May 1969                      May 1969, 1969  
+
+capture: May 1969                      May 1969, 1969
+
 capture: Aug 2011 
 
 - This expression requires capturing two parts of the data, both the year and the whole date. This requires using nested capture groups, as in the expression '(\w+ (\d+))'.
@@ -366,7 +418,9 @@ For example, if I knew that a phone number may or may not contain an area code, 
 
 
 capture: 1280x720                        1280 720 
+
 capture: 1920x1600                       1920 1600 
+
 capture: 1024x768                        1024 768   
 
 - This one is pretty clean, we just need to capture the two groups of digits as such '(\d+)x(\d+)'.
@@ -384,8 +438,11 @@ Specifically when using groups, you can use the | (logical OR, aka. the pipe) to
 write a conditional pattern that matches only the lines with small fuzzy creatures below.
 
 match: I love cats  
+
 match: I love dogs 
+
 skip : I love logs 
+
 skip : I love cogs 
 
 - By using the logical or, we can match the first two lines by using the expression 'I love (cats|dogs)'. But logs and cogs are pretty cool too.
@@ -406,33 +463,43 @@ One concept that we will not explore in great detail in these lessons is back re
 Go ahead and write regular expressions for the following examples.
 
 capture: <a>This is a link</a>                               a 
+
 capture: <a href='https://regexone.com'>Link</a>             a  
+
 capture: <div class='test_style'>Test</div>                  div  
+
 capture: <div>Hello <span>world</span></div>  
 
-```
 - It is a best practice to use a proper library to parse html, but to find simple tag names, you can use the expression '<(\w+)'.
 
 - You can also capture tag contents '>([\w\s]*)<', or even attribute values '='([\w://.]*)'' if desired (not the goal of this problem though).
+```
+<(\w+)
 ```
 
 - Example 2
 try to capture the name of the email, excluding the filter (+ character and afterwards) and domain (@ character and afterwards).
 
 capture: tom@hogwarts.com                            tom  
-capture: tom.riddle@hogwarts.com                     tom.riddle   
+
+capture: tom.riddle@hogwarts.com                     tom.riddle  
+
 capture: tom.riddle+regexone@hogwarts.com            tom.riddle   
+
 capture: tom@hogwarts.eu.com                         tom   
+
 capture: potter@hogwarts.com                         potter   
+
 capture: harry@hogwarts.com                          harry   
+
 capture: hermione+regexone@hogwarts.com              hermione   
-
-
-```
-
 To extract the beginning of each email, we can use a simple expression '^([\w\.]*)' which will match emails starting with alphanumeric characters including the period. It will match up to the point in the text where it reaches an '@' or '+'.
 
 Again, you should probably use a framework to match emails!
+
+```
+
+^([\w\.]*)
 
 
 ```
@@ -441,19 +508,24 @@ Again, you should probably use a framework to match emails!
 
 write a single regular expressions that matches the number and captures the proper area code.
 
-capture: 415-555-1234                   415   
+capture: 415-555-1234                   415  
+
 capture: 650-555-2345                   650   
+
 capture: (416)555-3456                  416   
+
 capture: 202 555 4567                   202   
+
 capture: 4035555678                     403   
+
 capture: 1 416 555 9292                 416  
 
-
-```
 To grab the area code from the phone numbers, we can simply capture the first three digits, using the expression '(\d{3})'.
 
 However, to match the full phone number as well, we can use the expression '1?[\s-]?\(?(\d{3})\)?[\s-]?\d{3}[\s-]?\d{4}'. This breaks down into the country code '1?', the captured area code '\(?(\d{3})\)?', and the rest of the digits '\d{3}' and '\d{4}' respectively. We use '[\s-]?' to catch the space or dashes between each component.
+```
 
+1?[\s-]?\(?(\d{3})\)?[\s-]?\d{3}[\s-]?\d{4}
 
 
 ```
@@ -462,20 +534,27 @@ However, to match the full phone number as well, we can use the expression '1?[\
 Below are a few different formats of numbers that you might encounter. Notice how you will have to match the decimal point itself and not an arbitrary character using the dot metacharacter. If you are having trouble skipping the last number, notice how that number ends the line compared to the rest.
 
 match: 3.14529 
+
 match: -255.34 
+
 match: 128 
+
 match: 1.9e10 
+
 match: 123,340.00 
+
 skip : 720p 
 
 
-```
 The expression for this can be quite complicated when you take into account fractional numbers, exponents, and more.
 
 For the above example, the expression '^-?\d+(,\d+)*(\.\d+(e\d+)?)?$' will match a string that starts with an optional negative sign, one or more digits, optionally followed by a comma and more digits, followed by an optional fractional component which consists of a period, one or more digits, and another optional component, the exponent followed by more digits.
 
 This is not the only solution as there can be many expressions that can match these sets of number strings.
 
+```
+
+^-?\d+(,\d+)*(\.\d+(e\d+)?)?$
 
 
 ```
@@ -488,18 +567,26 @@ In this simple example, extract the filenames and extension types of only image 
 
 
 skip    :  .bash_profile  
+
 skip    :  workspace.doc  
+
 capture :  img0912.jpg img0912          jpg  
+
 capture : updated_img0912.png           updated_img0912 png  
+
 skip    : documentation.html  
+
 capture : favicon.gif favicon           gif  
+
 skip    : img0912.jpg.tmp  
+
 skip    : access.lock  
 
-
-```
 We are only looking for image files ending with the 'jpg', 'png' and 'gif' file extensions, so we can capture all such filenames using the expression '(\w+)\.(jpg|png|gif)$'.
 
+```
+
+(\w+)\.(jpg|png|gif)$
 
 
 ```
@@ -510,7 +597,8 @@ We have previously seen how to match a full line of text using the hat ^ and the
 Write a simple regular expression to capture the content of each line, without the extra whitespace.
 
 
-capture: 			The quick brown fox...                      The quick brown fox...   
+capture: 			The quick brown fox...                      The quick brown fox... 
+
 capture:    jumps over the lazy dog.                            jumps over the lazy dog. 
 
 
@@ -526,10 +614,15 @@ We can just skip all the starting and ending whitespace by not capturing it in a
 Your goal is to use any regular expression techniques that we've learned so far to extract the filename, method name and line number of line of the stack trace (they follow the form "at package.class.methodname(filename:linenumber)").
 
 skip    : W/dalvikvm( 1553): threadid=1: uncaught exception   
+
 skip    : E/( 1553): FATAL EXCEPTION: main    
+
 skip    : E/( 1553): java.lang.StringIndexOutOfBoundsException   
+
 capture : E/( 1553):   at widget.List.makeView(ListView.java:1727)                          makeView ListView.java 1727    
-capture : E/( 1553):   at widget.List.fillDown(ListView.java:652)                           fillDown ListView.java 652   
+
+capture : E/( 1553):   at widget.List.fillDown(ListView.java:652)                           fillDown ListView.java 652 
+
 capture : E/( 1553):   at widget.List.fillFrom(ListView.java:709)                           fillFrom ListView.java 709  
 
 - This one can be tricky too, but we really just want to capture the method name, filename, and line number. This can be achieved using the expression '(\w+)\(([\w\.]+):(\d+)\)' in which the first capture group is the method, followed by an escaped parenthesis, followed by the filename, a colon, and finally the line number.
@@ -547,9 +640,13 @@ The scheme describes the protocol to communicate with, the host and port describ
 In the exercise below, try to extract the protocol, host and port of the all the resources listed.
 
 capture: ftp://file_server.com:21/top_secret/life_changing_plans.pdf                    ftp file_server.com 21     
+
 capture: https://regexone.com/lesson/introduction#section                               https regexone.com  
+
 capture: file://localhost:4040/zip_file                                                 file localhost 4040  
+
 capture: https://s3cur3-server.com:9999/                                                https s3cur3-server.com 9999  
+
 capture: market://search/angry%20birds                                                  market search  
 
 - We have to match each of the three components: 
