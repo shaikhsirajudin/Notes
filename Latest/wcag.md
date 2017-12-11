@@ -635,3 +635,190 @@ https://www.wuhcag.com/
 
 * my accesible website
 http://myaccessible.website
+
+g 
+
+# What Is Accessibility and why is it important?
+
+It is the practice making web application usable for wide range of people, this includes those with disabilities and it’s estimated that 20% of population has some sort of disabilities. It’s easy for web developer and designer to assume that everyone uses the web as we do and this is simply not the case. Some people partially for fully blind or have color blindness some people use screen reader, other navigate the web using only keyboard or assistive technologies that mimic the keyboard behavior. Some have cognitive issue that affect the learning, memory perception and problem solving. Some has temporary issues like broken arm, broken hand or broken finger that prevent using the mouse. Some have changing abilities due age. Other may have emergence or urgency situations and it’s our job as a developer make it easy as possible. It also help for search engine optimization. Even the site built by using Web accessibility in mind with help to everyone.
+
+- Making sites and apps usable for everyone.
+- Not just those with disabilities.
+- People with vision impairments
+- People using assistive technologies
+- People with cognitive issues.
+
+# Planning for Accessibility.
+
+Most of accessibility issues stand for lack of awareness, designer and developers aren’t intending for building an inaccessible site. Just they are unaware of what they are doing so. It also believe it cost more money and take more time to design and build accessible site, But most of the time it’s simply not true when working with the team who understand the topic. Part of issue is accessibility tends to be after thought.
+Here are the few things we can do at beginning
+- Identify the accessibility Goals for project: this will bring everyone on the same page. Set the clear target: which provide the clear target to shoot.
+- Put Someone in Charge of Accessibility issue. Everyone should be responsible for accessibility and that having one person in charge help ensure that everyone is following through and meeting the project goal.
+- Evaluate Tools and Frameworks. Plan for tools and framework accessible. If it’s not accessible we can choose other and we can avoid them.
+- Research current tools and best practices regarding web accessibility every time we begin a project. This help us best practices and stay top of all. New tool discovery may help us in efficiency.
+- Create Personas: creating user type personas with user type disabilities and refer to that throughout the design and development process. This keep the accessibility in everyone’s mind and make easier to test. It provide common way to discussed accessibility.
+Responsive Design is an Accessible Design Practice.
+
+- Responsive Design & Accessibilities
+
+- Color & Accessibility
+
+- Typography & Accessibility
+
+- Accessible Form Design
+
+- Touch Targets
+
+- Focus & Active Indicators
+
+- Motion & Vestibular Disorders
+
+- Designing for Crisis
+
+# How is Color perceived?
+People who have color blindness can’t perceive differences in certain color combinations.
+- The most common color blindness deficiencies are Red/Green color deficiencies, which make difficulties in red and green values.
+
+## Red Deficiencies
+In this red and green look the similar but red look little dark
+
+## Green Deficiencies
+In this case both color look the same
+
+## Blue Deficiencies
+
+In this case blue and green are appear similar, yellow can disappear or possibly appear red.
+
+
+## No Color
+
+In this case only differentiate between light and dark values (white and black)
+
+So we should design an application where if someone has color blindness still should be able to differentiate between the values.
+
+## Different design consideration regarding different displays display color differently like mobile and desktop.
+
+## Environment/surrounding lighting can effect on the colors. Like sun light can make more difficult to distinguish between color values
+
+# ARIA Roles
+Aria Roles are categories in three types
+- Landmark Roles : It helps for assesstive technology 
+. Navigate the content.
+. Describe common regions within the document
+. Added "role" attributes
+
+- role="application": 
+Used if the region is considered an application, Tells assistive technology to switch to application browsing mode.
+
+- role="banner": 
+Generally the header of the site or application. This is likely to contain name of the application or title of the page.
+It should be used once in the page.
+
+- role="navigation": 
+Contains navigation for the site or application.
+
+- role="main": 
+contains main content
+It should be used once in the page.
+
+- role="search": 
+Added to the search form for the site or application.
+
+- role="complimentary"
+contains content that is complimentary to the main content for the document.
+
+- role="form" : 
+Add to anything that contains a collection of fields that makes up a form.
+
+- role="contentinfo"
+Generally found in the footer provides information about the parent document.This should used once in a page.
+
+- [Widget Roles:](http://www.w3.org/TR/wai-aria/roles#widget roles)
+alert			menuitem				spinbutton
+alertdialog		menuitemcheckbox			status
+button			menuitemradio				tab
+checkbox		option					tabpanel
+dialog			progressbar				textbox
+gridcell		radio					timer
+link			scrollbar				tooltip
+log			slider					treeitem
+marquee
+
+This roles are used to describe the interactive elements that currently dont have HTML counter part, Here is the sub set that can be used as there won or as a part of larger composite widget
+
+```
+<html lang="en">
+<head>.. </head>
+<body>
+<form action>
+<fieldset>
+<legend> Create an Account</legend>
+<div class="field"> .. </div>
+<div class="field"> .. </div>
+<div class="field"> 
+<label for="password">Create a Password</label>
+<input aria-describedby="password-help" type="password" id="password" required>
+<div role="tooltip" id="password-help"> Must be at least 8 characters long</div>
+ </div>
+<button>Create Account</button>
+</fieldset>
+</form>
+</body>
+</html>
+
+```
+
+- Container Roles:
+There are sub set of Widget roles that can be used as a container for other content widgets are
+
+combobox		menu				tablist
+grid			menubar				tree
+listbox			radiogroup			treegrid
+
+```
+<nav role="navigaton">
+<h2> Main Navigation</h2>
+
+<ul role="menu" class="menu">
+  <li role="menuitem" class="current">..</li>
+  <li role="menuitem" >
+    <a herf="#" aria-haspopup="true">Our Products</a>
+    <ul role="menu" class="menu" aria-hidden="true">
+      <li role="menuitem">..</li>
+      <li role="menuitem" >..</li>
+      <li role="menuitem">..</li>
+      <li role="menuitem">..</li>
+    </ul>
+
+  </li>
+  <li role="menuitem" >..</li>
+  <li role="menuitem" >..</li>
+</ul>
+</nav>
+```
+
+- [Document Structure Roles:](http://www.w3.org/TR/wai-aria/roles#Document Structure roles)
+
+This is used to described none interactive elements that provide the structure of the contains within the site or application
+
+
+
+article				img				region
+columnheader			list				row
+definition			listitem			rowgroup
+directory			math				rowheader
+document			note				separator
+group				presentation			toolbar
+heading 
+
+```
+
+<div role="note">
+This article was last updated july 30, 2015 at 8:23PM.
+</div>
+
+```
+
+
+https://app.pluralsight.com/player?course=web-accessibility-getting-started&author=brian-treese&name=web-accessibility-getting-started-m4&clip=1&mode=live
+
