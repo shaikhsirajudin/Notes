@@ -730,18 +730,18 @@ contains content that is complimentary to the main content for the document.
 - role="form" : 
 Add to anything that contains a collection of fields that makes up a form.
 
-- role="contentinfo"
+- role="contentinfo": 
 Generally found in the footer provides information about the parent document.This should used once in a page.
 
 - [Widget Roles:](http://www.w3.org/TR/wai-aria/roles#widget roles)
 alert			menuitem				spinbutton
-alertdialog		menuitemcheckbox			status
-button			menuitemradio				tab
+alertdialog		menuitemcheckbox		status
+button			menuitemradio			tab
 checkbox		option					tabpanel
 dialog			progressbar				textbox
 gridcell		radio					timer
 link			scrollbar				tooltip
-log			slider					treeitem
+log			    slider					treeitem
 marquee
 
 This roles are used to describe the interactive elements that currently dont have HTML counter part, Here is the sub set that can be used as there won or as a part of larger composite widget
@@ -803,12 +803,12 @@ This is used to described none interactive elements that provide the structure o
 
 
 
-article				img				region
-columnheader			list				row
+article				img				    region
+columnheader		list				row
 definition			listitem			rowgroup
 directory			math				rowheader
 document			note				separator
-group				presentation			toolbar
+group				presentation		toolbar
 heading 
 
 ```
