@@ -703,6 +703,307 @@ input:valid+ .invalid{
 visibility:hidden;
 }
 
+# Why CSS is painful
+- The "color Problem": css doesnt allow to have named color, we have to repeat color throughout the CSS.
+
+- Duplication Issues: There is no way to create reusable section in the CSS.
+
+- Cascading Avalanches: It is impossible to see from where cascading role is coming from.
+
+- Lack of Calculations: CSS doesnt allow its values to be arbitarary formulas.
+
+- The Problem with Imports: How imports, Browser cache make css harder to manage long term.
+
+
+# Why to use LESS or SASS
+- Improve on the lack of common colors, by allowing us create the variables at top level and shared among the files
+- Allow reusable components of CSS, and plug them in the css.
+- Bring clarity to how rules cascade, allow them to nest.
+- Allow do to calculations in CSS.
+- Allow you to comibe CSS as needs dictate.
+
+# What is LESS?
+Its Dynamic Style Sheet Language, which compiles down to CSS. This is normally a Transform operation whether it is on the client  or server to produce CSS which browser is expecting.
+It introduces these programming features to CSS but the language looks and feels like CSS.
+. Note: All CSS is valid LESS, just replace CSS with .LESS
+
+# Using LESS on the Client
+
+[less.js](https://github.com/less/less.js.git)
+```
+<head>
+// your referenced Less stylesheet (i.e. styles.less)
+ <link href="styles.less" type="text/css" rel="stylesheet/less"/>
+ <script src="less.js" type="text/javascript"></script>
+ </head>
+
+```
+# Using LESS on the Server
+```
+$ npm install server-less-loader --save-dev
+```
+How to use
+
+add server-less-loader before any js-related loader
+```
+{
+    test: /\.babel$/,
+    loader: "babel!server-less-loader"
+},
+```
+
+add serverLessLoader option in webpack.config.js
+```
+serverLessLoader: {
+    loader: 'importLess' // use any word except for 'require' 
+}
+
+```
+
+
+# Nesting
+
+Nesting is one of the Less's coolest features. Nesting let's you do more and write less. Nesting allows you to cascade your css properties with inheritting children.
+
+- Less Code 
+```
+
+h1 {
+    color: rgb(255, 123, 123);
+    font-weight: 300;
+
+    span {
+        font-weight: 600;
+        color: rgb(255, 69, 69) ;
+    }
+
+    &:hover {
+        color: rgb(200, 0, 0);
+    }
+
+    &:hover span {
+        color: rgb(50, 50, 58);
+    }
+}
+
+
+```
+- Compiled CSS code
+
+
+```
+h1 {
+    color: #ff7b7b;
+    font-weight: 300;
+}
+h1 span {
+    font-weight: 600;
+    color: #ff4545;
+}
+h1:hover {
+    color: #c80000;
+}
+h1:hover span {
+    color: #32323a;
+}
+
+
+```
+# Variables
+CSS variables will be a thing of the future. There's already a spec for them. With Less, you can start using this concept now.
+
+- Less Code 
+```
+
+@heading-color: rgb(99, 200, 200);
+h1 {
+    color: @heading-color;
+    font-weight: 300;
+}
+```
+- Compiled CSS code  
+
+```
+h1 {
+    color: #63c8c8;
+    font-weight: 300;
+}
+
+```
+
+# Importing
+
+Importing works very similar to regular CSS importing. With Less, it's actually really smart to treat them like includes. Some of the benefits:
+•Easier to collaborate with others 
+•Variables are shared across imports 
+•Creates (almost forces) a modular and dry approach to front-end development 
+
+```
+// Core variables and mixins
+@import "variables.less";
+@import "mixins.less";
+
+// Reset and dependencies
+@import "normalize.less";
+@import "print.less";
+@import "glyphicons.less";
+
+// Core CSS
+@import "scaffolding.less";
+@import "type.less";
+@import "code.less";
+@import "grid.less";
+@import "tables.less";
+@import "forms.less";
+@import "buttons.less";
+
+// Components
+@import "component-animations.less";
+@import "dropdowns.less";
+@import "button-groups.less";
+@import "input-groups.less";
+@import "navs.less";
+@import "navbar.less";
+@import "breadcrumbs.less";
+@import "pagination.less";
+@import "pager.less";
+@import "labels.less";
+@import "badges.less";
+@import "jumbotron.less";
+@import "thumbnails.less";
+@import "alerts.less";
+@import "progress-bars.less";
+@import "media.less";
+@import "list-group.less";
+@import "panels.less";
+@import "responsive-embed.less";
+@import "wells.less";
+@import "close.less";
+
+// Components w/ JavaScript
+@import "modals.less";
+@import "tooltip.less";
+@import "popovers.less";
+@import "carousel.less";
+
+// Utility classes
+@import "utilities.less";
+@import "responsive-utilities.less";
+
+```
+
+# Mixins
+
+Mixins are exactly what they sound like. You can literally mix and match CSS classes with each other. 
+
+CSS way of mixing classes
+```
+<a href="https://scotch.io" class="btn btn-success btn-lg btn-block">
+
+```
+
+LESS way of Mixins
+```
+.big-sexy-button {
+    .btn;
+    .btn-success;
+    .btn-lg;
+    .btn-block;
+}
+
+
+```
+
+# Mixins as a Function
+Mixins can also be functions. This way you can pass a variable or parameter to your added mixin.
+
+- Less Code 
+
+```
+div {
+    .border-top-radius(125px);
+
+    background: rgb(255, 255, 255);
+    display: inline-block;
+    padding: 50px;
+}
+.border-top-radius(@radius) {
+    border-top-right-radius: @radius;
+    border-top-left-radius: @radius;
+}
+
+```
+
+- Compiled CSS code 
+
+```
+div {
+    border-top-right-radius: 125px;
+    border-top-left-radius: 125px;
+    background: #ffffff;
+    display: inline-block;
+    padding: 50px;
+}
+```
+
+# Examples
+[LESS HAT](http://lesshat.madebysource.com/)
+
+# Operations
+
+Operations bring math and calculations to your CSS. You can do operations on the following data types:
+•A Number 
+•A Color 
+•A Variable 
+
+```
+/* Number */
+h1 {
+    margin-bottom: 10px - 5px;
+    margin-bottom: 10px - 5;
+}
+
+/* Color */
+h1 {
+    color: #888888 / 2;
+}
+
+/* Variable */
+@h1-default-margin-bottom:  25px;
+h1.tight {
+    margin-bottom: @h1-default-margin-bottom - 10px
+}
+
+
+
+```
+Scope
+
+In layman terms, scope is a fancy way of saying that you can override variables on a per class basis without messing up all your global variable settings.
+
+```
+@default-color: black;
+
+/* Makes a tags red */
+a {
+    color: @default-color;
+    @default-color: red;
+}
+
+/* h1s are still black */
+h1 {
+    color: @default-color;
+}
+
+
+```
+
+
+https://scotch.io/tutorials/getting-started-with-less
+
+
+
+
 # cascading stylesheet/CSS execution order
 The browser encounters these rules, whichever one is interpreted last gets the highest precedent.
 So if you have multiple class to same elements the last one will be present applied.

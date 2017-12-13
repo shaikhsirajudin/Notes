@@ -700,12 +700,343 @@ So we should design an application where if someone has color blindness still sh
 
 ## Environment/surrounding lighting can effect on the colors. Like sun light can make more difficult to distinguish between color values
 
+
+# Images & Accessibility
+The Images that are inserted into content should have accessibility, but images used for decoration, look and feels are added through css or dont require a description becasue they on serve the static purposes.
+Images by default are Inaccessible to those who cant see them, for this reason we need to provide the descript.
+```
+<img src="dog.jpg" alt="Brown Dog" />
+
+```
+It content succinct descript of the content of the image.
+
+- For more complex image like Chart/Graph: we can provide the long descript which can contain any HTML necessary to describe the content of the image.
+
+```
+<img src="graph.jpg" longdesc="GraphDesc.txt" />
+
+```
+Long Description can be a URL to a differrent page or can link to an ID on the current page. However browser support is almost non-existent for long description. 
+. So at this time its recommended to provide simpliy link to long description
+
+- Use a Link Instead link for long description
+```
+<img src="graph.jpg" aria-describedby="desc" alt="Graph" />
+<a href="GraphDesc.html" id="desc">
+Get Graph Details
+</a>
+
+
+```
+
+- What if we Dont Need Description?
+```
+<img src="image.jpg" alt="" />
+
+```
+# Content & Accessibility
+Doesn't Matterr
+. What device they're using.
+. If they have disabilities
+. If they're using assistive technologies
+. If they're losing abilities due to aging
+. If they have vestibular or reading disorders
+
+- Provide Skip to Main content link
+- When Providing Audio content provide "Get Transcript" link for who has hearing issue.
+- When Providing video provide the captions with "Get Transcript" link
+- Avoid Text as a part of image.
+- Avoid using link text that doesnt make sense e.g when text large description is displayed using turncated and prove "Read More" , In place of this provide descriptive 
+"Read More About Product"
+
+# HTML Attributes & Accessibility
+
+- Language Attributes: 
+Let the browser or assistive technology know what language the site is using
+
+```
+<html lang="en">
+
+```
+
+If displaying something in a differernt  language within the page, add the "lang" attribute
+
+```
+<blockquote lang="fr">
+
+French text
+</blockquote>
+
+```
+- Abbreviation tag: When adding abbreviation using abbreviation tag provide title with full discription.
+The Title must contain the description for the word and nothing else.
+
+```
+<abbr title="Hyper text markup language">
+HTML
+</abbr>
+
+```
+
+
+- For Attribute: 
+Connect labels with their associated form fields
+
+```
+<label for="firstName">
+First Name
+</label>
+<input type="text" id="firstName" />
+
+```
+
+- Required Attribute: 
+Provide more information for required fields
+```
+<label for="firstName">
+First Name
+</label>
+<input type="text" id="firstName" required />
+
+```
+
+- Tabindex Attribute:  
+It's more crucial when using keyboard but add it when needed. e.g when we built a custom button using our won logic
+Forces non-standard controls into the tab order for keyboard navigation.
+
+```
+<span class="button" tabindex="5">
+Submit
+</span>
+
+```
+
+# Web Forms & Accessibility
+
+Forms can be complex in order to make them accessible we need to make simple, we need to structure them in the logical order by grouping them in the Logical Groupings with Fieldsets and legends when its make sense.
+
+- Fieldsets & Legends: Use them to logically group forms fields
+```
+<fieldset>
+ <legend> billing Address</legend>
+ <label for="billingAddress">Address</label>
+ <input type="text" id="billingAddress" />
+ 
+```
+
+- Labels: Every field should have an associated label using the "for" attribute
+
+- Placeholder attribute: 
+We "SHOULD NOT" be using a placeholder for replacement of labels because its not widely supported.
+
+Generally its "SHOULD" be used to provide hints and tips
+
+```
+<fieldset>
+ <legend> billing Address</legend> 
+ <input type="text" id="billingAddress" placeholder="Your Billing Address" />
+
+
+```
+
+- Hidden Labels
+Its usefull when we are creating search control
+
+```
+<form id="sitesearch">
+<label for="s" class="hidden">
+Search This Site
+</label>
+ <input type="text" id="s" placeholder="Search this site" />
+ <input type="button" value="GO" />
+</form>
+```
+
+- Required: This attribute should be added to all required fields
+
+```
+<fieldset>
+ <legend>Contact Us</legend> 
+<label for="name">Your Name</label>
+<span class="required">Required</span>
+ <input type="text" id="name" placeholder="Your name" />
+
+
+```
+- Skip Nagivation Link: make it on of the 1st elements in the document.
+use the id of the main content container in the "href" of the link
+```
+<head>
+<title>Skip Link Example</title>
+</head>
+<body>
+<a href="#primaryContent">
+Skip to main context
+</a>
+
+```
+# CSS & Accessibility
+Browser provide default very basic Style to html elements. 
+The style we provide has different levels of importance/President 
+1. Default browser styles
+2. Our external CSS
+3. Style sheets embedded in the page. This will override the both browser and external css.
+4. Inline styles on the individual control elements
+5. End user accessibility setting adjustments: each individual has final choice how everything looks..e.g 
+. how text size should be. 
+. color setting increase/decrease the contrast.
+. changed font who has reading deficiency.
+
+
+# Preventing assistive technology for reading the content
+. width: 0
+. height: 0
+. display: none
+. visibility: hidden;
+
+these prevent assistive technologies from reading their contents.
+
+# When can screen reader read the hidden content: 
+In this case screen reader read the content by providing long rectangular on the screen
+
+```
+{
+text-indent:-9999px;
+}
+
+```
+# Absolute Positioning
+Positions the content off of the page, which will allow visual hidden text.
+
+```
+{
+postion:absolute;
+left: -9999px;
+
+}
+if we use top or right it will make browser to focus the control and scroll the page.
+
+```
+
+# CSS Clip Property
+Nice way to provide visually hidden text.
+
+
+
+```
+{
+postion:absolute;
+clip:1px 1px 1px 1px;/* for ie 6 to 7
+clip:1px, 1px, 1px ,1px;
+}
+```
+- Focus & Active Indicators
+
+Alway use css for Focus and active indicator.
+
+```
+:focus{
+outline: dotted 2px #f06924;
+}
+:active{
+outline: dotted 2px #39b54a;
+transform: scale(0.8);
+}
+```
+# Web Performance & accessibility
+
+- Keep file size small
+- Limit http requests: this is occurs for each assets e.g(images, fonts,stylesheet and script files) so fewer these files we have the faster page load.
+- Optimize images: use optimize image technique e.g
+. [JPEGmini](http://jpegmini.com/) for JPEG images without reduce quality.
+. [tinypng](htpps://tinypng.com/) for png or jpg
+
+- Image Sprites:
+The idea behind them is place multiple images in single file and then we use css to cropp out the area and show. It reduces http request, it has caching advantage of browser side
+
+- SVG graphics: use svg over jpeg because its 
+. relatively small file sizes.
+. Can be embedded difectly into html.
+. Can be styled with CSS
+. Greater flexibility
+. It work with responsive design, scalable without loss in quality
+
+# Inlining "Critical Path" CSS
+More recently inlining or critical path css appears as a better practice. In this CSS used to create render tree for html document and javascript tends to block the externel CSS during the contruction of the page. So if we separate none essential CSS like print media other media queries, basically anything not render above the fold get this chunk of css down to smallest size as possible. And then inline in the document to elemenate round trip to the server. 
+
+```
+<!-- Critical Path CSS -->
+<style type="text/css">
+html, body{
+...
+...
+
+}
+a{
+...
+...
+}
+
+
+
+```
+There are so many tools out there to automate this task
+. [critical](https://github.com/addyosmani/critical)
+
+
+
+# Progressive Enchancement & Accessibility
+Not assuming with which technology a site is consumed is a key component in accessible web development, as assistive technology is so diverse.
+
+1. Start with the lowest common demonimator
+2. Well-structured HTML
+3. Add in well-supported CSS
+4. Add in more advanced CSS
+5. Add in Javascript to further enchance the experince
+this will allow us to make sure our contents are remain accessible to largest number of people
+
+# Basic rule for ARIA
+The Basic rule for ARIA is if there is semantic html elements that has the functionality that we need simply use it dont create your wont custom control if you have same functionality of native HTML elements. These aria attribute are design to be used for OS accessibility APIs so that assistive technology will interpret these widgets in the same way as a native control.
+
+# Aria divided into two different categories
+
+## Roles: what a widget is and what it does, it is used for things like
+e.g.
+. Menus
+. Sliders
+. Progress meters
+. Modals
+.etc
+
+Roles are also used to Describe the Structrue. e.g.
+. Headings
+. Regions
+. Tables
+
+## States & Properties
+States describe the current interaction state of widget
+States e.g
+. Checked
+. Disabled
+. Selected
+. Hidden
+Properties is more about characteristics of the widgets. Information widget that contained required elements
+. Drag & Drop
+. Live Regions
+. Modals
+
+
+
+
+
+
 # ARIA Roles
 Aria Roles are categories in three types
 - Landmark Roles : It helps for assesstive technology 
 . Navigate the content.
 . Describe common regions within the document
 . Added "role" attributes
+
 
 - role="application": 
 Used if the region is considered an application, Tells assistive technology to switch to application browsing mode.
@@ -734,14 +1065,14 @@ Add to anything that contains a collection of fields that makes up a form.
 Generally found in the footer provides information about the parent document.This should used once in a page.
 
 - [Widget Roles:](http://www.w3.org/TR/wai-aria/roles#widget roles)
-alert			menuitem				spinbutton
+alert			    menuitem				    spinbutton
 alertdialog		menuitemcheckbox		status
-button			menuitemradio			tab
-checkbox		option					tabpanel
-dialog			progressbar				textbox
-gridcell		radio					timer
-link			scrollbar				tooltip
-log			    slider					treeitem
+button			  menuitemradio			  tab
+checkbox		  option					    tabpanel
+dialog		  	progressbar				  textbox
+gridcell		  radio					      timer
+link			    scrollbar				    tooltip
+log			      slider					    treeitem
 marquee
 
 This roles are used to describe the interactive elements that currently dont have HTML counter part, Here is the sub set that can be used as there won or as a part of larger composite widget
@@ -771,8 +1102,8 @@ This roles are used to describe the interactive elements that currently dont hav
 - Container Roles:
 There are sub set of Widget roles that can be used as a container for other content widgets are
 
-combobox		menu				tablist
-grid			menubar				tree
+combobox		menu				    tablist
+grid			  menubar				  tree
 listbox			radiogroup			treegrid
 
 ```
@@ -803,12 +1134,12 @@ This is used to described none interactive elements that provide the structure o
 
 
 
-article				img				    region
-columnheader		list				row
-definition			listitem			rowgroup
-directory			math				rowheader
-document			note				separator
-group				presentation		toolbar
+article				  img				      region
+columnheader		list				    row
+definition			listitem			  rowgroup
+directory			  math				    rowheader
+document			  note				    separator
+group				    presentation		toolbar
 heading 
 
 ```
@@ -819,6 +1150,102 @@ This article was last updated july 30, 2015 at 8:23PM.
 
 ```
 
+# Proper Document Structure.
+Its all about html semantics and using the right tag for the jobs. The proper document structrue should be written in such way that if we remove the CSS the page will still render and logical order and with proper hierarchy, it wont be necessary pretty but the content should be organized and heirarchy should remain clear.
+HTML heading <h1> to <h6> are critical elements of Accessibility Pie.
+It provide document outline which provides structure and shows how sections of the page is related to one another. They also provides the targets that some assisstive technology like screen reader can use to jump from section to section. It should be used in proper order e.g.
+```
+<main role="content">
+<h1>I'm the Main Title</h1>
+<p>I'm the Main description</p>
+<h2>I'm the Secondary Title</h2>
+<h1>I'm the Secondary description</h1>
+</main>
+```
+In short no heading level should be skipped, meaning should never have <h5> heading without having nearest parent of it<h4>
 
-https://app.pluralsight.com/player?course=web-accessibility-getting-started&author=brian-treese&name=web-accessibility-getting-started-m4&clip=1&mode=live
+# Use of HTML List
+
+- Unordered List <ul> :
+Use of unordered list when no order of sequence or importance is needed.
+
+```
+<ul>
+  <li>Milk</li>
+  <li>Bread</li>
+  <li>Lettuce</li>
+</ul>
+```
+
+- Ordered List <ol>: 
+
+Use when order of sequence or importance IS needed
+```
+<ol>
+  <li>First we need to do this</li>
+  <li>Next we need to do this</li>
+  <li>Lastly we need to do this</li>
+</ol>
+```
+
+- Description List <dl>: 
+
+Use when a description for each item is needed
+```
+<dl>
+  <dt>Milk</dt>
+  <dd>Fat free organic milk</dd>
+  <dt>Bread</dt>
+  <dd>Whole wheat sourdough</dd>
+</dl>
+```
+# ARIA states & Properties: Normarlly referred to as an ARIA attributes
+
+- ARIA States: Aria spec provides certain attribute to describe the Dynamic states of custom components. These state attribute normally updated with javascript when they need to change. These attribute Prefixed with "aria-"
+Below is some example of aria state changes, which uses boolean values to reflect state change.
+
+. aria-busy
+. aria-disabled
+. aria-grabbed
+. aria hidden
+. aria-invalid
+
+
+- ARIA properties: It is primarily used to describe the Relationships between elements and almost never change like state do.
+e.g
+. aria-decribedby
+. aria-flowto
+. aria-haspopup
+. aria-label
+. aria-labelledby
+
+
+# ARIA & Keyboard Control
+Many assistive technologies use keyboard like functionality to navigate or interact with web. The problem is that often developers may forget or be unware it when they build custom widgets. The goal should be the keyboard control of application to function very similar to the way that it would if its native destop application
+
+# Section 508
+Its an Amendment to the United States Workforce Rehabilitaion Act of 1973. It was signed into law in 1998. It is put into the place that any Information technology that is purchased by fedral agencies be accessible by those with disabilities.
+So section 508 is much more above web technologies, Its about all information technology every thing about hardware to software to the web.
+Many of the standard are very similar to those in the WCAG.
+
+# Testing for Accessibility
+Easiest way to test the web accessibility stop using the mouse.
+Use keyboard or assistive technology that memic the keyboard.
+Use Screen Reader 
+. [JAWS](http://www/freedomscientific.com/products/blindness/jaws)
+. Mac user can use build in VoiceOver feature.
+. Window [NVDA screen reader](http://www.nvaccess.org)
+
+Accessiblity Tools
+. WAVE
+. [Colour Contrast Analyser](htpp://www.paciellogroup.com/resources/contrastanalyser/)
+. chrome extension Accessibility Developer Tools
+. [TENON](http://www.tenon.io)
+An api that can be used to integrate accessibility testing into our existing toolsets.
+Its extremely flexible, reliable and accurate.
+Its written to test against the WCAG guidelines
+
+
+
+
 
