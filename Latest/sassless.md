@@ -997,9 +997,760 @@ h1 {
 
 
 ```
+# What is Sass?
+
+Sass (Syntactically Awesome Style Sheets) is a CSS preprocessor.
+
+# Whats the deal with .sass vs .scss?
+
+When .Sass first came out, the main syntax was noticably different from CSS. It used indentation instead of braces, didn't require semi-colons and had shorthand operators.
+
+In version 3 Sass changed it's main syntax to .scss. SCSS is a superset of CSS, and is basically written the exact same, but with all the fun new Sass features.
 
 
-https://scotch.io/tutorials/getting-started-with-less
+# Why would I use Sass?
+
+Sass makes writing maintainable CSS easier. You can get more done, in less code, more readably, in less time.
+
+# Variables in sass
+Sass brings variables to CSS. Acceptable values for variables include numbers, strings, colors, null, lists and maps.
+
+Variables in Sass are scoped using the $ symbol.
+```
+
+//If you tried to compile this and didn't see anything in your CSS
+$primaryColor: #eeffcc;
+
+
+// It will generate body with background
+
+$primaryColor: #eeffcc;
+
+body {
+    background: $primaryColor;
+}
+
+
+
+```
+# Sass variable scope
+
+if you declare a variable within a selector, it is then scoped within that selector. 
+
+```
+$primaryColor: #eeccff;
+
+body {
+  $primaryColor: #ccc;
+  background: $primaryColor;
+}
+
+p {
+  color: $primaryColor;
+}
+
+// When compiled, our paragraph selector's color is #eeccff
+
+
+```
+# Global Scope variable
+
+Sass provides a !global flag that comes to our rescue.
+
+```
+$primaryColor: #eeccff;
+
+body {
+  $primaryColor: #ccc !global;
+  background: $primaryColor;
+}
+
+p {
+  color: $primaryColor;
+}
+
+// When compiled, our paragraph selector's color is #ccc
+
+
+
+```
+
+# default value for a variable
+
+when writing mixins, is the !default flag. This allows us to make sure there is a default value for a variable in the event that one is not provided. If a value is provided, it is overwritten.
+
+```
+$firstValue: 62.5%;
+
+$firstValue: 24px !default;
+
+body {
+    font-size: $firstValue;
+}
+
+// body font size = 62.5%
+
+
+```
+
+# Math
+
+Unlike CSS, Sass allows us to use mathematical expressions! This is super helpful within mixins, and allows us to do some really cool things with our markup.
+
+```
++  Addition  
+-  Subtraction  
+/  Division  
+*  Multiplication  
+%  Modulo  
+==  Equality  
+!=  Inequality  
+```
+- Before moving forward, I want to note two potential "gotchas" with Sass math.
+
+1. First, because the / symbol is used in shorthand CSS font properties like font: 14px/16px, if you want to use the division operator on non-variable values, you need to wrap them in parentheses like:
+
+```
+$fontDiff: (14px/16px);
+
+```
+2. Second, you can't mix value units:as it needs to be interpereted at render time.
+
+```
+// This wont work and compiled to same.
+$container-width: 100% - 20px;
+
+
+// Right way to do calculation with different unit
+
+$container-width:calc(100% - #{20px})
+
+
+$container-width:calc(100% - #{$body_padding})
+
+
+```
+# dynamic column declaration, based upon a base container width.
+
+```
+$container-width: 100%;
+
+.container {
+  width: $container-width;
+}
+
+.col-4 {
+  width: $container-width / 4;
+}
+
+//  Compiles to:
+//  .container {
+//   width: 100%;
+//  }
+//
+//  .col-4 {
+//      width: 25%;
+//  }
+
+```
+# Functions
+
+The best part of Sass is it has built in functions.
+
+```
+- (Sass::Script::Value::Number) abs($number)   
+Returns the absolute value of a number.
+ 
+
+- (Sass::Script::Value::Color) adjust_color($color, [$red], [$green], [$blue], [$hue], [$saturation], [$lightness], [$alpha])   
+Increases or decreases one or more properties of a color.
+ 
+
+- (Sass::Script::Value::Color) adjust_hue($color, $degrees)   
+Changes the hue of a color.
+ 
+
+- (Sass::Script::Value::Number) alpha($color)   
+Returns the alpha component (opacity) of a color.
+ 
+
+- (Sass::Script::Value::List) append($list, $val, $separator:auto)   
+Appends a single value onto the end of a list.
+ 
+
+- (Sass::Script::Value::Number) blue($color)   
+Gets the blue component of a color.
+ 
+
+- call($function, $args...)   
+Dynamically calls a function.
+ 
+
+- (Sass::Script::Value::Number) ceil($number)   
+Rounds a number up to the next whole number.
+ 
+
+- (Sass::Script::Value::Color) change_color($color, [$red], [$green], [$blue], [$hue], [$saturation], [$lightness], [$alpha])   
+Changes one or more properties of a color.
+ 
+
+- (Sass::Script::Value::Bool) comparable($number1, $number2)   
+Returns whether two numbers can added, subtracted, or compared.
+ 
+
+- (Sass::Script::Value::Color) complement($color)   
+Returns the complement of a color.
+ 
+
+- (Sass::Script::Value::Bool) content_exists   
+Check whether a mixin was passed a content block.
+ 
+
+- (Sass::Script::Value::String) counter($args...)   
+This function only exists as a workaround for IE7's content: counter bug.
+ 
+
+- (Sass::Script::Value::String) counters($args...)   
+This function only exists as a workaround for IE7's content: counter bug.
+ 
+
+- (Sass::Script::Value::Color) darken($color, $amount)   
+Makes a color darker.
+ 
+
+- (Sass::Script::Value::Color) desaturate($color, $amount)   
+Makes a color less saturated.
+ 
+
+- (Sass::Script::Value::Bool) feature_exists($feature)   
+Returns whether a feature exists in the current Sass runtime.
+ 
+
+- (Sass::Script::Value::Number) floor($number)   
+Rounds a number down to the previous whole number.
+ 
+
+- (Sass::Script::Value::Bool) function_exists($name)   
+Check whether a function with the given name exists.
+ 
+
+- (Sass::Script::Value::Function) get_function($name, $css:false)   
+Returns a reference to a function for later invocation with the call() function.
+ 
+
+- (Sass::Script::Value::Bool) global_variable_exists($name)   
+Check whether a variable with the given name exists in the global scope (at the top level of the file).
+ 
+
+- (Sass::Script::Value::Color) grayscale($color)   
+Converts a color to grayscale.
+ 
+
+- (Sass::Script::Value::Number) green($color)   
+Gets the green component of a color.
+ 
+
+- (Sass::Script::Value::Color) hsl($hue, $saturation, $lightness)   
+Creates a Color from hue, saturation, and lightness values.
+ 
+
+- (Sass::Script::Value::Color) hsla($hue, $saturation, $lightness, $alpha)   
+Creates a Color from hue, saturation, lightness, and alpha values.
+ 
+
+- (Sass::Script::Value::Number) hue($color)   
+Returns the hue component of a color.
+ 
+
+- (Sass::Script::Value::String) ie_hex_str($color)   
+Converts a color into the format understood by IE filters.
+ 
+
+- (Sass::Script::Value::Base) if($condition, $if-true, $if-false)   
+Returns one of two values, depending on whether or not $condition is true.
+ 
+
+- (Sass::Script::Value::Number, Sass::Script::Value::Null) index($list, $value)   
+Returns the position of a value within a list.
+ 
+
+- (Sass::Script::Value::String) inspect($value)   
+Return a string containing the value as its Sass representation.
+ 
+
+- (Sass::Script::Value::Color) invert(color, weight = number(100))   
+Returns the inverse (negative) of a color.
+ 
+
+- (Sass::Script::Value::Bool) is_bracketed($list)   
+Returns whether a list uses square brackets.
+ 
+
+- (Sass::Script::Value::Bool) is_superselector($super, $sub)   
+Returns whether $super is a superselector of $sub.
+ 
+
+- (Sass::Script::Value::List) join($list1, $list2, $separator:auto, $bracketed:auto)   
+Joins together two lists into one.
+ 
+
+- (Sass::Script::Value::Map) keywords($args)   
+Returns the map of named arguments passed to a function or mixin that takes a variable argument list.
+ 
+
+- (Sass::Script::Value::Number) length($list)   
+Return the length of a list.
+ 
+
+- (Sass::Script::Value::Color) lighten($color, $amount)   
+Makes a color lighter.
+ 
+
+- (Sass::Script::Value::Number) lightness($color)   
+Returns the lightness component of a color.
+ 
+
+- (Sass::Script::Value::String) list_separator($list)   
+Returns the separator of a list.
+ 
+
+- (Sass::Script::Value::Base) map_get($map, $key)   
+Returns the value in a map associated with the given key.
+ 
+
+- (Sass::Script::Value::Bool) map_has_key($map, $key)   
+Returns whether a map has a value associated with a given key.
+ 
+
+- (List) map_keys($map)   
+Returns a list of all keys in a map.
+ 
+
+- (Sass::Script::Value::Map) map_merge($map1, $map2)   
+Merges two maps together into a new map.
+ 
+
+- (Sass::Script::Value::Map) map_remove($map, $keys...)   
+Returns a new map with keys removed.
+ 
+
+- (List) map_values($map)   
+Returns a list of all values in a map.
+ 
+
+- (Sass::Script::Value::Number) max($numbers...)   
+Finds the maximum of several numbers.
+ 
+
+- (Sass::Script::Value::Number) min($numbers...)   
+Finds the minimum of several numbers.
+ 
+
+- (Sass::Script::Value::Color) mix($color1, $color2, $weight:50%)   
+Mixes two colors together.
+ 
+
+- (Sass::Script::Value::Bool) mixin_exists($name)   
+Check whether a mixin with the given name exists.
+ 
+
+- (Sass::Script::Value::Base) nth($list, $n)   
+Gets the nth item in a list.
+ 
+
+- (Sass::Script::Value::Color) opacify($color, $amount)  (also: #fade_in)  
+Makes a color more opaque.
+ 
+
+- (Sass::Script::Value::Number) opacity($color)   
+Returns the alpha component (opacity) of a color.
+ 
+
+- (Sass::Script::Value::Number) percentage($number)   
+Converts a unitless number to a percentage.
+ 
+
+- (Sass::Script::Value::String) quote($string)   
+Add quotes to a string if the string isn't quoted, or returns the same string if it is.
+ 
+
+- random(limit = nil)   
+
+
+- (Sass::Script::Value::Number) red($color)   
+Gets the red component of a color.
+ 
+
+- (Sass::Script::Value::Color) rgb($red, $green, $blue)   
+Creates a Color object from red, green, and blue values.
+ 
+
+- rgba(*args)   
+Creates a Color from red, green, blue, and alpha values.
+ 
+
+- (Sass::Script::Value::Number) round($number)   
+Rounds a number to the nearest whole number.
+ 
+
+- (Sass::Script::Value::Color) saturate($color, $amount)   
+Makes a color more saturated.
+ 
+
+- (Sass::Script::Value::Number) saturation($color)   
+Returns the saturation component of a color.
+ 
+
+- (Sass::Script::Value::Color) scale_color($color, [$red], [$green], [$blue], [$saturation], [$lightness], [$alpha])   
+Fluidly scales one or more properties of a color.
+ 
+
+- (Sass::Script::Value::List) selector_append($selectors...)   
+Return a new selector with all selectors in $selectors appended one another as though they had been nested in the stylesheet as $selector1 { &$selector2 { ... } }.
+ 
+
+- (Sass::Script::Value::List) selector_extend($selector, $extendee, $extender)   
+Returns a new version of $selector with $extendee extended with $extender.
+ 
+
+- (Sass::Script::Value::List) selector_nest($selectors...)   
+Return a new selector with all selectors in $selectors nested beneath one another as though they had been nested in the stylesheet as $selector1 { $selector2 { ... } }.
+ 
+
+- (Sass::Script::Value::List) selector_parse($selector)   
+Parses a user-provided selector into a list of lists of strings as returned by &.
+ 
+
+- (Sass::Script::Value::List) selector_replace($selector, $original, $replacement)   
+Replaces all instances of $original with $replacement in $selector.
+ 
+
+- (Sass::Script::Value::List, Sass::Script::Value::Null) selector_unify($selector1, $selector2)   
+Unifies two selectors into a single selector that matches only elements matched by both input selectors.
+ 
+
+- (Sass::Script::Value::List) set   
+Return a new list, based on the list provided, but with the nth element changed to the value given.
+ 
+
+- (Sass::Script::Value::List) simple_selectors($selector)   
+Returns the simple selectors that comprise the compound selector $selector.
+ 
+
+- (Sass::Script::Value::Number, Sass::Script::Value::Null) str_index($string, $substring)   
+Returns the index of the first occurrence of $substring in $string.
+ 
+
+- (Sass::Script::Value::String) str_insert($string, $insert, $index)   
+Inserts $insert into $string at $index.
+ 
+
+- (Sass::Script::Value::Number) str_length($string)   
+Returns the number of characters in a string.
+ 
+
+- (Sass::Script::Value::String) str_slice($string, $start-at, $end-at:-1)   
+Extracts a substring from $string.
+ 
+
+- (Sass::Script::Value::String) to_lower_case($string)   
+Convert a string to lower case,.
+ 
+
+- (Sass::Script::Value::String) to_upper_case($string)   
+Converts a string to upper case.
+ 
+
+- (Sass::Script::Value::Color) transparentize($color, $amount)  (also: #fade_out)  
+Makes a color more transparent.
+ 
+
+- (Sass::Script::Value::String) type_of($value)   
+Returns the type of a value.
+ 
+
+- (Sass::Script::Value::String) unique_id   
+Returns a unique CSS identifier.
+ 
+
+- (Sass::Script::Value::String) unit($number)   
+Returns the unit(s) associated with a number.
+ 
+
+- (Sass::Script::Value::Bool) unitless($number)   
+Returns whether a number has units.
+ 
+
+- (Sass::Script::Value::String) unquote($string)   
+Removes quotes from a string.
+ 
+
+- (Sass::Script::Value::Bool) variable_exists($name)   
+Check whether a variable with the given name exists in the current scope or in the global scope.
+ 
+
+- (Sass::Script::Value::List) zip($lists...)   
+Combines several lists into a single multidimensional list.
+ 
+```
+
+
+[Examples](http://sass-lang.com/documentation/Sass/Script/Functions.html)
+
+# Nesting
+Basic nesting refers to the ability to have a declaration inside of a declaration.
+
+
+```
+.container {
+    width: 100%;
+    h1 {
+        color: red;
+    }
+}
+
+
+// After compile
+.container {
+    width: 100%;
+}
+
+.container h1 {
+    color: red;
+}
+
+
+
+```
+
+# Reference the parent "&" ?
+
+This is achieved by using the & symbol. Check out how we can leverage this to add pseudo selectors to anchor elements:
+
+```
+a.myAnchor {
+    color: blue;
+    &:hover {
+        text-decoration: underline;
+    }
+    &:visited {
+        color: purple;
+    }
+}
+
+
+
+```
+
+# de-nest
+
+if we want to de-nest, we have to use the @at-root directive.
+
+
+
+
+# @at-root
+
+The @at-root directive, introduced with Sass 3.3, emits a collection of nested rules at the top-level root of the document. 
+```
+.container {
+  &-inner { color: black
+    @at-root .no-touchevents #{&}:hover { color: grey }
+  }
+}
+
+// Which compiles to (awesome):
+
+.container-inner { color: black }
+.no-touchevents .container-inner:hover { color: grey }
+
+
+```
+
+# Imports
+imports allow you to break your styles into separate files and import them into one another. 
+
+We can import a .scss file using the @import directive:
+
+```
+@import "grids.scss";
+or
+
+@import "grids";
+
+```
+
+# Extends @extend
+In Sass, the @extend directive is an outstanding way to inherit already existing styles.
+
+Lets use an @extend directive to extend an input's style if it has an input-error class:
+
+```
+.input {
+  border-radius: 3px;
+  border: 4px solid #ddd;
+  color: #555;
+  font-size: 17px;
+  padding: 10px 20px;
+  display: inline-block;
+  outline: 0;
+}
+
+.error-input {
+  @extend .input;
+  border:4px solid #e74c3c;
+}
+
+
+
+
+```
+
+# Placeholder selector by prefixing a class name with a %
+
+If we want to extend a declaration with a set of styles then we can use Placeholder
+
+```
+
+
+%input-style {
+    font-size: 14px;
+}
+
+input {
+    @extend %input-style;
+    color: black;
+}
+
+
+
+
+``` 
+
+# Mixins
+
+The mixin directive allows you to include styles the same way @extend would, but with the ability to supply and interperet arguments.
+
+Sass uses the @mixin directive to define mixins, and the @include directive to use them. Lets build a simple mixin that we can use for media queries!
+
+first step is to define our mixin:
+```
+@mixin media($queryString){
+
+}
+
+
+```
+Notice we are calling our mixin media and adding a $queryString argument. When we include our mixin, we can supply a string argument that will be dynamically rendered.
+
+```
+@mixin media($queryString){
+    @media #{$queryString} {
+      @content;
+    }
+}
+
+
+```
+Because we want our string argument to render where it belongs, we use the Sass interpolation syntax, #{}. When you put a variable in between the braces, it is printed rather than evaluated.
+
+Another piece of our puzzle is the @content directive. When you wrap a mixin around content using braces, the wrapped content becomes available via the @content directive.
+
+Finally, lets use our mixin with the @include directive:
+
+```
+.container {
+    width: 900px;
+    @include media("(max-width: 767px)"){
+        width: 100%;
+    }
+}
+
+
+```
+Example
+
+```
+@mixin flex {
+    // write the css here
+    display: -webkit-flex;
+    display: flex;
+}
+
+// Calling
+
+.row {
+    @include flex;
+}
+```
+Example 2
+
+$values doesn't get treated as a list but rather a normal variable.
+```
+@mixin padding($values...) {    
+    @each $var in $values {
+        padding: #{$var};
+    }
+}
+
+a {
+    @include padding(2px 4px 6px);
+}
+// After Compile
+a {
+    padding: 2px 4px 6px;
+}
+
+
+```
+Example 3
+Default Mixin Arguments
+```
+@mixin grid($flex) {
+    @if $flex {
+        @include flex;
+    } @else {
+        display: block;
+    }
+}
+
+@mixin grid($flex: true, $max-width) {
+    // code here
+}
+
+```
+
+
+# Function Directives
+Function directives in Sass are similar to mixins, but instead of returning markup, they return values via the @return directive.
+
+```
+@function getColumnWidth($width, $columns,$margin){
+    @return ($width / $columns) - ($margin * 2);
+}
+
+
+$container-width: 100%;
+$column-count: 4;
+$margin: 1%;
+
+.container {
+  width: $container-width;
+}
+
+.column {
+  background: #1abc9c;
+  height: 200px;
+  display: block;
+  float: left;
+  width: getColumnWidth($container-width,$column-count,$margin);
+  margin: 0 $margin;
+}
+
+
+
+```
+https://app.pluralsight.com/player?course=better-css&author=shawn-wildermuth&name=bettercss-m2-less&clip=2&mode=live
 
 
 
