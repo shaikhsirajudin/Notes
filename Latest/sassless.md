@@ -739,6 +739,20 @@ It introduces these programming features to CSS but the language looks and feels
 
 ```
 # Using LESS on the Server
+
+- NPM: 
+```
+$ npm install less
+var less=require('less');
+```
+
+- ASP.net vai Nuget: 
+```
+install-package dotless
+or 
+>Manage Nuget package> search dotless.
+```
+
 ```
 $ npm install server-less-loader --save-dev
 ```
@@ -758,6 +772,78 @@ serverLessLoader: {
     loader: 'importLess' // use any word except for 'require' 
 }
 
+```
+# LESS Basics
+. LESS is meant to feel like CSS but better
+
+  . All CSS is valid 
+
+  	. Renaming your .css to .less works
+
+  . LESS adds to CSS
+	
+
+# Variables in LESS
+
+@myColor: #ffeedd; // They don’t need to have quote
+@myColor2: Red;
+- Variable are constants, manipulation won’t work like below
+```
+@myColor: @myColor + 5%; // This will not work
+// still it represent
+@myColor: #ffeedd;
+// But we can do this
+color: @myColor + 5%; // This will work
+color: @myColor2 + 5%; // This will not work
+
+```
+# Different values to variable
+```
+@a: Black;                    	 	// Color
+@b: 4px;			//Units
+@c: 1.0em;			//Units
+@d: Helvectica, sans serif;	//Strings
+@e: 1px #000 Solid 0 0;		//Complex Type
+
+
+```
+# Operations
+The operation that work
+```
+font-size: 4px + 4;   		// 8px
+font-size: 20px * .8 		//16px;
+
+color: #FFF/4;			// #404040;
+width: (100% / 2) + 25%; 	// 75%
+
+```
+# Color Function
+
+```
+color: lighten(@color, 10%);
+color: darken(@color, 10%);
+
+color: saturate(@color, 10%);
+color: desaturate(@color, 10%);
+
+color: fadein(@color, 10%);
+color: fadeout(@color, 10%);
+color: fade(@color, 50%);
+
+color: spin(@color, 10%);
+color: mix(@color, 246%);
+
+// Getting color values
+@hue: hue(@color);
+@sat: saturation(@color);
+@light: lightness(@color);
+@alpha: alpha(@color);
+@color: hsl(20%, 30%, 40%);
+
+// Typical Math
+@rnd: round(3.14);
+@top: ceil(3.14);
+@bot: floor(3.14);
 ```
 
 
@@ -894,9 +980,7 @@ Importing works very similar to regular CSS importing. With Less, it's actually 
 
 # Mixins
 
-Mixins are exactly what they sound like. You can literally mix and match CSS classes with each other. 
-
-CSS way of mixing classes
+- CSS way of mixing classes
 ```
 <a href="https://scotch.io" class="btn btn-success btn-lg btn-block">
 
@@ -913,6 +997,83 @@ LESS way of Mixins
 
 
 ```
+
+
+
+- Mixins are exactly what they sound like. You can literally mix and match CSS classes with each other. 
+
+-	Repeatable sections
+o	Feel like functions
+o	But insert more than one name/value pair
+o	Can accept parameters, defaults and overloads
+o	It start with “.”
+```
+.round-corners-all(@size){
+boarder-radius: @size;
+-webkit-border-radius: @size;
+-moz-border-radius: @size;
+}
+#form
+{
+.rounded-corners-all(5px);
+}
+// It can have Default values
+.round-corners-all(@size: 5px){
+}
+#form
+{
+.rounded-corners-all;
+}
+
+```
+-	Using overloads
+```
+.color(@color) {
+color: @color;
+}
+
+.color(@color, @factor) {
+color: lighten(@color, @factor);
+}
+
+#form
+{
+. color(#888, 20%); // Uses 2nd overload
+}
+```
+-	Using value based guards
+```
+.color(@color)  when (alpha (@color) >= 50%) {
+color: Black;
+}
+.color(@color)  when (alpha (@color) < 50%) {
+color: transparent;
+}
+#form
+{
+. color(@mainColor); 
+}
+
+
+```
+-	Type based Guards
+```
+.width(@size) when (isnumber(@size)){
+Width: @size * 2;
+}
+.width(@size) when (ispercentage(@size)){
+Width: @size;
+}
+
+#form
+{
+. width(50%);  // uses 2nd overload
+}
+
+```
+
+
+
 
 # Mixins as a Function
 Mixins can also be functions. This way you can pass a variable or parameter to your added mixin.
@@ -1750,7 +1911,7 @@ $margin: 1%;
 
 
 ```
-https://app.pluralsight.com/player?course=better-css&author=shawn-wildermuth&name=bettercss-m2-less&clip=2&mode=live
+https://app.pluralsight.com/player?course=better-css&author=shawn-wildermuth&name=bettercss-m2-less&clip=9&mode=live
 
 
 
