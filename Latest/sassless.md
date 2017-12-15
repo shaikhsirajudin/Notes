@@ -895,6 +895,91 @@ h1:hover span {
 
 
 ```
+# Nested Rules
+-	 Allows you to structure rules in a logical way
+. Hierarchies imply the cascading/specificity
+. LESS than deconstructs it into CSS for you 
+CSS
+```
+nav {
+	font-size: 14px;
+	font-weight: bold;
+	float: right;
+}
+nav ul {
+list-style-type: none;
+}
+nav ul li {
+float: left;
+margin: 2px;
+}
+```
+LESS Nested Rules
+```
+nav {
+font-size: 14px;
+font-weight: bold;
+	ul { 	// Makes “nav ul {…}”
+	list-style-type: none;
+	li {	// Makes “nav ul li {…}”
+	     float: left;
+	     margin: 2px;
+	}
+       }
+}
+```
+
+# Combinator (&) to mix with parent:
+```
+a { 
+    text-decoration: none;
+    &:hover  {
+text-decoration: underline;
+}
+}
+// Results in
+a {text-decoration: none;}
+a: hover { text-decoration: underline; }
+```
+
+# Namespaces 
+Namespacing for organizational grouping
+
+```
+#my-froms {
+  .set-button  {
+font-size: 14px;
+text-align: center;
+}
+}
+
+# submit-button {
+#my-forms > .set-button;  // This will say go and find set-button inside my-froms 
+}
+
+````
+
+# String Interpolation
+Can use Ruby style string insertion
+```
+@root: “/images/”;
+#form {
+background: url(“@{root}background.jpg”);
+// Becomes url(“/images/background.jpg”)
+}
+```
+
+# Using Javascript directly in Less
+Embed with back-quotes to execute JS
+```
+@root: “/images”;
+@app-root: `”@{root}”.toUpperCase()`;
+#form {
+// Becomes url(“/IMAGES/back.jpg”);
+Background: url (“@{app-root}/back.jpg”);
+}
+```
+
 # Variables
 CSS variables will be a thing of the future. There's already a spec for them. With Less, you can start using this concept now.
 
@@ -1235,6 +1320,102 @@ p {
 
 
 ```
+# What is SASS(Syntactically Awesome StyleSheets)?
+-	Dynamic Style Sheet Language.
+-	Compiles to CSS
+-	Introduces programming features to CSS
+# What is SASS?(2)
+It has two syntaxes 
+1.	SASS
+```
+$baseFontSize: 14px
+
+#main
+h1
+    font-size: $baseFontSize
+
+
+```
+
+
+2.	SCSS
+```
+$baseFontSize: 14px;
+#main
+{
+     h1
+	{
+	font-size: $baseFontSize;
+	}
+}
+```
+
+# SASS on the server
+-	Support for server-side
+. 	Node.js
+```
+npm install sass
+
+
+var less = require(‘sass’);
+
+sass.render(sassContents, function(e, css){
+console.log(css);
+});
+
+```
+. 	ASP.NET
+
+```
+1.	# Chirpy
+//It does Design time compilation
+// Files should be name “foo.chirpy.sass”
+
+2.	# Nuget
+Install-package SassAndCoffe
+
+```
+.	Otherr ways for Rails, JSP etc.
+
+
+# Variables
+```
+$myColor: #ffeedd;
+
+$a: Black;			// Color
+$b: 4px;				//Units
+$c: 1.0em;			//Units
+$d: Helvetica, sans-serif;	//Lists
+$e: 1px #000 Solid 0 0;		//Lists
+
+```
+# Operations 
+```
+font-size:  4px + 4;		//8px
+font-size:  20px * .8;		//16px
+color:  #FFF / 4;			//#404040;
+width: (100% / 2) + 25%;	//75%
+```
+# Color Functions
+```
+color: lighten($color, 10%);
+color: darken($color, 10%);
+
+color: saturate($color, 10%);
+color: desaturate($color, 10%);
+
+color: fade_in($color, .1);
+color: fade_out($color, .1);
+
+color: invert($color);
+color: complement($color);
+
+$quoted: quote($sometext);
+$unquoted: unquote($sometext);
+
+$value: if(true, $color1, $color2);
+```
+
 
 # default value for a variable
 
@@ -1911,9 +2092,6 @@ $margin: 1%;
 
 
 ```
-https://app.pluralsight.com/player?course=better-css&author=shawn-wildermuth&name=bettercss-m2-less&clip=9&mode=live
-
-
 
 
 # cascading stylesheet/CSS execution order
