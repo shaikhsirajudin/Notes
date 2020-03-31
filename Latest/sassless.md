@@ -2168,3 +2168,34 @@ https://github.com/imkrimerman/javascript-ebooks
 
 > Compass Recipes: https://github.com/MoOx/compass-recipes
 > Breakpoint (easy media queries in Compass): https://github.com/canarymason/breakpoint
+
+# Overriding Ionic Variables
+
+```
+<ion-navbar color="primary">
+```
+# customize color map 
+
+```
+$colors: (
+  primary:    #1c1e22,
+  secondary:  #FFE300,
+  danger:     #f53d3d,
+  light:      #c8c8c8,
+  dark:       #272b30
+);
+
+
+
+```
+# add these override statements below the colors map
+
+```
+$tabs-tab-color-active: color($colors, secondary);
+$tabs-background: color($colors, primary);
+$background-color: color($colors, dark);
+$list-border-color: color($colors, light);
+$text-color: #fff;
+$card-md-header-color: #fff;
+$card-ios-header-color: #fff;
+```
