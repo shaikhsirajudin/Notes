@@ -1,6 +1,13 @@
 ``npm install -g @ionic/cli
 https://ionicframework.com/docs/cli
 
+# Debugging ionic app
+
+1) Open the integrated Terminal window with Ctrl+` 
+2) ionic serve -b (the -b switch will prevent the page from opening in your default browser).
+3) Once app is opened in browser, press F5 in visual studio code and it will attach debugger from chrome instance.
+
+
 
 #React
 https://github.com/ionic-team/ionic-cli/blob/develop/packages/@ionic/cli/CHANGELOG.md
