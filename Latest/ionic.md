@@ -318,3 +318,10 @@ ng add @angular/material
 Update all dependencies
 
 npm install npm@latest -g
+
+Save dev dependancies
+
+```
+npm install <package-name> --save-dev
+```
+
