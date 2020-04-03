@@ -313,3 +313,8 @@ To Install SASS
 * npm install --save-dev --unsafe-perm node-sass
 
 ng add @angular/material
+
+
+Update all dependencies
+
+npm install npm@latest -g
