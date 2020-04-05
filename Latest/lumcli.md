@@ -15,3 +15,12 @@ ionic start
 ```
 lumeris-ui ng-setup
 ```
+
+lumeris-ui ng-setup
+
+npm install @angular/common@latest jasmine-core@latest @angular/core@latest @angular/router@latest @angular/platform-browser-dynamic@latest karma-jasmine-html-reporter@latest lumeris-ui
+
+```
+ng add @ng-bootstrap/schematics
+
+```
