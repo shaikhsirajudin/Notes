@@ -325,3 +325,20 @@ Save dev dependancies
 npm install <package-name> --save-dev
 ```
 
+# Ionic Code Coverage
+
+Step 1: Install the following modules into your project:
+```
+npm install --save-dev karma-coverage-istanbul-reporter istanbul-instrumenter-loader
+
+```
+Step 2: Add a new script to your package.json file:
+```
+"test-coverage": "karma start ./test-config/karma.conf.js --coverage",
+
+```
+Warning: Step 3 requires files to be replaced. If you have already altered these files, please look at the commits for this project and review the changes. Do not delete or replace files in your project without making backups.
+
+Step 3: Replace your test-config/karma.conf.js and test-config/webpack-test.js files in your project with those from this project.
+
+Step 4: Run the npm run test-coverage command. Your unit tests will be run and the documentation will be generated in a folder named coverage in the root of your project. Just open the index.html file in the folder in a browser and see how well your project is covered.
