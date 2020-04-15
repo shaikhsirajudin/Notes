@@ -342,3 +342,13 @@ Warning: Step 3 requires files to be replaced. If you have already altered these
 Step 3: Replace your "test-config/karma.conf.js" and "test-config/webpack-test.js" files in your project with those from this project.
 
 Step 4: Run the "npm run test-coverage" command. Your unit tests will be run and the documentation will be generated in a folder named coverage in the root of your project. Just open the index.html file in the folder in a browser and see how well your project is covered.
+
+# Commands That I am running to run to solve the problem:
+
+/*
+ng update @angular/cli @angular/core --force
+
+npm install --save-dev @angular-devkit/build-angular
+*/
+
+
