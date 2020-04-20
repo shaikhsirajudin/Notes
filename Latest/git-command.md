@@ -2,49 +2,77 @@
 # Git Command                   Description 
 
 git add                       This command adds all the new files to the initialize repository 
-git archive                   This command can create a zip or tar file of the content from your repository. 
+
+git archive                   This command can create a zip or tar file of the content from your repository.
+
 git branch                    This command print all the branch linked to that repository. 
+
 git branch branch_name        This command will add a new branch to the repository with name branch_name 
+
 git checkout                  With checkout command, we can switch from one branch to another branch 
 
-git clone
+
+#git clone
 example:
+
 
 git clone [urls]
                               Using this command you can clone an existing repository or directory to your system. 
+                              
 git commit –m “message”       The commit command record the file in the previous version 
+
 
 git config
 example:
 
 git config –global user.name “Username”
+
 git config –global user.email “useremail@”
+
                             This command is used to set the author’s username and email address when the commit is done. 
+                            
 git diff                    The diff command is used to show the difference of the files which are not staged 
+
 git fetch [url]             Download object from another repository 
+
 git –help                   Print the most commonly used commands 
+
 
 git init
 example:
 
 git init [directory name]
                           This command is used to initialize a new directory or repository to the git. 
+                          
 git log                   This command is used to print the list of all the version history 
+
 git merge                 This command can be used to merge any branch with the current branch. 
-git mv filename           This command is used to move or rename any file, directory or a symlink 
+
+git mv filename           This command is used to move or rename any file, directory or a symlink
+
 git pull repository_url   This command is work just opposite of push command, with this command you can bring the changes in your local                           repository if anyone had made changes on the remote repository. 
+
 git push
 example:
 git push origin master
                         With push command we can push or commit changes in the master branch, that will reflect on your remote                                    repository. 
+                        
 git remote              This command can connect your repository with the remoter server. 
-git reset               The reset command is the opposite of commit command and undoes the commit statements. 
+
+git reset               The reset command is the opposite of commit command and undoes the commit statements.
+
 git rm filename         The rm stands for removal, and this command is used to remove a specific file from the repository. 
+
 git show                This command is used to show all the objects of the directory, it simply shows all present code. 
-git status              The status command used to list all the files which have been committed. 
+
+git status              The status command used to list all the files which have been committed.
+
 git tag commit_ID       With tag command, we can tag some specific commits. 
+
 git –version            Show the git suite version. 
+
 git-add                 Add a net content to the index 
+
 
 
 # To set a repository
