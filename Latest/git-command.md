@@ -1,5 +1,5 @@
 
-#Git Command                   Description 
+# Git Command                   Description 
 
 git add                       This command adds all the new files to the initialize repository 
 git archive                   This command can create a zip or tar file of the content from your repository. 
@@ -47,11 +47,13 @@ git –version            Show the git suite version.
 git-add                 Add a net content to the index 
 
 
-#To set a repository
-◾git init
-◾git clone
+# To set a repository
+◾ git init
 
-#To make changes on the files
+◾ git clone
+
+# To make changes on the files
+
 ◾git add
 ```
 git add -p
@@ -59,8 +61,10 @@ git add -p
 /* Rather than git add everything or individual files, this -p will allow you to step through each change, or hunk, and decide if you’d like to commit it. */
 
 ```
-◾git mv
-◾git reset
+◾ git mv
+
+◾bgit reset
+
 ```
 git reset --soft HEAD~3
 
@@ -75,12 +79,15 @@ Instead of doing a squash, Dan prefers to dial back HEAD any number of commits a
 
 ```
 
-◾git rm
+◾ git rm
 
-#To check the history
-◾git bisect
-◾git grep
-◾git log
+# To check the history
+◾ git bisect
+
+◾ git grep
+
+◾ git log
+
 
 ```
 git log -5 --pretty --oneline
@@ -118,7 +125,8 @@ $git log --all --graph --decorate --oneline --simplify-by-decoration
 
 ```
 
-◾git shortlog
+◾ git shortlog
+
 ```
 git shortlog -sn
 
@@ -134,12 +142,16 @@ e.g $ git shortlog -sn
 */
 ```
 
-◾git show
-◾git status
+◾ git show
 
-#To grow and mark the changes or history
-◾git branch
-◾git checkout
+◾ git status
+
+
+# To grow and mark the changes or history
+◾ git branch
+
+◾ git checkout
+
 
 ```
 git checkout pr/123
@@ -150,22 +162,30 @@ git checkout -
 
 /*   jump back to to your last branch.        */
 ````
-◾git commit
-◾git diff
+◾ git commit
+
+◾ git diff
+
 
 ```
 $ git diff --shortstat "@{1 day ago}"
  29 files changed, 227 insertions(+), 166 deletions(-)
  /* See how many lines of code you have written last day      */
 ```
-◾git merge
-◾git tag
+◾ git merge
 
-#To work in collaboration
-◾git push
-◾git pull
-◾git fetch
-◾git reflog
+◾ git tag
+
+
+# To work in collaboration
+◾ git push
+
+◾ git pull
+
+◾ git fetch
+
+◾ git reflog
+
 ```
 “Don’t worry, it’s probably saved somewhere”. Git reflog allows you to see every step you have made with git allowing you to retract and reinstate your steps.
 
