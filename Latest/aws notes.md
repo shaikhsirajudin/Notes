@@ -1222,19 +1222,19 @@ Q. Do users have to have an MFA device assigned to them in order to use MFA-prot
 Q. Is MFA-protected API access compatible with S3 objects, SQS queues, and SNS topics?
  Yes.
 
-Q. How does MFA-protected API access interact with existing MFA use cases such as S3 MFA Delete?
+# Q. How does MFA-protected API access interact with existing MFA use cases such as S3 MFA Delete?
  MFA-protected API access and S3 MFA Delete do not interact with each other. S3 MFA Delete currently does not support temporary security credentials. Instead, calls to the S3 MFA Delete API must be made using long-term access keys.
 
-Q. Does MFA-protected API access work in the GovCloud (US) region?
+# Q. Does MFA-protected API access work in the GovCloud (US) region?
  Yes.
 
-Q. Does MFA-protected API access work for federated users?
+# Q. Does MFA-protected API access work for federated users?
  Customers cannot use MFA-protected API access to control access for federated users. The GetFederatedSession API does not accept MFA parameters. Since federated users can’t authenticate with AWS MFA devices, they are unable to access resources designated using MFA-protected API access.
 
-Pricing
+# Pricing
 
 
-Q. What will I be charged for using AWS IAM?
+# Q. What will I be charged for using AWS IAM?
 
 IAM is a feature of your AWS account offered at no additional charge. You will be charged only for the use of other AWS services by your users.
 
@@ -1242,12 +1242,15 @@ IAM is a feature of your AWS account offered at no additional charge. You will b
 
 
 
-Cognito
+# Cognito
 
 Amazon Cognito its a secruity module which provide two kind of pools
 
 1) User Pools : Its user directories that provide sign-up and sign-in for your application users.
 
 2) Identity pools: It provide AWS credentials to grant your access to other AWS services. 
+
+
+
 
 
