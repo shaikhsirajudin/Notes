@@ -355,3 +355,4 @@ npm install --save-dev @angular-devkit/build-angular
 # Ionic Multilaguage
 https://masteringionic.com/blog/2018-07-14-creating-a-multi-language-ionic-translation-app-with-ngx-translate/
 https://lokalise.com/blog/ionic-translation-and-internationalization/
+https://www.freakyjolly.com/ionic-4-adding-multi-language-translation-feature-in-ionic-application-using-ngx-translate/
