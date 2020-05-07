@@ -234,3 +234,186 @@ cars.push('Tesla Model S')
 console.log('Cars', cars.getElements()) // ['Hatchback', 'Sedan', 'Land Rover', 'Tesla Model S']
 
 ```
+# 1) trackBy
+
+```
+Before =========================
+
+<li *ngFor="let item of items;">{{ item }}</li>
+
+After ==========================
+
+// in the template
+
+<li *ngFor="let item of items; trackBy: trackByFn">{{ item }}</li>
+
+// in the component
+
+trackByFn(index, item) {    
+   return item.id; // unique id corresponding to the item
+}
+
+```
+
+# 2) const vs let
+
+```
+Before ====================================
+
+let car = 'ludicrous car';
+
+let myCar = `My ${car}`;
+let yourCar = `Your ${car};
+
+if (iHaveMoreThanOneCar) {
+   myCar = `${myCar}s`;
+}
+
+if (youHaveMoreThanOneCar) {
+   yourCar = `${youCar}s`;
+}
+
+
+
+After ===========================
+
+// the value of car is not reassigned, so we can make it a const
+const car = 'ludicrous car';
+
+let myCar = `My ${car}`;
+let yourCar = `Your ${car};
+
+if (iHaveMoreThanOneCar) {
+   myCar = `${myCar}s`;
+}
+
+if (youHaveMoreThanOneCar) {
+   yourCar = `${youCar}s`;
+}
+
+
+```
+
+# 3) Pipeable operators
+
+Use pipeable operators when using RxJs operators.
+
+
+```
+Before======================================
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/take';
+
+iAmAnObservable
+    .map(value => value.item)
+    .take(1);
+
+
+
+
+After =======================================
+import { map, take } from 'rxjs/operators';
+
+iAmAnObservable
+    .pipe(
+       map(value => value.item),
+       take(1)
+     );
+
+
+```
+
+# 4) Isolate API hacks
+You can also create custom tags like API_FIX similar to TODO and tag the fixes with it so it is easier to find.
+
+# 5) Subscribe in template
+
+Avoid subscribing to observables from components and instead subscribe to the observables from the template.
+
+```
+Before
+// // template
+
+<p>{{ textToDisplay }}</p>
+
+// component
+
+iAmAnObservable
+    .pipe(
+       map(value => value.item),
+       takeUntil(this._destroyed$)
+     )
+    .subscribe(item => this.textToDisplay = item);
+
+
+=================================================================
+
+After
+// template
+
+<p>{{ textToDisplay$ | async }}</p>
+
+// component
+
+this.textToDisplay$ = iAmAnObservable
+    .pipe(
+       map(value => value.item)
+     );
+
+
+
+
+
+
+```
+
+# 6) Clean up subscriptions
+
+When subscribing to observables, always make sure you unsubscribe from them appropriately by using operators like take, takeUntil, etc.
+
+```
+Before
+iAmAnObservable
+    .pipe(
+       map(value => value.item)     
+     )
+    .subscribe(item => this.textToDisplay = item);
+
+
+
+=======================================================================================
+
+
+After
+
+Using takeUntil when you want to listen to the changes until another observable emits a value:
+private _destroyed$ = new Subject();
+
+public ngOnInit (): void {
+    iAmAnObservable
+    .pipe(
+       map(value => value.item)
+      // We want to listen to iAmAnObservable until the component is destroyed,
+       takeUntil(this._destroyed$)
+     )
+    .subscribe(item => this.textToDisplay = item);
+}
+
+public ngOnDestroy (): void {
+    this._destroyed$.next();
+    this._destroyed$.complete();
+}
+
+Using a private subject like this is a pattern to manage unsubscribing many observables in the component.
+
+Using take when you want only the first value emitted by the observable:
+iAmAnObservable
+    .pipe(
+       map(value => value.item),
+       take(1),
+       takeUntil(this._destroyed$)
+    )
+    .subscribe(item => this.textToDisplay = item);
+
+
+```
