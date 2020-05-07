@@ -48,3 +48,31 @@ function reverse<T>(
 }
 
 ```
+
+## Interface
+
+Contracts that define types
+Compiler enforces the contract via type checking.
+
+# Duck Typing
+
+```
+interface Duck {
+walk:()=> void;
+swim: ()=> void;
+quack: ()=>void;
+}
+
+let probablyADuck ={
+walk: ()=console.log('walking like a duck');
+swim: ()=console.log('walking like a duck');
+quack: ()=console.log('walking like a duck');
+}
+
+function FlyOverWater(bird: Duck){
+
+}
+
+FlyOverWater(probablyADuck);
+
+```
