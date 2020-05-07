@@ -352,7 +352,32 @@ npm install --save-dev @angular-devkit/build-angular
 */
 
 
-# Ionic Multilaguage
-https://masteringionic.com/blog/2018-07-14-creating-a-multi-language-ionic-translation-app-with-ngx-translate/
-https://lokalise.com/blog/ionic-translation-and-internationalization/
-https://www.freakyjolly.com/ionic-4-adding-multi-language-translation-feature-in-ionic-application-using-ngx-translate/
+# Running on a Native Platform
+
+```
+ionic platform add android   
+ionic platform add ios   (will only work on a Mac OS X machine) 
+ionic platform add wp8 
+
+
+```
+# Build 
+
+```
+ionic build android     
+ionic build ios   (will only work on a Mac OS X machine) 
+ionic build wp8 
+
+
+```
+
+# Running in the Simulator
+
+```
+ionic emulate android     
+ionic emulate ios   (will only work on a Mac OS X machine) 
+ionic emulate wp8 
+
+
+ionic run --device
+```
