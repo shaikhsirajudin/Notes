@@ -417,3 +417,5 @@ iAmAnObservable
 
 
 ```
+
+https://www.freecodecamp.org/news/best-practices-for-a-clean-and-performant-angular-application-288e7b39eb6f/
