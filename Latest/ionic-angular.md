@@ -234,6 +234,187 @@ cars.push('Tesla Model S')
 console.log('Cars', cars.getElements()) // ['Hatchback', 'Sedan', 'Land Rover', 'Tesla Model S']
 
 ```
+# class expression
+•Class expressions may omit the class name ("binding identifier"), which is not possible with class statements.
+•Class expressions allow you to redefine (re-declare) classes without throwing a SyntaxError. This is not the case with class statements.
+
+The constructor method is optional. Classes generated with class expressions will always respond to typeof with the value "function".
+
+```
+const MyClass = class [className] [extends otherClassName] {
+    // class body
+};
+```
+Examples
+```
+1) simple
+const Foo = class {
+  constructor() {}
+  bar() {
+    return 'Hello World!';
+  }
+};
+
+const instance = new Foo();
+instance.bar();  // "Hello World!"
+Foo.name;        // "Foo"
+
+2) with named class
+
+const Foo = class NamedFoo {
+  constructor() {}
+  whoIsThere() {
+    return NamedFoo.name;
+  }
+}
+const bar = new Foo();
+bar.whoIsThere();  // "NamedFoo"
+NamedFoo.name;     // ReferenceError: NamedFoo is not defined
+Foo.name;          // "NamedFoo"
+
+3)  Extended Class
+
+abstract class ReferenceItem{
+
+constructor(public title :string, protected year:number)
+{}
+.
+.
+abstract printCitation():void;
+}
+
+let Newspaper =class extends ReferenceItem{
+printCitation():void {
+console.log(`Newpaper: ${this.title}');
+}
+}
+
+let myPager = new Newspaper('INdia', 2016);
+myPager.printCitation();
+```
+## Mixins in JavaScript/TypeScript
+[A mixin is] a function that
+1.takes a constructor,
+2.declares a class that extends that constructor,
+3.adds members to that new class, and
+4.returns the class itself.
+
+```
+type Constructor<T = {}> = new (...args: any[]) => T;
+
+function Timestamped<TBase extends Constructor>(Base: TBase) {
+  return class extends Base {
+    timestamp = Date.now();
+  };
+}
+
+or 
+
+function Timestamped<TBase extends Constructor>(Base: TBase) {
+  return class Timestamped extends Base {
+    timestamp = Date.now();
+  };
+}
+
+
+
+```
+
+e.g
+
+```
+class User {
+  name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+
+// Create a new class by mixing `Timestamped` into `User`
+const TimestampedUser = Timestamped(User);
+
+// Instantiate the new `TimestampedUser` class
+const user = new TimestampedUser("John Doe");
+
+// We can now access properties from both the `User` class
+// and our `Timestamped` mixin in a type-safe manner
+console.log(user.name);
+console.log(user.timestamp);
+
+```
+
+# Mixins with a Constructor
+```
+function Tagged<TBase extends Constructor>(Base: TBase) {
+  return class extends Base {
+    tag: string | null;
+
+    constructor(...args: any[]) {
+      super(...args);
+      this.tag = null;
+    }
+  };
+}
+
+
+```
+
+e.g
+```
+// Create a new class by mixing `Tagged` into `User`
+const TaggedUser = Tagged(User);
+
+// Instantiate the new `TaggedUser` class
+const user = new TaggedUser("John Doe");
+
+// We can now assign values to any property defined in either
+// the `User` class or our `Tagged` mixin in a type-safe manner.
+// TypeScript will type-check those assignments!
+user.name = "Jane Doe";
+user.tag = "janedoe";
+
+
+
+```
+
+# Mixins with Methods
+
+```
+function Activatable<TBase extends Constructor>(Base: TBase) {
+  return class extends Base {
+    isActivated = false;
+
+    activate() {
+      this.isActivated = true;
+    }
+
+    deactivate() {
+      this.isActivated = false;
+    }
+  };
+}
+
+```
+e.g
+
+```
+const ActivatableUser = Activatable(User);
+
+// Instantiate the new `ActivatableUser` class
+const user = new ActivatableUser("John Doe");
+
+// Initially, the `isActivated` property is false
+console.log(user.isActivated);
+
+// Activate the user
+user.activate();
+
+// Now, `isActivated` is true
+console.log(user.isActivated);
+
+
+```
 # 1) trackBy
 
 ```
