@@ -1,23 +1,23 @@
-## using npm 
+# using npm 
 ```
 mkdir sass-demo
 cd sass-demo
 mkdir -p sass css
 
 ```
-# Initialize the Project Directory: to create package.json
+## Initialize the Project Directory: to create package.json
 ```
 
 npm init -y
 
 ```
-# Installing node-sass
+## Installing node-sass
 ```
 
 npm install node-sass --save-dev
 
 ```
-# Add this script inside the script section of the package.json file.
+## Add this script inside the script section of the package.json file.
 ```
 "compile-sass": "node-sass sass/main.scss css/style.css"
 
@@ -27,7 +27,7 @@ npm run compile-sass
 ```
 
 
-## using only sass
+# using only sass
 ```
 gem install sass
 ```
@@ -46,11 +46,11 @@ sass --watch style.scss
 
 
 
-## using compass
+# using compass
 ``
 gem install compass
 ``
-# creating projects from the command line:
+## creating projects from the command line:
 ```
 compass create sass-test
 
@@ -61,7 +61,7 @@ run the project
 ```
 compass watch
 ```
-# Use the parent selector to create forks
+## Use the parent selector to create forks
 
 ```
 Before
@@ -105,7 +105,7 @@ After
 
 ```
 
-# Extend existing rules
+## Extend existing rules
 
 ```
 Before
@@ -129,7 +129,7 @@ After
 
 ```
 
-# Placeholder selectors
+## Placeholder selectors
 
 ```
 .warning-box, .success-box {
@@ -170,7 +170,7 @@ $color4: #111111;
 
 ```
 
-# Variables
+## Variables
 
 ```
 $red: #dd0000;
