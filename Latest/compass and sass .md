@@ -1,4 +1,4 @@
-# using npm 
+# Using npm 
 ```
 mkdir sass-demo
 cd sass-demo
@@ -27,7 +27,7 @@ npm run compile-sass
 ```
 
 
-# using only sass
+# Using only sass
 ```
 gem install sass
 ```
@@ -46,10 +46,14 @@ sass --watch style.scss
 
 
 
-# using compass
+# Using compass
 ``
 gem install compass
 ``
+
+
+# Syntax of SASS
+
 ## creating projects from the command line:
 ```
 compass create sass-test
