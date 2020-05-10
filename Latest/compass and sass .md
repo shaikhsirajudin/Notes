@@ -1,3 +1,27 @@
+
+## using only sass
+```
+gem install sass
+```
+compiling 
+
+```
+sass style.scss style.css
+or in watch window
+sass --watch style.scss:style.css
+
+default file name
+
+sass --watch style.scss 
+
+``
+
+
+
+## using compass
+``
+gem install compass
+``
 # creating projects from the command line:
 ```
 compass create sass-test
