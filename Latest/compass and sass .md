@@ -1,3 +1,31 @@
+## using npm 
+```
+mkdir sass-demo
+cd sass-demo
+mkdir -p sass css
+
+```
+# Initialize the Project Directory: to create package.json
+```
+
+npm init -y
+
+```
+# Installing node-sass
+```
+
+npm install node-sass --save-dev
+
+```
+# Add this script inside the script section of the package.json file.
+```
+"compile-sass": "node-sass sass/main.scss css/style.css"
+
+"compile-sass-watch": "node-sass sass/main.scss css/style.css --watch"
+
+npm run compile-sass
+```
+
 
 ## using only sass
 ```
@@ -14,7 +42,7 @@ default file name
 
 sass --watch style.scss 
 
-``
+```
 
 
 
@@ -140,4 +168,10 @@ $color4: #111111;
   }
 
 
+```
+
+# Variables
+
+```
+$red: #dd0000;
 ```
