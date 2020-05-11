@@ -548,3 +548,115 @@ form:after {
 
 # Functions
 A function is like a mixin but instead of returning code blocks, it can only be used to return values
+The @return command is specifying the value.
+
+```
+@function squared($number) {
+  @return ($number * $number);
+}
+.text {
+  padding: squared(10) + px;
+}
+========================
+.text {
+  padding: 100px;
+}
+
+```
+2) With Sass is that we can apply mathematics to variables featuring unit values
+```
+@function double($number) {
+  @return ($number + $number);
+}
+.text {
+  width: double(10px);
+}
+===========================================
+.text {
+  width: 20px;
+}
+
+```
+3) declare as few or as many arguments as we want for our functions and also set default values:
+```
+@function line-height($font-size, $line-height: 1.5) {
+  @return ($font-size * $line-height);
+}
+.text {
+  line-height: line-height (18px);
+}
+====================================
+.text {
+  line-height: line-height 18px;
+}
+
+```
+
+# Conditionals
+Conditionals give us the chance to limit what we return to our CSS, avoid repeating ourselves, and ultimately make our Sass more extensible
+
+```
+Operator Tests against
+==        Equal to
+!=        Not equal to
+>         Greater than
+<         Less than
+>=        Greater than or equal to
+<=        Less than or equal to
+
+```
+
+## @if and @else conditions
+we use @if and @ else to say that we’d like to test a set of conditions:
+Syntax
+```
+@if $font == bold {
+font-family:'Avenir-Demi'; }
+
+@if ($font == bold) {
+font-family:'Avenir-Demi'; }
+
+```
+1) 
+```
+@mixin font-type($font: 'base') {
+  @if ($font == bold) {
+    font-family: 'Avenir-Demi';
+  } @else if ($font == italic) {
+    font-family: 'Avenir-LightItal';
+  } @else {
+    font-family: 'Avenir-Light';
+  }
+}
+.heading {
+  @include font-type(bold);
+}
+
+
+=================================
+.heading {
+  font-family: 'Avenir-Demi';
+}
+
+```
+2) 
+```
+$weather: sunny;
+p {
+  @if ($weather == overcast) {
+    color: grey;
+  } @else if ($weather == sunny) {
+    color: yellow;
+  } @else {
+    color: blue;
+  }
+}
+=====================
+p {
+  color: yellow;
+}
+
+```
+
+
+
