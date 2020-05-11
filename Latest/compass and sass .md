@@ -184,6 +184,29 @@ color: $red;
 border: 1px solid $red; }
 
 ```
+# The variables into a list as follows:
+```
+$pages: $red, $home, $about, $news, $links;
+
+```
+a range of built-in Sass functions – nth() – to retrieve the value in
+our list
+```
+nth($pages, 0)
+```
+
+# Sass map variable
+A Sass map is where we declare our list as a set of key:value pairs
+
+```
+$pages: (
+home: #F7E900,
+about: #FF5F09,
+news: #A0005E,
+links: #41004B);
+
+```
+
 # Nesting
 ```
 ul.nav {
@@ -545,7 +568,24 @@ form:after {
 
 
 ```
+4) Passing properties as parameter
 
+```
+$red: #123423;
+@mixin rgbaify($property, $colour, $opacity: 1) {
+  #{$property }: $colour;
+  #{$property }: rgba($colour, $opacity);
+}
+.alert {
+  @include rgbaify(background-color, $red, 0.75);
+}
+===========================================
+.alert {
+  background-color: #123423;
+  background-color: rgba(18, 52, 35, 0.75);
+}
+
+```
 # Functions
 A function is like a mixin but instead of returning code blocks, it can only be used to return values
 The @return command is specifying the value.
@@ -657,6 +697,247 @@ p {
 }
 
 ```
+## @for loops and lists
+Another conditional we can use is @for.
+we are setting an initial value for $i (1),
+the hash character (#) in our loop followed by curly brackets
+1) 
+```
+@for $i from 1 through 3 {
+  .col-#{$i} {
+    width: (10% * $i);
+  }
+}
+
+========================
+.col-1 {
+  width: 10%;
+}
+
+.col-2 {
+  width: 20%;
+}
+
+.col-3 {
+  width: 30%;
+}
+```
+2)
+```
+$home: #111111;
+$about: #222222;
+$news: #333333;
+$links: #444444;
+$pages: $home, $about, $news, $links;
+
+@for $i from 1 through length($pages) {
+  body.section-#{$i} {
+    background: nth($pages, $i);
+  }
+}
+===============================
+body.section-1 {
+  background: #111111;
+}
+body.section-2 {
+  background: #222222;
+}
+
+body.section-3 {
+  background: #333333;
+}
+
+body.section-4 {
+  background: #444444;
+}
+```
+# @each loops and Sass maps
+The index() method used here is the reverse of nth() used above.
+
+```
+$home: #111111;
+$about: #222222;
+$news: #333333;
+$links: #444444;
+$pages: $home, $about, $news, $links;
+
+@each $item in $pages {
+  body.section-#{ index($pages, $item)} {
+    background: $item;
+  }
+}
+======================================
+body.section-1 {
+  background: #111111;
+}
+
+body.section-2 {
+  background: #222222;
+}
+
+body.section-3 {
+  background: #333333;
+}
+
+body.section-4 {
+  background: #444444;
+}
+```
+## the @each conditional to access these key:value pairs:
+```
+$pages: (
+  home: #f7e900,
+  about: #ff5f09,
+  news: #a0005e,
+  links: #41004b,
+);
+@each $key, $value in $pages {
+  body.section-#{ $key} {
+    background: $value;
+  }
+}
+
+========================================
+body.section-home {
+  background: #f7e900;
+}
+
+body.section-about {
+  background: #ff5f09;
+}
+
+body.section-news {
+  background: #a0005e;
+}
+
+body.section-links {
+  background: #41004b;
+}
+
+```
+
+# @import and partials
+This lets us break our CSS into different files and then request them as we need them in our CSS.
+each @import, our browser has to make another HTTP request and using lots of @imports can really slow down our page load time
+
+```
+@media screen and (min-width: 640px) {
+@import url(tablet.css) }
+
+```
+
+# Media query bubbling
+the practicalities of writing and maintaining CSS that supports both approaches can rapidly become very complicated. However, Sass makes this much more straightforward through the concept of media query bubbling.
+Media query bubbling then provides a way of keeping our media queries much more focussed.
+
+```
+.aside {
+  width: 100%;
+  @media screen and (min-width: 800px) {
+    float: right;
+    width: 35%;
+  }
+}
+
+=======================================
+.aside {
+  width: 100%;
+}
+@media screen and (min-width: 800px) {
+  .aside {
+    float: right;
+    width: 35%;
+  }
+}
+
+```
+2) 
+```
+$break-small: 640px;
+
+@mixin responsify($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+.article {
+  @include responsify($break-small) {
+    float: left;
+  }
+}
 
 
+===============================
 
+@media (min-width: 640px) {
+  .article {
+    float: left;
+  }
+}
+```
+
+3) 
+
+```
+$break-small: 640px;
+
+@mixin responsify($min, $media: screen, $max: false) {
+  @if $max {
+    @media #{ $media} and (min-width: $min) and (max-width:
+    $max) {
+      @content;
+    }
+  } @else {
+    @media #{$media} and (min-width: $min) {
+      @content;
+    }
+  }
+}
+.article {
+  @include responsify($break-small) {
+    float: left;
+  }
+}
+
+=============================================
+
+@media screen and (min-width: 640px) {
+  .article {
+    float: left;
+  }
+}
+
+```
+4) 
+```
+$break-small: 640px;
+$break-medium: 800px;
+$break-large: 1024px;
+@mixin responsify($min, $media: screen, $max: false) {
+  @if $max {
+    @media #{ $media} and (min-width: $min) and (max-width:
+    $max) {
+      @content;
+    }
+  } @else {
+    @media #{$media} and (min-width: $min) {
+      @content;
+    }
+  }
+}
+.article {
+  @include responsify($break-small, screen, $break-medium - 1) {
+    float: left;
+  }
+}
+
+===============================================
+
+
+@media screen and (min-width: 640px) and (max-width: 799px) {
+  .article {
+    float: left;
+  }
+}
+
+```
