@@ -131,8 +131,11 @@ interpolation for computed selectors, property names and property values
 additional functions beyond those in CSS
 
 directives
+
 control: @if, @else if, @else, @for, @each, @while
+
 mixin: @mixin, @include
+
 other: @debug, @warn, @function
 
 ```
@@ -250,18 +253,31 @@ $color4: #111111;
 # Variables
 
 Avoid repeating values and
+
 make changes across multiple usages easier
+
 ex. instead of changing red to green in many places, change value of a variable in one place
+
 Names begin with $
+
 Assigned like properties
+
 $name: value;
+
 to assign a value only if it doesn’t already have one, $name: value !default;
+
 Values can include mathematical operators and calls to functions
+
 operators are + - * / % with normal precedence
+
 parentheses can be used to control evaluation order
+
 functions are covered later
+
 Scoped to CSS rule in which defined
+
 global if not defined inside any rule
+
 
 ```
 $red: #dd0000;
@@ -292,6 +308,47 @@ about: #FF5F09,
 news: #A0005E,
 links: #41004B);
 
+```
+4) 
+```
+$borderWidth: 4px;
+$color1: green;
+$padding: 10px;
+$width: 120;
+$halfWidth: $width/2 - $padding - $borderWidth/2;
+div {
+  border: solid black $borderWidth;
+  color: $color1;
+  font: 18pt bold monospace;
+  padding: $padding;
+  text-align: center;
+}
+
+
+```
+
+# Interpolation
+Used to compute
+selectors
+property names
+property values
+```
+Syntax is #{expression}
+```
+example
+```
+$planet: Mars;
+$number: 3;
+$side: top;
+.#{$planet}#{$number + 1} {
+  border-#{$side}-width: #{$number * 2}pt;
+}
+
+==========================
+
+.Mars4 {
+  border-top-width: 6pt;
+}
 ```
 
 # Nesting
@@ -906,6 +963,9 @@ body.section-links {
 # @import and partials
 This lets us break our CSS into different files and then request them as we need them in our CSS.
 each @import, our browser has to make another HTTP request and using lots of @imports can really slow down our page load time
+starting filename with an underscore tells Sass not to generate a .css files from it
+
+
 
 ```
 @media screen and (min-width: 640px) {
@@ -1151,4 +1211,36 @@ p.my-great-class {
   border-color: blue;
 }
 ```
+
+# DataType 
+
+## Boolean
+
+  literal values true and false and operators and, or and not
+
+## Number
+
+  can have CSS units like pt, px and in - ex. 24pt
+
+  arithmetic operations perform automatic conversions
+
+## String
+
+  in double-quotes, single-quotes or unquoted; use + to concatenate
+  
+## Color
+
+  name, hex value or call to one of many functions that return a color
+  
+## List
+
+  values separated by spaces or commas
+  
+  some properties take a list value
+  
+  examples include margin, padding and border-color
+
+  (order is top, right, bottom, left which is clockwise from 12 o’clock)
+  
+  border-color: red orange yellow green;
 
