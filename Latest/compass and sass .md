@@ -941,3 +941,110 @@ $break-large: 1024px;
 }
 
 ```
+
+# Built in function examples
+
+```
+.icon {
+  // round produces 26px (rounds to nearest integer)
+  width: round(25.5px);
+  // ceil produces 3px (rounds up to nearest integer)
+  width: ceil(25px / 10);
+  // floor produces 2px (rounds down to nearest integer)
+  width: floor(25px / 10);
+}
+
+====================
+
+.icon {
+  width: 26px;
+  width: 3px;
+  width: 2px;
+}
+
+```
+
+# Working with map
+
+```
+$pages: (
+  home: #f7e900,
+  about: #ff5f09,
+  news: #a0005e,
+  links: #41004b,
+);
+.news {
+  background-color: map_get($pages, news);
+}
+===============================================
+.news {
+  background-color: #a0005e;
+}
+
+```
+# Sass’ darken() and lighten() functions
+
+```
+$pages: (
+  home: #f7e900,
+  about: #ff5f09,
+  news: #a0005e,
+  links: #41004b,
+);
+.news {
+  background-color: map_get($pages, news);
+  border-color: darken(map_get($pages, news), 25%);
+  font-color: lighten(map_get($pages, news), 25%);
+}
+
+=========================
+
+.news {
+  background-color: #a0005e;
+  border-color: #210013;
+  font-color: #ff21a3;
+}
+
+```
+
+# creating a nested colour palettes map.
+
+```
+$palettes: (
+  blue: (
+    light: #9cb9c8,
+    base: #669db3,
+    dark: #f5814d,
+  ),
+  red: (
+    light: #9cb9c8,
+    base: #669db3,
+    dark: #f5814d,
+  ),
+  orange: (
+    light: #9cb9c8,
+    base: #669db3,
+    dark: #f5814d,
+  ),
+);
+@function palette($palette, $tone: base) {
+  @return map-get(map-get($palettes, $palette), $tone);
+}
+.box {
+  color: palette(blue);
+  &-border {
+    border: 1px solid palette(blue, dark);
+  }
+}
+
+================================================================
+
+
+.box {
+  color: #669db3;
+}
+.box-border {
+  border: 1px solid #f5814d;
+}
+
+```
