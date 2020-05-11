@@ -51,6 +51,7 @@ sass --watch style.scss
 gem install compass
 ``
 
+[SASS & SCSS & CSS](https://sass-lang.com/documentation/variables#shadowing)
 
 # Syntax of SASS
 
