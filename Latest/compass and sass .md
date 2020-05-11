@@ -65,6 +65,60 @@ run the project
 ```
 compass watch
 ```
+
+# SASS Syntax
+
+```
+#main
+  color: blue
+  font-size: 18pt
+  a
+    font:
+      weight: bold
+      family: serif
+  &:hover
+    background-color: #eee
+
+```
+# SCSS Syntax
+
+```
+#main {
+  color: blue;
+  font-size: 18pt;
+  a {
+    font: {
+      weight: bold;
+      family: serif;
+    }
+    &:hover {
+      background-color: #eee;
+    }
+  }
+}
+
+
+```
+# css Syntax
+
+```
+#main {
+  color: blue;
+  font-size: 18pt;
+}
+/* line 4, ../sass/ie.scss */
+#main a {
+  font-weight: bold;
+  font-family: serif;
+}
+/* line 9, ../sass/ie.scss */
+#main a:hover {
+  background-color: #eee;
+}
+
+
+```
+
 ## Use the parent selector to create forks
 
 ```
@@ -1064,55 +1118,4 @@ p.my-great-class {
   border-color: blue;
 }
 ```
-# SASS Syntax
 
-```
-#main
-  color: blue
-  font-size: 18pt
-  a
-    font:
-      weight: bold
-      family: serif
-  &:hover
-    background-color: #eee
-
-```
-# SCSS Syntax
-
-```
-#main {
-  color: blue;
-  font-size: 18pt;
-  a {
-    font: {
-      weight: bold;
-      family: serif;
-    }
-    &:hover {
-      background-color: #eee;
-    }
-  }
-}
-
-
-```
-# css Syntax
-
-```
-#main {
-  color: blue;
-  font-size: 18pt;
-}
-/* line 4, ../sass/ie.scss */
-#main a {
-  font-weight: bold;
-  font-family: serif;
-}
-/* line 9, ../sass/ie.scss */
-#main a:hover {
-  background-color: #eee;
-}
-
-
-```
