@@ -249,6 +249,20 @@ $color4: #111111;
 
 # Variables
 
+Avoid repeating values and
+make changes across multiple usages easier
+ex. instead of changing red to green in many places, change value of a variable in one place
+Names begin with $
+Assigned like properties
+$name: value;
+to assign a value only if it doesn’t already have one, $name: value !default;
+Values can include mathematical operators and calls to functions
+operators are + - * / % with normal precedence
+parentheses can be used to control evaluation order
+functions are covered later
+Scoped to CSS rule in which defined
+global if not defined inside any rule
+
 ```
 $red: #dd0000;
 
