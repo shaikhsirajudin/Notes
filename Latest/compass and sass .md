@@ -432,3 +432,119 @@ placeholder selectors through the use of a percent symbol (%)
 }
 
 ```
+# Logical Sass
+```
+.heading {
+  font-size: (24 / 2) + px;
+}
+=================
+.heading {
+  font-size: 12px;
+}
+
+```
+## Mixins
+Mixins provide a way of creating reusable chunks of code but offer the ability to modify parts of that code as and when we need them.
+
+```
+$base-font-size: 16;
+@mixin font-size($size) {
+  font-size: $size + px;
+  font-size: ($size / $base-font-size) + rem;
+}
+.box {
+  @include font-size(24);
+}
+
+=========================================
+
+.box {
+  font-size: 24px;
+  font-size: 1.5rem;
+}
+
+```
+2 )
+
+```
+$base-font-size: 16;
+@mixin font-size($size, $line-height) {
+  font-size: $size + px;
+  font-size: ($size / $base-font-size) + rem;
+  line-height: ($line-height / $size);
+}
+.box {
+  @include font-size(24, 32);
+}
+
+===============================================
+.box {
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1.33333;
+}
+
+
+```
+
+# set a default line-height using the colon separator when defining our arguments:
+```
+$base-font-size: 16;
+@mixin font-size($size, $line-height: 32) {
+  font-size: $size + px;
+  font-size: ($size / $base-font-size) + rem;
+  line-height: ($line-height / $size);
+}
+.box {
+  @include font-size(24);
+}
+```
+2) set a default line-height using the colon separator when defining our arguments using parameter:
+```
+$base-font-size: 16;
+@mixin font-size($size, $line-height: (24/ $size)) {
+  font-size: $size + px;
+  font-size: ($size / $base-font-size) + rem;
+  line-height: ($line-height / $size);
+}
+.box {
+  @include font-size(24);
+}
+
+
+```
+3) a clearfix mixin to use every time we want to clear an element:
+
+```
+@mixin clearfix {
+  &:before,
+  &:after {
+    display: table;
+    content: '';
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+form {
+  @include clearfix;
+}
+
+
+===========================================
+
+form:before, form:after {
+  display: table;
+  content: '';
+  line-height: 0;
+}
+form:after {
+  clear: both;
+}
+
+
+```
+
+# Functions
+A function is like a mixin but instead of returning code blocks, it can only be used to return values
