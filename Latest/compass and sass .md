@@ -53,6 +53,8 @@ gem install compass
 
 [SASS & SCSS & CSS](https://sass-lang.com/documentation/variables#shadowing)
 
+[Basic Syntax](https://www.w3schools.com/sass/sass_functions_map.asp)
+
 # Syntax of SASS
 
 ## creating projects from the command line:
