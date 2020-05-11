@@ -119,6 +119,25 @@ compass watch
 
 ```
 
+```
+variables
+
+arithmetic operators: + - * / %
+
+computed property values
+
+interpolation for computed selectors, property names and property values
+
+additional functions beyond those in CSS
+
+directives
+control: @if, @else if, @else, @for, @each, @while
+mixin: @mixin, @include
+other: @debug, @warn, @function
+
+```
+
+
 ## Use the parent selector to create forks
 
 ```
