@@ -1245,3 +1245,100 @@ p.my-great-class {
   
   border-color: red orange yellow green;
 
+===================================================================================================================
+# Examples /* Variables */
+
+```
+$number: 1;
+$color: #FF0000;
+$text: "Piece of string";
+$text: "Another string." !default;
+$nothing: null;
+
+#container {
+    content: $text;
+}
+
+
+====================
+#container {
+  content: "Piece of string";
+}
+```
+
+# Nested Rules
+
+```
+#A {
+  color: 187;
+}
+#A #B {
+  color: 83;
+}
+#A #B #C p {
+  color: 87;
+}
+
+============================
+#A{
+    color: red($color: #bb2424);
+    #B{
+        color: green($color: #0f5331);
+        #C p{
+            color: blue($color: #021657);
+        }
+    }
+}
+```
+
+# if() is a function.
+
+```
+#a{
+  width:   if(true,1px,2px);
+  height:   if(false,1px,2px);
+}
+
+=====
+#a {
+  width: 1px;
+  height: 2px;
+}
+
+```
+
+# @if is a directive used to branch out based on a condition.
+```
+#a{
+  @if 1+1 == 2 {border: thick;}
+  @if 7<5 {border: thin;}
+  @if null  {border: dashed;}
+}
+
+```
+
+```
+$type: river;
+div {
+  @if $type == river {border: thick;}
+
+}
+
+```
+
+# Checking If Parent Exists
+```
+
+@mixin does-parent-exist {
+  @if & {
+    &:hover {
+      color: blue;
+    }
+  } @else {
+    a {
+      color: blue;
+    }
+  }
+}
+
+```
