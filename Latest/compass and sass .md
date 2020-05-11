@@ -174,8 +174,261 @@ $color4: #111111;
 
 ```
 
-## Variables
+# Variables
 
 ```
 $red: #dd0000;
+
+.alert-box {
+color: $red;
+border: 1px solid $red; }
+
+```
+# Nesting
+```
+ul.nav {
+  list-style: none;
+  li {
+    padding: 0;
+  }
+}
+
+=================
+
+ul.nav {
+  list-style: none;
+}
+ul.nav li {
+  padding: 0;
+}
+
+```
+# (&). The parent selector 
+This serves as a way of accessing a selector that has already been
+defined in our nesting.
+
+```
+ul {
+  padding: 20px;
+  &.slim {
+    padding: 10px;
+  }
+}
+
+=========
+ul {
+  padding: 20px;
+}
+ul.slim {
+  padding: 10px;
+}
+
+
+```
+2) example
+```
+ul {
+  padding: 20px;
+  &.slim {
+    padding: 10px;
+    &.slimmer {
+      padding: 5px;
+    }
+  }
+}
+=============
+
+ul {
+  padding: 20px;
+}
+ul.slim {
+  padding: 10px;
+}
+ul.slim.slimmer {
+  padding: 5px;
+}
+
+
+```
+3) define hover and focus states:
+```
+a {
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+===============================
+a {
+  text-decoration: none;
+}
+a:hover, a:focus {
+  text-decoration: underline;
+}
+```
+4) nested selector to override
+
+```
+p {
+  font-size: 1em;
+  .article & {
+    font-size: 1.2em;
+  }
+}
+
+===================
+
+p {
+  font-size: 1em;
+}
+.article p {
+  font-size: 1.2em;
+}
+```
+5) if we wanted to style a certain element based on its location within a site and we used different classes on the
+body element for each section
+```
+.article h1 {
+  background-color: #ffafa5;
+  .home & {
+    background-color: #bbfca2;
+  }
+  .about {
+    background-color: #a0adf1;
+  }
+}
+=================================
+.article h1 {
+  background-color: #ffafa5;
+}
+.home .article h1 {
+  background-color: #bbfca2;
+}
+.article h1 .about {
+  background-color: #a0adf1;
+}
+```
+# Object Oriented CSS and approaches like SMACSS and BEM
+
+BEM stands for Block Element Modifier and involves
+defining our CSS classes by a block (the parent object), an element (a
+descendent object) and a modifier (variations to that object). Let us
+say that we have an article and want to provide styles for an image
+in that article but also an alternative styling if we want that image to
+be smaller
+
+## double underscore __ 
+as a separator for elements
+
+
+## double hyphen -- 
+as a separator for modifiers
+
+```
+.article {
+  margin: 20px 0;
+  &__image {
+    width: 40%;
+  }
+  &--small {
+    width: 20%;
+  }
+}
+===========================
+
+.article {
+  margin: 20px 0;
+}
+.article__image {
+  width: 40%;
+}
+.article--small {
+  width: 20%;
+}
+
+```
+
+# Namespaces in CSS tend to be reserved for
+those properties that can be specified as shorthand – e.g. font – or
+broken down into specific sub-properties – e.g. font-family, fontsize,
+etc.
+
+## Nesting CSS properties
+namespaced properties in CSS include background, list, margin, padding and border
+
+```
+body {
+  background: {
+    color: #a1ff7f;
+    image: url(tile.png);
+    repeat: no-repeat;
+    position: center;
+  }
+}
+
+========================
+body {
+  background-color: #a1ff7f;
+  background-image: url(tile.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+```
+# Extends
+
+Parent selector (&) this is very much tied to the scope of the particular parent 
+Variables, but these are only really for reusing small values such as a pixel size or colour value; 
+they cannot be used for reproducing large chunks of code.
+
+@extend command – to reuse already declared code snippets
+
+```
+.form {
+  border: 1px solid #219fe3;
+  background: #7cc6ef;
+}
+.quote {
+  @extend .form;
+  color: #000;
+}
+
+================
+.form, .quote {
+  border: 1px solid #219fe3;
+  background: #7cc6ef;
+}
+.quote {
+  color: #000;
+}
+
+```
+
+# Placeholder selectors  a percent symbol (%)
+Extends can be incredibly useful for creating resuable blocks of CSS.
+in the above example, if we end up writing lots of styles specific to our .form element these will then be applied to our .quote
+placeholder selectors through the use of a percent symbol (%)
+
+```
+%list-style {
+  list-style: none;
+  padding: 0;
+}
+.list-group {
+  @extend %list-style;
+  margin: 2.5em 0 0.75em;
+}
+=======================
+
+.list-group {
+  list-style: none;
+  padding: 0;
+}
+
+.list-group {
+  margin: 2.5em 0 0.75em;
+}
+
 ```
