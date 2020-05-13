@@ -154,3 +154,55 @@ However with the => syntax we can instead rewrite it like so
 var data: string[] = ['Alice Green', 'Paul Pfifer', 'Louis Blakenship'];
 data.forEach( (line) => console.log(line) );
 ```
+
+# Generics Function and Types
+
+## Define a generic identity function using the any type:
+
+```
+function identity(arg: any): any {
+    return arg;
+}
+
+```
+## Define a generic identity function using type variable, a special kind of variable that works on types rather than values.
+
+```
+function identity<T>(arg: T): T {
+    return arg;
+}
+
+
+====
+
+let output = identity<string>("myString");  // type of output will be 'string'
+or
+let output = identity("myString");  // type of output will be 'string'
+
+```
+When access length for array type
+
+```
+function loggingIdentity<T>(arg: T): T {
+    console.log(arg.length);  // Error: T doesn't have .length
+    return arg;
+}
+
+```
+Can be written
+
+```
+function loggingIdentity<T>(arg: T[]): T[] {
+    console.log(arg.length);  // Array has a .length, so no more error
+    return arg;
+}
+
+function loggingIdentity<T>(arg: Array<T>): Array<T> {
+    console.log(arg.length);  // Array has a .length, so no more error
+    return arg;
+}
+
+
+```
+
+
