@@ -196,7 +196,7 @@ function loggingIdentity<T>(arg: T[]): T[] {
     console.log(arg.length);  // Array has a .length, so no more error
     return arg;
 }
-
+=====================================================================
 function loggingIdentity<T>(arg: Array<T>): Array<T> {
     console.log(arg.length);  // Array has a .length, so no more error
     return arg;
@@ -204,5 +204,63 @@ function loggingIdentity<T>(arg: Array<T>): Array<T> {
 
 
 ```
+The type of generic functions is just like those of non-generic functions
+
+```
+function identity<T>(arg: T): T {
+    return arg;
+}
+
+let myIdentity: <T>(arg: T) => T = identity;
 
 
+```
+
+We can also write the generic type as a call signature of an object literal type:
+
+```
+function identity<T>(arg: T): T {
+    return arg;
+}
+
+let myIdentity: {<T>(arg: T): T} = identity;
+
+```
+
+Which leads us to writing our first generic interface.
+
+```
+interface GenericIdentityFn {
+    <T>(arg: T): T;
+}
+
+function identity<T>(arg: T): T {
+    return arg;
+}
+
+let myIdentity: GenericIdentityFn = identity;
+
+
+```
+we may want to move the generic parameter to be a parameter of the whole interface. This lets us see what type(s) we’re generic over (e.g. Dictionary<string> rather than just Dictionary). 
+ ```
+ interface GenericIdentityFn<T> {
+    (arg: T): T;
+}
+
+function identity<T>(arg: T): T {
+    return arg;
+}
+
+let myIdentity: GenericIdentityFn<number> = identity;
+
+ 
+ ```
+ 
+ A generic class has a similar shape to a generic interface.
+ https://www.typescriptlang.org/docs/handbook/generics.html
+ 
+ ```
+ 
+ 
+ ```
