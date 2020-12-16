@@ -2199,3 +2199,5 @@ $text-color: #fff;
 $card-md-header-color: #fff;
 $card-ios-header-color: #fff;
 ```
+
+# (Flex direction)[ https://sbsharma.com/css-flexbox-layout/]
