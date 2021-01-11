@@ -36,6 +36,13 @@ Default application for ps1 files is notepad,
 # .ps1xml
 
 
+# To Read the content of the file
+
+```
+> get-content Lab1.ps1
+
+```
+
 
 
 ## Reference url 
