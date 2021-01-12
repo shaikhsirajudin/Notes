@@ -9,6 +9,9 @@ C:\Lab> .\MondayTasks.ps1
 
 It has execution policy as follow
   a)  Restricted
+  ```
+  > Set-ExecutionPolicy Restricted
+  ```
   b)  RemoteSinged.
      This can be run as administrator, only needs to be set once per machine
      Can also be set via Group Policy
@@ -19,8 +22,13 @@ It has execution policy as follow
       --- To get the execution policy of the machine
       > Get-ExecutionPolicy
       ```
-  c)  Allsinged
+  
+  c)  Allsinged : to execute all digitally signed files
+  ```
+  Set-ExecutionPolicy AllSigned -Force
+  ```
   d)  Unrestricted
+  
   e)  ByPass
 
 E.g
