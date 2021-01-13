@@ -56,3 +56,4 @@ Default application for ps1 files is notepad,
 ## Reference url 
 . https://jdhitsolutions.com/blog
 https://powershelltutorial.net/home/Powershell-If-else
+http://www.multinet.no/~sentinel/roar/Mastering%20PowerShell-Packt%202015.pdf
