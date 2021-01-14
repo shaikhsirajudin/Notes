@@ -73,14 +73,23 @@ or Alternatively, you can create a variable by using $ prefix and assigning some
  Below is the list of all parameters of New-Variable cmdlet:
 
 -Name : Used to specify name of the variable.
+
 -Value : Used to specify value at the time of creation.
+
 -Description : Description for the variable being created. 
+
 -Option : Used to set different options such ReadOnly, Private etc for variable.
+
 -Visibility : Used to specify whether the variable is visible outside the session in which it was created.
+
 -Force : Used to overwrite an existing variable.
+
 -PassThru : Returns an object which currently is in use
+
 -Scope : Specifies the scope of the variable.
+
 -WhatIf : Tells what would happen when the cmdlet is executed.
+
 -Confirm : Prompts a confirmation message before executing cmdlet.
 
 
