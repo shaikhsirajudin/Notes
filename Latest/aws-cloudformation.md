@@ -39,5 +39,49 @@ Fn::Base64:
   !Sub string
   
  ```
+ ### Condition
+ returns the evaluated result of the specified condition.
+ note: You cannot use any functions in the Condition function. You must specify a string that is a condition
+ 
+ ```
+ json
+ 
+ { "Condition" : "conditionName" }
+ 
+ yaml
+ 
+ Condition: conditionName
+ 
+ shorthand
+ 
+ !Condition conditionName
+ 
+ ///conditionName
+     ///The name of the condition you want to reference.
+ 
+ 
+ ```
+ ####  The MyAndCondition condition can includes the SomeOtherCondition condition.
+ 
+ ```
+ json
+ 
+ "MyAndCondition": {
+   "Fn::And": [
+      {"Fn::Equals": ["sg-mysggroup", {"Ref": "ASecurityGroup"}]},
+      {"Condition": "SomeOtherCondition"}
+   ]
+}
+
+yaml
+
+MyAndCondition: !And
+  - !Equals ["sg-mysggroup", !Ref "ASecurityGroup"]
+  - !Condition SomeOtherCondition
+
+ ```
+ 
+ 
 ## Conditional functions 
+
 
