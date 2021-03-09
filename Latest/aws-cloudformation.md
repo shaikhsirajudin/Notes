@@ -84,4 +84,8 @@ MyAndCondition: !And
  
 ## Conditional functions 
 
+You can use intrinsic functions, such as Fn::If, Fn::Equals, and Fn::Not, to conditionally create stack resources. These conditions are evaluated based on input parameters that you declare when you create or update a stack. 
+
+
+
 
